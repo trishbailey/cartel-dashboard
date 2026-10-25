@@ -12,13 +12,14 @@ function drawer(html){$("dbody").innerHTML=html;$("drawer").classList.add("on")}
 $("dclose").onclick=()=>$("drawer").classList.remove("on");
 document.addEventListener("keydown",e=>{if(e.key==="Escape")$("drawer").classList.remove("on")});
 const J=p=>fetch(p).then(r=>{if(!r.ok)throw new Error(p);return r.json()});
-Promise.all([J("data/sources.json"),J("data/routes.geojson"),J("data/crossings.geojson"),J("data/money_flows.json"),J("data/networks.json"),J("data/china.json"),J("data/events.json"),J("data/territory.json"),J("basemap/americas.geojson"),J("basemap/admin1.geojson"),
- ...["mexico","venezuela-caribbean","andes","brazil","money"].map(a=>J(`data/arcs/${a}.json`))]).then(([src,routes,cross,money,net,china,events,terr,base,adm,...arcs])=>{
+Promise.all([J("data/sources.json"),J("data/routes.geojson"),J("data/crossings.geojson"),J("data/money_flows.json"),J("data/networks.json"),J("data/china.json"),J("data/events.json"),J("data/territory.json"),J("basemap/latam.topo.json"),
+ ...["mexico","venezuela-caribbean","andes","brazil","money"].map(a=>J(`data/arcs/${a}.json`))]).then(([src,routes,cross,money,net,china,events,terr,topo,...arcs])=>{
+  const adm=topojson.feature(topo,topo.objects.admin1);
   src.sources.forEach(s=>SRC[s.id]=s);
   $("asof").textContent=`Reference data as of ${src.as_of} · headlines updated ${events.as_of}`;
   const GC=Object.fromEntries(terr.groups.map(g=>[g.id,g]));
   kpis(net,cross,money,events,terr);
-  const M=mapView(base,adm,terr,routes,cross,china,GC);
+  const M=mapView(topo,adm,terr,routes,cross,china,GC);
   moneyTile(money);netTile(net,terr);chinaTile(china);cards(net,terr,M);ticker(events);background(arcs);sources(src);
 });
 function kpis(net,cross,money,events,terr){
@@ -32,18 +33,22 @@ function kpis(net,cross,money,events,terr){
    [today,`headlines in today's feed (${events.as_of})`,`<a href="https://github.com/trishbailey/cartel-dashboard/blob/main/config/sources.yaml" target="_blank" rel="noopener">feed list</a>`]];
   $("kpis").innerHTML=K.map(k=>`<div class="kpi"><div class="v">${k[0]}</div><div class="l">${k[1]}</div><div class="s">Source: ${k[2]}</div></div>`).join("");
 }
-function mapView(base,adm,terr,routes,cross,china,GC){
-  const svg=d3.select("#mapsvg"),W=svg.node().clientWidth||1200,H=760;svg.attr("width",W).attr("height",H);
-  const proj=d3.geoConicEqualArea().parallels([-10,30]).rotate([80,0]).fitExtent([[230,10],[W-10,H-10]],{type:"MultiPoint",coordinates:[[-117,33],[-60,20],[-35,-8],[-72,-40],[-82,-5]]});
+function mapView(topo,adm,terr,routes,cross,china,GC){
+  const svg=d3.select("#mapsvg"),W=svg.node().parentNode.clientWidth||1200,H=Math.round(Math.max(460,Math.min(W*0.62,window.innerHeight-150)));svg.attr("width",W).attr("height",H).style("height",H+"px");
+  const view=document.createElement("div");view.className="overlay viewbtns";view.innerHTML='<button class="chip on" data-v="mx">Mexico</button><button class="chip" data-v="all">All Latin America</button><button class="chip" data-v="sa">South America</button>';svg.node().parentNode.appendChild(view);
+  const proj=d3.geoConicEqualArea().parallels([-15,20]).rotate([78,0]).center([0,-2]).fitExtent([[10,10],[W-10,H-10]],{type:"MultiPoint",coordinates:[[-118,32.7],[-34.8,-7],[-70,-40],[-55,-34],[-81.3,-5]]});
   const path=d3.geoPath(proj),defs=svg.append("defs"),g=svg.append("g");
   adm.features.forEach(f=>{if(d3.geoArea(f)>2*Math.PI){const rv=p=>p.map(r=>r.slice().reverse());const g=f.geometry;g.coordinates=g.type==='Polygon'?rv(g.coordinates):g.coordinates.map(rv)}});
   const RB=Object.fromEntries(terr.regions.map(r=>[r.id,r]));
-  svg.call(d3.zoom().scaleExtent([1,10]).on("zoom",e=>{g.attr("transform",e.transform);g.selectAll(".adm").attr("stroke-width",.5/e.transform.k);g.selectAll(".ovl").attr("stroke-width",d=>2/Math.sqrt(e.transform.k))}));
-  g.selectAll(".c").data(base.features).join("path").attr("d",path).attr("fill",d=>d.properties.iso==="USA"?"#16243f":"#1b2c4a").attr("stroke","#3a5583").attr("stroke-width",.8);
+  const zoom=d3.zoom().scaleExtent([1,14]).translateExtent([[-W*.2,-H*.2],[W*1.2,H*1.2]]).on("zoom",e=>{g.attr("transform",e.transform);g.selectAll(".ovl").attr("stroke-width",2/e.transform.k);g.selectAll(".pt").attr("transform",function(){return `${this.dataset.t} scale(${1/e.transform.k})`})});svg.call(zoom).on("dblclick.zoom",null);
+  const fitBox=(lo0,la0,lo1,la1)=>{const pts=[[lo0,la0],[lo1,la0],[lo0,la1],[lo1,la1],[(lo0+lo1)/2,la0],[(lo0+lo1)/2,la1]].map(proj);const xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]);const x0=Math.min(...xs),x1=Math.max(...xs),y0=Math.min(...ys),y1=Math.max(...ys);const k=Math.min(14,0.92/Math.max((x1-x0)/W,(y1-y0)/H));return d3.zoomIdentity.translate(W/2,H/2).scale(k).translate(-(x0+x1)/2,-(y0+y1)/2)};
+  const VIEWS={mx:fitBox(-117.5,14,-86.5,32.8),all:d3.zoomIdentity,sa:fitBox(-82,-40,-34,13)};
+  view.querySelectorAll("button").forEach(b=>b.onclick=()=>{view.querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b));svg.transition().duration(700).call(zoom.transform,VIEWS[b.dataset.v])});
+  g.append("g").selectAll("path").data(topojson.feature(topo,topo.objects.countries).features).join("path").attr("d",path).attr("fill",d=>d.properties.iso==="USA"?"#16243f":"#1b2c4a");
   const pats={};
-  const pattern=cols=>{const k=cols.join("-").replace(/#/g,"");if(pats[k])return pats[k];const w=7*cols.length;
+  const pattern=cols=>{const k=cols.join("-").replace(/#/g,"");if(pats[k])return pats[k];const w=4*cols.length;
     const p=defs.append("pattern").attr("id","p"+k).attr("patternUnits","userSpaceOnUse").attr("width",w).attr("height",w).attr("patternTransform","rotate(45)");
-    cols.forEach((c,i)=>p.append("rect").attr("x",i*7).attr("y",0).attr("width",7).attr("height",w).attr("fill",c));return pats[k]=`url(#p${k})`};
+    cols.forEach((c,i)=>p.append("rect").attr("x",i*4).attr("y",0).attr("width",4).attr("height",w).attr("fill",c));return pats[k]=`url(#p${k})`};
   let filt=null;
   const style=d=>{const r=RB[d.properties.id];if(!r)return{f:"#1b2c4a",o:1};
     if(filt){const e=r.groups.find(x=>x.group===filt);return e?{f:GC[filt].color,o:LV[e.level]}:{f:"#1b2c4a",o:1}}
@@ -53,11 +58,12 @@ function mapView(base,adm,terr,routes,cross,china,GC){
     if(!heavy.length)return{f:GC[r.groups[0].group].color,o:.35};
     if(heavy.length===1){const c=GC[heavy[0].group].color;return r.contested?{f:pattern([c,"#0b1526"]),o:.95}:{f:c,o:.85}}
     return{f:pattern(heavy.slice(0,3).map(x=>GC[x.group].color)),o:.9}};
-  const ad=g.append("g").selectAll("path").data(adm.features).join("path").attr("class","adm").attr("d",path).attr("stroke","#0b1526").attr("stroke-width",.5).style("cursor",d=>RB[d.properties.id]?"pointer":"default")
-    .on("click",(e,d)=>regionShow(d)).on("mouseover",function(){d3.select(this).attr("stroke","#fff")}).on("mouseout",function(){d3.select(this).attr("stroke","#0b1526")});
+  const ad=g.append("g").selectAll("path").data(adm.features).join("path").attr("class","adm").attr("d",path).attr("stroke","none").attr("vector-effect","non-scaling-stroke").attr("stroke-width",1.5).style("cursor",d=>RB[d.properties.id]?"pointer":"default")
+    .on("click",(e,d)=>regionShow(d)).on("mouseover",function(){d3.select(this).attr("stroke","#fff").raise()}).on("mouseout",function(){d3.select(this).attr("stroke","none")});
   ad.append("title").text(d=>{const r=RB[d.properties.id];return (d.properties.name||"")+(r?": "+r.groups.map(x=>GC[x.group].name).join(", "):"")});
   const paint=()=>ad.each(function(d){const s=style(d);d3.select(this).attr("fill",s.f).attr("fill-opacity",s.o)});paint();
-  g.append("g").selectAll("path").data(base.features).join("path").attr("d",path).attr("fill","none").attr("stroke","#7f93b5").attr("stroke-width",.8).style("pointer-events","none");
+  g.append("path").datum(topojson.mesh(topo,topo.objects.admin1,(a,b)=>a!==b&&a.properties.iso===b.properties.iso&&a.properties.iso!=="USA")).attr("d",path).attr("fill","none").attr("stroke","#0b1526").attr("stroke-width",.6).attr("vector-effect","non-scaling-stroke").style("pointer-events","none");
+  g.append("path").datum(topojson.mesh(topo,topo.objects.countries)).attr("d",path).attr("fill","none").attr("stroke","#8fa3c4").attr("stroke-width",1).attr("vector-effect","non-scaling-stroke").style("pointer-events","none");
   function regionShow(d){const r=RB[d.properties.id];if(!r){drawer(`<h2>${esc(d.properties.name||"")}</h2><p class="muted">No sourced group footprint is mapped here. That reflects data coverage, not an absence of organized crime.</p>`);return}
     drawer(`<h2>${esc(r.name)}</h2><div class="muted">${esc(r.iso)}</div>`+(r.contested?`<h3>Contested</h3><div class="rg">${r.contested.groups.map(x=>`<span class="dot" style="background:${GC[x].color}"></span> ${esc(GC[x].name)}`).join(" vs ")}<div>${esc(r.contested.note)}</div>${cite(r.contested.cites)}</div>`:"")+
     "<h3>Groups active</h3>"+r.groups.slice().sort((a,b)=>LV[b.level]-LV[a.level]).map(x=>`<div class="rg"><span class="dot" style="background:${GC[x.group].color}"></span> <b>${esc(GC[x.group].name)}</b> <span class="lvl">${esc(terr.levels[x.level])}${r.contested&&r.contested.groups.includes(x.group)?" · contests":""}</span>${x.note?`<div>${esc(x.note)}</div>`:""}${cite(x.cites)}</div>`).join(""))}
@@ -80,8 +86,9 @@ function mapView(base,adm,terr,routes,cross,china,GC){
   mk("drug","Drug and precursor routes","#ff6b6b",s=>lines(s,drug));
   mk("other","Migrant and firearm routes","#6aa684",s=>lines(s,routes.features.filter(f=>["migrants","firearms"].includes(f.properties.commodity))));
   mk("money","Cash and money routes","#5b8fd1",s=>lines(s,routes.features.filter(f=>f.properties.commodity==="cash")));
-  mk("cross","Border crossings and hubs","#ffffff",s=>{const n=s.selectAll("g").data(cross.features).join("g").attr("transform",d=>`translate(${proj2(d.geometry.coordinates)})`).style("cursor","pointer").on("click",(e,d)=>rshow(d.properties));n.append("circle").attr("r",4).attr("fill","#fff").attr("stroke","#0b1526");n.append("title").text(d=>d.properties.name)});
-  mk("china","China-linked sites","#c8a24a",s=>{const n=s.selectAll("g").data(china.items.filter(i=>i.lonlat)).join("g").attr("transform",d=>`translate(${proj2(d.lonlat)})`).style("cursor","pointer").on("click",(e,d)=>rshow({...d,name:d.title}));n.append("rect").attr("x",-5).attr("y",-5).attr("width",10).attr("height",10).attr("fill","#c8a24a").attr("transform","rotate(45)");n.append("text").attr("class","lbl").attr("x",9).attr("y",4).text(d=>d.title)});
+  mk("cross","Border crossings and hubs","#ffffff",s=>{const n=s.selectAll("g").data(cross.features).join("g").attr("class","pt").attr("data-t",d=>`translate(${proj2(d.geometry.coordinates)})`).attr("transform",d=>`translate(${proj2(d.geometry.coordinates)})`).style("cursor","pointer").on("click",(e,d)=>rshow(d.properties));n.append("circle").attr("r",4).attr("fill","#fff").attr("stroke","#0b1526");n.append("title").text(d=>d.properties.name)});
+  mk("china","China-linked sites","#c8a24a",s=>{const n=s.selectAll("g").data(china.items.filter(i=>i.lonlat)).join("g").attr("class","pt").attr("data-t",d=>`translate(${proj2(d.lonlat)})`).attr("transform",d=>`translate(${proj2(d.lonlat)})`).style("cursor","pointer").on("click",(e,d)=>rshow({...d,name:d.title}));n.append("rect").attr("x",-5).attr("y",-5).attr("width",10).attr("height",10).attr("fill","#c8a24a").attr("transform","rotate(45)");n.append("text").attr("class","lbl").attr("x",9).attr("y",4).text(d=>d.title)});
+  svg.call(zoom.transform,VIEWS.mx);
   return {setF:id=>{setF(id);document.querySelector(".maptile").scrollIntoView({behavior:"smooth"})}};
 }
 function moneyTile(m){

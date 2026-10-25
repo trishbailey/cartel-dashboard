@@ -63,8 +63,8 @@ for e in net["edges"]:
 # territory: every region-group pairing and contested note must cite; region ids must exist in basemap
 _t = load("territory.json")
 _gids = {g["id"] for g in _t["groups"]}
-_bm = os.path.join(os.path.dirname(D), "public", "basemap", "admin1.geojson")
-_ids = {f["properties"]["id"] for f in json.load(open(_bm))["features"]} if os.path.exists(_bm) else None
+_bm = os.path.join(os.path.dirname(D), "public", "basemap", "latam.topo.json")
+_ids = {g["properties"]["id"] for g in json.load(open(_bm))["objects"]["admin1"]["geometries"]} if os.path.exists(_bm) else None
 for r in _t["regions"]:
     if _ids is not None and r["id"] not in _ids: err(f"territory {r['id']}: not in admin1 basemap")
     if not r["groups"]: err(f"territory {r['id']}: no groups")
