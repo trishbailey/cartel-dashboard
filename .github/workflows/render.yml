@@ -1,0 +1,29 @@
+name: apply-reasoner
+on:
+  push:
+    branches: [main]
+    paths: ["data/reasoner/*.json"]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: {group: cartel-data, cancel-in-progress: false}
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12", cache: pip}
+      - run: pip install -r requirements.txt
+      - name: Validate (fail = site keeps yesterday's data)
+        run: python pipeline/validate.py
+      - name: Apply analysis and arc updates, refresh baseline (pure code)
+        run: python pipeline/apply.py && python pipeline/validate.py
+      - name: Commit
+        run: |
+          git config user.name "cartel-dashboard-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data
+          git diff --cached --quiet || git commit -m "Apply reasoner $(date -u +%F)"
+          git pull --rebase -X theirs origin main && git push

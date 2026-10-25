@@ -1,0 +1,7 @@
+services:
+  - type: web
+    runtime: static
+    name: cartel-dashboard
+    buildCommand: bash pipeline/build.sh
+    staticPublishPath: ./public
+    autoDeploy: true

@@ -1,0 +1,43 @@
+# RSS feeds (free). Local Mexican and Latin American media first. Never add a .cn host; collect.py blocks them anyway.
+feeds:
+  - {name: "El Universal", url: "https://www.eluniversal.com.mx/arc/outboundfeeds/rss/?outputType=xml", country: MX, local: true}
+  - {name: "La Jornada (estados)", url: "https://www.jornada.com.mx/rss/estados.xml", country: MX, local: true}
+  - {name: "Zeta Tijuana", url: "https://zetatijuana.com/feed/", country: MX, local: true}
+  - {name: "El Pais Mexico", url: "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/mexico/portada", country: MX, local: true}
+  - {name: "Mexico News Daily", url: "https://mexiconewsdaily.com/feed/", country: MX, local: true}
+  - {name: "Borderland Beat", url: "https://www.borderlandbeat.com/feeds/posts/default?alt=rss", country: MX, local: true}
+  - {name: "InSight Crime", url: "https://insightcrime.org/feed/", country: REG, local: true}
+  - {name: "InSight Crime (es)", url: "https://insightcrime.org/es/feed/", country: REG, local: true}
+  - {name: "La Silla Vacia", url: "https://www.lasillavacia.com/feed/", country: CO, local: true}
+  - {name: "Infobae America", url: "https://www.infobae.com/arc/outboundfeeds/rss/category/america/", country: REG, local: true}
+  - {name: "WOLA Border Update", url: "https://adamisacson.com/feed/", country: US, local: false}
+  - {name: "Just Security", url: "https://www.justsecurity.org/feed/", country: US, local: false}
+# Outlets whose RSS is down or blocked are reached through Brave site: queries below (Animal Politico, Proceso, Milenio, Riodoce, El Faro, Primicias).
+# Brave News Search (free tier, BRAVE_API_KEY secret). One call per query per day keeps well inside 2,000/month.
+brave_queries:
+  - {q: "cártel Sinaloa Chapitos Mayiza", theatre: mexico}
+  - {q: "CJNG cártel Jalisco", theatre: mexico}
+  - {q: "fentanilo precursores aduana Manzanillo Lázaro Cárdenas", theatre: china}
+  - {q: "lavado de dinero cártel redes chinas", theatre: money}
+  - {q: "Tren de Aragua", theatre: venezuela-caribbean}
+  - {q: "Ecuador Los Lobos Choneros violencia", theatre: andes}
+  - {q: "Clan del Golfo ELN disidencias", theatre: andes}
+  - {q: "PCC Comando Vermelho", theatre: brazil}
+  - {q: "FinCEN OFAC cartel sanctions", theatre: money}
+  - {q: "CBP fentanyl seizure port of entry", theatre: border}
+  - {q: "cártel site:animalpolitico.com", theatre: mexico}
+  - {q: "narco site:proceso.com.mx", theatre: mexico}
+  - {q: "cártel site:milenio.com", theatre: mexico}
+  - {q: "Sinaloa site:riodoce.mx", theatre: mexico}
+  - {q: "pandillas crimen site:elfaro.net", theatre: central-america}
+  - {q: "crimen organizado site:primicias.ec", theatre: andes}
+keywords: [cártel, cartel, narco, fentanilo, fentanyl, crimen organizado, organized crime, lavado, laundering, homicid, sicari, extorsi, precursor, decomis, aseguran, cocaína, cocaine, metanfetamina, methamphetamine, chapitos, mayiza, cjng, sinaloa, jalisco, tren de aragua, choneros, lobos, clan del golfo, eln, disidencia, pcc, comando vermelho, mara salvatrucha, ms-13, barrio 18, huachicol, armas, firearms, frontera, border, ofac, fincen, terroris, desaparec, fosa, militar, guardia nacional]
+theatres:
+  mexico: [sinaloa, culiacán, culiacan, jalisco, cjng, michoacán, michoacan, guanajuato, tamaulipas, chihuahua, guerrero, sonora, baja california, tijuana, mexico, méxico, mexican]
+  border: [frontera, border, cbp, garita, port of entry, aduana, el paso, nogales, laredo]
+  money: [lavado, laundering, fincen, ofac, sanciones, sanctions, banco, bank, cripto, crypto, uif]
+  china: [china, chino, chinese, precursor, cosco, chancay, panamá canal, panama canal]
+  venezuela-caribbean: [venezuela, maduro, tren de aragua, caribe, caribbean, cartel de los soles, haiti, haití, república dominicana]
+  andes: [colombia, ecuador, perú, peru, bolivia, eln, clan del golfo, choneros, lobos, disidencias]
+  central-america: [guatemala, honduras, el salvador, nicaragua, costa rica, panamá, ms-13, barrio 18, bukele]
+  brazil: [brasil, brazil, pcc, comando vermelho, paraguay, argentina, rosario]

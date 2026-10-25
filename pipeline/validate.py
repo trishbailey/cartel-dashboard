@@ -1,0 +1,97 @@
+"""Validator: every route, edge and claim must cite a registered source with a URL. No .cn. Sankey must balance.
+Also validates data/reasoner/*.json written by the Grok Bot routine. Exit 1 on any error."""
+import json, os, sys, glob, re, urllib.parse
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+D = os.path.join(ROOT, "data")
+errs = []
+def err(m): errs.append(m)
+def load(p): return json.load(open(os.path.join(D, p), encoding="utf-8"))
+def is_cn(u): return (urllib.parse.urlparse(u).hostname or "").lower().endswith(".cn")
+
+src = {s["id"]: s for s in load("sources.json")["sources"]}
+for s in src.values():
+    for k in ("title", "publisher", "url", "date"):
+        if not s.get(k): err(f"source {s.get('id')} missing {k}")
+    if not s.get("url", "").startswith("https://"): err(f"source {s['id']} url not https")
+    if is_cn(s.get("url", "")): err(f"source {s['id']} is .cn")
+
+def cites(obj, where):
+    c = obj.get("cites")
+    if not c: err(f"{where}: no cites"); return
+    for x in c:
+        if x not in src: err(f"{where}: unknown cite {x}")
+
+for f in load("routes.geojson")["features"]: cites(f["properties"], f"route {f['properties']['id']}")
+cr = load("crossings.geojson")
+for f in cr["features"]: cites(f["properties"], f"crossing {f['properties']['id']}")
+cites(cr["stats"], "crossing stats")
+
+m = load("money_flows.json")
+for k in ("slug", "title", "takeaway", "summary", "data_date", "unit", "kind", "notes"):
+    if not m.get(k): err(f"money_flows missing {k}")
+if "unknown" not in m["notes"].lower(): err("money_flows notes must state unknowns")
+ids = {n["id"]: n for n in m["nodes"]}
+for n in m["nodes"]:
+    if n["group"] not in ("source", "channel", "use"): err(f"node {n['id']} bad group")
+inflow, outflow = {}, {}
+for l in m["links"]:
+    if l["source"] not in ids or l["target"] not in ids: err(f"link {l} bad node")
+    if not (isinstance(l["value"], (int, float)) and l["value"] > 0): err(f"link {l['source']}->{l['target']} value")
+    if not l.get("period") or not l.get("status"): err(f"link {l['source']}->{l['target']} period/status")
+    cites(l, f"link {l['source']}->{l['target']}")
+    outflow[l["source"]] = outflow.get(l["source"], 0) + l["value"]
+    inflow[l["target"]] = inflow.get(l["target"], 0) + l["value"]
+for n in m["nodes"]:
+    if n["group"] == "channel" and abs(inflow.get(n["id"], 0) - outflow.get(n["id"], 0)) > 1e-6:
+        err(f"channel {n['id']} unbalanced")
+for t in m["typologies"] + m["related"]: cites(t, f"money item {t['name']}")
+sch = m.get("schematic")
+if sch:
+    if sch.get("kind") != "schematic" or "not amounts" not in sch["title"]: err("schematic must be labelled 'not amounts'")
+    for l in sch["links"]: cites(l, "schematic link")
+
+net = load("networks.json")
+gids = {g["id"] for g in net["groups"]}
+for g in net["groups"]:
+    cites(g, f"group {g['id']}")
+    if g.get("fto"): cites(g["fto"], f"group {g['id']} fto")
+    for p in g.get("leaders", []): cites(p, f"leader {p['name']}")
+for e in net["edges"]:
+    if e["source"] not in gids or e["target"] not in gids: err(f"edge {e['source']}-{e['target']} unknown group")
+    cites(e, f"edge {e['source']}-{e['target']}")
+for i in load("china.json")["items"]: cites(i, f"china {i['id']}")
+for p in glob.glob(os.path.join(D, "arcs/*.json")):
+    a = json.load(open(p))
+    cites(a, f"arc {a['id']}")
+    for h in a["history"] + a["turning_points"]: cites(h, f"arc {a['id']} item")
+
+BANNED = re.compile(r"\b(will|likely to|expected to|should|must|forecast|predict|recommend|ought)\b", re.I)
+ev = load("events.json")
+for e in ev["events"]:
+    if not e.get("url", "").startswith("http"): err(f"event {e.get('title')} no url")
+    if is_cn(e.get("url", "")): err(f"event .cn {e['url']}")
+
+def check_reasoner(path):
+    r = json.load(open(path, encoding="utf-8"))
+    sl_path = os.path.join(D, "shortlist", r.get("date", "") + ".json")
+    sl = {x["id"]: x for x in json.load(open(sl_path))["events"]} if os.path.exists(sl_path) else {}
+    if not sl: err(f"{path}: no shortlist for {r.get('date')}")
+    for i, a in enumerate(r.get("analysis", [])):
+        w = f"{os.path.basename(path)} analysis[{i}]"
+        for k in ("theatre", "headline", "what_happened", "says_vs_does", "follow_the_money", "at_stake", "cites"):
+            if not a.get(k): err(f"{w} missing {k}")
+        for c in a.get("cites", []):
+            if c not in sl and c not in src: err(f"{w} cite {c} not in shortlist or sources")
+        for k in ("headline", "what_happened", "says_vs_does", "follow_the_money", "at_stake", "tensions"):
+            t = a.get(k) or ""
+            if isinstance(t, list): t = " ".join(t)
+            if BANNED.search(t): err(f"{w} {k} uses predictive/prescriptive word: {BANNED.search(t).group(0)}")
+    for u in r.get("arc_updates", []):
+        if u.get("arc") not in [os.path.basename(p)[:-5] for p in glob.glob(os.path.join(D, "arcs/*.json"))]: err(f"arc_update unknown arc {u.get('arc')}")
+        if not u.get("cites"): err("arc_update without cites")
+
+for p in sorted(glob.glob(os.path.join(D, "reasoner/*.json")))[-3:]: check_reasoner(p)
+
+if errs:
+    print("\n".join("ERROR " + e for e in errs)); sys.exit(1)
+print(f"valid: {len(src)} sources, {len(net['groups'])} groups, {len(net['edges'])} edges, {len(ev['events'])} events")
