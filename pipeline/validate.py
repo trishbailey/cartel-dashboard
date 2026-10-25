@@ -59,6 +59,20 @@ for g in net["groups"]:
 for e in net["edges"]:
     if e["source"] not in gids or e["target"] not in gids: err(f"edge {e['source']}-{e['target']} unknown group")
     cites(e, f"edge {e['source']}-{e['target']}")
+
+# territory: every region-group pairing and contested note must cite; region ids must exist in basemap
+_t = load("territory.json")
+_gids = {g["id"] for g in _t["groups"]}
+_bm = os.path.join(os.path.dirname(D), "public", "basemap", "admin1.geojson")
+_ids = {f["properties"]["id"] for f in json.load(open(_bm))["features"]} if os.path.exists(_bm) else None
+for r in _t["regions"]:
+    if _ids is not None and r["id"] not in _ids: err(f"territory {r['id']}: not in admin1 basemap")
+    if not r["groups"]: err(f"territory {r['id']}: no groups")
+    for g in r["groups"]:
+        if g["group"] not in _gids: err(f"territory {r['id']}: unknown group {g['group']}")
+        if g["level"] not in _t["levels"]: err(f"territory {r['id']}: bad level")
+        cites(g, f"territory {r['id']}/{g['group']}")
+    if r.get("contested"): cites(r["contested"], f"territory {r['id']} contested")
 for i in load("china.json")["items"]: cites(i, f"china {i['id']}")
 for p in glob.glob(os.path.join(D, "arcs/*.json")):
     a = json.load(open(p))

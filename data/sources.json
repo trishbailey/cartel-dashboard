@@ -425,6 +425,94 @@
    "url": "https://www.reuters.com/world/us/venezuelas-maduro-us-justice-department-propose-june-2027-trial-start-2026-07-22/",
    "date": "2026-07-22",
    "type": "media"
+  },
+  {
+   "id": "DEA_MAP_UNIV",
+   "title": "DEA NDTA 2025 maps: Sinaloa Cartel and CJNG presence by state",
+   "publisher": "El Universal",
+   "url": "https://www.eluniversal.com.mx/nacion/cartel-de-sinaloa-y-cjng-con-presencia-en-todo-mexico-dea-estos-son-los-mapas-de-donde-opera-el-crimen-organizado/",
+   "date": "2025-05-15",
+   "type": "media"
+  },
+  {
+   "id": "DEA_MAP_RAZON",
+   "title": "CJNG present across Mexico; Sinaloa Cartel in 31 states, DEA reports",
+   "publisher": "La Razón",
+   "url": "https://www.razon.com.mx/mexico/2025/05/15/cjng-con-presencia-en-todo-mexico-cartel-de-sinaloa-opera-en-31-estados-reporta-la-dea/",
+   "date": "2025-05-15",
+   "type": "media"
+  },
+  {
+   "id": "DEA_MAP_SILLA",
+   "title": "States where each cartel operates, according to the DEA",
+   "publisher": "La Silla Rota",
+   "url": "https://lasillarota.com/nacion/2025/5/16/los-estados-donde-opera-cada-cartel-de-la-droga-en-mexico-segun-la-dea-448138.html",
+   "date": "2025-05-16",
+   "type": "media"
+  },
+  {
+   "id": "POLITICO_CJNG",
+   "title": "CJNG: the criminal empire El Mencho controlled (DEA map by state)",
+   "publisher": "Politico MX",
+   "url": "https://politico.mx/2026/02/24/cjng-asi-es-el-imperio-criminal-que-controlaba-el-mencho-en-mexico-y-el-mundo/",
+   "date": "2026-02-24",
+   "type": "media"
+  },
+  {
+   "id": "ACLED_RIFT",
+   "title": "How the Sinaloa Cartel rift is redrawing Mexico's criminal map",
+   "publisher": "ACLED",
+   "url": "https://acleddata.com/report/how-sinaloa-cartel-rift-redrawing-mexicos-criminal-map",
+   "date": "2025-05-07",
+   "type": "analysis"
+  },
+  {
+   "id": "IC_EXFARC",
+   "title": "Ex-FARC Mafia (FARC dissidents) profile",
+   "publisher": "InSight Crime",
+   "url": "https://insightcrime.org/colombia-organized-crime-news/ex-farc-mafia/",
+   "date": "2026",
+   "type": "analysis"
+  },
+  {
+   "id": "IC_B18",
+   "title": "Barrio 18 profile",
+   "publisher": "InSight Crime",
+   "url": "https://insightcrime.org/el-salvador-organized-crime-news/barrio-18-profile/",
+   "date": "2026",
+   "type": "analysis"
+  },
+  {
+   "id": "IC_HAITI",
+   "title": "Haiti organized crime profile",
+   "publisher": "InSight Crime",
+   "url": "https://insightcrime.org/haiti-organized-crime-news/haiti/",
+   "date": "2026",
+   "type": "analysis"
+  },
+  {
+   "id": "IC_HONDURAS",
+   "title": "Honduras organized crime profile",
+   "publisher": "InSight Crime",
+   "url": "https://insightcrime.org/honduras-organized-crime-news/honduras/",
+   "date": "2026",
+   "type": "analysis"
+  },
+  {
+   "id": "IC_GUATEMALA",
+   "title": "Guatemala organized crime profile",
+   "publisher": "InSight Crime",
+   "url": "https://insightcrime.org/guatemala-organized-crime-news/guatemala/",
+   "date": "2026",
+   "type": "analysis"
+  },
+  {
+   "id": "IC_PARAGUAY",
+   "title": "Paraguay organized crime profile",
+   "publisher": "InSight Crime",
+   "url": "https://insightcrime.org/paraguay-organized-crime-news/paraguay/",
+   "date": "2026",
+   "type": "analysis"
   }
  ]
 }

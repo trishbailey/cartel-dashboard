@@ -1,20 +1,34 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Latin America Cartel Dashboard | Beacon Intelligence Group</title>
+<link rel="icon" href="data:,">
 <link rel="stylesheet" href="style.css"></head>
 <body>
-<header><div class="brand"><span class="mark">BEACON</span> INTELLIGENCE GROUP</div>
-<h1>Latin America cartel dashboard</h1><div id="asof" class="muted"></div>
-<nav id="tabs"><button data-t="overview" class="on">Context and who's who</button><button data-t="map">Routes and crossings</button><button data-t="money">Money flows</button><button data-t="network">Networks</button><button data-t="china">China</button><button data-t="latest">Latest</button><button data-t="sources">Sources</button></nav></header>
+<header><div><div class="brand"><span class="mark">BEACON</span> INTELLIGENCE GROUP</div><h1>Latin America cartel dashboard</h1></div><div id="asof" class="muted"></div></header>
 <main>
-<section id="overview" class="tab on"><div class="cols"><div id="arcs"></div><div id="whoswho"></div></div></section>
-<section id="map" class="tab"><div class="maprow"><div class="mapwrap"><div id="layers"></div><svg id="mapsvg"></svg></div><aside id="mapdetail" class="detail"><p class="muted">Select a route, crossing or port to see what is known and who reported it.</p><div id="borderstats"></div></aside></div></section>
-<section id="money" class="tab"><div id="moneyhead"></div><div class="cols"><div><h3>Suspicious activity by type of filer, 2020-2024 (USD bn)</h3><svg id="sankey"></svg></div><div><h3>Typologies flagged (overlapping, USD bn)</h3><svg id="bars"></svg><div id="related"></div></div></div><h3 id="schtitle"></h3><svg id="schematic"></svg><p id="moneynotes" class="note"></p></section>
-<section id="network" class="tab"><div class="maprow"><div class="mapwrap"><div class="legend" id="netlegend"></div><svg id="netsvg"></svg></div><aside id="netdetail" class="detail"><p class="muted">Select a group to see its profile, leaders, FTO date and sources.</p></aside></div></section>
-<section id="china" class="tab"><div id="chinalist" class="cards"></div></section>
-<section id="latest" class="tab"><div id="analysis"></div><div class="filters" id="evfilters"></div><div id="events"></div></section>
-<section id="sources" class="tab"><div id="srclist"></div></section>
+<section id="kpis" class="kpis"></section>
+<section class="tile maptile">
+ <div class="tilehead"><h2>Who is active where</h2><span class="muted">Click a state or department. Click a group to show only its footprint.</span></div>
+ <div id="grouplegend" class="chips"></div>
+ <div class="mapwrap"><svg id="mapsvg"></svg>
+  <div id="layers" class="overlay"><b>Overlay</b></div>
+  <div id="keybox" class="overlay"></div>
+ </div>
+ <details class="more"><summary>About this map and gaps in the data</summary><div id="mapnotes"></div></details>
+</section>
+<section class="row3">
+ <div class="tile"><div class="tilehead"><h2>Money</h2><span class="muted" id="moneyunit"></span></div><svg id="sankey"></svg><details class="more"><summary>More</summary><div id="moneymore"></div></details></div>
+ <div class="tile"><div class="tilehead"><h2>Network</h2><span class="muted">Click a node or line</span></div><div id="netlegend" class="minilegend"></div><svg id="netsvg"></svg></div>
+ <div class="tile"><div class="tilehead"><h2>China</h2><span class="muted">Click a tile</span></div><div id="china" class="chgrid"></div></div>
+</section>
+<section class="row2">
+ <div class="tile"><div class="tilehead"><h2>Who's who</h2><span class="muted">Click a card to expand</span></div><div id="cards" class="cards"></div></div>
+ <div class="tile ticker"><div class="tilehead"><h2>Latest headlines</h2></div><div id="evfilters" class="chips small"></div><div id="events"></div></div>
+</section>
+<section class="tile"><details class="more"><summary>Background by theatre</summary><div id="arcs" class="arcs"></div></details>
+<details class="more"><summary>Source registry</summary><div id="srclist"></div></details></section>
 </main>
-<footer class="muted">This dashboard describes and analyzes what has happened; it does not predict or prescribe. Every item links to its source. Data: <a href="https://github.com/trishbailey/cartel-dashboard">github.com/trishbailey/cartel-dashboard</a>. Basemap: Natural Earth (public domain).</footer>
+<aside id="drawer"><button id="dclose" aria-label="Close">×</button><div id="dbody"></div></aside>
+<footer class="muted">Describes and analyzes what has happened; it does not predict or prescribe. Every item links to its source. Data: <a href="https://github.com/trishbailey/cartel-dashboard">github.com/trishbailey/cartel-dashboard</a>. Basemaps: Natural Earth (public domain).</footer>
 <script src="vendor/d3.min.js"></script><script src="vendor/d3-sankey.min.js"></script><script src="app.js"></script>
 </body></html>
