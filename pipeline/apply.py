@@ -31,6 +31,7 @@ if rfiles:
         a = load(f"arcs/{u['arc']}.json")
         a["log"] = [x for x in a["log"] if x["date"] != r["date"]] + [{"date": r["date"], "text": u["text"], "links": [resolve(c) for c in u["cites"]]}]
         if u.get("current_phase"): a["current_phase"] = u["current_phase"]
+        if u.get("what_happening") and a.get("storyline"): a["storyline"]["what"] = u["what_happening"][:2]; a["storyline"]["updated"] = r["date"]
         save(f"arcs/{u['arc']}.json", a)
 ev["as_of"] = dt.date.today().isoformat()
 save("events.json", ev)

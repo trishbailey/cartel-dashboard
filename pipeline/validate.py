@@ -80,6 +80,60 @@ for p in glob.glob(os.path.join(D, "arcs/*.json")):
     for h in a["history"] + a["turning_points"]: cites(h, f"arc {a['id']} item")
 
 BANNED = re.compile(r"\b(will|likely to|expected to|should|must|forecast|predict|recommend|ought)\b", re.I)
+
+# data modules: every value carries an https source URL (not .cn), every file cites registered sources
+def _url(u, where):
+    if not str(u).startswith("https://"): err(f"{where}: value without https source url")
+    elif is_cn(u): err(f"{where}: .cn url")
+def _pts(pts, where, key):
+    if not pts: err(f"{where}: empty series")
+    for x in pts:
+        if not isinstance(x.get(key), (int, float)): err(f"{where} {x.get('m')}: bad value")
+        _url(x.get("url"), f"{where} {x.get('m')}")
+for fn in ("violence.json", "seizures.json", "overdoses.json", "disappearances.json", "extortion.json", "mx_states.json", "political_violence.json"):
+    if not os.path.exists(os.path.join(D, fn)): err(f"missing data module {fn}"); continue
+    o = load(fn); cites(o, fn)
+    if fn == "violence.json":
+        for k, v in o["states"].items(): _pts(v, f"violence state {k}", "v")
+    elif fn == "seizures.json":
+        for d, v in o["national"].items(): _pts(v, f"seizures {d}", "lb")
+        for a, dd in o["aor"].items():
+            for d, v in dd.items(): _pts(v, f"seizures {a}/{d}", "lb")
+    elif fn == "overdoses.json":
+        for st, v in o["series"].items(): _pts(v, f"overdoses {st}", "v")
+    elif fn in ("disappearances.json", "extortion.json"):
+        if len(o["states"]) != 32: err(f"{fn}: expected 32 states")
+        for x in o["states"]:
+            if _ids is not None and x["region"] not in _ids: err(f"{fn} {x['name']}: region not in basemap")
+            _url(x.get("url"), f"{fn} {x['name']}")
+    elif fn == "mx_states.json":
+        for x in o["states"]: _url(x.get("url"), f"mx_states {x['name']}")
+    elif fn == "political_violence.json":
+        for x in o["events"]:
+            w = f"political_violence {x.get('name')}"
+            if not re.match(r"^\d{4}-\d{2}-\d{2}$", x.get("date", "")) or not x.get("lonlat"): err(f"{w}: date/lonlat")
+            _url(x.get("url"), w); cites(x, w)
+
+# storyline cards (data/arcs/*.json "storyline") and the situation overview: every sentence sourced, no predictive words
+def _sentences(lst, where):
+    if not lst: err(f"{where}: no sentences")
+    for i, t in enumerate(lst):
+        cites(t, f"{where}[{i}]")
+        if BANNED.search(t.get("text", "")): err(f"{where}[{i}] uses predictive/prescriptive word: {BANNED.search(t['text']).group(0)}")
+_orders = []
+for p in glob.glob(os.path.join(D, "arcs/*.json")):
+    a = json.load(open(p)); sl = a.get("storyline")
+    if not sl: continue
+    _orders.append(sl.get("order"))
+    for k in ("title", "what", "view", "trend"):
+        if not sl.get(k): err(f"storyline {a['id']}: missing {k}")
+    _sentences(sl.get("what"), f"storyline {a['id']}")
+    for g in sl.get("groups", []):
+        if g not in _gids: err(f"storyline {a['id']}: unknown group {g}")
+    for l in a.get("log", []):
+        for x in l.get("links", []): _url(x.get("url"), f"arc {a['id']} log {l.get('date')}")
+if not 5 <= len(_orders) <= 7: err(f"expected 5-7 storylines, found {len(_orders)}")
+_sentences(load("overview.json")["sentences"], "overview")
 ev = load("events.json")
 for e in ev["events"]:
     if not e.get("url", "").startswith("http"): err(f"event {e.get('title')} no url")
@@ -103,6 +157,8 @@ def check_reasoner(path):
     for u in r.get("arc_updates", []):
         if u.get("arc") not in [os.path.basename(p)[:-5] for p in glob.glob(os.path.join(D, "arcs/*.json"))]: err(f"arc_update unknown arc {u.get('arc')}")
         if not u.get("cites"): err("arc_update without cites")
+        if BANNED.search(u.get("text", "")): err(f"arc_update {u.get('arc')} uses predictive/prescriptive word")
+        if u.get("what_happening"): _sentences(u["what_happening"], f"arc_update {u.get('arc')} what_happening")
 
 for p in sorted(glob.glob(os.path.join(D, "reasoner/*.json")))[-3:]: check_reasoner(p)
 

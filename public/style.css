@@ -34,3 +34,13 @@ svg{display:block;font-family:inherit}#mapsvg{width:100%;touch-action:none;curso
 .lbl,.lblm{font-size:12px;fill:var(--text);paint-order:stroke;stroke:#0b1526;stroke-width:3px;stroke-linejoin:round}.lblm{fill:var(--muted)}
 .arcs{display:grid;grid-template-columns:1fr 1fr;gap:12px}.arc{background:var(--panel2);border:1px solid var(--line);border-radius:4px;padding:10px}
 footer{padding:14px 24px;border-top:1px solid var(--line)}table{border-collapse:collapse;width:100%;font-size:12px}td{border-bottom:1px solid var(--line);padding:4px 6px;vertical-align:top}
+
+.ovtext{font-size:15px;line-height:1.55;margin:2px 0 12px;max-width:1200px}.sup{font-size:12px;margin-left:3px;vertical-align:super}.sup a{color:var(--muted)}
+.stories{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:10px}
+.sc{background:var(--panel2);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:4px;padding:9px 11px;cursor:pointer;display:flex;flex-direction:column;gap:6px}.sc.on{border-color:var(--gold);background:#1c2c4b}
+.sc h4{margin:0;font-size:14px}.sc .what{font-size:13px}.sc .latest{font-size:12px;border-top:1px solid var(--line);padding-top:4px}.sc .lt{margin-top:3px;color:var(--text)}.sc .go{font-size:12px;color:var(--gold);margin-top:auto}
+.sparksvg{display:block}.ax{font-size:12px;fill:var(--muted)}.modebtns{right:10px;top:52px;max-width:200px;display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.ramp{height:10px;border-radius:2px;margin:6px 0 2px;width:200px}.rampl{display:flex;justify-content:space-between;width:200px;font-size:12px}#grouplegend.dim{opacity:.4}
+.row2b{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:1100px){.row2b{grid-template-columns:1fr}}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.axis text{font-size:12px;fill:var(--muted)}.axis path,.axis line{stroke:#3a5583}.note.small{margin-top:6px}
+.rank{margin-top:8px}.bar{display:grid;grid-template-columns:130px 1fr 40px;align-items:center;gap:6px;font-size:12px;cursor:pointer}.bar i{height:10px;background:#ff6b6b;display:block;border-radius:2px}.bar b{text-align:right}

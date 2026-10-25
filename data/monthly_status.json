@@ -1,17 +1,17 @@
 {
- "run": "2026-10-25T23:49Z",
+ "run": "2026-10-25T23:51Z",
  "sources": {
   "cbp": {
-   "ok": false,
-   "error": "HTTP Error 403: Forbidden"
+   "ok": true,
+   "range": "2022-10..2026-08"
   },
   "cdc_vsrr": {
    "ok": true,
-   "range": "2015-01..2026-05"
+   "range": "2019-01..2026-05"
   },
   "sesnsp": {
-   "ok": false,
-   "error": "SESNSP files not reachable (Akamai 403 or not published)"
+   "ok": true,
+   "range": "2019-01..2026-09 (elcri.men mirror); direct SESNSP failed: SESNSP files not reachable (Akamai 403 or not published)"
   }
  }
 }

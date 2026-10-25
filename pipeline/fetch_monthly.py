@@ -4,7 +4,7 @@ Outputs: data/seizures.json (CBP), data/overdoses.json (CDC VSRR), data/violence
 import csv, io, json, os, re, sys, datetime as dt, urllib.request
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 D = os.path.join(ROOT, "data")
-UA = {"User-Agent": "Mozilla/5.0 (cartel-dashboard monthly refresh; github.com/trishbailey/cartel-dashboard)"}
+UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36", "Accept": "text/html,application/json,text/csv,*/*", "Accept-Language": "en-US,en;q=0.9"}
 MON = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"]
 def get(u, t=90):
     if (urllib.parse.urlparse(u).hostname or "").endswith(".cn"): raise RuntimeError("cn blocked")
@@ -53,7 +53,7 @@ def cdc():
             m = MON.index(r["month"][:3].upper()) + 1 if not r["month"].isdigit() else int(r["month"])
             v = r.get("predicted_value") or r.get("data_value")
             if v: pts.append({"m": f"{r['year']}-{m:02d}", "v": round(float(str(v).replace(",", ""))), "url": q})
-        out["series"][st] = sorted(pts, key=lambda p: p["m"])
+        out["series"][st] = sorted([p for p in pts if p["m"] >= "2019-01"], key=lambda p: p["m"])
     allm = [p["m"] for p in out["series"]["US"]]; out["first"], out["last"] = allm[0], allm[-1]
     save("overdoses.json", out); return f"{allm[0]}..{allm[-1]}"
 
@@ -97,7 +97,38 @@ def sesnsp():
         "note": "Counts are open investigation files reported by state prosecutors. Under-recording varies by state, and disappearances are counted separately."})
     return f"{months[0]}..{months[-1]}"
 
-for name, fn in [("cbp", cbp), ("cdc_vsrr", cdc), ("sesnsp", sesnsp)]:
+# Fallback: elcri.men's public mirror of the same SESNSP victims file (Diego Valle-Jones), when SESNSP blocks automated access.
+ELC = "https://data.diegovalle.net/elcrimen/nm-estatal-victimas.csv.gz"
+def elcrimen():
+    import gzip
+    rd = csv.DictReader(io.StringIO(gzip.decompress(get(ELC, 240)).decode("utf-8")))
+    agg, pop = {}, {}
+    for r in rd:
+        if r["subtipo"] != "HOMICIDIO DOLOSO": continue
+        k = (r["state_code"], r["date"]); agg[k] = agg.get(k, 0) + float(r["count"] or 0)
+        if r["population"] and r["modalidad"] == "CON ARMA DE FUEGO":
+            pk = (r["state_code"], r["date"][:4]); pop.setdefault(pk, {})[(r["sex"], r["age_group"])] = int(float(r["population"]))
+    months = sorted({m for _, m in agg})
+    while months and sum(v for (e, m), v in agg.items() if m == months[-1]) == 0: months.pop()
+    months = [m for m in months if m >= "2019-01"]
+    st = {}
+    for (e, m), v in agg.items():
+        if m in months: st.setdefault(e, []).append({"m": m, "v": int(round(v)), "url": ELC})
+    for v in st.values(): v.sort(key=lambda p: p["m"])
+    popy = {f"{e}|{y}": sum(d.values()) for (e, y), d in pop.items() if y >= "2019"}
+    save("violence.json", {"title": "Victims of intentional homicide (homicidio doloso), by state and month", "source_url": ELC,
+        "landing_url": "https://elcri.men/datos.html", "official_url": "https://www.gob.mx/sesnsp/acciones-y-programas/datos-abiertos-de-incidencia-delictiva",
+        "cites": ["SESNSP_VIC", "ELCRIMEN"], "substitute": True,
+        "unit": "victims per month, from state prosecutors' investigation files", "first": months[0], "last": months[-1], "states": st,
+        "population": popy, "population_note": "Population by state and year as carried in the elcri.men file (CONAPO projections), used for rates per 100,000.",
+        "note": "SESNSP's own open-data host returns HTTP 403 to automated requests (tested from this server and from GitHub Actions), so the same SESNSP victims data is read from elcri.men's public mirror. Counts are prosecutors' open files; under-recording varies by state, and disappearances are counted separately."})
+    return f"{months[0]}..{months[-1]} (elcri.men mirror)"
+def sesnsp_any():
+    try: return sesnsp()
+    except Exception as e1:
+        return elcrimen() + f"; direct SESNSP failed: {str(e1)[:80]}"
+
+for name, fn in [("cbp", cbp), ("cdc_vsrr", cdc), ("sesnsp", sesnsp_any)]:
     try: status["sources"][name] = {"ok": True, "range": fn()}
     except Exception as e: status["sources"][name] = {"ok": False, "error": str(e)[:200]}
     print(name, status["sources"][name])

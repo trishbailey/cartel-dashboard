@@ -3,7 +3,7 @@ const KCOL={rivalry:"#c0504d",alliance:"#6aa684",faction:"#9aa6b8","alleged link
 const LV={dominant:.95,significant:.75,present:.35};
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const $=id=>document.getElementById(id);
-let SRC={};
+let SRC={},DM={};const ARCS=["sinaloa-war","cjng","border-fentanyl","ecuador","venezuela-caribbean","colombia","money","mexico","andes","brazil"];
 const cite=ids=>`<div class="cite">Sources: ${(ids||[]).map(i=>{const s=SRC[i];return s?`<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.publisher)}: ${esc(s.title)}</a> (${esc(s.date)})`:esc(i)}).join("; ")}</div>`;
 const srcLink=ids=>ids.map(i=>SRC[i]?`<a href="${esc(SRC[i].url)}" target="_blank" rel="noopener">${esc(SRC[i].publisher)}</a>`:esc(i)).join(", ");
 const links=ls=>`<div class="cite">Sources: ${ls.map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.source)}: ${esc(l.title)}</a>`).join("; ")}</div>`;
@@ -13,13 +13,16 @@ $("dclose").onclick=()=>$("drawer").classList.remove("on");
 document.addEventListener("keydown",e=>{if(e.key==="Escape")$("drawer").classList.remove("on")});
 const J=p=>fetch(p).then(r=>{if(!r.ok)throw new Error(p);return r.json()});
 Promise.all([J("data/sources.json"),J("data/routes.geojson"),J("data/crossings.geojson"),J("data/money_flows.json"),J("data/networks.json"),J("data/china.json"),J("data/events.json"),J("data/territory.json"),J("basemap/latam.topo.json"),
- ...["mexico","venezuela-caribbean","andes","brazil","money"].map(a=>J(`data/arcs/${a}.json`))]).then(([src,routes,cross,money,net,china,events,terr,topo,...arcs])=>{
+ J("data/violence.json"),J("data/disappearances.json"),J("data/extortion.json"),J("data/mx_states.json"),J("data/seizures.json"),J("data/overdoses.json"),J("data/political_violence.json"),J("data/overview.json"),
+ ...ARCS.map(a=>J(`data/arcs/${a}.json`))]).then(([src,routes,cross,money,net,china,events,terr,topo,vio,dis,ext,mxs,seiz,od,pv,ov,...arcs])=>{
+  DM={vio,dis,ext,mxs,seiz,od,pv};
   const adm=topojson.feature(topo,topo.objects.admin1);
   src.sources.forEach(s=>SRC[s.id]=s);
   $("asof").textContent=`Reference data as of ${src.as_of} · headlines updated ${events.as_of}`;
   const GC=Object.fromEntries(terr.groups.map(g=>[g.id,g]));
   kpis(net,cross,money,events,terr);
   const M=mapView(topo,adm,terr,routes,cross,china,GC);
+  overview(ov,arcs,net,terr,events,M);violenceTile(M);borderTile();
   moneyTile(money);netTile(net,terr);chinaTile(china);cards(net,terr,M);ticker(events);background(arcs);sources(src);
 });
 function kpis(net,cross,money,events,terr){
@@ -49,8 +52,9 @@ function mapView(topo,adm,terr,routes,cross,china,GC){
   const pattern=cols=>{const k=cols.join("-").replace(/#/g,"");if(pats[k])return pats[k];const w=4*cols.length;
     const p=defs.append("pattern").attr("id","p"+k).attr("patternUnits","userSpaceOnUse").attr("width",w).attr("height",w).attr("patternTransform","rotate(45)");
     cols.forEach((c,i)=>p.append("rect").attr("x",i*4).attr("y",0).attr("width",4).attr("height",w).attr("fill",c));return pats[k]=`url(#p${k})`};
-  let filt=null;
-  const style=d=>{const r=RB[d.properties.id];if(!r)return{f:"#1b2c4a",o:1};
+  let filt=null,fset=null,mode="groups";
+  const style=d=>{if(mode!=="groups")return chor(d);const r=RB[d.properties.id];if(!r)return{f:"#1b2c4a",o:1};
+    if(fset){const e=r.groups.filter(x=>fset.includes(x.group)).sort((a,b)=>LV[b.level]-LV[a.level]);if(!e.length)return{f:"#1b2c4a",o:1};if(e.length===1)return{f:GC[e[0].group].color,o:LV[e[0].level]};return{f:pattern(e.slice(0,3).map(x=>GC[x.group].color)),o:.9}}
     if(filt){const e=r.groups.find(x=>x.group===filt);return e?{f:GC[filt].color,o:LV[e.level]}:{f:"#1b2c4a",o:1}}
     let heavy=r.groups.filter(x=>x.level!=="present");
     if(r.contested&&r.contested.groups.length>1)heavy=r.contested.groups.map(x=>({group:x}));
@@ -64,22 +68,22 @@ function mapView(topo,adm,terr,routes,cross,china,GC){
   const paint=()=>ad.each(function(d){const s=style(d);d3.select(this).attr("fill",s.f).attr("fill-opacity",s.o)});paint();
   g.append("path").datum(topojson.mesh(topo,topo.objects.admin1,(a,b)=>a!==b&&a.properties.iso===b.properties.iso&&a.properties.iso!=="USA")).attr("d",path).attr("fill","none").attr("stroke","#0b1526").attr("stroke-width",.6).attr("vector-effect","non-scaling-stroke").style("pointer-events","none");
   g.append("path").datum(topojson.mesh(topo,topo.objects.countries)).attr("d",path).attr("fill","none").attr("stroke","#8fa3c4").attr("stroke-width",1).attr("vector-effect","non-scaling-stroke").style("pointer-events","none");
-  function regionShow(d){const r=RB[d.properties.id];if(!r){drawer(`<h2>${esc(d.properties.name||"")}</h2><p class="muted">No sourced group footprint is mapped here. That reflects data coverage, not an absence of organized crime.</p>`);return}
-    drawer(`<h2>${esc(r.name)}</h2><div class="muted">${esc(r.iso)}</div>`+(r.contested?`<h3>Contested</h3><div class="rg">${r.contested.groups.map(x=>`<span class="dot" style="background:${GC[x].color}"></span> ${esc(GC[x].name)}`).join(" vs ")}<div>${esc(r.contested.note)}</div>${cite(r.contested.cites)}</div>`:"")+
+  function regionShow(d){const r=RB[d.properties.id],mx=stateStats(d.properties.id);if(!r){drawer(`<h2>${esc(d.properties.name||"")}</h2>${mx}<p class="muted">No sourced group footprint is mapped here. That reflects data coverage, not an absence of organized crime.</p>`);return}
+    drawer(`<h2>${esc(r.name)}</h2><div class="muted">${esc(r.iso)}</div>`+mx+(r.contested?`<h3>Contested</h3><div class="rg">${r.contested.groups.map(x=>`<span class="dot" style="background:${GC[x].color}"></span> ${esc(GC[x].name)}`).join(" vs ")}<div>${esc(r.contested.note)}</div>${cite(r.contested.cites)}</div>`:"")+
     "<h3>Groups active</h3>"+r.groups.slice().sort((a,b)=>LV[b.level]-LV[a.level]).map(x=>`<div class="rg"><span class="dot" style="background:${GC[x.group].color}"></span> <b>${esc(GC[x.group].name)}</b> <span class="lvl">${esc(terr.levels[x.level])}${r.contested&&r.contested.groups.includes(x.group)?" · contests":""}</span>${x.note?`<div>${esc(x.note)}</div>`:""}${cite(x.cites)}</div>`).join(""))}
   // legend chips = filter
   const used=new Set(terr.regions.flatMap(r=>r.groups.map(x=>x.group)));
   const L=$("grouplegend");L.innerHTML=`<button class="chip on" data-g="">All groups</button>`+terr.groups.filter(x=>used.has(x.id)).map(x=>`<button class="chip" data-g="${x.id}"><span class="dot" style="background:${x.color}"></span>${esc(x.name)}</button>`).join("");
-  const setF=id=>{filt=id||null;L.querySelectorAll(".chip").forEach(b=>b.classList.toggle("on",b.dataset.g===(id||"")));paint();key()};
+  const setF=id=>{filt=id||null;fset=null;L.querySelectorAll(".chip").forEach(b=>b.classList.toggle("on",b.dataset.g===(id||"")));paint();key()};
   L.querySelectorAll(".chip").forEach(b=>b.onclick=()=>setF(b.dataset.g));
-  const key=()=>$("keybox").innerHTML=filt?`<b>${esc(GC[filt].name)}</b><br>`+Object.entries(terr.levels).map(([k,v])=>`<span class="dot" style="background:${GC[filt].color};opacity:${LV[k]}"></span> ${esc(v)}`).join("<br>")
+  const key=()=>$("keybox").innerHTML=mode!=="groups"?chorKey():fset?`<b>Storyline groups</b><br>`+fset.map(x=>`<span class="dot" style="background:${GC[x].color}"></span> ${esc(GC[x].name)}`).join("<br>"):filt?`<b>${esc(GC[filt].name)}</b><br>`+Object.entries(terr.levels).map(([k,v])=>`<span class="dot" style="background:${GC[filt].color};opacity:${LV[k]}"></span> ${esc(v)}`).join("<br>")
     :`<b>Shading</b><br><span class="dot" style="background:#e4572e"></span> one group dominant or significant<br><span class="dot hatch"></span> stripes: contested or shared by 2-3 groups<br><span class="dot" style="background:#e4572e;opacity:.35"></span> lighter: lesser presence only<br><span class="dot" style="background:#1b2c4a;border:1px solid #3a5583"></span> no sourced footprint`;key();
   $("mapnotes").innerHTML=`<p>${esc(terr.note)}</p><h3>Where footprint data is thin</h3><ul>${terr.thin.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>`;
   // overlays
   const proj2=c=>proj(c);
   const layers={};const og=g.append("g");
   const mk=(k,label,color,draw)=>{layers[k]=og.append("g").style("display","none");draw(layers[k]);
-    const lab=document.createElement("label");lab.innerHTML=`<input type="checkbox"> <span class="dot" style="background:${color}"></span> ${label}`;lab.querySelector("input").onchange=e=>layers[k].style("display",e.target.checked?null:"none");$("layers").appendChild(lab)};
+    const lab=document.createElement("label");lab.dataset.k=k;lab.innerHTML=`<input type="checkbox"> <span class="dot" style="background:${color}"></span> ${label}`;lab.querySelector("input").onchange=e=>layers[k].style("display",e.target.checked?null:"none");$("layers").appendChild(lab)};
   const rshow=p=>drawer(`<h2>${esc(p.name)}</h2><span class="tag">${esc(p.kind||p.category||"")}</span>${p.commodity?`<span class="tag">${esc(p.commodity)}</span>`:""}<p>${esc(p.text)}</p>${p.says_vs_does?`<p class="says">Says vs does: ${esc(p.says_vs_does)}</p>`:""}${cite(p.cites)}`);
   const lines=(sel,feat,color)=>{const dash=d=>d.properties.confidence==="reported"?null:"6 4";
     sel.append("g").selectAll("path").data(feat).join("path").attr("d",path).attr("fill","none").attr("stroke","#0b1526").attr("stroke-opacity",.9).attr("stroke-width",5).attr("stroke-linecap","round").attr("vector-effect","non-scaling-stroke").style("pointer-events","none");
@@ -90,8 +94,32 @@ function mapView(topo,adm,terr,routes,cross,china,GC){
   mk("money","Cash and money routes","#5b8fd1",s=>lines(s,routes.features.filter(f=>f.properties.commodity==="cash"),"#5b8fd1"));
   mk("cross","Border crossings and hubs","#ffffff",s=>{const n=s.selectAll("g").data(cross.features).join("g").attr("class","pt").attr("data-t",d=>`translate(${proj2(d.geometry.coordinates)})`).attr("transform",d=>`translate(${proj2(d.geometry.coordinates)})`).style("cursor","pointer").on("click",(e,d)=>rshow(d.properties));n.append("circle").attr("r",4).attr("fill","#fff").attr("stroke","#0b1526");n.append("title").text(d=>d.properties.name)});
   mk("china","China-linked sites","#c8a24a",s=>{const n=s.selectAll("g").data(china.items.filter(i=>i.lonlat)).join("g").attr("class","pt").attr("data-t",d=>`translate(${proj2(d.lonlat)})`).attr("transform",d=>`translate(${proj2(d.lonlat)})`).style("cursor","pointer").on("click",(e,d)=>rshow({...d,name:d.title}));n.append("rect").attr("x",-5).attr("y",-5).attr("width",10).attr("height",10).attr("fill","#c8a24a").attr("transform","rotate(45)");n.append("text").attr("class","lbl").attr("x",9).attr("y",4).text(d=>d.title)});
+  // choropleth modes (Mexico states)
+  const byReg={},clave={};DM.mxs.states.forEach(x=>{byReg[x.region]=x;clave[x.clave]=x.region});
+  const CH={homicide:{label:"Homicide victims per 100,000, last 12 months",val:id=>{const x=byReg[id];return x?homRate(x.clave):null},src:DM.vio},
+    disap:{label:"Disappeared and missing, not located, per 100,000 (cumulative)",val:id=>{const x=byReg[id],v=DM.dis.states.find(s=>s.region===id);return x&&v?v.v/x.pop*1e5:null},src:DM.dis},
+    extort:{label:"Extortion incidents per 100,000 adults (ENVIPE 2025)",val:id=>{const v=DM.ext.states.find(s=>s.region===id);return v?v.v:null},src:DM.ext}};
+  let sc=null;
+  function chor(d){const v=CH[mode].val(d.properties.id);if(v==null)return{f:d.properties.iso==="MEX"?"#1b2c4a":"#16243f",o:d.properties.iso==="MEX"?1:.5};return{f:sc(v),o:.95}}
+  function chorKey(){const c=CH[mode],[a,b]=sc.domain();const st=c.src;return `<b>${esc(c.label)}</b><div class="ramp" style="background:linear-gradient(90deg,${sc(a)},${sc((a+b)/2)},${sc(b)})"></div><div class="rampl"><span>${Math.round(a).toLocaleString()}</span><span>${Math.round(b).toLocaleString()}</span></div><div class="muted">${esc(mode==="homicide"?"12 months to "+fmtM(st.last):mode==="disap"?"As of "+st.as_of:st.survey)}. Source: ${srcLink(st.cites)}${st.substitute?" (substitute, see notes)":""}</div>`}
+  const MB=document.createElement("div");MB.className="overlay modebtns";MB.innerHTML='<b>Shade Mexico by</b><br>'+[["groups","Group presence"],["homicide","Homicide rate"],["disap","Disappearances"],["extort","Extortion"]].map(([k,l])=>`<button class="chip${k==="groups"?" on":""}" data-m="${k}">${l}</button>`).join("");svg.node().parentNode.appendChild(MB);
+  const setMode=m=>{mode=m;MB.querySelectorAll("button").forEach(b=>b.classList.toggle("on",b.dataset.m===m));if(m!=="groups"){const vs=DM.mxs.states.map(x=>CH[m].val(x.region)).filter(v=>v!=null);sc=d3.scaleSequential([0,d3.max(vs)],d3.interpolateRgb("#2a3f66","#ff6b6b"))}$("grouplegend").classList.toggle("dim",m!=="groups");paint();key()};
+  MB.querySelectorAll("button").forEach(b=>b.onclick=()=>setMode(b.dataset.m));
+  // seizures by area of responsibility, sized, placed at the area's main crossing (approximate)
+  const AOR={"San Diego":[[-117.03,32.55],["San Diego Field Office","San Diego Sector"]],"El Centro":[[-115.5,32.68],["El Centro Sector"]],"Yuma":[[-114.62,32.49],["Yuma Sector"]],"Tucson":[[-110.94,31.34],["Tucson Field Office","Tucson Sector"]],
+    "El Paso":[[-106.45,31.75],["El Paso Field Office","El Paso Sector"]],"Big Bend":[[-103.2,29.35],["Big Bend Sector"]],"Del Rio":[[-100.9,29.36],["Del Rio Sector"]],"Laredo":[[-99.5,27.5],["Laredo Field Office","Laredo Sector"]],"Rio Grande Valley":[[-98.2,26.1],["Rio Grande Valley Sector"]]};
+  const last12=DM.seiz.national.fentanyl.slice(-12).map(p=>p.m),DR=["fentanyl","methamphetamine","cocaine"],DC={fentanyl:"#ff6b6b",methamphetamine:"#f4d35e",cocaine:"#e6e9ef"};
+  const ap=Object.entries(AOR).map(([n,[ll,ks]])=>{const by={};DR.forEach(d=>by[d]=d3.sum(ks,k=>d3.sum(((DM.seiz.aor[k]||{})[d]||[]).filter(p=>last12.includes(p.m)),p=>p.lb)));return{name:n,ll,ks,by,tot:d3.sum(DR,d=>by[d])}});
+  const rr=d3.scaleSqrt([0,d3.max(ap,a=>a.tot)],[0,26]);
+  mk("seiz","Drug seizures by border area (last 12 months)","#ff6b6b",s=>{const n=s.selectAll("g").data(ap).join("g").attr("class","pt").attr("data-t",d=>`translate(${proj(d.ll)})`).attr("transform",d=>`translate(${proj(d.ll)})`).style("cursor","pointer").on("click",(e,d)=>drawer(`<h2>${esc(d.name)} border area</h2><p class="muted">CBP areas: ${esc(d.ks.join(", "))}. ${esc(last12[0])} to ${esc(last12[11])}. Marker sits at the area's main crossing (approximate).</p>${DR.map(k=>`<div class="rg"><span class="dot" style="background:${DC[k]}"></span> <b>${esc(k)}</b>: ${Math.round(d.by[k]).toLocaleString()} lb</div>`).join("")}<div class="muted">Fentanyl, meth and cocaine combined, lb per month</div>${spark(DM.seiz.national.fentanyl.slice(-24).map(p=>({m:p.m,v:d3.sum(d.ks,k=>d3.sum(DR,dr=>(((DM.seiz.aor[k]||{})[dr]||[]).find(q=>q.m===p.m)||{lb:0}).lb))})),{unit:" lb"})}<p class="note">${esc(DM.seiz.note)}</p>${cite(DM.seiz.cites)}<div class="cite"><a href="${esc(DM.seiz.source_url)}" target="_blank" rel="noopener">CBP CSV</a></div>`));
+    n.append("circle").attr("r",d=>rr(d.tot)).attr("fill","#ff6b6b").attr("fill-opacity",.45).attr("stroke","#ff6b6b").attr("stroke-width",1.5);n.append("text").attr("class","lbl").attr("x",d=>rr(d.tot)+4).attr("y",4).text(d=>`${d.name} ${d.tot>=1000?Math.round(d.tot/1000).toLocaleString()+"k":Math.round(d.tot)} lb`);n.append("title").text(d=>`${d.name}: ${Math.round(d.tot).toLocaleString()} lb fentanyl+meth+cocaine, last 12 months`)});
+  mk("pv","Killings of mayors and journalists (since Oct 2024)","#f15bb5",s=>{const n=s.selectAll("g").data(DM.pv.events).join("g").attr("class","pt").attr("data-t",d=>`translate(${proj(d.lonlat)})`).attr("transform",d=>`translate(${proj(d.lonlat)})`).style("cursor","pointer").on("click",(e,d)=>pvShow(d));
+    n.append("path").attr("d",d=>d.kind==="official"?d3.symbol(d3.symbolTriangle,70)():d3.symbol(d3.symbolCircle,55)()).attr("fill",d=>d.kind==="official"?"#f15bb5":"#4cc9f0").attr("stroke","#0b1526");n.append("title").text(d=>`${d.date} ${d.name} (${d.role}), ${d.place}`)});
   svg.call(zoom.transform,VIEWS.mx);
-  return {setF:id=>{setF(id);document.querySelector(".maptile").scrollIntoView({behavior:"smooth"})}};
+  const layerOn=(k,on)=>{const lab=[...$("layers").querySelectorAll("label")].find(l=>l.dataset.k===k);if(lab){lab.querySelector("input").checked=on;layers[k].style("display",on?null:"none")}};
+  return {setF:id=>{setF(id);document.querySelector(".maptile").scrollIntoView({behavior:"smooth"})},setMode,layerOn,
+    story:sl=>{setMode("groups");setF("");fset=sl.groups&&sl.groups.length?sl.groups:null;L.querySelectorAll(".chip").forEach(b=>b.classList.remove("on"));paint();key();
+      Object.keys(layers).forEach(k=>layerOn(k,(sl.layers||[]).includes(k)));svg.transition().duration(800).call(zoom.transform,fitBox(...sl.view));document.querySelector(".maptile").scrollIntoView({behavior:"smooth"})}};
 }
 function moneyTile(m){
   $("moneyunit").textContent=m.unit;
@@ -145,5 +173,69 @@ function ticker(ev){
   const draw=()=>$("events").innerHTML=ev.events.filter(e=>cur==="all"||e.theatre===cur).map(e=>`<div class="ev"><a href="${esc(e.url)}" target="_blank" rel="noopener" title="${esc(e.title)}">${esc(e.title.length>110?e.title.slice(0,108)+"…":e.title)}</a><div class="m">${esc(e.source)} · ${esc(e.date)} · ${esc(e.theatre)}</div></div>`).join("")||"<p class='muted'>No items.</p>";
   F.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{cur=b.dataset.t;F.querySelectorAll(".chip").forEach(x=>x.classList.toggle("on",x===b));draw()});draw();
 }
-function background(arcs){$("arcs").innerHTML=arcs.map(a=>`<div class="arc"><h3>${esc(a.title)}</h3><p>${esc(a.current_phase)}</p><details class="more"><summary>History and turning points</summary>${a.history.map(h=>`<div><b>${esc(h.period)}</b>: ${esc(h.text)}</div>`).join("")}${a.turning_points.map(t=>`<div>${esc(t.date)}: ${esc(t.text)}</div>`).join("")}${a.log.length?"<h3>Recent</h3>"+a.log.slice(-4).reverse().map(l=>`<div>${esc(l.date)}: ${esc(l.text)}${links(l.links)}</div>`).join(""):""}${cite(a.cites)}</details></div>`).join("")}
+function background(arcs){$("arcs").innerHTML=arcs.filter(a=>["mexico","venezuela-caribbean","andes","brazil","money"].includes(a.id)).map(a=>`<div class="arc"><h3>${esc(a.title)}</h3><p>${esc(a.current_phase)}</p><details class="more"><summary>History and turning points</summary>${a.history.map(h=>`<div><b>${esc(h.period)}</b>: ${esc(h.text)}</div>`).join("")}${a.turning_points.map(t=>`<div>${esc(t.date)}: ${esc(t.text)}</div>`).join("")}${a.log.length?"<h3>Recent</h3>"+a.log.slice(-4).reverse().map(l=>`<div>${esc(l.date)}: ${esc(l.text)}${links(l.links)}</div>`).join(""):""}${cite(a.cites)}</details></div>`).join("")}
 function sources(s){$("srclist").innerHTML=`<p class="muted">${esc(s.note)}</p><table>${s.sources.map(x=>`<tr><td>${esc(x.id)}</td><td><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a></td><td>${esc(x.publisher)}</td><td>${esc(x.date)}</td></tr>`).join("")}</table>`}
+
+// ---------- data modules ----------
+const fmtM=m=>{const [y,mm]=m.split("-");return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][+mm-1]+" "+y};
+function homRate(cl){const v=DM.vio.states[String(cl)];if(!v)return null;const l=v.slice(-12),y=l[l.length-1].m.slice(0,4);const pop=DM.vio.population[`${cl}|${y}`]||DM.mxs.states.find(x=>x.clave===cl).pop;return d3.sum(l,p=>p.v)/pop*1e5}
+function spark(pts,{w=330,h=64,color="#ff6b6b",unit=""}={}){const x=d3.scaleLinear([0,pts.length-1],[2,w-2]),y=d3.scaleLinear([0,d3.max(pts,p=>p.v)||1],[h-14,4]);
+  const ln=d3.line((p,i)=>x(i),p=>y(p.v));const mx=d3.max(pts,p=>p.v),lst=pts[pts.length-1];
+  return `<svg width="${w}" height="${h}" class="sparksvg"><line x1="2" x2="${w-2}" y1="${h-14}" y2="${h-14}" stroke="#24365a"/><path d="${ln(pts)}" fill="none" stroke="${color}" stroke-width="1.8"/><circle cx="${x(pts.length-1)}" cy="${y(lst.v)}" r="2.5" fill="${color}"/><text x="2" y="${h-2}" class="ax">${fmtM(pts[0].m)}</text><text x="${w-2}" y="${h-2}" text-anchor="end" class="ax">${fmtM(lst.m)}</text><text x="${w-2}" y="11" text-anchor="end" class="ax">max ${Math.round(mx).toLocaleString()}${unit}</text></svg>`}
+function stateStats(id){const st=DM.mxs.states.find(x=>x.region===id);if(!st)return"";const v=DM.vio.states[String(st.clave)]||[],l=v.slice(-24);
+  const dis=DM.dis.states.find(x=>x.region===id),ex=DM.ext.states.find(x=>x.region===id);
+  return `<h3>Violence indicators</h3><div class="rg"><b>${homRate(st.clave).toFixed(1)}</b> homicide victims per 100,000 in the 12 months to ${fmtM(v[v.length-1].m)} (${d3.sum(v.slice(-12),p=>p.v).toLocaleString()} victims)<div class="muted">Monthly victims, last 24 months</div>${spark(l)}${cite(DM.vio.cites)}</div>
+  <div class="rg"><b>${dis.v.toLocaleString()}</b> disappeared or missing people not located (${(dis.v/st.pop*1e5).toFixed(0)} per 100,000), as of ${esc(DM.dis.as_of)}${cite(DM.dis.cites)}</div>
+  <div class="rg"><b>${ex.v.toLocaleString()}</b> extortion incidents per 100,000 adults (${esc(DM.ext.survey)}; national ${DM.ext.national.toLocaleString()})${cite(DM.ext.cites)}</div>`}
+function pvShow(d){drawer(`<h2>${esc(d.name)}</h2><span class="tag">${esc(d.role)}</span><span class="tag">${esc(d.date)}</span><p>Killed in ${esc(d.place)}. Location precision: ${esc(d.precision)}.</p><p class="note">${esc(DM.pv.note)}</p>${cite(d.cites)}<div class="cite"><a href="${esc(d.url)}" target="_blank" rel="noopener">Source list</a></div>`)}
+function lineChart(el,series,{h=190,unit="",yfmt=d3.format("~s"),note=""}={}){const W=el.clientWidth||520,m={l:44,r:10,t:8,b:22};el.innerHTML="";
+  const svg=d3.select(el).append("svg").attr("width",W).attr("height",h);const all=series.flatMap(s=>s.pts);const ms=[...new Set(all.map(p=>p.m))].sort();
+  const x=d3.scalePoint(ms,[m.l,W-m.r]),y=d3.scaleLinear([0,d3.max(all,p=>p.v)*1.05],[h-m.b,m.t]).nice();
+  svg.append("g").attr("transform",`translate(0,${h-m.b})`).call(d3.axisBottom(x).tickValues(ms.filter(t=>t.endsWith("-01"))).tickFormat(t=>t.slice(0,4)).tickSizeOuter(0)).attr("class","axis");
+  svg.append("g").attr("transform",`translate(${m.l},0)`).call(d3.axisLeft(y).ticks(4).tickFormat(yfmt)).attr("class","axis").call(g=>g.selectAll(".tick line").clone().attr("x2",W-m.l-m.r).attr("stroke","#24365a"));
+  series.forEach(s=>{svg.append("path").datum(s.pts).attr("fill","none").attr("stroke",s.color).attr("stroke-width",s.w||2).attr("stroke-dasharray",s.dash||null).attr("d",d3.line(p=>x(p.m),p=>y(p.v)));
+    svg.append("g").selectAll("circle").data(s.pts).join("circle").attr("cx",p=>x(p.m)).attr("cy",p=>y(p.v)).attr("r",6).attr("fill","transparent").append("title").text(p=>`${s.name}, ${fmtM(p.m)}: ${Math.round(p.v).toLocaleString()}${unit}`)});
+  const lg=document.createElement("div");lg.className="minilegend";lg.innerHTML=series.map(s=>`<span><span class="dot" style="background:${s.color};height:4px"></span> ${esc(s.name)}</span>`).join("");el.prepend(lg)}
+function violenceTile(M){const v=DM.vio,ms=[...new Set(Object.values(v.states).flatMap(s=>s.map(p=>p.m)))].sort();
+  const nat=ms.map(m=>({m,v:d3.sum(Object.values(v.states),s=>(s.find(p=>p.m===m)||{v:0}).v)}));
+  lineChart($("homchart"),[{name:"Homicide victims per month, all Mexico",color:"#ff6b6b",pts:nat}],{unit:" victims"});
+  $("homnote").innerHTML=`${esc(fmtM(v.first))} to ${esc(fmtM(v.last))}. ${esc(v.note)} ${cite(v.cites)} <span class="muted">ACLED event data was not used: its API requires a registered key (${srcLink(["ACLED_ACCESS"])}).</span>`;
+  // state ranking strip: rate last 12 months
+  const rk=DM.mxs.states.map(s=>({s,r:homRate(s.clave)})).sort((a,b)=>b.r-a.r).slice(0,8);
+  $("homrank").innerHTML=`<div class="muted">Highest homicide rates, 12 months to ${esc(fmtM(v.last))} (per 100,000)</div>`+rk.map(x=>`<div class="bar" data-r="${x.s.region}"><span>${esc(x.s.name)}</span><i style="width:${x.r/rk[0].r*100}%"></i><b>${x.r.toFixed(0)}</b></div>`).join("");
+  $("homrank").querySelectorAll(".bar").forEach(b=>b.onclick=()=>{M.setMode("homicide");document.querySelector(".maptile").scrollIntoView({behavior:"smooth"})});
+  // political violence timeline
+  const el=$("pvtime"),W=el.clientWidth||520,H=96,ev=DM.pv.events;const x=d3.scaleTime([new Date(ev[0].date+"T00:00"),new Date()],[14,W-14]);
+  const svg=d3.select(el).append("svg").attr("width",W).attr("height",H);svg.append("g").attr("transform",`translate(0,${H-20})`).attr("class","axis").call(d3.axisBottom(x).ticks(d3.timeMonth.every(3)).tickFormat(d3.timeFormat("%b %Y")));
+  const lane={official:26,journalist:52};svg.selectAll("text.ln").data([["official","Mayors"],["journalist","Journalists"]]).join("text").attr("class","ax").attr("x",2).attr("y",d=>lane[d[0]]-10).text(d=>d[1]);
+  svg.append("g").selectAll("path").data(ev).join("path").attr("transform",d=>`translate(${x(new Date(d.date+"T00:00"))},${lane[d.kind]})`).attr("d",d=>d.kind==="official"?d3.symbol(d3.symbolTriangle,60)():d3.symbol(d3.symbolCircle,50)()).attr("fill",d=>d.kind==="official"?"#f15bb5":"#4cc9f0").attr("stroke","#0b1526").style("cursor","pointer").on("click",(e,d)=>pvShow(d)).append("title").text(d=>`${d.date} ${d.name}, ${d.place}`);
+  $("pvnote").innerHTML=`${ev.filter(e=>e.kind==="official").length} sitting mayors and ${ev.filter(e=>e.kind==="journalist").length} journalists or media workers, ${esc(DM.pv.first)} to ${esc(DM.pv.last)}. Click a mark. Candidates and other officials are not yet included. ${cite(DM.pv.cites)}`}
+function borderTile(){const s=DM.seiz,C={fentanyl:"#ff6b6b",methamphetamine:"#f4d35e",cocaine:"#e6e9ef"};
+  lineChart($("seizchart"),[{name:"Fentanyl",color:C.fentanyl,pts:s.national.fentanyl.map(p=>({m:p.m,v:p.lb}))}],{unit:" lb"});
+  lineChart($("seizchart2"),["methamphetamine","cocaine"].map(d=>({name:d[0].toUpperCase()+d.slice(1),color:C[d],pts:s.national[d].map(p=>({m:p.m,v:p.lb}))})),{unit:" lb"});
+  $("seiznote").innerHTML=`Pounds seized per month at the Southwest border, ${esc(fmtM(s.first))} to ${esc(fmtM(s.last))}. Fentanyl is charted separately because it is seized in far smaller weights. ${esc(s.note)} ${cite(s.cites)}`;
+  const o=DM.od,CC={US:"#9cc1f0",AZ:"#c8a24a",CA:"#6aa684",NM:"#b39ddb",TX:"#ff9f1c"};
+  lineChart($("odchart"),[{name:"United States",color:CC.US,pts:o.series.US}],{unit:" deaths"});
+  lineChart($("odchart2"),["AZ","CA","NM","TX"].map(k=>({name:k,color:CC[k],pts:o.series[k]})),{unit:" deaths"});
+  $("odnote").innerHTML=`Overdose deaths in the 12 months ending each month, ${esc(fmtM(o.first))} to ${esc(fmtM(o.last))}. ${esc(o.note)} ${cite(o.cites)}`}
+// ---------- situation overview and storylines ----------
+function overview(ov,arcs,net,terr,events,M){
+  $("ovtext").innerHTML=ov.sentences.map(t=>`${esc(t.text)}<sup class="sup">${srcLink(t.cites)}</sup>`).join(" ");
+  const NC=Object.fromEntries(terr.groups.filter(g=>g.network_id).map(g=>[g.network_id,g.color])),TG=Object.fromEntries(terr.groups.map(g=>[g.id,g])),NN=Object.fromEntries(net.groups.map(g=>[g.id,g]));
+  const ss=arcs.filter(a=>a.storyline).sort((a,b)=>a.storyline.order-b.storyline.order);
+  const days=[...new Set(events.events.map(e=>e.date))].sort();
+  const trend=sl=>{const t=sl.trend;let pts;
+    if(t.kind==="homicides"){const ms=DM.vio.states[t.states[0]].slice(-24).map(p=>p.m);pts=ms.map(m=>({m,v:d3.sum(t.states,k=>(DM.vio.states[k].find(p=>p.m===m)||{v:0}).v)}));return {svg:spark(pts,{w:250,h:52}),cites:DM.vio.cites}}
+    if(t.kind==="seizures"){pts=DM.seiz.national[t.drug].slice(-24).map(p=>({m:p.m,v:p.lb}));return {svg:spark(pts,{w:250,h:52,unit:" lb"}),cites:DM.seiz.cites}}
+    const re=new RegExp(t.match.join("|"),"i");const c=days.map(d=>events.events.filter(e=>e.date===d&&re.test(e.title+" "+(e.snippet||""))).length);
+    const W=250,H=52,bw=(W-4)/Math.max(1,c.length),y=d3.scaleLinear([0,Math.max(1,d3.max(c))],[0,H-28]);
+    return {svg:`<svg width="${W}" height="${H}" class="sparksvg">${c.map((v,i)=>`<rect x="${2+i*bw}" y="${H-14-y(v)}" width="${bw-2}" height="${y(v)}" fill="#5b8fd1"><title>${days[i]}: ${v}</title></rect>`).join("")}<text x="2" y="${H-2}" class="ax">${days[0]||""}</text><text x="${W-2}" y="${H-2}" text-anchor="end" class="ax">${days[days.length-1]||""}</text><text x="${W-2}" y="10" text-anchor="end" class="ax">max ${d3.max(c)||0}/day</text></svg>`,cites:null}};
+  $("stories").innerHTML=ss.map((a,k)=>{const sl=a.storyline,tr=trend(sl),re=sl.trend.match?new RegExp(sl.trend.match.join("|"),"i"):null;
+    const lat=(a.log||[]).slice(-2).reverse().map(l=>`<div class="lt">${esc(l.date)}: ${esc(l.text)} ${(l.links||[]).slice(0,2).map(x=>`<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.source)}</a>`).join(", ")}</div>`);
+    if(lat.length<2&&re)events.events.filter(e=>re.test(e.title)).slice(0,2-lat.length).forEach(e=>lat.push(`<div class="lt">${esc(e.date)}: <a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.title.length>80?e.title.slice(0,78)+"…":e.title)}</a> <span class="muted">${esc(e.source)}</span></div>`));
+    if(lat.length<2)(a.turning_points||[]).slice(-2+lat.length).reverse().forEach(t=>lat.push(`<div class="lt">${esc(t.date)}: ${esc(t.text)} ${srcLink(t.cites)}</div>`));
+    const chips=(sl.groups.length?sl.groups.map(g=>[TG[g].name,TG[g].color]):[]).concat((a.actors||[]).filter(x=>NN[x]&&!sl.groups.some(g=>TG[g].network_id===x)).map(x=>[NN[x].name.split(" (")[0],NC[x]||"#9aa6b8"])).slice(0,4);
+    return `<div class="sc" data-k="${k}"><h4>${esc(sl.title)}</h4><div class="what">${sl.what.map(t=>`${esc(t.text)}<sup class="sup">${srcLink(t.cites)}</sup>`).join(" ")}</div>
+    <div class="tr"><div class="muted">${esc(sl.trend.label)}</div>${tr.svg}</div><div class="chips small">${chips.map(([n,c])=>`<span class="chip"><span class="dot" style="background:${c}"></span>${esc(n)}</span>`).join("")}</div>
+    <div class="latest"><b>Latest</b>${lat.join("")||"<div class='muted'>No recent items.</div>"}</div><div class="go">Show on map →</div></div>`}).join("");
+  $("stories").querySelectorAll(".sc").forEach(el=>el.onclick=e=>{if(e.target.closest("a"))return;$("stories").querySelectorAll(".sc").forEach(x=>x.classList.toggle("on",x===el));M.story(ss[+el.dataset.k].storyline)})}

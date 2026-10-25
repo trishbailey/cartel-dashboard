@@ -40,5 +40,47 @@
  "cites": [
   "FINCEN_CMLN_ADV"
  ],
- "log": []
+ "log": [],
+ "storyline": {
+  "order": 7,
+  "title": "Money and China",
+  "what": [
+   {
+    "text": "FinCEN linked about $312bn in suspicious activity from 2020 to 2024 to Chinese money laundering networks; suspicious reports are not proven laundering.",
+    "cites": [
+     "FINCEN_CMLN_FTA"
+    ]
+   },
+   {
+    "text": "Treasury used FEND Off Fentanyl Act orders against three Mexican financial firms in June 2025.",
+    "cites": [
+     "TREAS_2313A"
+    ]
+   }
+  ],
+  "groups": [],
+  "view": [
+   -118,
+   14,
+   -86,
+   33
+  ],
+  "layers": [
+   "money",
+   "china"
+  ],
+  "trend": {
+   "kind": "headlines",
+   "match": [
+    "lavado",
+    "laundering",
+    "fincen",
+    "treasury",
+    "tesoro",
+    "china",
+    "chino"
+   ],
+   "label": "Headlines in the feed on money and China, by day"
+  }
+ }
 }

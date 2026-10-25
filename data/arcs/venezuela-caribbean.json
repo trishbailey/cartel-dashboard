@@ -44,5 +44,44 @@
   "IC_SOLES",
   "CRS_MADURO"
  ],
- "log": []
+ "log": [],
+ "storyline": {
+  "order": 5,
+  "title": "Venezuela and Tren de Aragua",
+  "what": [
+   {
+    "text": "Maduro is in US custody, and Reuters reported a proposed June 2027 trial start.",
+    "cites": [
+     "DOJ_MADURO",
+     "REUTERS_MADURO_TRIAL"
+    ]
+   },
+   {
+    "text": "Just Security counted 71 US strikes on alleged drug boats and 238 people killed by 4 October 2026, based largely on official US claims.",
+    "cites": [
+     "JS_STRIKES"
+    ]
+   }
+  ],
+  "groups": [
+   "tda"
+  ],
+  "view": [
+   -85,
+   0,
+   -58,
+   16
+  ],
+  "trend": {
+   "kind": "headlines",
+   "match": [
+    "venezuela",
+    "maduro",
+    "tren de aragua",
+    "caribe",
+    "caribbean"
+   ],
+   "label": "Headlines in the feed mentioning Venezuela, by day"
+  }
+ }
 }

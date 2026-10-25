@@ -45,6 +45,14 @@ Commit exactly one file, `data/reasoner/<today>.json`:
  ]}
 ```
 
+### Storyline cards and the situation overview
+
+Seven arcs carry a `storyline` block (`sinaloa-war`, `cjng`, `border-fentanyl`, `ecuador`, `venezuela-caribbean`, `colombia`, `money`). Each card's 2-sentence "what's happening" line lives in `storyline.what`, and its "Latest" items come from the arc's `log`, which `apply.py` appends from `arc_updates`.
+
+- To refresh a card, add an `arc_updates` entry for that arc with `text` and `cites` (this becomes a Latest item) and, only when the record shows a change, `"what_happening": [{"text": "...", "cites": ["E3"]}, {"text": "...", "cites": ["E9"]}]`. It replaces `storyline.what` and must stay at 2 sentences.
+- Every sentence carries its own cites. Describe what happened and what the record shows; when an actor's claim diverges from its actions, say so. The banned predictive words apply.
+- The situation overview (`data/overview.json`) is edited by hand after review, not by the routine.
+
 Rules:
 
 - Write 4-8 analysis items. Cover the most consequential events of the day, and include at least two items led by Mexican or Latin American local media.

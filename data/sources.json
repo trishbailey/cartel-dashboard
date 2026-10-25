@@ -513,6 +513,134 @@
    "url": "https://insightcrime.org/paraguay-organized-crime-news/paraguay/",
    "date": "2026",
    "type": "analysis"
+  },
+  {
+   "id": "CBP_SEIZ_CSV",
+   "title": "Nationwide drug seizures, FY2023-FY2026 (monthly CSV by region and area of responsibility)",
+   "publisher": "US Customs and Border Protection",
+   "url": "https://www.cbp.gov/document/stats/nationwide-drug-seizures",
+   "date": "2026-09",
+   "type": "official"
+  },
+  {
+   "id": "CDC_VSRR",
+   "title": "VSRR provisional drug overdose death counts (dataset xkb8-kh2a)",
+   "publisher": "CDC National Center for Health Statistics",
+   "url": "https://data.cdc.gov/resource/xkb8-kh2a.json",
+   "date": "2026-10",
+   "type": "official"
+  },
+  {
+   "id": "CDC_VSRR_PAGE",
+   "title": "Provisional drug overdose death counts",
+   "publisher": "CDC National Center for Health Statistics",
+   "url": "https://www.cdc.gov/nchs/nvss/vsrr/drug-overdose-data.htm",
+   "date": "2026-10",
+   "type": "official"
+  },
+  {
+   "id": "SESNSP_VIC",
+   "title": "Datos abiertos de incidencia delictiva: victims of crime by state (fuero común)",
+   "publisher": "SESNSP",
+   "url": "https://www.gob.mx/sesnsp/acciones-y-programas/datos-abiertos-de-incidencia-delictiva",
+   "date": "2026-10",
+   "type": "official"
+  },
+  {
+   "id": "ELCRIMEN",
+   "title": "Public mirror of SESNSP state victims data (nm-estatal-victimas.csv.gz)",
+   "publisher": "elcri.men / Diego Valle-Jones",
+   "url": "https://elcri.men/datos.html",
+   "date": "2026-10",
+   "type": "data"
+  },
+  {
+   "id": "INEGI_CENSO20",
+   "title": "Censo de Población y Vivienda 2020",
+   "publisher": "INEGI",
+   "url": "https://www.inegi.org.mx/programas/ccpv/2020/",
+   "date": "2021-01-25",
+   "type": "official"
+  },
+  {
+   "id": "REDLUPA_RNPDNO",
+   "title": "Informe nacional de personas desaparecidas (Red Lupa)",
+   "publisher": "IMDHD / Red Lupa",
+   "url": "https://imdhd.org/redlupa/informes-y-analisis/informes-nacionales/informe-nacional-de-personas-desaparecidas/",
+   "date": "2026-05-16",
+   "type": "analysis"
+  },
+  {
+   "id": "UNOTV_RNPDNO",
+   "title": "Estados con mayor y menor incidencia de desaparecidos en México",
+   "publisher": "UnoTV",
+   "url": "https://www.unotv.com/nacional/estados-mayor-menor-incidencia-de-desaparecidos-en-mexico/",
+   "date": "2026-05",
+   "type": "media"
+  },
+  {
+   "id": "DATACIVICA_DESAP",
+   "title": "Disappearances data and the 2026 RNPDNO reclassification",
+   "publisher": "Data Cívica",
+   "url": "https://datacivica.org/",
+   "date": "2026-08-16",
+   "type": "analysis"
+  },
+  {
+   "id": "CEIEG_ENVIPE",
+   "title": "ENVIPE compilation: extortion per 100,000 by state",
+   "publisher": "CEIEG Sinaloa",
+   "url": "https://ceieg.sinaloa.gob.mx/eBooks/envipe/files/basic-html/page5.html",
+   "date": "2025",
+   "type": "official"
+  },
+  {
+   "id": "INEGI_ENVIPE25",
+   "title": "ENVIPE 2025 results report",
+   "publisher": "INEGI",
+   "url": "https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2025/ENVIPE/ENVIPE_25_RR.pdf",
+   "date": "2025-09-18",
+   "type": "official"
+  },
+  {
+   "id": "UNOTV_ALCALDES",
+   "title": "Ya son 14 los alcaldes asesinados en lo que va de la actual administración",
+   "publisher": "UnoTV",
+   "url": "https://www.unotv.com/nacional/van-13-alcaldes-asesinados-en-mexico-durante-la-reciente-administracion-recuento-de-2024-a-2026/",
+   "date": "2026-07-22",
+   "type": "media"
+  },
+  {
+   "id": "ETCETERA_PERIODISTAS",
+   "title": "Periodistas y comunicadores asesinados en el sexenio de Claudia Sheinbaum",
+   "publisher": "Revista Etcétera",
+   "url": "https://etcetera.com.mx/artculos/periodistas-comunicadores-asesinados-sexenio-sheinbaum/",
+   "date": "2026-07-04",
+   "type": "media"
+  },
+  {
+   "id": "ELPAIS_PERIODISTAS26",
+   "title": "México lleva ocho periodistas asesinados en lo que va de 2026",
+   "publisher": "El País",
+   "url": "https://elpais.com/mexico/2026-08-31/mexico-lleva-ocho-periodistas-asesinados-en-lo-que-va-de-2026.html",
+   "date": "2026-08-31",
+   "type": "media"
+  },
+  {
+   "id": "A19_PERIODISTAS",
+   "title": "Periodistas asesinadas/os en México",
+   "publisher": "ARTICLE 19 México y Centroamérica",
+   "url": "https://articulo19.org/periodistasasesinados/",
+   "date": "2026-07-22",
+   "type": "analysis"
+  },
+  {
+   "id": "ACLED_ACCESS",
+   "title": "ACLED data access (API requires a registered key)",
+   "publisher": "ACLED",
+   "url": "https://acleddata.com/data-export-tool/",
+   "date": "2026",
+   "type": "data"
   }
  ]
 }
