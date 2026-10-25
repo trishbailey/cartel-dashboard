@@ -5,13 +5,37 @@
    "source": "El Universal",
    "country": "MX",
    "local": true,
+   "title": "Cae en Iguala líder regional y operador financiero de \"Los Tlacos\", célula delictiva de Guerrero",
+   "url": "https://www.eluniversal.com.mx/nacion/cae-en-iguala-lider-regional-y-operador-financiero-de-los-tlacos-celula-delictiva-de-guerrero/",
+   "snippet": "A los tres detenidos se les acusa por el delito de extorsión agravada a comerciantes locales",
+   "date": "2026-10-25",
+   "via": "rss",
+   "theatre": "mexico",
+   "id": "E1"
+  },
+  {
+   "source": "El Universal",
+   "country": "MX",
+   "local": true,
+   "title": "Iglesia expresa preocupación por captación de niñas, niños y adolescentes en México; llama a protegerlos del crimen organizado",
+   "url": "https://www.eluniversal.com.mx/nacion/iglesia-expresa-preocupacion-por-captacion-de-ninas-ninos-y-adolescentes-en-mexico-llama-a-protegerlos-del-crimen-organizado/",
+   "snippet": "La institución religiosa hizo un llamado a crear un registro oficial y crear espacios seguros desde la familia, la escuela y la comunidad",
+   "date": "2026-10-25",
+   "via": "rss",
+   "theatre": "mexico",
+   "id": "E2"
+  },
+  {
+   "source": "El Universal",
+   "country": "MX",
+   "local": true,
    "title": "Asesinan a una mujer y hieren de gravedad a un hombre en Escuinapa; suman 19 víctimas en octubre en Sinaloa",
    "url": "https://www.eluniversal.com.mx/estados/asesinan-a-una-mujer-y-hieren-de-gravedad-a-un-hombre-en-escuinapa-suman-19-victimas-en-octubre-en-sinaloa/",
    "snippet": "La pareja fue atacada a balazos en la colonia Ampliación Benito Juárez; fuerzas federales y estatales desplegaron un operativo para localizar a los responsables, quienes lograron escapar",
    "date": "2026-10-25",
    "via": "rss",
    "theatre": "mexico",
-   "id": "E1"
+   "id": "E3"
   },
   {
    "source": "El Universal",
@@ -23,19 +47,7 @@
    "date": "2026-10-25",
    "via": "rss",
    "theatre": "region",
-   "id": "E2"
-  },
-  {
-   "source": "El Universal",
-   "country": "MX",
-   "local": true,
-   "title": "Sinaloa registra cuatro asesinatos y un ataque a balazos; matan a supervisor operativo del C4i en Mazatlán",
-   "url": "https://www.eluniversal.com.mx/estados/sinaloa-registra-cuatro-asesinatos-y-un-ataque-a-balazos-matan-a-supervisor-operativo-del-c4i-en-mazatlan/",
-   "snippet": "Los hechos violentos ocurrieron en distintos puntos de Culiacán y Mazatlán; entre las víctimas hay un funcionario de seguridad y un hombre de 53 años que había sido reportado como desaparecido",
-   "date": "2026-10-25",
-   "via": "rss",
-   "theatre": "mexico",
-   "id": "E3"
+   "id": "E4"
   },
   {
    "source": "La Jornada (estados)",
@@ -47,7 +59,7 @@
    "date": "2026-10-25",
    "via": "rss",
    "theatre": "mexico",
-   "id": "E4"
+   "id": "E5"
   },
   {
    "source": "Zeta Tijuana",
@@ -59,7 +71,7 @@
    "date": "2026-10-25",
    "via": "rss",
    "theatre": "mexico",
-   "id": "E5"
+   "id": "E6"
   },
   {
    "source": "Infobae America",
@@ -71,7 +83,7 @@
    "date": "2026-10-25",
    "via": "rss",
    "theatre": "venezuela-caribbean",
-   "id": "E6"
+   "id": "E7"
   },
   {
    "source": "Infobae America",
@@ -83,7 +95,7 @@
    "date": "2026-10-25",
    "via": "rss",
    "theatre": "mexico",
-   "id": "E7"
+   "id": "E8"
   },
   {
    "source": "Infobae America",
@@ -95,7 +107,7 @@
    "date": "2026-10-25",
    "via": "rss",
    "theatre": "border",
-   "id": "E8"
+   "id": "E9"
   },
   {
    "source": "Infobae America",
@@ -107,7 +119,7 @@
    "date": "2026-10-25",
    "via": "rss",
    "theatre": "region",
-   "id": "E9"
+   "id": "E10"
   },
   {
    "source": "Infobae America",
@@ -119,7 +131,7 @@
    "date": "2026-10-25",
    "via": "rss",
    "theatre": "central-america",
-   "id": "E10"
+   "id": "E11"
   },
   {
    "source": "Infobae America",
@@ -131,7 +143,7 @@
    "date": "2026-10-25",
    "via": "rss",
    "theatre": "venezuela-caribbean",
-   "id": "E11"
+   "id": "E12"
   },
   {
    "source": "Infobae America",
@@ -143,7 +155,7 @@
    "date": "2026-10-25",
    "via": "rss",
    "theatre": "andes",
-   "id": "E12"
+   "id": "E13"
   },
   {
    "source": "Infobae America",
@@ -155,7 +167,7 @@
    "date": "2026-10-25",
    "via": "rss",
    "theatre": "money",
-   "id": "E13"
+   "id": "E14"
   },
   {
    "source": "Infobae America",
@@ -167,7 +179,7 @@
    "date": "2026-10-25",
    "via": "rss",
    "theatre": "central-america",
-   "id": "E14"
+   "id": "E15"
   },
   {
    "source": "Infobae America",
@@ -179,7 +191,7 @@
    "date": "2026-10-25",
    "via": "rss",
    "theatre": "region",
-   "id": "E15"
+   "id": "E16"
   },
   {
    "source": "Infobae America",
@@ -191,7 +203,7 @@
    "date": "2026-10-25",
    "via": "rss",
    "theatre": "central-america",
-   "id": "E16"
+   "id": "E17"
   },
   {
    "source": "Infobae America",
@@ -203,7 +215,7 @@
    "date": "2026-10-25",
    "via": "rss",
    "theatre": "region",
-   "id": "E17"
+   "id": "E18"
   },
   {
    "source": "excelsior.com.mx",
@@ -215,7 +227,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E18"
+   "id": "E19"
   },
   {
    "source": "heraldodemexico.com.mx",
@@ -227,7 +239,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E19"
+   "id": "E20"
   },
   {
    "source": "diariocambio22.mx",
@@ -239,7 +251,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E20"
+   "id": "E21"
   },
   {
    "source": "infobae.com",
@@ -251,7 +263,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E21"
+   "id": "E22"
   },
   {
    "source": "infobae.com",
@@ -263,7 +275,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E22"
+   "id": "E23"
   },
   {
    "source": "infobae.com",
@@ -275,7 +287,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E23"
+   "id": "E24"
   },
   {
    "source": "jornada.com.mx",
@@ -287,7 +299,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E24"
+   "id": "E25"
   },
   {
    "source": "infobae.com",
@@ -299,7 +311,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E25"
+   "id": "E26"
   },
   {
    "source": "ejecentral.com.mx",
@@ -311,7 +323,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E26"
+   "id": "E27"
   },
   {
    "source": "eluniversal.com.mx",
@@ -323,7 +335,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E27"
+   "id": "E28"
   },
   {
    "source": "elcongresista.mx",
@@ -335,7 +347,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E28"
+   "id": "E29"
   },
   {
    "source": "noticiaspvnayarit.com.mx",
@@ -347,7 +359,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E29"
+   "id": "E30"
   },
   {
    "source": "infobae.com",
@@ -359,7 +371,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "china",
-   "id": "E30"
+   "id": "E31"
   },
   {
    "source": "anbariloche.com.ar",
@@ -371,7 +383,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "china",
-   "id": "E31"
+   "id": "E32"
   },
   {
    "source": "infobae.com",
@@ -383,7 +395,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "venezuela-caribbean",
-   "id": "E32"
+   "id": "E33"
   },
   {
    "source": "infobae.com",
@@ -395,7 +407,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "venezuela-caribbean",
-   "id": "E33"
+   "id": "E34"
   },
   {
    "source": "biobiochile.cl",
@@ -407,7 +419,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "venezuela-caribbean",
-   "id": "E34"
+   "id": "E35"
   },
   {
    "source": "elobservador.com.uy",
@@ -419,7 +431,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "andes",
-   "id": "E35"
+   "id": "E36"
   },
   {
    "source": "extra.ec",
@@ -431,7 +443,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "andes",
-   "id": "E36"
+   "id": "E37"
   },
   {
    "source": "metroecuador.com.ec",
@@ -443,7 +455,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "andes",
-   "id": "E37"
+   "id": "E38"
   },
   {
    "source": "extra.ec",
@@ -455,7 +467,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "andes",
-   "id": "E38"
+   "id": "E39"
   },
   {
    "source": "extra.ec",
@@ -467,7 +479,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "andes",
-   "id": "E39"
+   "id": "E40"
   },
   {
    "source": "metroecuador.com.ec",
@@ -479,7 +491,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "andes",
-   "id": "E40"
+   "id": "E41"
   },
   {
    "source": "extra.ec",
@@ -491,7 +503,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "andes",
-   "id": "E41"
+   "id": "E42"
   },
   {
    "source": "rpp.pe",
@@ -503,7 +515,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "andes",
-   "id": "E42"
+   "id": "E43"
   },
   {
    "source": "infobae.com",
@@ -515,7 +527,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "andes",
-   "id": "E43"
+   "id": "E44"
   },
   {
    "source": "infobae.com",
@@ -527,7 +539,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "andes",
-   "id": "E44"
+   "id": "E45"
   },
   {
    "source": "elobservador.com.uy",
@@ -539,19 +551,19 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "brazil",
-   "id": "E45"
+   "id": "E46"
   },
   {
-   "source": "elobservador.com.uy",
-   "country": "UY",
+   "source": "revistaforum.com.br",
+   "country": "BR",
    "local": true,
-   "title": "Estamos observando: Trump evita dar su apoyo a alguno de los candidatos al balotaje en Brasil",
-   "url": "https://elobservador.com.uy/estados-unidos/america-latina/estamos-observando-trump-evita-dar-su-apoyo-alguno-los-candidatos-al-balotaje-brasil-n6061611",
-   "snippet": "Flávio Bolsonaro ya declaró que, ... como terroristas a los dos principales grupos del crimen organizado, el Primeiro Comando da Capital (PCC) y el Comando Vermelho (CV)....",
+   "title": "Revelando expõe como política de armas de Bolsonaro fortaleceu facções - Revista Fórum",
+   "url": "https://revistaforum.com.br/politica/politica-de-armas-de-bolsonaro",
+   "snippet": "O estudo, noticiado pela Revista Fórum neste sábado, identificou episódios envolvendo organizações como o Primeiro Comando da Capital (PCC), o Comando Vermelho (CV) e milícias.",
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "brazil",
-   "id": "E46"
+   "id": "E47"
   },
   {
    "source": "riodoce.mx",
@@ -563,7 +575,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E47"
+   "id": "E48"
   },
   {
    "source": "riodoce.mx",
@@ -575,7 +587,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "brazil",
-   "id": "E48"
+   "id": "E49"
   },
   {
    "source": "primicias.ec",
@@ -587,7 +599,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "andes",
-   "id": "E49"
+   "id": "E50"
   },
   {
    "source": "primicias.ec",
@@ -599,7 +611,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "andes",
-   "id": "E50"
+   "id": "E51"
   },
   {
    "source": "primicias.ec",
@@ -611,7 +623,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "brazil",
-   "id": "E51"
+   "id": "E52"
   },
   {
    "source": "primicias.ec",
@@ -623,7 +635,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "andes",
-   "id": "E52"
+   "id": "E53"
   },
   {
    "source": "primicias.ec",
@@ -635,7 +647,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "andes",
-   "id": "E53"
+   "id": "E54"
   },
   {
    "source": "mvsnoticias.com",
@@ -647,7 +659,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E54"
+   "id": "E55"
   },
   {
    "source": "elimparcial.com",
@@ -659,7 +671,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E55"
+   "id": "E56"
   },
   {
    "source": "tvazteca.com",
@@ -671,7 +683,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E56"
+   "id": "E57"
   },
   {
    "source": "changoonga.com",
@@ -683,7 +695,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E57"
+   "id": "E58"
   },
   {
    "source": "diario-red.com",
@@ -695,7 +707,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "china",
-   "id": "E58"
+   "id": "E59"
   },
   {
    "source": "clarin.com",
@@ -707,7 +719,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "money",
-   "id": "E59"
+   "id": "E60"
   },
   {
    "source": "milenio.com",
@@ -719,7 +731,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E60"
+   "id": "E61"
   },
   {
    "source": "kucoin.com",
@@ -731,7 +743,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "money",
-   "id": "E61"
+   "id": "E62"
   },
   {
    "source": "foxnews.com",
@@ -743,7 +755,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E62"
+   "id": "E63"
   },
   {
    "source": "theguardian.com",
@@ -755,7 +767,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "venezuela-caribbean",
-   "id": "E63"
+   "id": "E64"
   },
   {
    "source": "nacion.com",
@@ -767,7 +779,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "venezuela-caribbean",
-   "id": "E64"
+   "id": "E65"
   },
   {
    "source": "tampafp.com",
@@ -779,7 +791,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "venezuela-caribbean",
-   "id": "E65"
+   "id": "E66"
   },
   {
    "source": "newsy-today.com",
@@ -791,7 +803,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "venezuela-caribbean",
-   "id": "E66"
+   "id": "E67"
   },
   {
    "source": "co.headtopics.com",
@@ -803,7 +815,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "andes",
-   "id": "E67"
+   "id": "E68"
   },
   {
    "source": "riotimesonline.com",
@@ -815,7 +827,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "andes",
-   "id": "E68"
+   "id": "E69"
   },
   {
    "source": "semana.com",
@@ -827,7 +839,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "andes",
-   "id": "E69"
+   "id": "E70"
   },
   {
    "source": "diariolalibertad.com",
@@ -839,7 +851,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "andes",
-   "id": "E70"
+   "id": "E71"
   },
   {
    "source": "eltiempo.com",
@@ -851,7 +863,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "andes",
-   "id": "E71"
+   "id": "E72"
   },
   {
    "source": "eltiempo.com",
@@ -863,7 +875,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "andes",
-   "id": "E72"
+   "id": "E73"
   },
   {
    "source": "semana.com",
@@ -875,7 +887,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "andes",
-   "id": "E73"
+   "id": "E74"
   },
   {
    "source": "archive.ph",
@@ -887,7 +899,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "andes",
-   "id": "E74"
+   "id": "E75"
   },
   {
    "source": "dw.com",
@@ -899,7 +911,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "andes",
-   "id": "E75"
+   "id": "E76"
   },
   {
    "source": "elcolombiano.com",
@@ -911,7 +923,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "andes",
-   "id": "E76"
+   "id": "E77"
   },
   {
    "source": "eltiempo.com",
@@ -923,7 +935,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "andes",
-   "id": "E77"
+   "id": "E78"
   },
   {
    "source": "semana.com",
@@ -935,7 +947,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "andes",
-   "id": "E78"
+   "id": "E79"
   },
   {
    "source": "yahoo.com",
@@ -944,18 +956,6 @@
    "title": "Inside the Trump-administration campaign to return Brazil’s Bolsonaro clan to power",
    "url": "https://yahoo.com/news/politics/articles/inside-trump-administration-campaign-return-214506018.html",
    "snippet": "Nearly a year later, in May 2026 ... Deputy Secretary of State Christopher Landau in Washington to discuss \"the urgency of designating the ‌PCC and the Comando Vermelho as foreign terrorist organizations,\" according to an X post by right-wing influencer Paulo Figueiredo that ...",
-   "date": "2026-10-25",
-   "via": "brave",
-   "theatre": "brazil",
-   "id": "E79"
-  },
-  {
-   "source": "g1.globo.com",
-   "country": "",
-   "local": false,
-   "title": "Em 10 anos, Sou da Paz identifica 92 casos de CACs ligados ao PCC e CV | G1",
-   "url": "https://g1.globo.com/sp/sao-paulo/noticia/2026/10/24/em-10-anos-sou-da-paz-identifica-92-casos-de-cacs-ligados-ao-pcc-cv-milicias-e-outras-faccoes-no-brasil.ghtml",
-   "snippet": "Os casos envolvem o Primeiro Comando da Capital (PCC), Comando Vermelho (CV), milícias, grupos de extermínio, facções regionais e quadrilhas especializadas em roubos a banco. Eles estão distribuídos por 21 estados.",
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "brazil",
@@ -974,6 +974,18 @@
    "id": "E81"
   },
   {
+   "source": "g1.globo.com",
+   "country": "",
+   "local": false,
+   "title": "Em 10 anos, Sou da Paz identifica 92 casos de CACs ligados ao PCC e CV | G1",
+   "url": "https://g1.globo.com/sp/sao-paulo/noticia/2026/10/24/em-10-anos-sou-da-paz-identifica-92-casos-de-cacs-ligados-ao-pcc-cv-milicias-e-outras-faccoes-no-brasil.ghtml",
+   "snippet": "Os casos envolvem o Primeiro Comando da Capital (PCC), Comando Vermelho (CV), milícias, grupos de extermínio, facções regionais e quadrilhas especializadas em roubos a banco. Eles estão distribuídos por 21 estados.",
+   "date": "2026-10-25",
+   "via": "brave",
+   "theatre": "brazil",
+   "id": "E82"
+  },
+  {
    "source": "listindiario.com",
    "country": "",
    "local": false,
@@ -983,7 +995,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "brazil",
-   "id": "E82"
+   "id": "E83"
   },
   {
    "source": "bbc.com",
@@ -995,7 +1007,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "brazil",
-   "id": "E83"
+   "id": "E84"
   },
   {
    "source": "ambito.com",
@@ -1007,7 +1019,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "brazil",
-   "id": "E84"
+   "id": "E85"
   },
   {
    "source": "as.com",
@@ -1019,7 +1031,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "brazil",
-   "id": "E85"
+   "id": "E86"
   },
   {
    "source": "telesurtv.net",
@@ -1031,7 +1043,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "brazil",
-   "id": "E86"
+   "id": "E87"
   },
   {
    "source": "dcnewsnow.com",
@@ -1043,7 +1055,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "border",
-   "id": "E87"
+   "id": "E88"
   },
   {
    "source": "thetravel.com",
@@ -1055,7 +1067,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "border",
-   "id": "E88"
+   "id": "E89"
   },
   {
    "source": "hashtaginvesting.com",
@@ -1067,7 +1079,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "border",
-   "id": "E89"
+   "id": "E90"
   },
   {
    "source": "hoodline.com",
@@ -1079,7 +1091,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "border",
-   "id": "E90"
+   "id": "E91"
   },
   {
    "source": "people.com",
@@ -1091,7 +1103,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "border",
-   "id": "E91"
+   "id": "E92"
   },
   {
    "source": "milenio.com",
@@ -1103,7 +1115,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E92"
+   "id": "E93"
   },
   {
    "source": "milenio.com",
@@ -1115,7 +1127,19 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E93"
+   "id": "E94"
+  },
+  {
+   "source": "milenio.com",
+   "country": "",
+   "local": false,
+   "title": "Vinculan proceso El Talibán delitos Ley Federal Armas Fuego Explosivos- Grupo Milenio",
+   "url": "https://www.milenio.com/policia/vinculan-proceso-el-taliban-delitos-ley-federal-armas-fuego-explosivos",
+   "snippet": "Extraditan desde Costa Rica a EU a tres presuntos operadores del Cártel de Sinaloa; traficaban cocaína a bordo de un yate · La cacería de ‘Carlitos Rugrats’: de la acusación por narcoterrorismo al arresto de sus familiares en Laguna Colorada ... La redacción de Milenio está compuesta por ...",
+   "date": "2026-10-25",
+   "via": "brave",
+   "theatre": "mexico",
+   "id": "E95"
   },
   {
    "source": "milenio.com",
@@ -1127,7 +1151,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E94"
+   "id": "E96"
   },
   {
    "source": "milenio.com",
@@ -1139,19 +1163,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E95"
-  },
-  {
-   "source": "milenio.com",
-   "country": "",
-   "local": false,
-   "title": "Vinculan proceso El Talibán delitos Ley Federal Armas Fuego Explosivos- Grupo Milenio",
-   "url": "https://milenio.com/policia/vinculan-proceso-el-taliban-delitos-ley-federal-armas-fuego-explosivos",
-   "snippet": "Extraditan desde Costa Rica a EU a tres presuntos operadores del Cártel de Sinaloa; traficaban cocaína a bordo de un yate · La cacería de ‘Carlitos Rugrats’: de la acusación por narcoterrorismo al arresto de sus familiares en Laguna Colorada ... La redacción de Milenio está compuesta por ...",
-   "date": "2026-10-25",
-   "via": "brave",
-   "theatre": "mexico",
-   "id": "E96"
+   "id": "E97"
   },
   {
    "source": "amp.milenio.com",
@@ -1163,7 +1175,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E97"
+   "id": "E98"
   },
   {
    "source": "milenio.com",
@@ -1175,7 +1187,7 @@
    "date": "2026-10-25",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E98"
+   "id": "E99"
   },
   {
    "source": "Borderland Beat",
@@ -1187,7 +1199,7 @@
    "date": "2026-10-24",
    "via": "rss",
    "theatre": "border",
-   "id": "E99"
+   "id": "E100"
   },
   {
    "source": "Borderland Beat",
@@ -1199,7 +1211,7 @@
    "date": "2026-10-24",
    "via": "rss",
    "theatre": "mexico",
-   "id": "E100"
+   "id": "E101"
   },
   {
    "source": "InSight Crime",
@@ -1211,7 +1223,7 @@
    "date": "2026-10-23",
    "via": "rss",
    "theatre": "venezuela-caribbean",
-   "id": "E101"
+   "id": "E102"
   },
   {
    "source": "InSight Crime (es)",
@@ -1223,7 +1235,7 @@
    "date": "2026-10-23",
    "via": "rss",
    "theatre": "venezuela-caribbean",
-   "id": "E102"
+   "id": "E103"
   },
   {
    "source": "Borderland Beat",
@@ -1235,7 +1247,7 @@
    "date": "2026-10-22",
    "via": "rss",
    "theatre": "mexico",
-   "id": "E103"
+   "id": "E104"
   },
   {
    "source": "Borderland Beat",
@@ -1247,7 +1259,7 @@
    "date": "2026-10-22",
    "via": "rss",
    "theatre": "border",
-   "id": "E104"
+   "id": "E105"
   }
  ],
  "arc_context": {
