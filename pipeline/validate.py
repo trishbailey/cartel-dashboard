@@ -106,6 +106,58 @@ def check_reasoner(path):
 
 for p in sorted(glob.glob(os.path.join(D, "reasoner/*.json")))[-3:]: check_reasoner(p)
 
+# xfeed (X posts, written by the Grok Bot routine): verified accounts only, valid region/group ids, a post URL each
+_xf = os.path.join(D, "xfeed.json")
+if os.path.exists(_xf):
+    _x = json.load(open(_xf, encoding="utf-8"))
+    _gz = load("gazetteer.json")
+    _ok_handles = {k.lower() for k, v in _gz["accounts"].items() if v.get("tier") == "verified"}
+    _bad_handles = {h.lower() for h in _gz.get("excluded_accounts", [])}
+    _xg = _gids | gids
+    _seen = set()
+    for p in _x.get("posts", []):
+        w = f"xfeed {p.get('id')}"
+        if p.get("id") in _seen: err(f"{w}: duplicate id")
+        _seen.add(p.get("id"))
+        for k in ("id", "handle", "url", "created_at", "text", "lang", "tier", "source_type"):
+            if not p.get(k): err(f"{w}: missing {k}")
+        if p.get("tier") != "verified": err(f"{w}: tier must be 'verified' (unverified sources are not allowed)")
+        h = (p.get("handle") or "").lower()
+        if h in _bad_handles or h not in _ok_handles: err(f"{w}: handle @{p.get('handle')} is not on the verified account list")
+        if not re.match(r"^https://x\.com/[A-Za-z0-9_]{1,15}/status/\d+$", p.get("url", "")): err(f"{w}: bad url")
+        if not (p.get("region_ids") or p.get("group_ids")): err(f"{w}: no region or group tag")
+        for r in p.get("region_ids", []):
+            if _ids is not None and r not in _ids: err(f"{w}: unknown region {r}")
+        for g in p.get("group_ids", []):
+            if g not in _xg: err(f"{w}: unknown group {g}")
+        if p.get("source_type") == "official" and p.get("label") != "Official statement": err(f"{w}: official post must be labelled 'Official statement'")
+
+# breaking (pipeline/breaking.py): professional outlets/officials only, status must follow the rules, every source has a URL
+_bk = os.path.join(D, "breaking.json")
+_ok_handles = {k.lower() for k, v in load("gazetteer.json")["accounts"].items() if v.get("tier") == "verified"}
+if os.path.exists(_bk):
+    _b = json.load(open(_bk, encoding="utf-8"))
+    _ol = {o["id"]: o for o in load("outlets.json")["outlets"]}
+    for e in _b.get("events", []):
+        w = f"breaking {e.get('id')}"
+        if not e.get("sources"): err(f"{w}: no sources"); continue
+        for s in e["sources"]:
+            if s.get("outlet") not in _ol: err(f"{w}: source outlet {s.get('outlet')} not in outlets.json")
+            elif s.get("kind") != _ol[s["outlet"]]["kind"]: err(f"{w}: source kind mismatch")
+            if not str(s.get("url", "")).startswith("https://"): err(f"{w}: source without https url")
+            if is_cn(s.get("url", "")): err(f"{w}: .cn source")
+            h = re.match(r"^https://x\.com/([^/]+)/", s.get("url", ""))
+            if h and h.group(1).lower() not in _ok_handles: err(f"{w}: X source @{h.group(1)} not verified")
+        outs = {s["outlet"] for s in e["sources"] if s.get("kind") == "outlet"}
+        offs = {s["outlet"] for s in e["sources"] if s.get("kind") == "official"}
+        want = "confirmed" if (len(outs) >= 2 or (offs and outs)) else ("single_source" if outs else "official_claim_only")
+        if e.get("status") != want: err(f"{w}: status {e.get('status')} should be {want}")
+        for r in e.get("region_ids", []):
+            if _ids is not None and r not in _ids: err(f"{w}: unknown region {r}")
+        for g in e.get("group_ids", []):
+            if g not in (_gids | gids): err(f"{w}: unknown group {g}")
+        if not e.get("first_report"): err(f"{w}: no first_report")
+
 if errs:
     print("\n".join("ERROR " + e for e in errs)); sys.exit(1)
 print(f"valid: {len(src)} sources, {len(net['groups'])} groups, {len(net['edges'])} edges, {len(ev['events'])} events")
