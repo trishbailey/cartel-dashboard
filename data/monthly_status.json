@@ -1,0 +1,17 @@
+{
+ "run": "2026-10-25T23:49Z",
+ "sources": {
+  "cbp": {
+   "ok": false,
+   "error": "HTTP Error 403: Forbidden"
+  },
+  "cdc_vsrr": {
+   "ok": true,
+   "range": "2015-01..2026-05"
+  },
+  "sesnsp": {
+   "ok": false,
+   "error": "SESNSP files not reachable (Akamai 403 or not published)"
+  }
+ }
+}
