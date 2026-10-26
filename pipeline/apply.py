@@ -34,6 +34,9 @@ if rfiles:
         if u.get("what_happening") and a.get("storyline"): a["storyline"]["what"] = u["what_happening"][:2]; a["storyline"]["updated"] = r["date"]
         save(f"arcs/{u['arc']}.json", a)
 ev["as_of"] = dt.date.today().isoformat()
+try:
+    import tr; tr.fill_events(ev, tr.load()["map"])
+except Exception as e: print("translation fill skipped:", e)
 save("events.json", ev)
 
 base = {"as_of": ev["as_of"], "arcs": {}}

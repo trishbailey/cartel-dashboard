@@ -126,6 +126,9 @@ def main(files):
     out = {"as_of": now.strftime("%Y-%m-%dT%H:%M:%SZ"), "window_days": WINDOW_DAYS,
            "note": "Posts from verified professional, researcher and official X accounts only, tagged to regions and groups by pipeline/tag_x.py. Official accounts are labelled 'Official statement'. Tags are keyword matches and can be wrong; open the post.",
            "accounts": sorted(k for k, v in GAZ["accounts"].items() if v.get("tier") == "verified"), "posts": posts}
+    try:
+        import tr; tr.fill_xfeed(out, tr.load()["map"])
+    except Exception as e: print("translation fill skipped:", e)
     json.dump(out, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"xfeed: {len(posts)} posts in window ({added} new, {skipped} skipped), {len({r for p in posts for r in p['region_ids']})} regions")
 

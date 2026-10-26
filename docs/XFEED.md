@@ -38,7 +38,7 @@ collects posts from the verified accounts, tags them (`pipeline/tag_x.py`), rebu
 ## Steps (exact)
 
 1. `cd /workspace/cartel-dashboard && git pull --rebase` (clone `https://github.com/trishbailey/cartel-dashboard` there if missing).
-   Another worker edits this repo: only ever stage the files listed in step 7.
+   Another worker edits this repo: only ever stage the files listed in step 7. The validator fails if a non-English post or Breaking title lacks English (`text_en` / `title_en`).
 2. `START` = the `as_of` in `data/xfeed.json` minus 30 minutes (ISO 8601 UTC). If the file is missing or older than 7 days, use now minus 7 days.
 3. For each batch B1–B5 call `x` → `search_posts_all` with `query`, `start_time=START`, `max_results=100` (X returns at most 25 per call),
    `sort_order=recency`, `post.fields=created_at,public_metrics,author_id,lang,referenced_tweets,in_reply_to_user_id`,
@@ -47,8 +47,13 @@ collects posts from the verified accounts, tags them (`pipeline/tag_x.py`), rebu
 4. `mkdir -p /tmp/xraw && cp <result files> /tmp/xraw/ && python3 pipeline/tag_x.py /tmp/xraw/*`
    (merges into `data/xfeed.json`, deduplicates by id, keeps 7 days, drops retweets, replies, bare viral clips and untagged posts).
 5. `python3 pipeline/breaking.py` (rebuilds `data/breaking.json` from `xfeed.json` + `events.json`, 48 h window).
+5b. **Translate ($0, no paid API: you translate them yourself).** `python3 pipeline/tr.py todo > /tmp/todo.json` lists every
+   non-English X post, Breaking title and local headline that has no English yet. Write `/tmp/done.json` as
+   `{"<original exactly as listed>": "<English>"}`: faithful, plain English; keep names, aliases (e.g. "El Mayo"), group names and
+   place names as written; do not add or drop facts; drop t.co links. Then `python3 pipeline/tr.py add /tmp/done.json`
+   (stores them in `data/translations.json` and fills `text_en` / `title_en`). It must print `0 left`.
 6. `python3 pipeline/validate.py` must print `valid:`. If it fails, do not commit; fix the data or report the error.
-7. `git add data/xfeed.json data/breaking.json && git commit -m "X feed $(date -u +%FT%H:%MZ)"`, then
+7. `git add data/xfeed.json data/breaking.json data/events.json data/translations.json && git commit -m "X feed $(date -u +%FT%H:%MZ)"`, then
    `git pull --rebase && git push` (retry the pull/rebase once if the push is rejected). Do not use `-X theirs` or force-push.
 8. Every 4th run (or when the gazetteer changes), upload `data/xfeed.json` and `data/gazetteer.json` to the Drive folder
    "Cartel Dashboard" (replace the existing files).

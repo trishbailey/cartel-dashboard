@@ -12,12 +12,10 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Latin America Cartel Dashboard | Beacon Intelligence Group</title>
 <link rel="icon" href="data:,">
-<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="xfeed.css"><link rel="stylesheet" href="leaders.css"></head>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="xfeed.css"><link rel="stylesheet" href="leaders.css"><link rel="stylesheet" href="visual.css"></head>
 <body>
 <header><div><div class="brand"><span class="mark">BEACON</span> INTELLIGENCE GROUP</div><h1>Latin America cartel dashboard</h1></div><div id="asof" class="muted"></div></header>
 <main>
-<section class="tile ovtile"><div class="tilehead"><h2>Situation overview</h2><span class="muted">Click a storyline to zoom and filter the map</span></div><p id="ovtext" class="ovtext"></p><div id="stories" class="stories"></div></section>
-<section id="kpis" class="kpis"></section>
 <section class="tile maptile">
  <div class="tilehead"><h2>Who is active where</h2><span class="muted">Click a state or department. Click a group to show only its footprint.</span></div>
  <div id="grouplegend" class="chips"></div>
@@ -27,6 +25,7 @@
  </div>
  <details class="more"><summary>About this map and gaps in the data</summary><div id="mapnotes"></div></details>
 </section>
+<section id="kpis" class="kpis"></section>
 <section class="row2b">
  <div class="tile"><div class="tilehead"><h2>Homicides in Mexico</h2><span class="muted">SESNSP victims data</span></div><div id="homchart" class="chart"></div><div id="homrank" class="rank"></div><div id="homnote" class="note small"></div></div>
  <div class="tile"><div class="tilehead"><h2>Killings of mayors and journalists</h2><span class="muted">Dated; also a map overlay</span></div><div id="pvtime" class="chart"></div><div id="pvnote" class="note small"></div>
@@ -41,12 +40,13 @@
 </section>
 <section class="row2">
  <div class="tile"><div class="tilehead"><h2>Who's who</h2><span class="muted">Click a card to expand</span></div><div id="cards" class="cards"></div></div>
- <div class="tile ticker"><div class="tilehead"><h2>Latest headlines</h2></div><div id="evfilters" class="chips small"></div><div id="events"></div></div>
+ <div class="tile ticker"><div class="tilehead"><h2>Latest headlines</h2></div><div id="evfilters" class="chips small"></div><div id="events"></div><button class="chip morebtn" onclick="const e=document.getElementById('events');this.textContent=e.classList.toggle('showall')?'show less':'more headlines'">more headlines</button></div>
 </section>
+<section class="tile ovtile"><details class="more" id="storydet"><summary><b>Storylines</b> <span class="muted">· click one to zoom the map</span></summary><p id="ovtext" class="ovtext"></p><div id="stories" class="stories"></div></details></section>
 <section class="tile"><details class="more"><summary>Background by theatre</summary><div id="arcs" class="arcs"></div></details>
-<details class="more"><summary>Source registry</summary><div id="srclist"></div></details></section>
+<h2 id="sources">Sources</h2><ol id="fnlist" class="fnlist"></ol><details class="more"><summary>Full source registry</summary><div id="srclist"></div></details></section>
 </main>
 <aside id="drawer"><button id="dclose" aria-label="Close">×</button><div id="dbody"></div></aside>
 <footer class="muted">Describes and analyzes what has happened; it does not predict or prescribe. Every item links to its source. Data: <a href="https://github.com/trishbailey/cartel-dashboard">github.com/trishbailey/cartel-dashboard</a>. Basemaps: Natural Earth (public domain).</footer>
-<script src="vendor/d3.min.js"></script><script src="vendor/d3-sankey.min.js"></script><script src="vendor/topojson-client.min.js"></script><script src="app.js"></script><script src="xfeed.js"></script><script src="leaders.js"></script>
+<script src="vendor/d3.min.js"></script><script src="vendor/d3-sankey.min.js"></script><script src="vendor/topojson-client.min.js"></script><script src="footnotes.js"></script><script src="app.js"></script><script src="xfeed.js"></script><script src="leaders.js"></script>
 </body></html>

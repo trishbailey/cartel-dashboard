@@ -1,12 +1,15 @@
 const COL={precursors:"#c8a24a",cocaine:"#e6e9ef","fentanyl / methamphetamine":"#ff6b6b",migrants:"#6aa684",firearms:"#b39ddb",cash:"#5b8fd1"};
 const KCOL={rivalry:"#c0504d",alliance:"#6aa684",faction:"#9aa6b8","alleged link":"#c8a24a",service:"#5b8fd1"};
 const LV={dominant:.95,significant:.75,present:.35};
+const LVI={dominant:"●",significant:"◍",present:"○"},LVW={dominant:"Dominant",significant:"Significant",present:"Minor"};
+const shadeG=(c,l)=>l==="dominant"?d3.lab(c).darker(0.7).formatHex():d3.interpolateLab(c,"#ffffff")(l==="significant"?0.42:0.78);
+const swatches=c=>`<div class="lvramp"><span class="muted">less</span>${["present","significant","dominant"].map(l=>`<span class="sw" title="${LVW[l]}" style="background:${shadeG(c,l)}"></span>`).join("")}<span class="muted">more</span></div><div class="muted">${LVI.present} Minor · ${LVI.significant} Significant · ${LVI.dominant} Dominant</div>`;
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const $=id=>document.getElementById(id);
 let SRC={},DM={};const ARCS=["sinaloa-war","cjng","border-fentanyl","ecuador","venezuela-caribbean","colombia","money","mexico","andes","brazil"];
-const cite=ids=>`<div class="cite">Sources: ${(ids||[]).map(i=>{const s=SRC[i];return s?`<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.publisher)}: ${esc(s.title)}</a> (${esc(s.date)})`:esc(i)}).join("; ")}</div>`;
-const srcLink=ids=>ids.map(i=>SRC[i]?`<a href="${esc(SRC[i].url)}" target="_blank" rel="noopener">${esc(SRC[i].publisher)}</a>`:esc(i)).join(", ");
-const links=ls=>`<div class="cite">Sources: ${ls.map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.source)}: ${esc(l.title)}</a>`).join("; ")}</div>`;
+const cite=ids=>FN(ids||[]);
+const srcLink=ids=>FN(ids||[]);
+const links=ls=>FN((ls||[]).map(l=>({url:l.url,name:l.source,title:l.title})));
 const first=s=>{s=String(s||"");const m=s.match(/^.*?[.!?](\s|$)/);return m?m[0]:s};
 function drawer(html){$("dbody").innerHTML=html;$("drawer").classList.add("on")}
 $("dclose").onclick=()=>$("drawer").classList.remove("on");
@@ -32,12 +35,12 @@ function kpis(net,cross,money,events,terr){
   const K=[[fto,"groups tracked here are US-designated FTOs",srcLink(["FTO"])],
    [s.fy2025_border_fentanyl_lb.toLocaleString()+" lb",`fentanyl seized at the US border, FY2025 (${s.change_vs_fy2024_pct}% vs FY2024)`,srcLink(s.cites)],
    ["$"+cm+"bn","suspicious activity linked to Chinese money laundering networks, 2020-24",srcLink(["FINCEN_CMLN_FTA"])],
-   [terr.regions.length,"states and departments with a sourced group footprint",srcLink(["DEA_MAP_SILLA","ACLED_RIFT"])+", InSight Crime"],
-   [today,`headlines in today's feed (${events.as_of})`,`<a href="https://github.com/trishbailey/cartel-dashboard/blob/main/config/sources.yaml" target="_blank" rel="noopener">feed list</a>`]];
-  $("kpis").innerHTML=K.map(k=>`<div class="kpi"><div class="v">${k[0]}</div><div class="l">${k[1]}</div><div class="s">Source: ${k[2]}</div></div>`).join("");
+   [terr.regions.length,"states and departments with a sourced group footprint",srcLink(["DEA_MAP_SILLA","ACLED_RIFT"])],
+   [today,`headlines in today's feed (${events.as_of})`,FN({url:"https://github.com/trishbailey/cartel-dashboard/blob/main/config/sources.yaml",name:"Cartel dashboard",title:"Headline feed list (config/sources.yaml)"})]];
+  $("kpis").innerHTML=K.map(k=>`<div class="kpi"><div class="v">${k[0]}</div><div class="l">${k[1]}</div><div class="s">${k[2]}</div></div>`).join("");
 }
 function mapView(topo,adm,terr,routes,cross,china,GC){
-  const svg=d3.select("#mapsvg"),W=svg.node().parentNode.clientWidth||1200,H=Math.round(Math.max(460,Math.min(W*0.62,window.innerHeight-150)));svg.attr("width",W).attr("height",H).style("height",H+"px");
+  const svg=d3.select("#mapsvg"),W=svg.node().parentNode.clientWidth||1200,H=Math.round(Math.max(460,Math.min(W*0.62,window.innerHeight-250)));svg.attr("width",W).attr("height",H).style("height",H+"px");
   const view=document.createElement("div");view.className="overlay viewbtns";view.innerHTML='<button class="chip on" data-v="mx">Mexico</button><button class="chip" data-v="all">All Latin America</button><button class="chip" data-v="sa">South America</button>';svg.node().parentNode.appendChild(view);
   const proj=d3.geoConicEqualArea().parallels([-15,20]).rotate([78,0]).center([0,-2]).fitExtent([[10,10],[W-10,H-10]],{type:"MultiPoint",coordinates:[[-118,32.7],[-34.8,-7],[-70,-40],[-55,-34],[-81.3,-5]]});
   const path=d3.geoPath(proj),defs=svg.append("defs"),g=svg.append("g");
@@ -49,35 +52,39 @@ function mapView(topo,adm,terr,routes,cross,china,GC){
   view.querySelectorAll("button").forEach(b=>b.onclick=()=>{view.querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b));svg.transition().duration(700).call(zoom.transform,VIEWS[b.dataset.v])});
   g.append("g").selectAll("path").data(topojson.feature(topo,topo.objects.countries).features).join("path").attr("d",path).attr("fill",d=>d.properties.iso==="USA"?"#16243f":"#1b2c4a");
   const pats={};
-  const pattern=cols=>{const k=cols.join("-").replace(/#/g,"");if(pats[k])return pats[k];const w=4*cols.length;
+  const pattern=cols=>{const k=cols.join("-").replace(/#/g,"");if(pats[k])return pats[k];const w=6*cols.length;
     const p=defs.append("pattern").attr("id","p"+k).attr("patternUnits","userSpaceOnUse").attr("width",w).attr("height",w).attr("patternTransform","rotate(45)");
-    cols.forEach((c,i)=>p.append("rect").attr("x",i*4).attr("y",0).attr("width",4).attr("height",w).attr("fill",c));return pats[k]=`url(#p${k})`};
+    cols.forEach((c,i)=>p.append("rect").attr("x",i*6).attr("y",0).attr("width",6).attr("height",w).attr("fill",c));return pats[k]=`url(#p${k})`};
   let filt=null,fset=null,mode="groups";
+  const dotp={};const dots=c=>{const k=c.replace("#","");if(dotp[k])return dotp[k];const p=defs.append("pattern").attr("id","d"+k).attr("patternUnits","userSpaceOnUse").attr("width",7).attr("height",7);
+    p.append("rect").attr("width",7).attr("height",7).attr("fill",c).attr("fill-opacity",.4);p.append("circle").attr("cx",3.5).attr("cy",3.5).attr("r",1.7).attr("fill",c);return dotp[k]=`url(#d${k})`};
+  const shade=(c,l)=>l==="dominant"?d3.lab(c).darker(0.7).formatHex():d3.interpolateLab(c,"#ffffff")(l==="significant"?0.42:0.78);
+  const lvl=(c,l)=>({f:shade(c,l),o:1});
   const style=d=>{if(mode!=="groups")return chor(d);const r=RB[d.properties.id];if(!r)return{f:"#1b2c4a",o:1};
-    if(fset){const e=r.groups.filter(x=>fset.includes(x.group)).sort((a,b)=>LV[b.level]-LV[a.level]);if(!e.length)return{f:"#1b2c4a",o:1};if(e.length===1)return{f:GC[e[0].group].color,o:LV[e[0].level]};return{f:pattern(e.slice(0,3).map(x=>GC[x.group].color)),o:.9}}
-    if(filt){const e=r.groups.find(x=>x.group===filt);return e?{f:GC[filt].color,o:LV[e.level]}:{f:"#1b2c4a",o:1}}
+    if(fset){const e=r.groups.filter(x=>fset.includes(x.group)).sort((a,b)=>LV[b.level]-LV[a.level]);if(!e.length)return{f:"#1b2c4a",o:1};if(e.length===1)return lvl(GC[e[0].group].color,e[0].level);return{f:pattern(e.slice(0,3).map(x=>GC[x.group].color)),o:1}}
+    if(filt){const e=r.groups.find(x=>x.group===filt);return e?lvl(GC[filt].color,e.level):{f:"#1b2c4a",o:1}}
     let heavy=r.groups.filter(x=>x.level!=="present");
     if(r.contested&&r.contested.groups.length>1)heavy=r.contested.groups.map(x=>({group:x}));
     const dom=r.groups.filter(x=>x.level==="dominant");if(dom.length===1&&!(r.contested&&r.contested.groups.length>1))heavy=dom;
-    if(!heavy.length)return{f:GC[r.groups[0].group].color,o:.35};
-    if(heavy.length===1){const c=GC[heavy[0].group].color;return r.contested?{f:pattern([c,"#0b1526"]),o:.95}:{f:c,o:.85}}
-    return{f:pattern(heavy.slice(0,3).map(x=>GC[x.group].color)),o:.9}};
+    if(!heavy.length)return lvl(GC[r.groups[0].group].color,"present");
+    if(heavy.length===1){const c=GC[heavy[0].group].color;return r.contested?{f:pattern([c,"#0b1526"]),o:1}:lvl(c,heavy[0].level||"dominant")}
+    return{f:pattern(heavy.slice(0,3).map(x=>GC[x.group].color)),o:1}};
   const ad=g.append("g").selectAll("path").data(adm.features).join("path").attr("class","adm").attr("d",path).attr("stroke","none").attr("vector-effect","non-scaling-stroke").attr("stroke-width",1.5).style("cursor",d=>RB[d.properties.id]?"pointer":"default")
-    .on("click",(e,d)=>regionShow(d)).on("mouseover",function(){d3.select(this).attr("stroke","#fff").raise()}).on("mouseout",function(){d3.select(this).attr("stroke","none")});
+    .on("click",(e,d)=>regionShow(d)).on("mouseover",function(){d3.select(this).attr("stroke","#fff").raise()}).on("mouseout",function(){d3.select(this).attr("stroke",this.dataset.s||"none")});
   ad.append("title").text(d=>{const r=RB[d.properties.id];return (d.properties.name||"")+(r?": "+r.groups.map(x=>GC[x.group].name).join(", "):"")});
-  const paint=()=>ad.each(function(d){const s=style(d);d3.select(this).attr("fill",s.f).attr("fill-opacity",s.o)});paint();
+  const paint=()=>ad.each(function(d){const s=style(d);this.dataset.s=s.s||"";d3.select(this).attr("fill",s.f).attr("fill-opacity",s.o).attr("stroke",s.s||"none")});paint();
   g.append("path").datum(topojson.mesh(topo,topo.objects.admin1,(a,b)=>a!==b&&a.properties.iso===b.properties.iso&&a.properties.iso!=="USA")).attr("d",path).attr("fill","none").attr("stroke","#0b1526").attr("stroke-width",.6).attr("vector-effect","non-scaling-stroke").style("pointer-events","none");
   g.append("path").datum(topojson.mesh(topo,topo.objects.countries)).attr("d",path).attr("fill","none").attr("stroke","#8fa3c4").attr("stroke-width",1).attr("vector-effect","non-scaling-stroke").style("pointer-events","none");
   function regionShow(d){const r=RB[d.properties.id],mx=stateStats(d.properties.id);if(!r){drawer(`<h2>${esc(d.properties.name||"")}</h2>${mx}<p class="muted">No sourced group footprint is mapped here. That reflects data coverage, not an absence of organized crime.</p>`);return}
     drawer(`<h2>${esc(r.name)}</h2><div class="muted">${esc(r.iso)}</div>`+mx+(r.contested?`<h3>Contested</h3><div class="rg">${r.contested.groups.map(x=>`<span class="dot" style="background:${GC[x].color}"></span> ${esc(GC[x].name)}`).join(" vs ")}<div>${esc(r.contested.note)}</div>${cite(r.contested.cites)}</div>`:"")+
-    "<h3>Groups active</h3>"+r.groups.slice().sort((a,b)=>LV[b.level]-LV[a.level]).map(x=>`<div class="rg"><span class="dot" style="background:${GC[x.group].color}"></span> <b>${esc(GC[x.group].name)}</b> <span class="lvl">${esc(terr.levels[x.level])}${r.contested&&r.contested.groups.includes(x.group)?" · contests":""}</span>${x.note?`<div>${esc(x.note)}</div>`:""}${cite(x.cites)}</div>`).join(""))}
+    "<h3>Groups active</h3>"+r.groups.slice().sort((a,b)=>LV[b.level]-LV[a.level]).map(x=>`<div class="rg"><span class="dot" style="background:${GC[x.group].color}"></span> <b>${esc(GC[x.group].name)}</b> <span class="lvl"><b>${LVI[x.level]} ${LVW[x.level]}</b> · ${esc(terr.levels[x.level])}${r.contested&&r.contested.groups.includes(x.group)?" · contests":""}</span>${x.note?`<div>${esc(x.note)}</div>`:""}${cite(x.cites)}</div>`).join(""))}
   // legend chips = filter
   const used=new Set(terr.regions.flatMap(r=>r.groups.map(x=>x.group)));
   const L=$("grouplegend");L.innerHTML=`<button class="chip on" data-g="">All groups</button>`+terr.groups.filter(x=>used.has(x.id)).map(x=>`<button class="chip" data-g="${x.id}"><span class="dot" style="background:${x.color}"></span>${esc(x.name)}</button>`).join("");
   const setF=id=>{filt=id||null;fset=null;L.querySelectorAll(".chip").forEach(b=>b.classList.toggle("on",b.dataset.g===(id||"")));paint();key()};
   L.querySelectorAll(".chip").forEach(b=>b.onclick=()=>setF(b.dataset.g));
-  const key=()=>$("keybox").innerHTML=mode!=="groups"?chorKey():fset?`<b>Storyline groups</b><br>`+fset.map(x=>`<span class="dot" style="background:${GC[x].color}"></span> ${esc(GC[x].name)}`).join("<br>"):filt?`<b>${esc(GC[filt].name)}</b><br>`+Object.entries(terr.levels).map(([k,v])=>`<span class="dot" style="background:${GC[filt].color};opacity:${LV[k]}"></span> ${esc(v)}`).join("<br>")
-    :`<b>Shading</b><br><span class="dot" style="background:#e4572e"></span> one group dominant or significant<br><span class="dot hatch"></span> stripes: contested or shared by 2-3 groups<br><span class="dot" style="background:#e4572e;opacity:.35"></span> lighter: lesser presence only<br><span class="dot" style="background:#1b2c4a;border:1px solid #3a5583"></span> no sourced footprint`;key();
+  const key=()=>$("keybox").innerHTML=mode!=="groups"?chorKey():fset?`<b>Storyline groups</b><br>`+fset.map(x=>`<span class="dot" style="background:${GC[x].color}"></span> ${esc(GC[x].name)}`).join("<br>"):filt?`<b>${esc(GC[filt].name)}</b>`+swatches(GC[filt].color)
+    :`<b>Presence</b>${swatches("#e4572e")}<span class="sw hatch"></span> ▧ Contested / shared (wide stripes)<br><span class="sw" style="background:#1b2c4a;border:1px solid #3a5583"></span> No sourced footprint`;key();
   $("mapnotes").innerHTML=`<p>${esc(terr.note)}</p><h3>Where footprint data is thin</h3><ul>${terr.thin.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>`;
   // overlays
   const proj2=c=>proj(c);
@@ -101,9 +108,9 @@ function mapView(topo,adm,terr,routes,cross,china,GC){
     extort:{label:"Extortion incidents per 100,000 adults (ENVIPE 2025)",val:id=>{const v=DM.ext.states.find(s=>s.region===id);return v?v.v:null},src:DM.ext}};
   let sc=null;
   function chor(d){const v=CH[mode].val(d.properties.id);if(v==null)return{f:d.properties.iso==="MEX"?"#1b2c4a":"#16243f",o:d.properties.iso==="MEX"?1:.5};return{f:sc(v),o:.95}}
-  function chorKey(){const c=CH[mode],[a,b]=sc.domain();const st=c.src;return `<b>${esc(c.label)}</b><div class="ramp" style="background:linear-gradient(90deg,${sc(a)},${sc((a+b)/2)},${sc(b)})"></div><div class="rampl"><span>${Math.round(a).toLocaleString()}</span><span>${Math.round(b).toLocaleString()}</span></div><div class="muted">${esc(mode==="homicide"?"12 months to "+fmtM(st.last):mode==="disap"?"As of "+st.as_of:st.survey)}. Source: ${srcLink(st.cites)}${st.substitute?" (substitute, see notes)":""}</div>`}
+  function chorKey(){const c=CH[mode],[a,b]=sc.domain();const st=c.src;return `<b>${esc(c.label)}</b><div class="ramp" style="background:linear-gradient(90deg,${sc(a)},${sc((a+b)/2)},${sc(b)})"></div><div class="rampl"><span>less · ${Math.round(a).toLocaleString()}</span><span>${Math.round(b).toLocaleString()} · more</span></div><div class="muted">${esc(mode==="homicide"?"12 months to "+fmtM(st.last):mode==="disap"?"As of "+st.as_of:st.survey)}. Source: ${srcLink(st.cites)}${st.substitute?" (substitute, see notes)":""}</div>`}
   const MB=document.createElement("div");MB.className="overlay modebtns";MB.innerHTML='<b>Shade Mexico by</b><br>'+[["groups","Group presence"],["homicide","Homicide rate"],["disap","Disappearances"],["extort","Extortion"]].map(([k,l])=>`<button class="chip${k==="groups"?" on":""}" data-m="${k}">${l}</button>`).join("");svg.node().parentNode.appendChild(MB);
-  const setMode=m=>{mode=m;MB.querySelectorAll("button").forEach(b=>b.classList.toggle("on",b.dataset.m===m));if(m!=="groups"){const vs=DM.mxs.states.map(x=>CH[m].val(x.region)).filter(v=>v!=null);sc=d3.scaleSequential([0,d3.max(vs)],d3.interpolateRgb("#2a3f66","#ff6b6b"))}$("grouplegend").classList.toggle("dim",m!=="groups");paint();key()};
+  const setMode=m=>{mode=m;MB.querySelectorAll("button").forEach(b=>b.classList.toggle("on",b.dataset.m===m));if(m!=="groups"){const vs=DM.mxs.states.map(x=>CH[m].val(x.region)).filter(v=>v!=null);sc=d3.scaleSequential([0,d3.max(vs)],d3.interpolateLab("#fde4d8","#7a1712"))}$("grouplegend").classList.toggle("dim",m!=="groups");paint();key()};
   MB.querySelectorAll("button").forEach(b=>b.onclick=()=>setMode(b.dataset.m));
   // seizures by area of responsibility, sized, placed at the area's main crossing (approximate)
   const AOR={"San Diego":[[-117.03,32.55],["San Diego Field Office","San Diego Sector"]],"El Centro":[[-115.5,32.68],["El Centro Sector"]],"Yuma":[[-114.62,32.49],["Yuma Sector"]],"Tucson":[[-110.94,31.34],["Tucson Field Office","Tucson Sector"]],
@@ -151,7 +158,8 @@ function netTile(net,terr){
 function chinaTile(c){
   const ab={precursors:"PRE",ports:"PRT",money:"$",finance:"$",laundering:"$",infrastructure:"INF"};
   const cc={precursors:"#c8a24a",ports:"#5b8fd1",money:"#6aa684",finance:"#6aa684",laundering:"#6aa684"};
-  $("china").innerHTML=c.items.map((i,k)=>`<div class="ch" data-k="${k}"><div class="ico" style="background:${cc[i.category]||"#9aa6b8"}">${esc(ab[i.category]||i.category.slice(0,3).toUpperCase())}</div><div class="t"><b>${esc(i.title)}</b><div class="muted">${esc(i.category)}</div></div></div>`).join("");
+  const cnt=d3.rollups(c.items,v=>v.length,i=>i.category).sort((a,b)=>b[1]-a[1]),mx=d3.max(cnt,x=>x[1]);
+  $("china").innerHTML=`<div class="chbars">${cnt.map(([k,n])=>`<div class="chb"><span class="ico sm" style="background:${cc[k]||"#9aa6b8"}">${esc(ab[k]||k.slice(0,3).toUpperCase())}</span><i style="width:${100*n/mx}%;background:${cc[k]||"#9aa6b8"}"></i><b>${n}</b></div>`).join("")}</div>`+c.items.map((i,k)=>`<div class="ch" data-k="${k}"><div class="ico" style="background:${cc[i.category]||"#9aa6b8"}">${esc(ab[i.category]||i.category.slice(0,3).toUpperCase())}</div><div class="t">${esc(i.title)}${FN(i.cites)}</div></div>`).join("");
   $("china").querySelectorAll(".ch").forEach(el=>el.onclick=()=>{const i=c.items[+el.dataset.k];drawer(`<h2>${esc(i.title)}</h2><span class="tag">${esc(i.category)}</span><p>${esc(i.text)}</p>${i.says_vs_does?`<p class="says">Says vs does: ${esc(i.says_vs_does)}</p>`:""}${cite(i.cites)}`)});
 }
 function groupHtml(x,net){const nm=Object.fromEntries(net.groups.map(g=>[g.id,g.name]));const es=net.edges.filter(e=>e.source===x.id||e.target===x.id);
@@ -163,15 +171,15 @@ function cards(net,terr,M){NET=net;
   const tc=Object.fromEntries(terr.groups.filter(g=>g.network_id).map(g=>[g.network_id,g]));
   $("cards").innerHTML=net.groups.map((x,k)=>{const L=(x.leaders||[])[0];const t=tc[x.id];
    return `<div class="gc" data-k="${k}" style="border-left-color:${t?t.color:"#56657f"}"><h4>${esc(x.name)}</h4>${x.fto?`<span class="tag fto">FTO</span>`:""}<span class="tag">${esc(x.country)}</span>
-   ${L?`<div class="st">${esc(L.name)}: ${esc(L.status)}</div>`:""}<div class="one">${esc(first(x.summary))}</div>
+   ${L?`<div class="st" title="${esc(L.name)}: ${esc(L.status)}">${/dead|killed|died/i.test(L.status)?"✝":/custody|jail|prison|extradit|arrest|convicted|sentenced|detained/i.test(L.status)?"⛓":"🎯"} ${esc(L.name.split(" (")[0])}</div>`:""}
    <div class="full">${groupHtml(x,net).replace(/<h2>.*?<\/h2>/,"")}${t?`<button class="chip" data-map="${t.id}">Show footprint on map</button>`:""}</div></div>`}).join("");
   $("cards").querySelectorAll(".gc").forEach(el=>el.onclick=e=>{if(e.target.closest("a"))return;const b=e.target.closest("[data-map]");if(b){e.stopPropagation();M.setF(b.dataset.map);return}el.classList.toggle("open")});
 }
 function ticker(ev){
   const th=["all",...new Set(ev.events.map(e=>e.theatre))],F=$("evfilters");let cur="all";
   F.innerHTML=th.map(t=>`<button class="chip ${t==="all"?"on":""}" data-t="${esc(t)}">${esc(t)}</button>`).join("");
-  const draw=()=>$("events").innerHTML=ev.events.filter(e=>cur==="all"||e.theatre===cur).map(e=>`<div class="ev"><a href="${esc(e.url)}" target="_blank" rel="noopener" title="${esc(e.title)}">${esc(e.title.length>110?e.title.slice(0,108)+"…":e.title)}</a><div class="m">${esc(e.source)} · ${esc(e.date)} · ${esc(e.theatre)}</div></div>`).join("")||"<p class='muted'>No items.</p>";
-  F.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{cur=b.dataset.t;F.querySelectorAll(".chip").forEach(x=>x.classList.toggle("on",x===b));draw()});draw();
+  const draw=()=>$("events").innerHTML=ev.events.filter(e=>cur==="all"||e.theatre===cur).map(e=>{const T=e.title_en||e.title;return `<div class="ev"><a href="${esc(e.url)}" target="_blank" rel="noopener" title="${e.title_en?"Original: "+esc(e.title):esc(e.title)}">${esc(T.length>90?T.slice(0,88)+"…":T)}</a> <span class="m">${esc(e.source)} · ${esc(e.date.slice(5))}</span></div>`}).join("")||"<p class='muted'>No items.</p>";
+  F.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{cur=b.dataset.t;F.querySelectorAll(".chip").forEach(x=>x.classList.toggle("on",x===b));draw()});draw();$("events").classList.add("capped8");
 }
 function background(arcs){$("arcs").innerHTML=arcs.filter(a=>["mexico","venezuela-caribbean","andes","brazil","money"].includes(a.id)).map(a=>`<div class="arc"><h3>${esc(a.title)}</h3><p>${esc(a.current_phase)}</p><details class="more"><summary>History and turning points</summary>${a.history.map(h=>`<div><b>${esc(h.period)}</b>: ${esc(h.text)}</div>`).join("")}${a.turning_points.map(t=>`<div>${esc(t.date)}: ${esc(t.text)}</div>`).join("")}${a.log.length?"<h3>Recent</h3>"+a.log.slice(-4).reverse().map(l=>`<div>${esc(l.date)}: ${esc(l.text)}${links(l.links)}</div>`).join(""):""}${cite(a.cites)}</details></div>`).join("")}
 function sources(s){$("srclist").innerHTML=`<p class="muted">${esc(s.note)}</p><table>${s.sources.map(x=>`<tr><td>${esc(x.id)}</td><td><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a></td><td>${esc(x.publisher)}</td><td>${esc(x.date)}</td></tr>`).join("")}</table>`}
@@ -220,22 +228,11 @@ function borderTile(){const s=DM.seiz,C={fentanyl:"#ff6b6b",methamphetamine:"#f4
   $("odnote").innerHTML=`Overdose deaths in the 12 months ending each month, ${esc(fmtM(o.first))} to ${esc(fmtM(o.last))}. ${esc(o.note)} ${cite(o.cites)}`}
 // ---------- situation overview and storylines ----------
 function overview(ov,arcs,net,terr,events,M){
-  $("ovtext").innerHTML=ov.sentences.map(t=>`${esc(t.text)}<sup class="sup">${srcLink(t.cites)}</sup>`).join(" ");
-  const NC=Object.fromEntries(terr.groups.filter(g=>g.network_id).map(g=>[g.network_id,g.color])),TG=Object.fromEntries(terr.groups.map(g=>[g.id,g])),NN=Object.fromEntries(net.groups.map(g=>[g.id,g]));
+  const f=ov.sentences[0];$("ovtext").innerHTML=`${esc(first(f.text))} ${FN(f.cites)}`;
+  const TG=Object.fromEntries(terr.groups.map(g=>[g.id,g]));
   const ss=arcs.filter(a=>a.storyline).sort((a,b)=>a.storyline.order-b.storyline.order);
-  const days=[...new Set(events.events.map(e=>e.date))].sort();
-  const trend=sl=>{const t=sl.trend;let pts;
-    if(t.kind==="homicides"){const ms=DM.vio.states[t.states[0]].slice(-24).map(p=>p.m);pts=ms.map(m=>({m,v:d3.sum(t.states,k=>(DM.vio.states[k].find(p=>p.m===m)||{v:0}).v)}));return {svg:spark(pts,{w:250,h:52}),cites:DM.vio.cites}}
-    if(t.kind==="seizures"){pts=DM.seiz.national[t.drug].slice(-24).map(p=>({m:p.m,v:p.lb}));return {svg:spark(pts,{w:250,h:52,unit:" lb"}),cites:DM.seiz.cites}}
-    const re=new RegExp(t.match.join("|"),"i");const c=days.map(d=>events.events.filter(e=>e.date===d&&re.test(e.title+" "+(e.snippet||""))).length);
-    const W=250,H=52,bw=(W-4)/Math.max(1,c.length),y=d3.scaleLinear([0,Math.max(1,d3.max(c))],[0,H-28]);
-    return {svg:`<svg width="${W}" height="${H}" class="sparksvg">${c.map((v,i)=>`<rect x="${2+i*bw}" y="${H-14-y(v)}" width="${bw-2}" height="${y(v)}" fill="#5b8fd1"><title>${days[i]}: ${v}</title></rect>`).join("")}<text x="2" y="${H-2}" class="ax">${days[0]||""}</text><text x="${W-2}" y="${H-2}" text-anchor="end" class="ax">${days[days.length-1]||""}</text><text x="${W-2}" y="10" text-anchor="end" class="ax">max ${d3.max(c)||0}/day</text></svg>`,cites:null}};
-  $("stories").innerHTML=ss.map((a,k)=>{const sl=a.storyline,tr=trend(sl),re=sl.trend.match?new RegExp(sl.trend.match.join("|"),"i"):null;
-    const lat=(a.log||[]).slice(-2).reverse().map(l=>`<div class="lt">${esc(l.date)}: ${esc(l.text)} ${(l.links||[]).slice(0,2).map(x=>`<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.source)}</a>`).join(", ")}</div>`);
-    if(lat.length<2&&re)events.events.filter(e=>re.test(e.title)).slice(0,2-lat.length).forEach(e=>lat.push(`<div class="lt">${esc(e.date)}: <a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.title.length>80?e.title.slice(0,78)+"…":e.title)}</a> <span class="muted">${esc(e.source)}</span></div>`));
-    if(lat.length<2)(a.turning_points||[]).slice(-2+lat.length).reverse().forEach(t=>lat.push(`<div class="lt">${esc(t.date)}: ${esc(t.text)} ${srcLink(t.cites)}</div>`));
-    const chips=(sl.groups.length?sl.groups.map(g=>[TG[g].name,TG[g].color]):[]).concat((a.actors||[]).filter(x=>NN[x]&&!sl.groups.some(g=>TG[g].network_id===x)).map(x=>[NN[x].name.split(" (")[0],NC[x]||"#9aa6b8"])).slice(0,4);
-    return `<div class="sc" data-k="${k}"><h4>${esc(sl.title)}</h4><div class="what">${sl.what.map(t=>`${esc(t.text)}<sup class="sup">${srcLink(t.cites)}</sup>`).join(" ")}</div>
-    <div class="tr"><div class="muted">${esc(sl.trend.label)}</div>${tr.svg}</div><div class="chips small">${chips.map(([n,c])=>`<span class="chip"><span class="dot" style="background:${c}"></span>${esc(n)}</span>`).join("")}</div>
-    <div class="latest"><b>Latest</b>${lat.join("")||"<div class='muted'>No recent items.</div>"}</div><div class="go">Show on map →</div></div>`}).join("");
+  const ST={escalating:["▲","#e0605c"],stable:["■","#c8a24a"],deescalating:["▼","#6aa684"]};
+  $("stories").innerHTML=ss.map((a,k)=>{const sl=a.storyline,st=ST[a.status]||ST[sl.status]||["●","#9cc1f0"];const c=(sl.groups||[]).map(g=>TG[g]&&TG[g].color).filter(Boolean)[0]||"#56657f";
+    const cs=[...new Set(sl.what.flatMap(w=>w.cites))];
+    return `<div class="sc" data-k="${k}"><span class="sti" style="color:${st[1]}" title="${esc(a.status||sl.status||"active")}">${st[0]}</span><span class="dot" style="background:${c}"></span><b>${esc(sl.title)}</b><span class="muted sl1">${esc(first(sl.what[0].text))}</span>${FN(cs)}<span class="go">map →</span></div>`}).join("");
   $("stories").querySelectorAll(".sc").forEach(el=>el.onclick=e=>{if(e.target.closest("a"))return;$("stories").querySelectorAll(".sc").forEach(x=>x.classList.toggle("on",x===el));M.story(ss[+el.dataset.k].storyline)})}

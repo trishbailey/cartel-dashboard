@@ -51,7 +51,7 @@ def items(now):
     for p in xf["posts"]:
         o = by_x.get(p["handle"].lower())
         if not o or p.get("tier") != "verified": continue
-        out.append({"t": ts(p["created_at"]), "precise": True, "outlet": o, "url": p["url"], "title": p["text"],
+        out.append({"t": ts(p["created_at"]), "precise": True, "outlet": o, "url": p["url"], "title": p["text"], "title_en": p.get("text_en"), "lang": p.get("lang", "es"),
                     "via": "X @" + p["handle"], "regions": p["region_ids"], "groups": p["group_ids"], "country": p.get("country")})
     ev = json.load(open(os.path.join(D, "events.json"), encoding="utf-8"))
     acct = {"country": None}
@@ -63,7 +63,7 @@ def items(now):
         r, g, c, crime = tag_x.tag(text, acct)
         if not (r or g): continue
         t = dt.datetime.fromisoformat(e["date"]).replace(hour=12, tzinfo=dt.timezone.utc)
-        out.append({"t": t, "precise": False, "outlet": o, "url": e["url"], "title": e.get("title") or "", "via": "headline",
+        out.append({"t": t, "precise": False, "outlet": o, "url": e["url"], "title": e.get("title") or "", "title_en": e.get("title_en"), "lang": "es" if e.get("local") else "en", "via": "headline",
                     "regions": r, "groups": g, "country": c})
     cut = now - dt.timedelta(hours=KEEP_H)
     out = [i for i in out if i["t"] >= cut and i["t"] <= now + dt.timedelta(hours=1)]
@@ -117,12 +117,15 @@ def main():
                             "url": m["url"], "time": m["t"].strftime("%Y-%m-%dT%H:%M:%SZ"), "time_precision": "minute" if m["precise"] else "day"})
         st = status(ms)
         eid = hashlib.sha1(first["url"].encode()).hexdigest()[:10]
-        evs.append({"id": eid, "status": st, "title": re.sub(r"\s+", " ", tag_x.URL.sub("", lead["title"])).strip()[:200],
+        evs.append({"id": eid, "status": st, "title": re.sub(r"\s+", " ", tag_x.URL.sub("", lead["title"])).strip()[:200], "lang": "en" if lead.get("lang") == "en" else "es", "title_en": re.sub(r"\s+", " ", tag_x.URL.sub("", lead.get("title_en") or "")).strip()[:220] or None,
                     "first_report": first["t"].strftime("%Y-%m-%dT%H:%M:%SZ"), "first_report_precision": "minute" if first["precise"] else "day",
                     "first_source": first["outlet"]["name"], "region_ids": regions, "country": first["country"], "group_ids": groups,
                     "outlets": sorted({s["name"] for s in sources}), "sources": sources})
     rank = {"confirmed": 0, "single_source": 1, "official_claim_only": 2}
     evs.sort(key=lambda e: (max(s["time"] for s in e["sources"])), reverse=True)
+    try:
+        import tr; tr.fill_breaking({"events": evs}, tr.load()["map"])
+    except Exception as e: print("translation fill skipped:", e)
     json.dump({"as_of": now.strftime("%Y-%m-%dT%H:%M:%SZ"), "keep_hours": KEEP_H,
                "rules": {"confirmed": "two or more independent professional outlets, or an official body plus at least one outlet",
                          "single_source": "one professional outlet so far", "official_claim_only": "only a government account or site says it"},

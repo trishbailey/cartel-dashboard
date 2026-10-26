@@ -6,6 +6,10 @@ const J=p=>fetch(p).then(r=>r.ok?r.json():null).catch(()=>null);
 const ago=t=>{const m=Math.max(0,(Date.now()-new Date(t))/6e4);return m<60?Math.round(m)+"m ago":m<1440?Math.round(m/60)+"h ago":Math.round(m/1440)+"d ago"};
 const ST={confirmed:["Confirmed","bx-ok"],single_source:["Single source","bx-one"],official_claim_only:["Official claim only","bx-off"]};
 const sel={region:null,group:null};
+const ICO={confirmed:"✔",single_source:"①",official_claim_only:"🏛"};
+const bil=(en,orig,lang)=>en&&lang!=="en"?`<span class="tx" data-en="${esc(en)}" data-es="${esc(orig)}">${esc(en)}</span><button class="es" title="Show original (${esc(lang||"es")})">ES</button>`:`<span class="tx">${esc(orig)}</span>`;
+document.addEventListener("click",e=>{const b=e.target.closest("button.es");if(!b)return;e.stopPropagation();const s=b.previousElementSibling;const on=b.classList.toggle("on");s.textContent=on?s.dataset.es:s.dataset.en;b.textContent=on?"EN":"ES"},true);
+const capped=(el,n)=>{const it=[...el.children];if(it.length<=n)return;it.slice(n).forEach(c=>c.classList.add("xtra"));const b=document.createElement("button");b.className="chip morebtn";b.textContent=`+${it.length-n} more`;b.onclick=()=>{const o=el.classList.toggle("showall");b.textContent=o?"show less":`+${it.length-n} more`};el.after(b)};
 let X=null,B=null,RN={},GN={},GC={},NET=[];
 Promise.all([J("data/xfeed.json"),J("data/breaking.json"),J("data/territory.json"),J("data/networks.json"),J("basemap/latam.topo.json")]).then(([xf,bk,terr,net,topo])=>{
   X=xf;B=bk;
@@ -16,6 +20,7 @@ Promise.all([J("data/xfeed.json"),J("data/breaking.json"),J("data/territory.json
   strip();panel();waitMap();
 });
 function gdots(ids){return (ids||[]).map(g=>`<span class="xg"><span class="dot" style="background:${GC[g]||"#56657f"}"></span>${esc(GN[g]||g)}</span>`).join("")}
+function gdots1(ids){return (ids||[]).slice(0,2).map(g=>`<span class="dot" title="${esc(GN[g]||g)}" style="background:${GC[g]||"#56657f"}"></span>`).join("")}
 function rnames(ids){return (ids||[]).map(r=>esc(RN[r]||r)).join(", ")}
 /* ---------- Breaking strip ---------- */
 function strip(){
@@ -28,11 +33,10 @@ function strip(){
   <div class="brow">${ev.map(e=>{const [l,c]=ST[e.status];const who=e.status==="confirmed"?e.outlets.join(" · "):e.outlets.join(", ");
    const first=e.first_report_precision==="day"?e.first_report.slice(0,10):ago(e.first_report);
    return `<div class="bcard ${e.status}" data-r="${esc((e.region_ids||[]).join(","))}" data-s="${e.status}" tabindex="0">
-    <div class="bh"><span class="bx ${c}">${l}</span>${e.status!=="confirmed"?`<span class="bwho">${esc(who)}</span>`:""}<span class="bt">first ${esc(first)}</span></div>
-    <div class="btl">${esc(e.title)}</div>
-    <div class="bmeta">${e.region_ids&&e.region_ids.length?`<span class="breg">📍 ${rnames(e.region_ids)}</span>`:""}${gdots(e.group_ids)}</div>
-    <div class="bsrc">${e.sources.slice(0,5).map(x=>`<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.name)}${x.via.startsWith("X")?" (X)":""}</a>`).join(" · ")}${e.sources.length>5?` +${e.sources.length-5}`:""}</div></div>`}).join("")}</div>`;
-  const k=document.getElementById("kpis");k.parentNode.insertBefore(s,k);
+    <span class="bi ${c}" title="${l}">${ICO[e.status]}</span>${gdots1(e.group_ids)}<span class="btl">${bil(e.title_en,e.title,e.lang)}</span>
+    <span class="bt">${e.region_ids&&e.region_ids.length?"📍"+rnames(e.region_ids.slice(0,1))+" · ":""}${esc(first)}</span>
+    ${FN(e.sources.slice(0,6).map(x=>({url:x.url,name:x.name+(x.via.startsWith("X")?" (X)":""),title:e.title_en||e.title})))}</div>`}).join("")}</div>`;
+  const k=document.getElementById("kpis");k.parentNode.insertBefore(s,k);capped(s.querySelector(".brow"),5);
   s.querySelectorAll(".bchips .chip").forEach(b=>b.onclick=()=>{s.querySelectorAll(".bchips .chip").forEach(x=>x.classList.toggle("on",x===b));s.querySelectorAll(".bcard").forEach(c=>c.style.display=!b.dataset.s||c.dataset.s===b.dataset.s?"":"none")});
   s.querySelectorAll(".bcard").forEach(c=>c.onclick=e=>{if(e.target.closest("a"))return;const r=c.dataset.r.split(",").filter(Boolean);if(r.length){zoomTo(r);sel.region=r[0];render();document.querySelector(".maptile").scrollIntoView({behavior:"smooth",block:"start"})}});
 }
@@ -70,19 +74,16 @@ function hook(){
 /* ---------- Latest from X ---------- */
 function panel(){
   const t=document.createElement("section");t.className="tile xpanel";t.id="xpanel";
-  const m=document.querySelector(".maptile");m.parentNode.insertBefore(t,m.nextSibling);render();
+  const m=document.querySelector(".maptile");m.appendChild(t);render();
 }
 function render(){
   const t=document.getElementById("xpanel");if(!t)return;
   if(!X){t.innerHTML=`<div class="tilehead"><h2>Latest from X</h2><span class="muted">Feed not available yet.</span></div>`;return}
   const ps=X.posts.filter(p=>(!sel.region||p.region_ids.includes(sel.region))&&(!sel.group||p.group_ids.includes(sel.group)));
   const pill=(k,label)=>`<button class="chip on xclr" data-k="${k}">${label} ✕</button>`;
-  t.innerHTML=`<div class="tilehead"><h2>Latest from X</h2><span class="muted">Verified journalists, outlets, researchers and official accounts · updated ${esc(ago(X.as_of))} · ${X.posts.length} posts in 7 days</span></div>
+  t.innerHTML=`<div class="tilehead"><h2>Latest from X</h2><span class="muted">Verified accounts · English shown, ES = original · updated ${esc(ago(X.as_of))} · ${X.posts.length} posts in 7 days</span></div>
    <div class="chips small">${sel.region?pill("region","📍 "+esc(RN[sel.region]||sel.region)):`<span class="muted">Click a state or department on the map</span>`}${sel.group?pill("group",`<span class="dot" style="background:${GC[sel.group]||"#56657f"}"></span>${esc(GN[sel.group]||sel.group)}`):`<span class="muted">· choose a group in the legend or a card</span>`}</div>
-   <div class="xlist">${ps.length?ps.slice(0,16).map(p=>`<div class="xp${p.source_type==="official"?" xoff":""}">
-     <div class="xm"><a class="xh" href="https://x.com/${esc(p.handle)}" target="_blank" rel="noopener">@${esc(p.handle)}</a>${p.label?`<span class="bx bx-off">${esc(p.label)}</span>`:`<span class="xt">${esc(p.source_type)}</span>`}<span class="xa">${ago(p.created_at)}</span></div>
-     <div class="xx">${esc(p.text)}</div>
-     <div class="xf">${p.region_ids.length?`📍 ${rnames(p.region_ids)}`:""} ${gdots(p.group_ids)} <a href="${esc(p.url)}" target="_blank" rel="noopener">Open post ↗</a></div></div>`).join(""):`<div class="muted">No tagged posts in the last 7 days for this selection.</div>`}</div>`;
-  t.querySelectorAll(".xclr").forEach(b=>b.onclick=()=>{sel[b.dataset.k]=null;render()});
+   <div class="xlist">${ps.length?ps.slice(0,30).map(p=>`<div class="xp${p.source_type==="official"?" xoff":""}">${p.source_type==="official"?`<span class="bi bx-off" title="Official statement">🏛</span>`:`<span class="bi" title="${esc(p.source_type)}">𝕏</span>`}${gdots1(p.group_ids)}<a class="xh" href="${esc(p.url)}" target="_blank" rel="noopener" title="Open post">@${esc(p.handle)}</a><span class="xx">${bil(p.text_en,p.text,p.lang)}</span><span class="xa">${p.region_ids.length?"📍"+rnames(p.region_ids.slice(0,1))+" · ":""}${ago(p.created_at)}</span></div>`).join(""):`<div class="muted">No tagged posts in the last 7 days for this selection.</div>`}</div>`;
+  t.querySelectorAll(".xclr").forEach(b=>b.onclick=()=>{sel[b.dataset.k]=null;render()});const xl=t.querySelector(".xlist");if(xl&&xl.children.length)capped(xl,6);
 }
 })();

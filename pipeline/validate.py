@@ -187,6 +187,7 @@ if os.path.exists(_xf):
         for g in p.get("group_ids", []):
             if g not in _xg: err(f"{w}: unknown group {g}")
         if p.get("source_type") == "official" and p.get("label") != "Official statement": err(f"{w}: official post must be labelled 'Official statement'")
+        if p.get("lang") != "en" and not (p.get("text_en") or "").strip(): err(f"{w}: non-English post needs text_en (run pipeline/tr.py todo, translate, tr.py add)")
 
 # breaking (pipeline/breaking.py): professional outlets/officials only, status must follow the rules, every source has a URL
 _bk = os.path.join(D, "breaking.json")
@@ -213,6 +214,7 @@ if os.path.exists(_bk):
         for g in e.get("group_ids", []):
             if g not in (_gids | gids): err(f"{w}: unknown group {g}")
         if not e.get("first_report"): err(f"{w}: no first_report")
+        if e.get("lang", "es") != "en" and not (e.get("title_en") or "").strip(): err(f"{w}: non-English title needs title_en (run pipeline/tr.py todo, translate, tr.py add)")
 
 # ---- leaders.json and capture.json (leader cards, state capture layer) ----
 _okstat = {"at_large","jailed","extradited","dead","reported_dead"}
