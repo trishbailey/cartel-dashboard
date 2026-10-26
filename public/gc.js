@@ -1,12 +1,12 @@
 /* Countries per group (data/group_countries.json): flag rows on cards, auto-zoom + "outside the map" note on cartel filter. */
 (function(){
-const I2={MEX:"MX",USA:"US",GTM:"GT",HND:"HN",SLV:"SV",COL:"CO",VEN:"VE",ECU:"EC",PER:"PE",CHL:"CL",BRA:"BR",PRY:"PY",HTI:"HT",BOL:"BO",ARG:"AR",ESP:"ES",AUS:"AU"};
-const NM={MEX:"Mexico",USA:"US",GTM:"Guatemala",HND:"Honduras",SLV:"El Salvador",COL:"Colombia",VEN:"Venezuela",ECU:"Ecuador",PER:"Peru",CHL:"Chile",BRA:"Brazil",PRY:"Paraguay",HTI:"Haiti"};
+const I2={MEX:"MX",USA:"US",GTM:"GT",HND:"HN",SLV:"SV",COL:"CO",VEN:"VE",ECU:"EC",PER:"PE",CHL:"CL",BRA:"BR",PRY:"PY",HTI:"HT",BOL:"BO",ARG:"AR",ESP:"ES",AUS:"AU",PRT:"PT"};
+const NM={MEX:"Mexico",USA:"US",GTM:"Guatemala",HND:"Honduras",SLV:"El Salvador",COL:"Colombia",VEN:"Venezuela",ECU:"Ecuador",PER:"Peru",CHL:"Chile",BRA:"Brazil",PRY:"Paraguay",HTI:"Haiti",PRT:"Portugal"};
 const flag=i=>(I2[i]||"").replace(/./g,c=>String.fromCodePoint(127397+c.charCodeAt(0)))||i;
 const ALIAS={viv_ansanm:"haiti",chapitos:"sinaloa",mayiza:"sinaloa"};
 const ct=ids=>typeof cite==="function"?cite(ids):"";
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const OUT=new Set(["USA"]);const SA=new Set(["COL","VEN","ECU","PER","CHL","BRA","PRY","BOL","ARG"]);
+const OUT=new Set(["USA","PRT","ESP","AUS"]);const SA=new Set(["COL","VEN","ECU","PER","CHL","BRA","PRY","BOL","ARG"]);
 fetch("data/group_countries.json").then(r=>r.json()).then(GCN=>{
  const G=id=>GCN.groups[ALIAS[id]||id];
  const row=g=>{const l=g.countries,h=l[0];return `<div class="gcc" title="${esc(l.map(c=>NM[c.iso]||c.iso).join(", "))}"><span class="gch1">${flag(h.iso)}</span>${l.length>1?` + ${l.length-1} ${l.length===2?"country":"countries"} <span class="gcrest">${l.slice(1).map(c=>flag(c.iso)+" "+esc(NM[c.iso]||c.iso)).join(" · ")}</span>`:" only"}</div>`};

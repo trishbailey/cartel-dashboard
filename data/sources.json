@@ -657,6 +657,62 @@
    "url": "https://insightcrime.org/mexico-organized-crime-news/knights-templar-profile/",
    "date": "2026-10-25",
    "type": "research"
+  },
+  {
+   "id": "DEA_SIN_SURGE",
+   "title": "DEA Surge Targets Sinaloa Cartel Networks Worldwide",
+   "publisher": "DEA",
+   "url": "https://www.dea.gov/press-releases/2025/09/08/dea-surge-targets-sinaloa-cartel-networks-worldwide",
+   "date": "2025-09-08",
+   "type": "official"
+  },
+  {
+   "id": "DEA_CJNG_SURGE",
+   "title": "DEA Targets CJNG Operations, Seizing a Million Counterfeit Pills and 77,000 Kilograms of their Drugs in Five Days",
+   "publisher": "DEA",
+   "url": "https://www.dea.gov/press-releases/2025/09/29/dea-targets-cjng-operations-seizing-million-counterfeit-pills-and-77000",
+   "date": "2025-09-29",
+   "type": "official"
+  },
+  {
+   "id": "DOJ_TDA_CRACKDOWN",
+   "title": "Justice Department Highlights Nationwide Crackdown on Tren de Aragua",
+   "publisher": "US Department of Justice",
+   "url": "https://www.justice.gov/opa/pr/justice-department-highlights-nationwide-crackdown-tren-de-aragua",
+   "date": "2025-12-18",
+   "type": "official"
+  },
+  {
+   "id": "IC_TDA_EMPIRE",
+   "title": "The Construction of the Tren de Aragua's Transnational Empire",
+   "publisher": "InSight Crime",
+   "url": "https://insightcrime.org/investigations/three-stages-construction-tren-de-aragua-transnational-empire/",
+   "date": "2023-10-01",
+   "type": "analysis"
+  },
+  {
+   "id": "DOJ_MS13_HOU",
+   "title": "Eight MS-13 Gang Members Plead Guilty to Multi-Year Racketeering Conspiracy Involving Murders and Witness Tampering",
+   "publisher": "US Department of Justice",
+   "url": "https://www.justice.gov/opa/pr/eight-ms-13-gang-members-plead-guilty-multi-year-racketeering-conspiracy-involving-murders",
+   "date": "2025-09-08",
+   "type": "official"
+  },
+  {
+   "id": "DEA_B18_LA",
+   "title": "18th Street Gangsters, Associates Arrested on Indictments Alleging Murder, Extortion, Drug Trafficking in L.A.'s MacArthur Park Area",
+   "publisher": "DEA",
+   "url": "https://www.dea.gov/press-releases/2026/03/06/18th-street-gangsters-associates-arrested-indictments-alleging-murder",
+   "date": "2026-03-06",
+   "type": "official"
+  },
+  {
+   "id": "PUBLICO_PCC_PT",
+   "title": "PCC: o maior grupo criminoso do Brasil terá 87 membros em Portugal",
+   "publisher": "Público",
+   "url": "https://www.publico.pt/2025/06/28/sociedade/noticia/pcc-maior-grupo-criminoso-brasil-tera-87-membros-portugal-2138218",
+   "date": "2025-06-28",
+   "type": "media"
   }
  ]
 }
