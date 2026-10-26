@@ -214,6 +214,52 @@ if os.path.exists(_bk):
             if g not in (_gids | gids): err(f"{w}: unknown group {g}")
         if not e.get("first_report"): err(f"{w}: no first_report")
 
+# ---- leaders.json and capture.json (leader cards, state capture layer) ----
+_okstat = {"at_large","jailed","extradited","dead","reported_dead"}
+def _srcok(s, w):
+    if not s or not s.get("name") or not str(s.get("url","")).startswith("https://"): err(f"{w}: source needs name and https url"); return
+    if is_cn(s["url"]): err(f"{w}: .cn source")
+if os.path.exists(os.path.join(D, "leaders.json")):
+    _ld = load("leaders.json"); _seen = set()
+    for l in _ld.get("leaders", []):
+        w = f"leader {l.get('id')}"
+        if l.get("id") in _seen: err(f"{w}: duplicate id")
+        _seen.add(l.get("id"))
+        for k in ("name","role","status","status_date","known_for"):
+            if not l.get(k): err(f"{w}: missing {k}")
+        if l.get("status") not in _okstat: err(f"{w}: bad status {l.get('status')}")
+        _srcok(l.get("status_source"), w + " status_source")
+        if not l.get("sources"): err(f"{w}: no sources")
+        for s in l.get("sources", []): _srcok(s, w)
+        if l.get("reward_usd"): _srcok(l.get("reward_source"), w + " reward_source")
+        for g in l.get("group_ids", []):
+            if g not in (_gids | gids): err(f"{w}: unknown group {g}")
+        ph = l.get("photo") or {}
+        if not ph.get("license"): err(f"{w}: photo needs a license")
+        if not ph.get("placeholder"):
+            if not str(ph.get("image_source_url","")).startswith("https://") or is_cn(ph.get("image_source_url","")): err(f"{w}: photo needs https image_source_url")
+            if not ph.get("credit"): err(f"{w}: photo needs credit")
+            if not ph.get("file") or not os.path.exists(os.path.join(ROOT, "public", ph["file"])): err(f"{w}: image file missing (no hotlinking)")
+if os.path.exists(os.path.join(D, "capture.json")):
+    _cp = load("capture.json"); _okc = set(_cp.get("status_legend", {}))
+    if not {"alleged","charged","convicted","sanctioned","acquitted","pardoned","dropped"} <= _okc: err("capture: status_legend incomplete")
+    _cc = {}
+    for c in _cp.get("cases", []):
+        w = f"capture {c.get('id')}"
+        for k in ("country","person","office","level","status","date","note"):
+            if not c.get(k): err(f"{w}: missing {k}")
+        if not re.fullmatch(r"[A-Z]{3}", str(c.get("country"))): err(f"{w}: bad country")
+        if c.get("level") not in ("national","state","municipal"): err(f"{w}: bad level")
+        if c.get("status") not in _okc: err(f"{w}: bad status")
+        if re.search(r"compromised", json.dumps(c), re.I): err(f"{w}: do not label as compromised")
+        if not c.get("sources"): err(f"{w}: no sources")
+        for s in c.get("sources", []): _srcok(s, w)
+        for g in c.get("group_ids", []):
+            if g not in (_gids | gids): err(f"{w}: unknown group {g}")
+        _cc[c.get("country")] = _cc.get(c.get("country"), 0) + 1
+    for s in _cp.get("countries", []):
+        if _cc.get(s["country"]) != s.get("total"): err(f"capture summary {s['country']}: total mismatch")
+
 if errs:
     print("\n".join("ERROR " + e for e in errs)); sys.exit(1)
 print(f"valid: {len(src)} sources, {len(net['groups'])} groups, {len(net['edges'])} edges, {len(ev['events'])} events")
