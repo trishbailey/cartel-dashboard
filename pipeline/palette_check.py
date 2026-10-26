@@ -72,8 +72,9 @@ def warnings(cols=None):
 # --- mid-tone area fills (Trish 2026-10-26): L* 45-65, HSL sat 0.4-0.7, never grey, pinks/purples allowed if not neon ---
 FILL_LV = {"dominant": (0, 1), "significant": (5, .88), "present": (10, .76)}  # (L* drop, chroma factor), mirrors shadeG in public/app.js
 FILL_L = (40, 68); FILL_SAT = (.4, .7); FILL_C_MIN = 20; FILL_MIN_DE = 25  # pairwise floor for fills that can sit together (same or neighbouring country, or both in Mexico)
-# named hue buckets on CIELCh hue; a bucket may repeat only for groups in different, non-adjacent countries, never for a Mexican group
-HUE_BUCKETS = [(350, 20, "pink"), (20, 45, "red"), (45, 70, "orange"), (70, 95, "gold"), (95, 120, "olive"), (120, 160, "green"), (160, 200, "teal"), (200, 240, "cyan"), (240, 285, "blue"), (285, 320, "purple"), (320, 350, "magenta")]
+# named hue families on CIELCh hue (plus a dark low-chroma "brown"). Every plain fill needs its OWN family (Trish 2026-10-26).
+# The only allowed repeat: a non-Mexican group in a distant country that carries a texture (window.TERR_PAT dots/grid) differing from every other group in that family.
+HUE_BUCKETS = [(350, 15, "rose"), (15, 40, "red"), (40, 62, "orange"), (62, 88, "gold"), (88, 115, "olive"), (115, 150, "green"), (150, 180, "emerald"), (180, 220, "teal"), (220, 265, "sky blue"), (265, 300, "blue"), (300, 325, "violet"), (325, 350, "magenta")]
 ADJ = {frozenset(p) for p in [("MEX","GTM"),("MEX","BLZ"),("MEX","USA"),("GTM","SLV"),("GTM","HND"),("GTM","BLZ"),("HND","SLV"),("HND","NIC"),("COL","VEN"),("COL","ECU"),("COL","BRA"),("COL","PAN"),("COL","PER"),("VEN","BRA"),("VEN","GUY"),("BRA","PRY"),("BRA","PER"),("BRA","BOL"),("ECU","PER"),("PRY","BOL"),("PRY","ARG"),("HTI","DOM")]}
 def hue_bucket(h):
     L, a, b = lab(h); C = math.hypot(a, b); hh = math.degrees(math.atan2(b, a)) % 360
@@ -87,6 +88,9 @@ def group_countries():
     return c
 def near(cx, cy): return any(a == b or frozenset((a, b)) in ADJ for a in cx for b in cy)
 ARROW_MIN_DE = 25; ARROW_MIN_CR = 2.5
+def pats():
+    m = re.search(r"TERR_PAT=\{(.*?)\}", rd("public/palette.js"))
+    return dict(re.findall(r'(\w+):"(\w+)"', m.group(1))) if m else {}
 def fills():
     m = re.search(r"TERR_FILL=\{(.*?)\}", rd("public/palette.js"))
     return {k: v.lower() for k, v in re.findall(r'(\w+):"(#[0-9a-fA-F]{6})"', m.group(1))} if m else {}
@@ -108,15 +112,25 @@ def check_fills(cols=None):
         for lv in FILL_LV:
             Ls, as_, bs = shade(v, lv)
             if math.hypot(as_, bs) < 15: errs.append(f"fill {k} {v} at {lv}: grey (chroma {math.hypot(as_, bs):.0f})")
-    ids = sorted(F); low = []; GCN = group_countries()
+    ids = sorted(F); low = []; GCN = group_countries(); PT = pats(); plain, nearp = [], []
+    for k, v in PT.items():
+        if k not in F: errs.append(f"TERR_PAT {k}: not a fill")
+        if v not in ("dots", "grid"): errs.append(f"TERR_PAT {k}: unknown texture {v}")
+        if "MEX" in GCN.get(k, set()): errs.append(f"TERR_PAT {k}: Mexican groups keep a plain fill")
     for x, y in itertools.combinations(ids, 2):
         if F[x] == F[y] and {x, y} == {"haiti", "viv_ansanm"}: continue
         d = de2000(lab(F[x]), lab(F[y]))
         cx, cy = GCN.get(x, set()), GCN.get(y, set()); mex = "MEX" in cx or "MEX" in cy; close = near(cx, cy) or ("MEX" in cx and "MEX" in cy)
-        if hue_bucket(F[x]) == hue_bucket(F[y]) and (mex or close): errs.append(f"fill {x} {F[x]} vs {y} {F[y]}: same hue family '{hue_bucket(F[x])}' " + ("(Mexican group)" if mex else "(same or neighbouring country)"))
+        if hue_bucket(F[x]) == hue_bucket(F[y]):
+            px, py = PT.get(x, "plain"), PT.get(y, "plain")
+            if mex or close or px == py: errs.append(f"fill {x} {F[x]} vs {y} {F[y]}: same hue family '{hue_bucket(F[x])}' " + ("(Mexican group)" if mex else "(same or neighbouring country)" if close else "(no distinguishing texture)"))
+        elif PT.get(x, "plain") == "plain" and PT.get(y, "plain") == "plain": plain.append((d, x, y))
+        if close: nearp.append((d, x, y))
         if close and d < FILL_MIN_DE: errs.append(f"fill {x} {F[x]} vs {y} {F[y]}: dE2000 {d:.1f} < {FILL_MIN_DE} (indistinct, can sit together)")
         if not close: continue
         elif d < MIN_DE: low.append((d, x, y))
+    if plain: d, x, y = min(plain); warns.append(f"[map: fills] closest pair of plain fills (different hue families): {x} {F[x]} vs {y} {F[y]} dE2000 {d:.1f}")
+    if nearp: d, x, y = min(nearp); warns.append(f"[map: fills] closest pair that can sit together: {x} {F[x]} vs {y} {F[y]} dE2000 {d:.1f} (floor {FILL_MIN_DE})")
     if low:
         d, x, y = min(low); warns.append(f"[map: muted fills] {len(F)} fills, {len(low)} pairs below {MIN_DE} (20 unreachable for 17 mid-tone fills; min {x} {F[x]} vs {y} {F[y]}: {d:.1f})")
     # route arrows / lines must stand out from every fill shade they cross

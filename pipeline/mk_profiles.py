@@ -3,6 +3,10 @@ Facts are hand-curated from cited outlets; membership_series holds only publishe
 import json, os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); D = os.path.join(ROOT, "data")
 NEW = [
+ ("LAVOZ_CU","Cárteles se reorganizan y recrudecen guerra por la plaza en Michoacán","La Voz de Michoacán","https://www.lavozdemichoacan.com.mx/michoacan/morelia/carteles-se-reorganizan-y-recrudecen-guerra-por-la-plaza-en-michoacan/","2020-01-08"),
+ ("CUARTOPODER_ABUELO","Viagras, los falsos autodefensas en Tepalcatepec a las órdenes de “El Abuelo”","Cuarto Poder Michoacán","https://cuartopodermichoacan.com/viagras-los-falsos-autodefensas-en-tepalcatepec-a-las-ordenes-de-el-abuelo/","2019-08"),
+ ("ACLED_CJNG_ES","Perfil de actor: el Cártel Jalisco Nueva Generación (CJNG)","ACLED","https://acleddata.com/system/files/2026-03/Actor-Profile-The-Jalisco-New-Generation-Cartel-CJNG-Spanish-Translation.pdf","2026-03"),
+ ("ANIMAL_VIAGRAS","Los Viagras, la primera gran traición al CJNG (opinión)","Grupo Animal (Animal Político)","https://grupoanimal.mx/opinion/los-viagras-primera-gran-traicion-cjng","2026"),
  ("ELPAIS_PCC","PCC, la hermandad de los criminales","El País","https://elpais.com/especiales/2020/pcc-la-hermandad-de-los-criminales-en-brasil/","2020"),
  ("G1_PCC40K","Como em 20 anos o PCC saltou de facção com 5 mil criminosos para máfia com 40 mil membros","G1","https://g1.globo.com/sp/sao-paulo/noticia/2025/09/22/como-em-20-anos-o-pcc-saltou-de-faccao-com-5-mil-criminosos-para-virar-mafia-com-40-mil-membros.ghtml","2025-09-22"),
  ("EXPRESO_EC","Crisis en Ecuador: el pasado y presente de los grupos terroristas","Expreso (Ecuador)","https://www.expreso.ec/actualidad/crisis-ecuador-pasado-presente-grupos-terrorista-rivales-daniel-noboa-tiguerones-lagartos-choneros-185939.html","2024-01"),
@@ -46,6 +50,15 @@ P = [
  {"id":"lnfm","name":"La Nueva Familia Michoacana","abbr":"LNFM","what":"Michoacán-rooted group now strongest in Guerrero, Mexico State and Michoacán.","what_c":["IC_FAMILIA"],
   "founded":"2000s, Michoacán (Mexico); current form after La Familia's 2010–11 break-up","founded_c":["IC_FAMILIA"],"biz":["lnfm"],
   "more":[["Successor to La Familia Michoacana, whose split also produced the Knights Templar.",["IC_FAMILIA","IC_TEMPLARIOS"]],["Known for extortion of farmers and businesses alongside drug production; it fights CJNG in the region.",["IC_FAMILIA"]]]},
+ {"id":"unidos","name":"Cárteles Unidos","abbr":"CU = Cárteles Unidos (\u2018United Cartels\u2019)","what":"A coalition of Michoacán criminal groups formed to keep the CJNG out of the state.","what_c":["IC_UNIDOS","ACLED_CJNG_ES"],
+  "founded":"2019\u201320, Michoacán (Mexico), as an alliance against CJNG, not a split from another cartel","founded_c":["ACLED_CJNG_ES","LAVOZ_CU","IC_UNIDOS"],"biz":["unidos"],
+  "more":[["CJNG broke with Juan José Farías Álvarez, \u2018El Abuelo\u2019, and his Tepalcatepec group in August 2019; in May 2020 Farías called on vigilante groups in four municipalities to unite against CJNG.",["CUARTOPODER_ABUELO","IC_UNIDOS"]],
+          ["Reporting describes a pact of several groups: Farías's Cartel de Tepalcatepec, Los Viagras, cells of La Familia Michoacana and the Knights Templar, and Blancos de Troya.",["LAVOZ_CU","IC_UNIDOS"]],
+          ["Its stronghold is western Michoacán's Tierra Caliente, around Tepalcatepec, Aguililla, Buenavista and Los Reyes; it has dug trenches and fought CJNG with explosive-laden drones.",["IC_UNIDOS"]],
+          ["The US designated it a Foreign Terrorist Organization on 20 Feb 2025; the Treasury sanctioned it, Farías and three other leaders on 14 Aug 2025.",["FTO","TREAS_VIAGRAS"]],
+          ["The coalition has shifted: the Treasury said in Aug 2025 that Los Viagras had allied with CJNG, and a Grupo Animal column dates that break to 2023.",["TREAS_VIAGRAS","ANIMAL_VIAGRAS"]],
+          ["In 2026 Mexican forces killed faction leader Luis Enrique Barragán Chávez (\u2018R5\u2019) and arrested Edgar Valeriano Orozco Cabadas (\u2018Kamoni\u2019).",["IC_UNIDOS"]]],
+  "series_note":"No numeric membership estimate found (US NCTC says only \u2018thousands\u2019)."},
  {"id":"juarez","name":"Juárez Cartel / La Línea","abbr":None,"what":"Chihuahua border cartel whose armed wing La Línea now carries the name.","what_c":["IC_JUAREZ"],
   "founded":"1980s–90s, Ciudad Juárez (Mexico)","founded_c":["IC_JUAREZ"],"biz":[],"lines":["cocaine","marijuana","extortion"],"lines_c":["IC_JUAREZ"],
   "more":[["Rose under Amado Carrillo Fuentes in the 1990s; weakened by its 2008–12 war with Sinaloa in Ciudad Juárez.",["IC_JUAREZ"]],["Membership and revenue are not reliably estimated.",["IC_JUAREZ"]]]},
