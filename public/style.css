@@ -55,3 +55,4 @@ path.adm{cursor:pointer}path.adm:hover{stroke:#fff;stroke-width:2}
 @keyframes ixp{0%,100%{stroke-width:1;stroke:#fff}50%{stroke-width:4;stroke:#c8a24a}}path.adm.ixpulse{animation:ixp 1.2s ease-in-out 4}
 @media (prefers-reduced-motion:reduce){path.adm.ixpulse{animation:none;stroke:#c8a24a;stroke-width:3}}
 #cards .gc,.nowgrid .gc{position:relative;cursor:pointer}#cards .gc:not(.open)::after,.nowgrid .gc:not(.open)::after{content:"Tap for more ▾";display:block;margin-top:6px;font-size:11.5px;color:#c8a24a}
+.pvk{color:#f15bb5;font-weight:800;font-size:14px;text-shadow:0 0 2px #0b1526,0 0 2px #0b1526}
