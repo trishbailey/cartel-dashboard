@@ -5,6 +5,13 @@ so the refresh runs as a Grok Bot routine **every 3 hours, 6 AM to 9 PM ET (6, 9
 collects posts from the verified accounts, tags them (`pipeline/tag_x.py`), rebuilds the Breaking strip
 (`pipeline/breaking.py`), validates, commits and pushes. GitHub Pages redeploys on push.
 
+
+## Where X data surfaces on the site (2026-10-25)
+
+* **Breaking strip** (`data/breaking.json`, built from X + RSS): scrollable list of the 40 newest events with Confirmed / Single source / Official claim only badges, English with ES toggle.
+* **State/department side panel**: clicking a state on the map opens the drawer, which lists up to 8 recent posts from `data/xfeed.json` tagged to that region (English with ES toggle).
+* The standalone "Latest from X" panel and the 24h post-count circles on the map were removed at Trish's request. `xfeed.json` is still produced every run.
+
 ## Source policy (Trish, 2026-10-25)
 
 * **Verified accounts only**: professional journalists and outlets, researchers and think tanks, official government accounts.
