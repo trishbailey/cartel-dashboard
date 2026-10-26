@@ -31,7 +31,7 @@ def collect():
         if g.get("color"): cols["group:"+g["id"]] = g["color"].lower()
     for k, v in re.findall(r'(\w+):"(#[0-9a-fA-F]{6})"', re.search(r"CARTEL_FALL=\{(.*?)\}", rd("public/palette.js")).group(1)):
         cols.setdefault("group:"+k, v.lower())
-    for k, v in re.findall(r'(\w+):"(#[0-9a-fA-F]{6})"', re.search(r"GCOL=\{(.*?)\}", rd("public/leaders.js")).group(1)):
+    for k, v in re.findall(r'(\w+):"(#[0-9a-fA-F]{6})"', (re.search(r"GCOL=\{(.*?)\}", rd("public/leaders.js")) or re.match("()","")).group(1)):  # bar charts removed; GCOL optional
         if cols.get("group:"+k, v.lower()) != v.lower(): cols["leaders:"+k] = v.lower()
     for k, v in re.findall(r'k:"(\w+)".*?color:"(#[0-9a-fA-F]{6})"', rd("public/routes3.js")): cols["layer:"+k] = v.lower()
     app = rd("public/app.js")
