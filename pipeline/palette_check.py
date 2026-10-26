@@ -10,6 +10,8 @@ def lab(h):
     x = (c[0]*.4124+c[1]*.3576+c[2]*.1805)/.95047; y = c[0]*.2126+c[1]*.7152+c[2]*.0722; z = (c[0]*.0193+c[1]*.1192+c[2]*.9505)/1.08883
     f = lambda t: t**(1/3) if t > 216/24389 else (24389/27*t+16)/116
     fx, fy, fz = f(x), f(y), f(z); return 116*fy-16, 500*(fx-fy), 200*(fy-fz)
+def sat(h):
+    import colorsys; h = h.lstrip("#"); return colorsys.rgb_to_hls(*[int(h[i:i+2], 16)/255 for i in (0, 2, 4)])[2]
 def de2000(a, b):
     L1, a1, b1 = a; L2, a2, b2 = b
     C1, C2 = math.hypot(a1, b1), math.hypot(a2, b2); Cm = (C1+C2)/2
@@ -72,5 +74,53 @@ def warnings(cols=None):
         sub = f(cols); ps = pairs(sub, MIN_DE)
         if ps: out.append(f"[{name}] {len(sub)} colours, {len(ps)} pairs below {MIN_DE} (min shown): " + min(ps, key=lambda s: float(s.rsplit(" ", 1)[1])))
     return out
+# --- muted area fills (rule 2026-10-25): darker, low-saturation, no neon pink/magenta, never grey, distinct ---
+FILL_LV = {"dominant": (0, 1), "significant": (6, .85), "present": (12, .7)}  # (L* drop, chroma factor), mirrors shadeG in public/app.js
+FILL_L = (28, 54); FILL_SAT_MAX = .5; FILL_C_MIN = 18; MAGENTA_HUE = (305, 355); ARROW_MIN_DE = 25; ARROW_MIN_CR = 2.5
+def fills():
+    m = re.search(r"TERR_FILL=\{(.*?)\}", rd("public/palette.js"))
+    return {k: v.lower() for k, v in re.findall(r'(\w+):"(#[0-9a-fA-F]{6})"', m.group(1))} if m else {}
+def shade(c, lv):
+    L, a, b = lab(c); dl, f = FILL_LV[lv]; return (L-dl, a*f, b*f)
+def lum(h):
+    h = h.lstrip("#"); c = [int(h[i:i+2], 16)/255 for i in (0, 2, 4)]
+    c = [((v+0.055)/1.055)**2.4 if v > 0.04045 else v/12.92 for v in c]; return .2126*c[0]+.7152*c[1]+.0722*c[2]
+def lab_lum(L): y = ((L+16)/116)**3 if L > 8 else L/903.3; return y
+def check_fills(cols=None):
+    cols = cols or collect(); F = fills(); errs, warns = [], []
+    for g in TERR:
+        if g not in F: errs.append(f"fill: group {g} has no muted TERR_FILL colour")
+    for k, v in F.items():
+        L, a, b = lab(v); C = math.hypot(a, b); h = math.degrees(math.atan2(b, a)) % 360
+        if not FILL_L[0] <= L <= FILL_L[1]: errs.append(f"fill {k} {v}: lightness L*{L:.0f} outside {FILL_L}")
+        if sat(v) > FILL_SAT_MAX: errs.append(f"fill {k} {v}: HSL saturation {sat(v):.2f} > {FILL_SAT_MAX}")
+        if C < FILL_C_MIN: errs.append(f"fill {k} {v}: chroma {C:.0f} < {FILL_C_MIN} (grey)")
+        if MAGENTA_HUE[0] <= h <= MAGENTA_HUE[1]: errs.append(f"fill {k} {v}: hue {h:.0f} is pink/magenta")
+        for lv in FILL_LV:
+            Ls, as_, bs = shade(v, lv)
+            if math.hypot(as_, bs) < 15: errs.append(f"fill {k} {v} at {lv}: grey (chroma {math.hypot(as_, bs):.0f})")
+    ids = sorted(F); low = []
+    for x, y in itertools.combinations(ids, 2):
+        if F[x] == F[y] and {x, y} == {"haiti", "viv_ansanm"}: continue
+        d = de2000(lab(F[x]), lab(F[y]))
+        if d < 10: errs.append(f"fill {x} {F[x]} vs {y} {F[y]}: dE2000 {d:.1f} < 10 (indistinct)")
+        elif d < MIN_DE: low.append((d, x, y))
+    if low:
+        d, x, y = min(low); warns.append(f"[map: muted fills] {len(F)} fills, {len(low)} pairs below {MIN_DE} (infeasible for this many muted colours; min {x} {F[x]} vs {y} {F[y]}: {d:.1f})")
+    # route arrows / lines must stand out from every fill shade they cross
+    routes = {"route:"+k: v.lower() for k, v in re.findall(r'k:"(\w+)".*?color:"(#[0-9a-fA-F]{6})"', rd("public/routes3.js"))}
+    worst = None
+    for rk, rc in routes.items():
+        for k, v in F.items():
+            for lv in FILL_LV:
+                fl = shade(v, lv); d = de2000(lab(rc), fl)
+                y1, y2 = lum(rc), lab_lum(fl[0]); cr = (max(y1, y2)+.05)/(min(y1, y2)+.05)
+                if d < ARROW_MIN_DE: errs.append(f"arrow {rk} {rc} vs fill {k}@{lv}: dE2000 {d:.1f} < {ARROW_MIN_DE}")
+                if worst is None or cr < worst[0]: worst = (cr, rk, rc, k, lv)
+    if worst and worst[0] < ARROW_MIN_CR: warns.append("[map: route arrows on fills] lowest luminance contrast %.2f (%s %s on %s@%s); arrows/lines keep a dark #0b1526 outline" % worst)
+    return errs, warns
+_check, _warnings = check, warnings
+def check(cols=None): cols = cols or collect(); return _check(cols) + check_fills(cols)[0]
+def warnings(cols=None): cols = cols or collect(); return _warnings(cols) + check_fills(cols)[1]
 if __name__ == "__main__":
     c = collect(); e = check(c); print(len(c), "colours;", len(e), "problems"); print("\n".join(e)); print("\n".join(warnings(c)))
