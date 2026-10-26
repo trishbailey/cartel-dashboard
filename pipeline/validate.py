@@ -431,8 +431,9 @@ if os.path.exists(os.path.join(D, "profiles.json")):
         im = p.get("image")
         if im:
             if not os.path.exists(os.path.join(os.path.dirname(D), "public", im["src"])): err(f"{w}: image file missing")
+            # owner-supplied official photos (supplied: true) need an author credit instead of a page
             # recreated simple emblems (recreated: true) may cite their documenting source instead of Commons
-            if not im.get("license") or not (im.get("page", "").startswith("https://commons.wikimedia.org/") or (im.get("recreated") and im.get("page", "").startswith("https://"))): err(f"{w}: image needs Commons page + licence")
+            if not im.get("license") or not (im.get("page", "").startswith("https://commons.wikimedia.org/") or (im.get("recreated") and im.get("page", "").startswith("https://")) or (im.get("supplied") and im.get("author"))): err(f"{w}: image needs Commons page + licence")
 
 # ---- business_shift.json (How the business shifted small multiples) ----
 if os.path.exists(os.path.join(D, "business_shift.json")):
