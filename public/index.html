@@ -27,9 +27,9 @@
  </div>
  <details class="more"><summary>About this map and gaps in the data</summary><div id="mapnotes"></div></details>
 </section>
+<section class="netrow"><div class="tile"><div class="tilehead"><h2>Network: alliances and rivalries</h2><span class="muted">Hover a group to isolate its links · click for sourced note</span></div><div id="netlegend" class="minilegend"></div><div style="overflow-x:auto"><svg id="netsvg"></svg></div></div></section>
 <section class="row3">
  <div class="tile"><div class="tilehead"><h2>Money</h2><span class="muted" id="moneyunit"></span></div><div id="moneycav" class="cav small"></div><svg id="sankey"></svg><div id="moneycov"></div><details class="more"><summary>More</summary><div id="moneymore"></div></details></div>
- <div class="tile"><div class="tilehead"><h2>Network</h2><span class="muted">Hover or click a group</span></div><div id="netlegend" class="minilegend"></div><svg id="netsvg"></svg></div>
 </section>
 <section class="row2">
  <div class="tile"><div class="tilehead"><h2>How the groups formed and grew</h2><span class="muted">Hover an icon · click a lane</span></div><div id="timeline"></div><div id="cards" class="cards" hidden style="display:none"></div></div>
@@ -41,7 +41,7 @@
 </main>
 <aside id="drawer"><button id="dclose" aria-label="Close">×</button><div id="dbody"></div></aside>
 <footer class="muted">Describes and analyzes what has happened; it does not predict or prescribe. Every item links to its source. Data: <a href="https://github.com/trishbailey/cartel-dashboard">github.com/trishbailey/cartel-dashboard</a>. Basemaps: Natural Earth (public domain).</footer>
-<script src="vendor/d3.min.js"></script><script src="vendor/d3-sankey.min.js"></script><script src="vendor/topojson-client.min.js"></script><script src="footnotes.js"></script><script src="app.js"></script><script src="xfeed.js"></script><script src="leaders.js"></script><script src="timeline.js"></script><script src="whatsnew.js"></script><script src="routes3.js"></script><script src="profiles.js"></script>
+<script src="palette.js"></script><script src="vendor/d3.min.js"></script><script src="vendor/d3-sankey.min.js"></script><script src="vendor/topojson-client.min.js"></script><script src="footnotes.js"></script><script src="app.js"></script><script src="xfeed.js"></script><script src="leaders.js"></script><script src="timeline.js"></script><script src="whatsnew.js"></script><script src="routes3.js"></script><script src="profiles.js"></script>
 <script>(function(){var n=document.getElementById("ixnote");try{if(localStorage.getItem("ixHide")==="1")n.style.display="none"}catch(e){}document.getElementById("ixx").onclick=function(){n.style.display="none";try{localStorage.setItem("ixHide","1")}catch(e){}}})();</script>
 <script src="ix.js"></script>
 <script src="gc.js"></script>

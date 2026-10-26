@@ -310,10 +310,12 @@ if os.path.exists(os.path.join(D, "timeline.json")):
     _tl = load("timeline.json"); _tg = gids | {g["id"] for g in load("territory.json")["groups"]}
     _lanes = set()
     for l in _tl["lanes"]:
-        if l["id"] not in _tg: err(f"timeline lane {l['id']}: unknown group")
+        if l["id"] not in _tg and not (l.get("historic") and l.get("name")): err(f"timeline lane {l['id']}: unknown group")
         if not isinstance(l.get("founded"), int): err(f"timeline lane {l['id']}: no founded year")
-        if l.get("parent") and l["parent"] not in _tg: err(f"timeline lane {l['id']}: unknown parent")
         cites(l, f"timeline lane {l['id']}"); _lanes.add(l["id"])
+        if l.get("split"): cites(l["split"], f"timeline lane {l['id']} split")
+    for l in _tl["lanes"]:
+        if l.get("parent") and l["parent"] not in _lanes: err(f"timeline lane {l['id']}: parent has no lane")
     for i, e in enumerate(_tl["events"]):
         if not isinstance(e.get("year"), int) or not 1900 <= e["year"] <= 2100: err(f"timeline event {i}: bad year")
         if e.get("group") not in _lanes: err(f"timeline event {i}: group {e.get('group')} has no lane")

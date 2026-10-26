@@ -148,23 +148,39 @@ function moneyTile(m){
   $("moneymore").innerHTML=`<p><b>${esc(m.takeaway)}</b></p><p>${esc(m.summary)}</p><h3>Typologies flagged (overlapping)</h3>${m.typologies.map(t=>`<div>${esc(t.name)}: $${t.value}bn</div>`).join("")}${cite(["FINCEN_CMLN_FTA"])}<h3>Related</h3>${m.related.map(r=>`<div><b>${esc(r.name)}</b>${r.value?` ($${r.value}bn)`:""}: ${esc(r.text||"")}${cite(r.cites)}</div>`).join("")}<p class="note">${esc(m.notes)}</p>`;
 }
 function netTile(net,terr){
-  const el=$("netsvg"),W=Math.max(380,el.parentNode.clientWidth-28),H=520;const svg=d3.select(el).attr("width",W).attr("height",H).attr("viewBox",`0 0 ${W} ${H}`);
-  const tc=Object.fromEntries(terr.groups.filter(g=>g.network_id).map(g=>[g.network_id,g.color]));
-  const COLS=[["Mexico",["chapitos","mayiza","sinaloa","juarez","cjng","unidos","viagras","gulf","cdn"],.02,0],["Central America",["ms13","b18","cmln"],.52,0],["Andes",["tda","soles","segmar","eln","choneros","lobos"],.52,4],["Brazil",["pcc","cv"],.52,11]];
-  const by=Object.fromEntries(net.groups.map(g=>[g.id,{...g}]));const nodes=[];
-  COLS.forEach(([lab,ids,fx,row])=>{const y0=22+row*36;svg.append("text").attr("class","nethd").attr("x",W*fx).attr("y",y0).text(lab);ids.filter(i=>by[i]).forEach((id,i)=>{const d=by[id];d.x=W*fx+6;d.y=y0+22+i*34;nodes.push(d)})});
-  const edges=net.edges.filter(e=>by[e.source]&&by[e.target]&&by[e.source].x!=null&&by[e.target].x!=null).map(e=>({...e,source:by[e.source],target:by[e.target]}));
-  const ST={alliance:["#4caf50",3,null],rivalry:["#e0605c",2.5,"6 4"],service:["#c77dff",1.4,null],"alleged link":["#ffffff",1.4,"2 3"],faction:["#c77dff",1.4,null]};
-  $("netlegend").innerHTML=`<span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#4caf50" stroke-width="3"/></svg> alliance</span> <span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#e0605c" stroke-width="2.5" stroke-dasharray="6 4"/></svg> ✕ rivalry / war</span> <span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#c77dff" stroke-width="1.4"/></svg> faction / business / service</span> <span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#ffffff" stroke-width="1.4" stroke-dasharray="2 3"/></svg> alleged link</span>`;
-  const cp=d=>{const sx=d.source.x,sy=d.source.y,tx=d.target.x,ty=d.target.y;const same=Math.abs(sx-tx)<5;const mx=same?sx+40+Math.abs(sy-ty)*.35:(sx+tx)/2,my=same?(sy+ty)/2:(sy+ty)/2-18;return [mx,my]};
+  const el=$("netsvg");el.style.width="100%";const W=Math.max(900,el.parentNode.clientWidth-28),H=W<1000?820:780;const svg=d3.select(el).attr("width",W).attr("height",H).attr("viewBox",`0 0 ${W} ${H}`);svg.selectAll("*").remove();
+  const tc=Object.fromEntries(terr.groups.filter(g=>g.network_id).map(g=>[g.network_id,g.color]));const FB=window.CARTEL_FALL||{};const COL=id=>tc[id]||FB[id]||"#ff9f1c";
+  const REG={MX:"Mexico",SV:"Central America",GT:"Central America",HN:"Central America",VE:"Venezuela & Colombia",CO:"Venezuela & Colombia",EC:"Ecuador",BR:"Brazil",HT:"Haiti"};
+  const CEN={"Mexico":[.27,.36],"Central America":[.62,.17],"Facilitators":[.88,.17],"Venezuela & Colombia":[.62,.55],"Ecuador":[.30,.84],"Brazil":[.88,.62],"Haiti":[.88,.88]};
+  const nodes=net.groups.map(g=>({...g,reg:REG[g.country]||"Facilitators"}));const by=Object.fromEntries(nodes.map(d=>[d.id,d]));
+  const lab=d=>d.name.split(" (")[0].replace(/^Cartel (de |del )?/,"").replace(/^Chinese money laundering networks?/i,"Chinese money brokers").slice(0,34);
+  nodes.forEach(d=>{const c=CEN[d.reg];d.x=c[0]*W+(Math.random()-.5)*40;d.y=c[1]*H+(Math.random()-.5)*40;d.lw=lab(d).length*7.6+16});
+  const edges=net.edges.filter(e=>by[e.source]&&by[e.target]).map(e=>({...e,source:by[e.source],target:by[e.target]}));
+  const sim=d3.forceSimulation(nodes).force("x",d3.forceX(d=>CEN[d.reg][0]*W).strength(.22)).force("y",d3.forceY(d=>CEN[d.reg][1]*H).strength(.22))
+   .force("ch",d3.forceManyBody().strength(-420)).force("link",d3.forceLink(edges).distance(110).strength(.04))
+   .force("col",d3.forceCollide(d=>Math.max(34,d.lw/2+6)).iterations(4)).stop();
+  for(let i=0;i<500;i++)sim.tick();
+  nodes.forEach(d=>{d.x=Math.max(d.lw/2+8,Math.min(W-d.lw/2-8,d.x));d.y=Math.max(60,Math.min(H-24,d.y))});
+  const ST={alliance:["#3ddc84",3,null],rivalry:["#ff4d6d",3,"8 5"],service:["#c77dff",2.5,null],"alleged link":["#ffffff",2.5,"2 4"],faction:["#c77dff",2.5,null]};
+  const sw=(k)=>`<svg width="30" height="10"><line x1="0" y1="5" x2="30" y2="5" stroke="${ST[k][0]}" stroke-width="${ST[k][1]}" ${ST[k][2]?`stroke-dasharray="${ST[k][2]}"`:""}/></svg>`;
+  $("netlegend").style.cssText="display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;font-size:13px";$("netlegend").innerHTML=`<span>${sw("alliance")} <b style="color:#3ddc84">alliance</b> (solid)</span> <span>${sw("rivalry")} <b style="color:#ff4d6d">rivalry / war</b> (dashed)</span> <span>${sw("faction")} faction / business / service</span> <span>${sw("alleged link")} alleged link</span> <span class="muted">· node colour = map colour · hover a group to isolate its links · click for sourced note</span>`;
+  // region cluster halos
+  const rg=d3.groups(nodes,d=>d.reg);const hg=svg.append("g");
+  rg.forEach(([r,ns])=>{const x0=d3.min(ns,d=>d.x-d.lw/2)-10,x1=d3.max(ns,d=>d.x+d.lw/2)+10,y0=d3.min(ns,d=>d.y)-50,y1=d3.max(ns,d=>d.y)+30;
+    hg.append("rect").attr("class","netreg").attr("x",x0).attr("y",y0).attr("width",x1-x0).attr("height",y1-y0).attr("rx",14);
+    hg.append("text").attr("class","nethd").attr("x",x0+10).attr("y",y0+15).text(r)});
+  const cp=d=>{const dx=d.target.x-d.source.x,dy=d.target.y-d.source.y;return [(d.source.x+d.target.x)/2-dy*.15,(d.source.y+d.target.y)/2+dx*.15]};
   const eg=svg.append("g").selectAll("g").data(edges).join("g").attr("class","ne").style("cursor","pointer").on("click",(e,d)=>drawer(`<h2>${esc(d.source.name)} and ${esc(d.target.name)}</h2><span class="tag">${esc(d.kind)}</span><p>${esc(d.text)}</p>${cite(d.cites)}`));
-  eg.append("path").attr("d",d=>{const [mx,my]=cp(d);return `M${d.source.x},${d.source.y}Q${mx},${my} ${d.target.x},${d.target.y}`}).attr("fill","none").attr("stroke",d=>ST[d.kind][0]).attr("stroke-width",d=>ST[d.kind][1]).attr("stroke-dasharray",d=>ST[d.kind][2]);
+  const pd=d=>{const [mx,my]=cp(d);return `M${d.source.x},${d.source.y}Q${mx},${my} ${d.target.x},${d.target.y}`};
+  eg.append("path").attr("d",pd).attr("fill","none").attr("stroke",d=>ST[d.kind][0]).attr("stroke-width",d=>ST[d.kind][1]).attr("stroke-dasharray",d=>ST[d.kind][2]).attr("opacity",.9);
+  eg.append("path").attr("d",pd).attr("fill","none").attr("stroke","transparent").attr("stroke-width",12);
   eg.filter(d=>d.kind==="rivalry").append("text").attr("class","nx").attr("text-anchor","middle").attr("dy","0.35em").attr("transform",d=>{const [mx,my]=cp(d);return `translate(${(d.source.x+2*mx+d.target.x)/4},${(d.source.y+2*my+d.target.y)/4})`}).text("✕");
-  eg.append("title").text(d=>`${d.source.name} – ${d.target.name}: ${d.kind}`);
-  const n=svg.append("g").selectAll("g").data(nodes).join("g").attr("transform",d=>`translate(${d.x},${d.y})`).style("cursor","pointer").on("click",(e,d)=>drawer(groupHtml(d,net)))
-   .on("mouseenter",(e,d)=>{eg.classed("dim",x=>x.source!==d&&x.target!==d);n.classed("dim",x=>x!==d&&!edges.some(k=>(k.source===d&&k.target===x)||(k.target===d&&k.source===x)))}).on("mouseleave",()=>{eg.classed("dim",false);n.classed("dim",false)});
-  n.append("circle").attr("r",6).attr("fill",d=>tc[d.id]||"#ffffff").attr("stroke","#e6e9ef").attr("stroke-width",d=>d.fto?1.5:0);
-  n.append("text").attr("class","netl").attr("x",9).attr("y",4).attr("fill",d=>tc[d.id]||"#c3ccd9").text(d=>d.name.split(" (")[0].replace(/^Cartel (de |del )?/,"").replace(/^Chinese money laundering networks?/i,"Chinese money brokers").slice(0,24));
+  eg.append("title").text(d=>`${d.source.name} – ${d.target.name}: ${d.kind}. ${d.text}`);
+  const nb=d=>new Set([d,...edges.filter(k=>k.source===d||k.target===d).flatMap(k=>[k.source,k.target])]);
+  const n=svg.append("g").selectAll("g").data(nodes).join("g").attr("class","nn").attr("transform",d=>`translate(${d.x},${d.y})`).style("cursor","pointer").on("click",(e,d)=>drawer(groupHtml(d,net)))
+   .on("mouseenter",(e,d)=>{const s=nb(d);eg.classed("dim",x=>x.source!==d&&x.target!==d).classed("hi",x=>x.source===d||x.target===d);n.classed("dim",x=>!s.has(x))}).on("mouseleave",()=>{eg.classed("dim",false).classed("hi",false);n.classed("dim",false)});
+  n.append("circle").attr("r",9).attr("fill",d=>COL(d.id)).attr("stroke","#ffffff").attr("stroke-width",d=>d.fto?2.5:1);
+  n.append("text").attr("class","netl").attr("text-anchor","middle").attr("y",-14).text(lab);
 }
 function chinaTile(c){
   const ab={precursors:"PRE",ports:"PRT",money:"$",finance:"$",laundering:"$",infrastructure:"INF"};
