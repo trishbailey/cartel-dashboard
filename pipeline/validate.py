@@ -322,6 +322,39 @@ if os.path.exists(os.path.join(D, "timeline.json")):
         if not e.get("text"): err(f"timeline event {i}: no text")
         cites(e, f"timeline event {i} ({e.get('group')})")
 
+# timeline connectors: replicate public/timeline.js lane order + trunk geometry; no connector may cross an unrelated lane bar
+def _tl_links(tl, W, RW=60):
+    lanes = tl["lanes"]; ids = {l["id"] for l in lanes}; kids = {}
+    for l in lanes:
+        if l.get("parent"): kids.setdefault(l["parent"], []).append(l)
+    order, sib = [], {}
+    def walk(l):
+        order.append(l)
+        ks = sorted(kids.get(l["id"], []), key=lambda a: (a["id"] in kids, a["founded"], a["id"]))
+        for i, k in enumerate(ks): sib[k["id"]] = i; walk(k)
+    for r in dict.fromkeys(l["region"] for l in lanes):
+        for root in [l for l in lanes if l["region"] == r and (not l.get("parent") or l["parent"] not in ids)]: walk(root)
+    LW = 210
+    def x(y):
+        a, b = LW + 50, W - RW
+        return LW + (y - 1960) / 18 * 50 if y <= 1978 else a + (y - 1978) / (2027 - 1978) * (b - a)
+    row = {l["id"]: i for i, l in enumerate(order)}; by = {l["id"]: l for l in lanes}; bad = []
+    for l in order:
+        if not l.get("parent") or l["parent"] not in by: continue
+        P = by[l["parent"]]; xt = x(P["founded"]) + 7 + 11 * sib[l["id"]]
+        if not (x(P["founded"]) <= xt <= x(P.get("ended") or 2026.8)): bad.append(f"{l['id']}: trunk leaves parent bar")
+        for m in order[row[P["id"]] + 1: row[l["id"]]]:
+            b0, b1 = x(m["founded"]) - 14, x(m.get("ended") or 2026.8) + 40  # bar incl. '≈' and '✕ year' text, +stroke
+            if b0 - 3 <= xt <= b1 + 3: bad.append(f"{P['id']}→{l['id']} crosses {m['id']} bar at W={W}")
+    return order, bad
+if os.path.exists(os.path.join(D, "timeline.json")):
+    for _W in (760, 1000, 1100, 1400, 1800):
+        for _RW in (14, 60, 180, 320):
+            for _b in _tl_links(load("timeline.json"), max(_W, _RW + 700), _RW)[1]: err("timeline connector " + _b)
+    for l in load("timeline.json")["lanes"]:
+        if l.get("parent") and not (l.get("link") and l["link"].get("label") and l["link"].get("kind") in ("split", "breakup", "alliance")): err(f"timeline lane {l['id']}: parent link needs kind+label")
+        if l.get("link"): cites(l["link"], f"timeline lane {l['id']} link")
+
 # ---- whatsnew.json (digest; see docs/DIGEST.md) ----
 if os.path.exists(os.path.join(D, "whatsnew.json")):
     import re as _re
