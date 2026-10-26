@@ -38,7 +38,7 @@ P = [
  {"id":"gulf","name":"Gulf Cartel","abbr":"CDG = Cártel del Golfo","what":"Historic Tamaulipas border cartel, now split into rival factions.","what_c":["IC_GULF_ES"],
   "founded":"1980s (roots earlier), Tamaulipas (Mexico)","founded_c":["IC_GULF_ES"],"biz":["gulf"],
   "more":[["Juan García Ábrego built it in the 1980s by moving Cali Cartel cocaine across the border; Osiel Cárdenas later created the armed wing that became Los Zetas.",["IC_GULF_ES"]],
-          ["Today it is fragmented into factions (Escorpiones, Ciclones, Metros and others) that fight over border crossings, drugs, arms and migrant smuggling.",["IC_GULF_ES"]]],
+          ["Today it is fragmented into factions (Escorpiones, Ciclones, Metros and others) that fight over border crossings, drugs, arms and human smuggling.",["IC_GULF_ES"]]],
   "series_note":"No numeric membership estimate found (US NCTC says only \u2018thousands\u2019)."},
  {"id":"cdn","name":"Northeast Cartel","abbr":"CDN = Cártel del Noreste","what":"Zetas successor group based in Nuevo Laredo.","what_c":["IC_ZETAS"],
   "founded":"Mid-2010s, Tamaulipas (Mexico), splinter of Los Zetas","founded_c":["IC_ZETAS"],"biz":["cdn"],
