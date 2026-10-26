@@ -299,6 +299,13 @@ if os.path.exists(os.path.join(D, "groups_business.json")):
             if c.get("level") not in ("primary","secondary","minor"): err(f"business {gid}.{line}: bad level")
             if not str(c.get("source_url","")).startswith("https://") or is_cn(c.get("source_url","")): err(f"business {gid}.{line}: needs source")
 
+# ---- group_countries.json: every country needs a known source ----
+if os.path.exists(os.path.join(D, "group_countries.json")):
+    for gid, g in load("group_countries.json")["groups"].items():
+        if not g.get("countries") or g["countries"][0]["iso"] != g.get("home"): err(f"group_countries {gid}: home country must be first")
+        for c in g["countries"]:
+            if not c.get("cites") or any(x not in src for x in c["cites"]): err(f"group_countries {gid}.{c.get('iso')}: needs known cite ids")
+
 if errs:
     print("\n".join("ERROR " + e for e in errs)); sys.exit(1)
 print(f"valid: {len(src)} sources, {len(net['groups'])} groups, {len(net['edges'])} edges, {len(ev['events'])} events")

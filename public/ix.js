@@ -2,7 +2,7 @@
 (function(){
 const tip=document.createElement("div");tip.className="ixtip";tip.textContent="Click for details";document.body.appendChild(tip);
 const svg=document.getElementById("mapsvg");
-svg.addEventListener("mousemove",e=>{const p=e.target.closest("path.adm");if(!p){tip.style.display="none";return}
+svg.addEventListener("mousemove",e=>{const p=e.target.closest("path.adm")||document.elementsFromPoint(e.clientX,e.clientY).find(x=>x.matches&&x.matches("path.adm"));if(!p){tip.style.display="none";return}
  const n=p.__data__&&p.__data__.properties&&p.__data__.properties.name;tip.textContent=(n?n+" · ":"")+"Click for details";
  tip.style.display="block";tip.style.left=(e.clientX+14)+"px";tip.style.top=(e.clientY+14)+"px"});
 svg.addEventListener("mouseleave",()=>tip.style.display="none");
