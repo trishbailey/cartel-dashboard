@@ -16,7 +16,8 @@ Breaking and "Latest from X" lists are no longer rendered (data files still buil
 - China-linked (precursors, money brokers) or terror-designation developments.
 Leave out single routine seizures, minor or cell-level arrests, one-off local incidents and single testimonies. Fold one into a
 sentence only if it genuinely evidences a broader shift, and say what the shift is. Fewer, weightier items beat many small
-ones: 1-4 per trend is fine. Each trend keeps its context line, numbered footnote sources, and describe-never-predict wording.
+ones: 1-4 per trend is fine. Keep the current layout organised by cartel/group (one card per cartel or theatre, as now);
+prune within it and do not restructure it into a different scheme. Each trend keeps its context line, numbered footnote sources, and describe-never-predict wording.
 
 ## Schema
 ```
