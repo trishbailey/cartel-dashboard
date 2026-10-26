@@ -354,6 +354,27 @@ if os.path.exists(os.path.join(D, "whatsnew.json")):
     if len(_wn.get("other", [])) > 3: err("whatsnew: max 3 'other' items")
     for i, d in enumerate(_wn.get("other", [])): _wdev(d, f"whatsnew other {i}")
 
+# ---- physical route layers (pipeline/mk_routes3.py) ----
+for _fn, _ch, _subs in [("routes_drugs.geojson", "drugs", {"cocaine", "precursor", "synthetic"}),
+                        ("routes_migrants.geojson", "migrants", {"northbound land", "rail (La Bestia)", "sea", "southbound (reverse) 2025"}),
+                        ("routes_firearms.geojson", "firearms", {"land", "sea", "air"})]:
+    if not os.path.exists(os.path.join(D, _fn)): err(f"{_fn} missing"); continue
+    _g = load(_fn)
+    if not _g.get("features"): err(f"{_fn}: no features")
+    for i, f in enumerate(_g["features"]):
+        pr, w = f.get("properties", {}), f"{_fn} feature {i}"
+        if pr.get("channel") != _ch: err(f"{w}: channel {pr.get('channel')}")
+        if pr.get("subtype") not in _subs: err(f"{w}: unknown subtype {pr.get('subtype')}")
+        for k in ("from", "to", "description", "year"):
+            if not pr.get(k): err(f"{w}: no {k}")
+        if not pr.get("sources"): err(f"{w}: unsourced")
+        for s in pr.get("sources", []):
+            if isinstance(s, str):
+                if s not in src: err(f"{w}: unknown source {s}")
+            elif not (s.get("url") and s.get("name")) or is_cn(s["url"]): err(f"{w}: bad source")
+        c = f.get("geometry", {}).get("coordinates", [])
+        if f.get("geometry", {}).get("type") != "LineString" or len(c) < 2 or not all(-180 <= x <= 180 and -90 <= y <= 90 for x, y in c): err(f"{w}: bad geometry")
+
 if errs:
     print("\n".join("ERROR " + e for e in errs)); sys.exit(1)
 print(f"valid: {len(src)} sources, {len(net['groups'])} groups, {len(net['edges'])} edges, {len(ev['events'])} events")

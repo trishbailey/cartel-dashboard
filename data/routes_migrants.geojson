@@ -1,0 +1,475 @@
+{
+ "type": "FeatureCollection",
+ "channel": "migrants",
+ "notes": {
+  "note": "Northbound land (solid), rail (long dash), sea (dotted), 2025 southbound reverse flow (dash-dot). Line width only where a sourced count exists.",
+  "sources": [
+   {
+    "url": "https://www.migrationpolicy.org/journal/feature/how-immigration-crackdowns-and-aid-cuts-are-reshaping-migration-across-central",
+    "name": "Migration Policy Institute",
+    "title": "How immigration crackdowns and aid cuts are reshaping migration across Central America",
+    "date": "2025"
+   },
+   {
+    "url": "https://hias.org/wp-content/uploads/Panama-Reverse-Flow-Monitoring-Factsheet_2025.pdf",
+    "name": "UNHCR / HIAS",
+    "title": "Panama reverse flow monitoring factsheet",
+    "date": "2025"
+   }
+  ]
+ },
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "migrants",
+    "subtype": "northbound land",
+    "from": "Necoclí / Turbo",
+    "to": "Lajas Blancas (Panama)",
+    "description": "The Darién crossing from Colombia to Panama carried a record 520,000+ people north in 2023, then collapsed to a trickle by 2025.",
+    "sources": [
+     {
+      "url": "https://www.migrationpolicy.org/journal/feature/how-immigration-crackdowns-and-aid-cuts-are-reshaping-migration-across-central",
+      "name": "Migration Policy Institute",
+      "title": "How immigration crackdowns and aid cuts are reshaping migration across Central America",
+      "date": "2025"
+     },
+     {
+      "url": "https://www.thenewhumanitarian.org/news-feature/2025/06/19/challenges-invisible-reverse-flow-migrantion-panama-americas",
+      "name": "The New Humanitarian",
+      "title": "The challenges facing 'invisible' reverse flow migrants in Panama",
+      "date": "2025-06-19"
+     }
+    ],
+    "year": "2023",
+    "volume": 520000
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -76.73,
+      8.4
+     ],
+     [
+      -77.6,
+      8.0
+     ],
+     [
+      -77.9,
+      8.5
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "migrants",
+    "subtype": "northbound land",
+    "from": "Lajas Blancas (Panama)",
+    "to": "Tecún Umán / Ciudad Hidalgo",
+    "description": "From Panama the route crosses Costa Rica (Paso Canoas to Peñas Blancas), Nicaragua, Honduras and Guatemala to the Mexican border.",
+    "sources": [
+     {
+      "url": "https://www.migrationpolicy.org/journal/feature/how-immigration-crackdowns-and-aid-cuts-are-reshaping-migration-across-central",
+      "name": "Migration Policy Institute",
+      "title": "How immigration crackdowns and aid cuts are reshaping migration across Central America",
+      "date": "2025"
+     },
+     {
+      "url": "https://apnews.com/article/costa-rica-panama-immigration-darien-27c86f83c2288b9519ddf71fc23726c0",
+      "name": "AP",
+      "title": "Costa Rica and Panama coordinate to move southbound migrants",
+      "date": "2025-03-03"
+     }
+    ],
+    "year": "2024"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -77.9,
+      8.5
+     ],
+     [
+      -79.52,
+      8.98
+     ],
+     [
+      -82.84,
+      8.53
+     ],
+     [
+      -85.62,
+      11.21
+     ],
+     [
+      -86.6,
+      14.0
+     ],
+     [
+      -90.51,
+      14.63
+     ],
+     [
+      -92.15,
+      14.68
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "migrants",
+    "subtype": "northbound land",
+    "from": "Tecún Umán / Ciudad Hidalgo",
+    "to": "Arriaga / Tonalá",
+    "description": "Tapachula is the bottleneck where about 60% of Mexico's 2021-23 asylum requests were filed; the coastal highway leads north.",
+    "sources": [
+     {
+      "url": "https://insightcrime.org/news/vortex-evil-gangs-narcos-tapachula-mexico/",
+      "name": "InSight Crime",
+      "title": "Vortex of Evil: Gangs and Narcos in Tapachula, Mexico",
+      "date": ""
+     }
+    ],
+    "year": "2023"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -92.15,
+      14.68
+     ],
+     [
+      -92.26,
+      14.9
+     ],
+     [
+      -93.8,
+      16.1
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "migrants",
+    "subtype": "rail (La Bestia)",
+    "from": "Arriaga / Tonalá",
+    "to": "Mexico City",
+    "description": "The freight train known as La Bestia starts in Chiapas and runs to central Mexico.",
+    "sources": [
+     {
+      "url": "https://insightcrime.org/news/vortex-evil-gangs-narcos-tapachula-mexico/",
+      "name": "InSight Crime",
+      "title": "Vortex of Evil: Gangs and Narcos in Tapachula, Mexico",
+      "date": ""
+     },
+     {
+      "url": "https://globalinitiative.net/wp-content/uploads/2018/07/Organized-Crime-and-Central-American-Migration-in-Mexico-The-University-of-Texas-at-Austin-2018.pdf",
+      "name": "UT Austin / Global Initiative",
+      "title": "Organized crime and Central American migration in Mexico",
+      "date": "2018"
+     }
+    ],
+    "year": "2023"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -93.8,
+      16.1
+     ],
+     [
+      -96.13,
+      19.17
+     ],
+     [
+      -99.13,
+      19.43
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "migrants",
+    "subtype": "northbound land",
+    "from": "Villahermosa",
+    "to": "Matamoros",
+    "description": "The Gulf route through Veracruz to Tamaulipas is the most used and most violent, taxed by Gulf Cartel and Zetas splinters.",
+    "sources": [
+     {
+      "url": "https://globalinitiative.net/wp-content/uploads/2018/07/Organized-Crime-and-Central-American-Migration-in-Mexico-The-University-of-Texas-at-Austin-2018.pdf",
+      "name": "UT Austin / Global Initiative",
+      "title": "Organized crime and Central American migration in Mexico",
+      "date": "2018"
+     }
+    ],
+    "year": "2018"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -92.93,
+      17.99
+     ],
+     [
+      -96.13,
+      19.17
+     ],
+     [
+      -98.28,
+      26.08
+     ],
+     [
+      -97.5,
+      25.87
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "migrants",
+    "subtype": "northbound land",
+    "from": "Mexico City",
+    "to": "Nogales",
+    "description": "The Pacific route runs through Sinaloa Cartel territory to the Sonora crossings.",
+    "sources": [
+     {
+      "url": "https://globalinitiative.net/wp-content/uploads/2018/07/Organized-Crime-and-Central-American-Migration-in-Mexico-The-University-of-Texas-at-Austin-2018.pdf",
+      "name": "UT Austin / Global Initiative",
+      "title": "Organized crime and Central American migration in Mexico",
+      "date": "2018"
+     }
+    ],
+    "year": "2018"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -99.13,
+      19.43
+     ],
+     [
+      -103.35,
+      20.67
+     ],
+     [
+      -110.96,
+      29.07
+     ],
+     [
+      -110.94,
+      31.33
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "migrants",
+    "subtype": "northbound land",
+    "from": "Hermosillo",
+    "to": "Tijuana",
+    "description": "The Pacific route continues on to Baja California.",
+    "sources": [
+     {
+      "url": "https://globalinitiative.net/wp-content/uploads/2018/07/Organized-Crime-and-Central-American-Migration-in-Mexico-The-University-of-Texas-at-Austin-2018.pdf",
+      "name": "UT Austin / Global Initiative",
+      "title": "Organized crime and Central American migration in Mexico",
+      "date": "2018"
+     }
+    ],
+    "year": "2018"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -110.96,
+      29.07
+     ],
+     [
+      -115.45,
+      32.62
+     ],
+     [
+      -117.03,
+      32.53
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "migrants",
+    "subtype": "sea",
+    "from": "Ocós (Guatemala)",
+    "to": "Salina Cruz / Huatulco",
+    "description": "Smugglers take people by fishing boat about 450 km along the Pacific coast, from Ocós to Oaxaca, to avoid checkpoints in Chiapas.",
+    "sources": [
+     {
+      "url": "https://insightcrime.org/news/human-smugglers-take-to-the-waves-along-mexicos-pacific-coast/",
+      "name": "InSight Crime",
+      "title": "Human smugglers take to the waves along Mexico's Pacific coast",
+      "date": ""
+     }
+    ],
+    "year": "2022"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -92.19,
+      14.51
+     ],
+     [
+      -95.6,
+      15.9
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "migrants",
+    "subtype": "southbound (reverse) 2025",
+    "from": "Peñas Blancas",
+    "to": "Panama City",
+    "description": "In 2025 Costa Rica and Panama bused southbound migrants along the old northbound route.",
+    "sources": [
+     {
+      "url": "https://apnews.com/article/costa-rica-panama-immigration-darien-27c86f83c2288b9519ddf71fc23726c0",
+      "name": "AP",
+      "title": "Costa Rica and Panama coordinate to move southbound migrants",
+      "date": "2025-03-03"
+     },
+     {
+      "url": "https://www.migrationpolicy.org/journal/feature/how-immigration-crackdowns-and-aid-cuts-are-reshaping-migration-across-central",
+      "name": "Migration Policy Institute",
+      "title": "How immigration crackdowns and aid cuts are reshaping migration across Central America",
+      "date": "2025"
+     }
+    ],
+    "year": "2025"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -85.62,
+      11.21
+     ],
+     [
+      -82.84,
+      8.53
+     ],
+     [
+      -79.52,
+      8.98
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "migrants",
+    "subtype": "southbound (reverse) 2025",
+    "from": "Panama City",
+    "to": "Necoclí / Turbo",
+    "description": "Panama recorded 22,300+ people heading south to Colombia in 2025, mostly Venezuelans, many taking boats from Colón to Capurganá.",
+    "sources": [
+     {
+      "url": "https://hias.org/wp-content/uploads/Panama-Reverse-Flow-Monitoring-Factsheet_2025.pdf",
+      "name": "UNHCR / HIAS",
+      "title": "Panama reverse flow monitoring factsheet",
+      "date": "2025"
+     },
+     {
+      "url": "https://www.thenewhumanitarian.org/news-feature/2025/06/19/challenges-invisible-reverse-flow-migrantion-panama-americas",
+      "name": "The New Humanitarian",
+      "title": "The challenges facing 'invisible' reverse flow migrants in Panama",
+      "date": "2025-06-19"
+     }
+    ],
+    "year": "2025",
+    "volume": 22300
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -79.52,
+      8.98
+     ],
+     [
+      -79.3,
+      9.55
+     ],
+     [
+      -77.35,
+      8.63
+     ],
+     [
+      -76.73,
+      8.4
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "migrants",
+    "subtype": "southbound (reverse) 2025",
+    "from": "Panama City",
+    "to": "Buenaventura",
+    "description": "A Pacific boat route from Panama City via Jaque also returns migrants to Colombia.",
+    "sources": [
+     {
+      "url": "https://hias.org/wp-content/uploads/Panama-Reverse-Flow-Monitoring-Factsheet_2025.pdf",
+      "name": "UNHCR / HIAS",
+      "title": "Panama reverse flow monitoring factsheet",
+      "date": "2025"
+     }
+    ],
+    "year": "2025"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -79.52,
+      8.98
+     ],
+     [
+      -78.17,
+      7.52
+     ],
+     [
+      -77.07,
+      3.88
+     ]
+    ]
+   }
+  }
+ ]
+}

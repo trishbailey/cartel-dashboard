@@ -20,3 +20,5 @@
 .wnv{display:inline-block;min-width:15px;height:15px;line-height:15px;text-align:center;border-radius:8px;font-size:10px;font-weight:700;vertical-align:1px}
 .wnv.ok{background:#2e7d4f;color:#fff}.wnv.one{background:#3a4a66;color:#dfe6f0}.wnv.off{background:#8a6d1f;color:#fff}
 .wntile sup.fn a{color:#7f8ca3;font-size:9px;text-decoration:none}
+/* route overlay notes under the map (routes3.js) */
+.rnotes{font-size:11px;line-height:1.4;margin:6px 2px;color:#8b97ab}.rnotes>div{margin:2px 0}.rnotes svg,#layers label>svg{display:inline-block!important;vertical-align:middle;margin-right:4px}

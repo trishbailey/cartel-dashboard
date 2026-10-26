@@ -1,0 +1,902 @@
+{
+ "type": "FeatureCollection",
+ "channel": "drugs",
+ "notes": {
+  "note": "Cocaine (solid), precursors (dotted; Asia leg off-map), synthetics: fentanyl/meth (dashed). Lines are schematic corridors between places named in sources, not tracks. Atlantic legs end at the map edge.",
+  "sources": [
+   "DEA25",
+   "UNODC_WDR25",
+   {
+    "url": "https://www.euda.europa.eu/publications/eu-drug-markets/cocaine/europe-and-global-cocaine-trade_en",
+    "name": "EUDA",
+    "title": "Europe and the global cocaine trade (EU Drug Markets)",
+    "date": ""
+   }
+  ]
+ },
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "drugs",
+    "subtype": "cocaine",
+    "from": "Tumaco",
+    "to": "Guatemala Pacific coast",
+    "description": "Cocaine leaves Colombia's southern Pacific coast by go-fast boat and semi-submersible for Central America's Pacific coast.",
+    "sources": [
+     "UNODC_WDR25",
+     "IC_URABENOS",
+     "JS_STRIKES"
+    ],
+    "year": "2025"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -78.79,
+      1.8
+     ],
+     [
+      -90.0,
+      11.0
+     ],
+     [
+      -91.9,
+      14.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "drugs",
+    "subtype": "cocaine",
+    "from": "Buenaventura",
+    "to": "Chiapas coast",
+    "description": "Shipments from Buenaventura run north along the Pacific to southern Mexico.",
+    "sources": [
+     "UNODC_WDR25",
+     "IC_URABENOS"
+    ],
+    "year": "2025"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -77.07,
+      3.88
+     ],
+     [
+      -90.0,
+      11.0
+     ],
+     [
+      -93.2,
+      15.4
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "drugs",
+    "subtype": "cocaine",
+    "from": "Guayaquil",
+    "to": "Guerrero coast",
+    "description": "Ecuadorian ports feed a long Pacific route, sometimes skirting the Galápagos, to Mexico's Pacific coast.",
+    "sources": [
+     "IC_ECUADOR",
+     "IC_CHONEROS",
+     "UNODC_WDR25"
+    ],
+    "year": "2025"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -79.9,
+      -2.19
+     ],
+     [
+      -91.0,
+      0.5
+     ],
+     [
+      -90.0,
+      11.0
+     ],
+     [
+      -99.9,
+      16.8
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "drugs",
+    "subtype": "cocaine",
+    "from": "Manta",
+    "to": "Central America Pacific (offshore)",
+    "description": "Manta and Esmeraldas launch boats that hand loads to Mexican buyers offshore.",
+    "sources": [
+     "IC_LOBOS",
+     "IC_ECUADOR"
+    ],
+    "year": "2025"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -80.72,
+      -0.95
+     ],
+     [
+      -91.0,
+      0.5
+     ],
+     [
+      -90.0,
+      11.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "drugs",
+    "subtype": "cocaine",
+    "from": "Guerrero coast",
+    "to": "Nogales",
+    "description": "Cocaine landed on Mexico's Pacific coast moves overland under Sinaloa and CJNG control to the Arizona and California crossings.",
+    "sources": [
+     "DEA25",
+     "IC_SINALOA",
+     "IC_CJNG"
+    ],
+    "year": "2025"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -99.9,
+      16.8
+     ],
+     [
+      -101.6,
+      18.9
+     ],
+     [
+      -103.35,
+      20.67
+     ],
+     [
+      -107.39,
+      24.8
+     ],
+     [
+      -110.94,
+      31.33
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "drugs",
+    "subtype": "cocaine",
+    "from": "Guajira/Falcón coast",
+    "to": "Santo Domingo",
+    "description": "Cocaine moves by boat and light aircraft from Venezuela's and Colombia's Caribbean coast to the Dominican Republic.",
+    "sources": [
+     "IC_SOLES",
+     "UNODC_WDR25",
+     "JS_STRIKES"
+    ],
+    "year": "2025"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -70.5,
+      11.9
+     ],
+     [
+      -69.9,
+      18.47
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "drugs",
+    "subtype": "cocaine",
+    "from": "Venezuela east coast",
+    "to": "Miami",
+    "description": "Puerto Rico is a Caribbean entry point for US-bound cocaine.",
+    "sources": [
+     "DEA25",
+     "UNODC_WDR25"
+    ],
+    "year": "2025"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -63.0,
+      10.7
+     ],
+     [
+      -66.1,
+      18.47
+     ],
+     [
+      -80.19,
+      25.76
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "drugs",
+    "subtype": "cocaine",
+    "from": "Cartagena",
+    "to": "Haiti south coast",
+    "description": "Haiti's south coast is a transshipment point on the Caribbean route.",
+    "sources": [
+     "IC_HAITI",
+     "UNODC_WDR25"
+    ],
+    "year": "2025"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -75.51,
+      10.4
+     ],
+     [
+      -72.53,
+      18.23
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "drugs",
+    "subtype": "cocaine",
+    "from": "Cartagena",
+    "to": "Honduras Mosquitia",
+    "description": "Air and sea loads land in Honduras' Mosquitia and start the Central American land bridge.",
+    "sources": [
+     "UNODC_WDR25",
+     "IC_HONDURAS"
+    ],
+    "year": "2025"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -75.51,
+      10.4
+     ],
+     [
+      -84.5,
+      15.3
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "drugs",
+    "subtype": "cocaine",
+    "from": "Honduras Mosquitia",
+    "to": "Reynosa",
+    "description": "The land corridor runs through Honduras and Guatemala's Petén into Tabasco, then up the Gulf side to the Tamaulipas border.",
+    "sources": [
+     "UNODC_WDR25",
+     "IC_GUATEMALA",
+     "IC_GULF"
+    ],
+    "year": "2025"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -84.5,
+      15.3
+     ],
+     [
+      -88.03,
+      15.5
+     ],
+     [
+      -90.0,
+      16.9
+     ],
+     [
+      -92.93,
+      17.99
+     ],
+     [
+      -96.13,
+      19.17
+     ],
+     [
+      -98.28,
+      26.08
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "drugs",
+    "subtype": "cocaine",
+    "from": "Petén",
+    "to": "Tapachula",
+    "description": "A western branch enters Mexico through Chiapas.",
+    "sources": [
+     "UNODC_WDR25",
+     "IC_GUATEMALA",
+     {
+      "url": "https://insightcrime.org/news/vortex-evil-gangs-narcos-tapachula-mexico/",
+      "name": "InSight Crime",
+      "title": "Vortex of Evil: Gangs and Narcos in Tapachula, Mexico",
+      "date": ""
+     }
+    ],
+    "year": "2025"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -90.0,
+      16.9
+     ],
+     [
+      -92.26,
+      14.9
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "drugs",
+    "subtype": "cocaine",
+    "from": "Guayaquil",
+    "to": "Atlantic, to Europe (map edge)",
+    "description": "Containers from Guayaquil carry cocaine to Antwerp and Rotterdam; EUDA counts Antwerp seizures from Guayaquil rising from 6 t (2018) to 55.6 t (2021).",
+    "sources": [
+     {
+      "url": "https://www.euda.europa.eu/publications/eu-drug-markets/cocaine/europe-and-global-cocaine-trade_en",
+      "name": "EUDA",
+      "title": "Europe and the global cocaine trade (EU Drug Markets)",
+      "date": ""
+     },
+     "IC_ECUADOR"
+    ],
+    "year": "2021"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -79.9,
+      -2.19
+     ],
+     [
+      -79.9,
+      9.1
+     ],
+     [
+      -62.0,
+      17.5
+     ],
+     [
+      -28.0,
+      28.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "drugs",
+    "subtype": "cocaine",
+    "from": "VRAEM",
+    "to": "Atlantic, to Europe/W. Africa (map edge)",
+    "description": "Peruvian and Bolivian cocaine crosses Bolivia to Brazil's Santos port, where the PCC organises container exports to Europe and West Africa.",
+    "sources": [
+     {
+      "url": "https://www.euda.europa.eu/publications/eu-drug-markets/cocaine/criminal-networks_en",
+      "name": "EUDA",
+      "title": "Cocaine: criminal networks (EU Drug Markets)",
+      "date": ""
+     },
+     "IC_PCC",
+     "UNODC_WDR25"
+    ],
+    "year": "2025"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -74.0,
+      -12.5
+     ],
+     [
+      -65.5,
+      -17.0
+     ],
+     [
+      -63.18,
+      -17.78
+     ],
+     [
+      -46.33,
+      -23.96
+     ],
+     [
+      -30.0,
+      5.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "drugs",
+    "subtype": "cocaine",
+    "from": "Santa Cruz",
+    "to": "Atlantic, to Europe/W. Africa (map edge)",
+    "description": "Paranaguá is the second major Brazilian export port that EUDA names.",
+    "sources": [
+     {
+      "url": "https://www.euda.europa.eu/publications/eu-drug-markets/cocaine/criminal-networks_en",
+      "name": "EUDA",
+      "title": "Cocaine: criminal networks (EU Drug Markets)",
+      "date": ""
+     },
+     {
+      "url": "https://www.euda.europa.eu/publications/eu-drug-markets/cocaine/europe-and-global-cocaine-trade_en",
+      "name": "EUDA",
+      "title": "Europe and the global cocaine trade (EU Drug Markets)",
+      "date": ""
+     }
+    ],
+    "year": "2025"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -63.18,
+      -17.78
+     ],
+     [
+      -48.51,
+      -25.52
+     ],
+     [
+      -30.0,
+      5.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "drugs",
+    "subtype": "cocaine",
+    "from": "Santa Cruz",
+    "to": "Atlantic, to Europe (map edge)",
+    "description": "Paraguay's river port of Villeta ships Bolivian cocaine downriver toward the Atlantic and Europe.",
+    "sources": [
+     {
+      "url": "https://www.euda.europa.eu/publications/eu-drug-markets/cocaine/europe-and-global-cocaine-trade_en",
+      "name": "EUDA",
+      "title": "Europe and the global cocaine trade (EU Drug Markets)",
+      "date": ""
+     },
+     "IC_PARAGUAY"
+    ],
+    "year": "2025"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -63.18,
+      -17.78
+     ],
+     [
+      -57.56,
+      -25.5
+     ],
+     [
+      -28.0,
+      28.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "drugs",
+    "subtype": "cocaine",
+    "from": "Callao",
+    "to": "Atlantic, to Europe (map edge)",
+    "description": "Peru's Callao container port is an export point to Europe.",
+    "sources": [
+     "UNODC_WDR25"
+    ],
+    "year": "2025"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -77.15,
+      -12.05
+     ],
+     [
+      -79.9,
+      9.1
+     ],
+     [
+      -28.0,
+      28.0
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "drugs",
+    "subtype": "precursor",
+    "from": "Asia (via Pacific, map edge)",
+    "to": "Manzanillo",
+    "description": "Precursor chemicals from China and India arrive by ship at Manzanillo; the Asia leg runs off the map.",
+    "sources": [
+     "DEA25",
+     "OFAC_JY1413",
+     "OFAC_SB0468"
+    ],
+    "year": "2025"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.0,
+      18.0
+     ],
+     [
+      -104.32,
+      19.05
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "drugs",
+    "subtype": "precursor",
+    "from": "Asia (via Pacific, map edge)",
+    "to": "Lázaro Cárdenas",
+    "description": "Lázaro Cárdenas is the second main Pacific entry port for Asian precursors.",
+    "sources": [
+     "DEA25",
+     "OFAC_JY1413"
+    ],
+    "year": "2025"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -128.0,
+      18.0
+     ],
+     [
+      -102.2,
+      17.96
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "drugs",
+    "subtype": "precursor",
+    "from": "Manzanillo",
+    "to": "Guadalajara",
+    "description": "Chemicals move inland from Manzanillo to CJNG labs in Jalisco.",
+    "sources": [
+     "DEA25",
+     "IC_CJNG"
+    ],
+    "year": "2025"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -104.32,
+      19.05
+     ],
+     [
+      -103.35,
+      20.67
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "drugs",
+    "subtype": "precursor",
+    "from": "Manzanillo",
+    "to": "Culiacán",
+    "description": "Chemicals also go north to Sinaloa Cartel fentanyl and meth labs in Sinaloa.",
+    "sources": [
+     "DEA25",
+     "IC_SINALOA"
+    ],
+    "year": "2025"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -104.32,
+      19.05
+     ],
+     [
+      -107.39,
+      24.8
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "drugs",
+    "subtype": "precursor",
+    "from": "Lázaro Cárdenas",
+    "to": "Tierra Caliente (Michoacán)",
+    "description": "Michoacán's Tierra Caliente labs draw chemicals from Lázaro Cárdenas.",
+    "sources": [
+     "DEA25",
+     "IC_FAMILIA"
+    ],
+    "year": "2025"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -102.2,
+      17.96
+     ],
+     [
+      -101.6,
+      18.9
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "drugs",
+    "subtype": "synthetic",
+    "from": "Culiacán",
+    "to": "Phoenix",
+    "description": "Fentanyl and meth from Sinaloa labs go north through Sonora to the Nogales crossing and Phoenix.",
+    "sources": [
+     "DEA25",
+     "WOLA_FENT",
+     "IC_SINALOA"
+    ],
+    "year": "2025"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -107.39,
+      24.8
+     ],
+     [
+      -110.96,
+      29.07
+     ],
+     [
+      -110.94,
+      31.33
+     ],
+     [
+      -112.07,
+      33.45
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "drugs",
+    "subtype": "synthetic",
+    "from": "Culiacán",
+    "to": "Mexicali",
+    "description": "A Sonora–Baja branch reaches the San Luis and Calexico crossings.",
+    "sources": [
+     "DEA25",
+     "WOLA_FENT"
+    ],
+    "year": "2025"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -107.39,
+      24.8
+     ],
+     [
+      -114.77,
+      32.46
+     ],
+     [
+      -115.45,
+      32.62
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "drugs",
+    "subtype": "synthetic",
+    "from": "Guadalajara",
+    "to": "Los Angeles",
+    "description": "CJNG and Sinaloa product goes to Tijuana and San Diego; most US fentanyl seizures are made at California and Arizona ports of entry.",
+    "sources": [
+     "DEA25",
+     "IC_CJNG",
+     "WOLA_FENT"
+    ],
+    "year": "2025"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -103.35,
+      20.67
+     ],
+     [
+      -107.39,
+      24.8
+     ],
+     [
+      -117.03,
+      32.53
+     ],
+     [
+      -118.24,
+      34.05
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "drugs",
+    "subtype": "synthetic",
+    "from": "Culiacán",
+    "to": "Albuquerque",
+    "description": "A Chihuahua corridor crosses at Ciudad Juárez–El Paso.",
+    "sources": [
+     "DEA25",
+     "IC_JUAREZ"
+    ],
+    "year": "2025"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -107.39,
+      24.8
+     ],
+     [
+      -106.45,
+      31.73
+     ],
+     [
+      -106.65,
+      35.08
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "channel": "drugs",
+    "subtype": "synthetic",
+    "from": "Tierra Caliente (Michoacán)",
+    "to": "Dallas",
+    "description": "Meth from Michoacán and Jalisco also moves to the Texas crossings.",
+    "sources": [
+     "DEA25",
+     "IC_CJNG"
+    ],
+    "year": "2025"
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -101.6,
+      18.9
+     ],
+     [
+      -100.31,
+      25.67
+     ],
+     [
+      -99.51,
+      27.48
+     ],
+     [
+      -96.8,
+      32.78
+     ]
+    ]
+   }
+  }
+ ]
+}
