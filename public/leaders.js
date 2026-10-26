@@ -74,7 +74,7 @@ Promise.all([J("data/leaders.json"),J("data/capture.json"),J("data/networks.json
   const fl=d3.select(el).append("ol").attr("class","bnotes small");fl.html(rows.map(r=>`<li><b>${esc(r.g)}</b>: ${esc(r.lab)}${r.e.year&&!/estimate/.test(r.note)?` (${r.e.year})`:""}${r.note?"; "+esc(r.note):""}${FN(SRC(r.e))}</li>`).join(""))}
  const leg=`<div class="small muted rleg"><span class="lg1"></span> estimate <span class="lg2"></span> published range <span class="lg3">▶</span> &ldquo;at least&rdquo; (lower bound) <span class="lg4"></span> &ldquo;up to&rdquo; (upper bound)</div>`;
  bars("#szmem",memRows,v=>fN(v));
- t.querySelector("#szmem").insertAdjacentHTML("beforeend",leg+`<div class="small muted">No credible estimate: ${[...new Set(noMem)].map(esc).join(", ")||"none"}. Grey text under a bar = conflicting figure from another source.</div>`);
+ t.querySelector("#szmem").insertAdjacentHTML("beforeend",leg+`<div class="small muted">No credible estimate: ${[...new Set(noMem)].map(esc).join(", ")||"none"}. Conflicting figures from other sources are in the numbered notes.</div>`);
  bars("#szrev",revRows,v=>"$"+(v/1e9)+"B");
  t.querySelector("#szrev").insertAdjacentHTML("beforeend",leg+`<div class="small muted">No credible USD estimate: ${[...new Set(noRev)].map(esc).join(", ")}.</div><div class="small muted">${revNotes.map(esc).join(" · ")}.</div>`);
  // business heat-map
