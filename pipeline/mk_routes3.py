@@ -88,9 +88,8 @@ def F(channel, subtype, pts, desc, src, year, width=None, sector=None, control=N
         p.update(sector=sector, encounters=SEC[sector], encounters_year="FY2024", volume=SEC[sector])
         if CBP24 not in src: src.append(CBP24)
     if control: p["control"], p["control_sources"] = control, csrc
-    if "~SEAM" in pts:  # Indian Ocean to Pacific crosses the projection seam (102E): two parts
-        i = pts.index("~SEAM"); geo = {"type": "MultiLineString", "coordinates": [[list(P[x]) for x in pts[:i]], [list(P[x]) for x in pts[i+1:]]]}
-    else: geo = {"type": "LineString", "coordinates": [list(P[x]) for x in pts]}
+    pts = [x for x in pts if x != "~SEAM"]  # world map seam now at 45E (Saudi Arabia), so Indian Ocean to Pacific is continuous
+    geo = {"type": "LineString", "coordinates": [list(P[x]) for x in pts]}
     return {"type": "Feature", "properties": p, "geometry": geo}
 
 drugs = [
@@ -187,7 +186,7 @@ guns = [
  F("firearms", "land", ["Colombia–Ecuador border", "Esmeraldas"], "A further route enters northern Ecuador from the Colombian border.", [REU_EC], "2024"),
 ]
 NOTES = {
- "drugs": {"note": "Cocaine (solid), precursors (dotted), synthetics: fentanyl/meth (dashed). Lines are schematic corridors between places named in sources, drawn along sea lanes, not tracks. Use the World view to see Europe, West Africa and Asia endpoints; the Asia-Pacific legs wrap across the map edge.", "sources": ["DEA25", "UNODC_WDR25", EUDA_C]},
+ "drugs": {"note": "Cocaine (solid), precursors (dotted), synthetics: fentanyl/meth (dashed). Lines are schematic corridors between places named in sources, drawn along sea lanes, not tracks. Use the World view to see Europe, West Africa and Asia endpoints.", "sources": ["DEA25", "UNODC_WDR25", EUDA_C]},
  "migrants": {"note": "Northbound land (solid), rail (long dash), sea (dotted), 2025 southbound reverse flow (dash-dot). Lines ending at the border are widened by US Border Patrol apprehensions in that sector in FY2024 (Oct 2023-Sep 2024; 1.53 million across nine sectors, Tucson highest at 463,567). That was the last full year before the collapse: FY2025 fell to 237,565, the lowest since 1970, with only about 65,500 after 20 January 2025, so these corridors now carry a small fraction of FY2024 traffic. Two lines into one sector share its total. Darién width is the 2023 crossing count.", "sources": [CBP24, CBP25, MPI, HIAS]},
  "firearms": {"note": "ATF: 74% of international crime guns traced to a purchaser in 2017-21 were recovered in Mexico; in 2022-23 Texas, Arizona and California dealers sourced 73% of traced Mexican crime guns, and 82% were recovered in states with a dominant Sinaloa or CJNG presence. Land (solid), sea (dotted), air (dashed). Width scaled by traced guns where sourced.", "sources": [ATF, ATF_MX, "GAO_FIREARMS"]},
 }

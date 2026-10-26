@@ -3,7 +3,7 @@
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const ICON={found:"●",split:"Y",alliance:"⚭",expand:"▲",fto:"T",captured:"⛓",killed:"✝",raid:"!"};
 const LBL={found:"Founded",split:"Split / breakaway",alliance:"Alliance",expand:"Expansion",fto:"US FTO designation",captured:"Leader captured / jailed",killed:"Leader killed",raid:"State crackdown"};
-const FALL={chapitos:"#f08a6a",mayiza:"#b8402a",unidos:"#56657f",viagras:"#7d8597",soles:"#c77dff",segmar:"#80b918",chone_killers:"#48cae4",los_tiguerones:"#2a9d8f",viv_ansanm:"#c9ada7",gran_grif:"#9a8c98"};
+const FALL={chapitos:"#c3e26f",mayiza:"#2bbba1",unidos:"#c084aa",viagras:"#7b6b9d",soles:"#c4920d",segmar:"#00ed9d",chone_killers:"#b270ff",los_tiguerones:"#f5c95a",viv_ansanm:"#00b0ff",gran_grif:"#c56000"};
 const get=u=>fetch(u).then(r=>r.ok?r.json():null).catch(()=>null);
 function mount(){const host=document.getElementById("timeline");if(!host)return;
  Promise.all([get("data/timeline.json"),get("data/networks.json"),get("data/territory.json"),get("data/group_countries.json")]).then(([T,N,TR,GC])=>{if(!T)return;draw(host,T,N,TR,GC)})}

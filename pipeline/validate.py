@@ -400,6 +400,12 @@ if os.path.exists(os.path.join(D, "profiles.json")):
             if not os.path.exists(os.path.join(os.path.dirname(D), "public", im["src"])): err(f"{w}: image file missing")
             if not im.get("license") or not im.get("page", "").startswith("https://commons.wikimedia.org/"): err(f"{w}: image needs Commons page + licence")
 
+# colour audit: CIEDE2000 dE>=20 within each graphic, no greys (pipeline/palette_check.py)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import palette_check
+for e in palette_check.check(): err("palette: " + e)
+for w in palette_check.warnings(): print("WARN palette: " + w)
+
 if errs:
     print("\n".join("ERROR " + e for e in errs)); sys.exit(1)
 print(f"valid: {len(src)} sources, {len(net['groups'])} groups, {len(net['edges'])} edges, {len(ev['events'])} events")
