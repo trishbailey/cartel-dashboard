@@ -305,6 +305,20 @@ if os.path.exists(os.path.join(D, "group_countries.json")):
         if not g.get("countries") or g["countries"][0]["iso"] != g.get("home"): err(f"group_countries {gid}: home country must be first")
         for c in g["countries"]:
             if not c.get("cites") or any(x not in src for x in c["cites"]): err(f"group_countries {gid}.{c.get('iso')}: needs known cite ids")
+# timeline: every lane/event needs a known group, a year and a registered source
+if os.path.exists(os.path.join(D, "timeline.json")):
+    _tl = load("timeline.json"); _tg = gids | {g["id"] for g in load("territory.json")["groups"]}
+    _lanes = set()
+    for l in _tl["lanes"]:
+        if l["id"] not in _tg: err(f"timeline lane {l['id']}: unknown group")
+        if not isinstance(l.get("founded"), int): err(f"timeline lane {l['id']}: no founded year")
+        if l.get("parent") and l["parent"] not in _tg: err(f"timeline lane {l['id']}: unknown parent")
+        cites(l, f"timeline lane {l['id']}"); _lanes.add(l["id"])
+    for i, e in enumerate(_tl["events"]):
+        if not isinstance(e.get("year"), int) or not 1900 <= e["year"] <= 2100: err(f"timeline event {i}: bad year")
+        if e.get("group") not in _lanes: err(f"timeline event {i}: group {e.get('group')} has no lane")
+        if not e.get("text"): err(f"timeline event {i}: no text")
+        cites(e, f"timeline event {i} ({e.get('group')})")
 
 if errs:
     print("\n".join("ERROR " + e for e in errs)); sys.exit(1)
