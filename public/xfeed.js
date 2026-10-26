@@ -66,11 +66,13 @@ function badges(){
 }
 /* ---------- selection hooks (read-only listeners on app.js controls) ---------- */
 function hook(){
-  document.getElementById("mapsvg").addEventListener("click",e=>{const p=e.target.closest("path.adm");if(p&&p.__data__){sel.region=p.__data__.properties.id;render()}});
+  document.getElementById("mapsvg").addEventListener("click",e=>{const p=e.target.closest("path.adm");if(p&&p.__data__){sel.region=p.__data__.properties.id;render();setTimeout(()=>drawerPosts(sel.region),0)}});
   document.getElementById("grouplegend").addEventListener("click",e=>{const b=e.target.closest(".chip");if(b){sel.group=b.dataset.g||null;render()}});
   document.getElementById("cards").addEventListener("click",e=>{const b=e.target.closest("[data-map]");const c=e.target.closest(".gc");
     if(b){sel.group=b.dataset.map;render();return}if(c&&NET[+c.dataset.k]){sel.group=NET[+c.dataset.k].id;render()}});
 }
+function drawerPosts(id){const db=document.getElementById("dbody");if(!db||!X)return;const ps=X.posts.filter(p=>p.region_ids.includes(id)).slice(0,8);
+  const d=document.createElement("div");d.className="xdr";d.innerHTML=`<h3>Latest from X (${ps.length?ps.length+" recent":"none in 7 days"})</h3>`+ps.map(p=>`<div class="rg"><a href="${esc(p.url)}" target="_blank" rel="noopener">@${esc(p.handle)}</a> <span class="muted">${esc(ago(p.created_at||p.date||X.as_of))}</span><div>${esc(p.text_en||p.text||"")}</div></div>`).join("");db.appendChild(d)}
 /* ---------- Latest from X ---------- */
 function panel(){
   const t=document.createElement("section");t.className="tile xpanel";t.id="xpanel";
