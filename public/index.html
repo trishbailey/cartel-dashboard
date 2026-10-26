@@ -18,6 +18,7 @@
 <main>
 <section class="tile maptile">
  <div class="tilehead"><h2>Who is active where</h2><span class="muted">Click a state or department. Click a group to show only its footprint.</span></div>
+ <div id="ixnote" class="ixnote"><span class="ixi">&#9757;</span><b>Interactive:</b> click a cartel below to show only its territory (&ldquo;All groups&rdquo; resets) · click a state for details · toggle overlays and map modes · click Storylines/Breaking cards to zoom the map · tap cards and leaders for more<button id="ixx" title="Hide" aria-label="Hide tip">&times;</button></div>
  <div id="grouplegend" class="chips"></div>
  <div class="mapwrap"><svg id="mapsvg"></svg>
   <div id="layers" class="overlay"><b>Overlay</b></div>
@@ -49,4 +50,5 @@
 <aside id="drawer"><button id="dclose" aria-label="Close">×</button><div id="dbody"></div></aside>
 <footer class="muted">Describes and analyzes what has happened; it does not predict or prescribe. Every item links to its source. Data: <a href="https://github.com/trishbailey/cartel-dashboard">github.com/trishbailey/cartel-dashboard</a>. Basemaps: Natural Earth (public domain).</footer>
 <script src="vendor/d3.min.js"></script><script src="vendor/d3-sankey.min.js"></script><script src="vendor/topojson-client.min.js"></script><script src="footnotes.js"></script><script src="app.js"></script><script src="xfeed.js"></script><script src="leaders.js"></script>
+<script>(function(){var n=document.getElementById("ixnote");try{if(localStorage.getItem("ixHide")==="1")n.style.display="none"}catch(e){}document.getElementById("ixx").onclick=function(){n.style.display="none";try{localStorage.setItem("ixHide","1")}catch(e){}}})();</script>
 </body></html>
