@@ -40,15 +40,17 @@ function kpis(net,cross,money,events,terr){
 }
 function mapView(topo,adm,terr,routes,cross,china,GC){
   const svg=d3.select("#mapsvg"),W=svg.node().parentNode.clientWidth||1200,H=Math.round(Math.max(460,Math.min(W*0.62,window.innerHeight-250)));svg.attr("width",W).attr("height",H).style("height",H+"px");
-  const view=document.createElement("div");view.className="overlay viewbtns";view.innerHTML='<button class="chip on" data-v="mx">Mexico</button><button class="chip" data-v="all">All Latin America</button><button class="chip" data-v="sa">South America</button>';svg.node().parentNode.appendChild(view);
+  const view=document.createElement("div");view.className="overlay viewbtns";view.innerHTML='<button class="chip on" data-v="mx">Mexico</button><button class="chip" data-v="all">All Latin America</button><button class="chip" data-v="sa">South America</button><button class="chip" data-v="world">World</button>';svg.node().parentNode.appendChild(view);
   const proj=d3.geoConicEqualArea().parallels([-15,20]).rotate([78,0]).center([0,-2]).fitExtent([[10,10],[W-10,H-10]],{type:"MultiPoint",coordinates:[[-118,32.7],[-34.8,-7],[-70,-40],[-55,-34],[-81.3,-5]]});
   const path=d3.geoPath(proj),defs=svg.append("defs"),g=svg.append("g");
   adm.features.forEach(f=>{if(d3.geoArea(f)>2*Math.PI){const rv=p=>p.map(r=>r.slice().reverse());const g=f.geometry;g.coordinates=g.type==='Polygon'?rv(g.coordinates):g.coordinates.map(rv)}});
   const RB=Object.fromEntries(terr.regions.map(r=>[r.id,r]));
-  const zoom=d3.zoom().scaleExtent([1,14]).translateExtent([[-W*.2,-H*.2],[W*1.2,H*1.2]]).on("zoom",e=>{window.__zk=e.transform.k;g.attr("transform",e.transform);g.selectAll(".pt").attr("transform",function(){return `${this.dataset.t} scale(${1/e.transform.k})`})});svg.call(zoom).on("dblclick.zoom",null);
+  const zoom=d3.zoom().scaleExtent([0.15,14]).translateExtent([[-W*4,-H*3],[W*5,H*3]]).on("zoom",e=>{window.__zk=e.transform.k;g.attr("transform",e.transform);g.selectAll(".pt").attr("transform",function(){return `${this.dataset.t} scale(${1/e.transform.k})`})});svg.call(zoom).on("dblclick.zoom",null);
   const fitBox=(lo0,la0,lo1,la1)=>{const pts=[[lo0,la0],[lo1,la0],[lo0,la1],[lo1,la1],[(lo0+lo1)/2,la0],[(lo0+lo1)/2,la1]].map(proj);const xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]);const x0=Math.min(...xs),x1=Math.max(...xs),y0=Math.min(...ys),y1=Math.max(...ys);const k=Math.min(14,0.92/Math.max((x1-x0)/W,(y1-y0)/H));return d3.zoomIdentity.translate(W/2,H/2).scale(k).translate(-(x0+x1)/2,-(y0+y1)/2)};
-  window.__proj=proj;const VIEWS={mx:fitBox(-117.5,14,-86.5,32.8),all:d3.zoomIdentity,sa:fitBox(-82,-40,-34,13)};
+  window.__proj=proj;const fitPts=ll=>{const pts=ll.map(proj),xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]),x0=Math.min(...xs),x1=Math.max(...xs),y0=Math.min(...ys),y1=Math.max(...ys),k=0.92/Math.max((x1-x0)/W,(y1-y0)/H);return d3.zoomIdentity.translate(W/2,H/2).scale(k).translate(-(x0+x1)/2,-(y0+y1)/2)};
+  const VIEWS={mx:fitBox(-117.5,14,-86.5,32.8),all:d3.zoomIdentity,sa:fitBox(-82,-40,-34,13),world:fitPts([[121.5,31.2],[135,45],[100,45],[72.8,18.9],[80,8],[10,54],[-46.3,-24],[-118,34],[-70,-45],[2.4,6.4]])};
   view.querySelectorAll("button").forEach(b=>b.onclick=()=>{view.querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b));svg.transition().duration(700).call(zoom.transform,VIEWS[b.dataset.v])});
+  const wg=g.append("g").attr("class","worldbase");fetch("basemap/world110.topo.json").then(r=>r.json()).then(w=>wg.selectAll("path").data(topojson.feature(w,w.objects.countries).features).join("path").attr("d",path).attr("fill","#24395e").attr("stroke","#4a6a9a").attr("stroke-width",.6).attr("vector-effect","non-scaling-stroke")).catch(e=>console.warn("world basemap",e));
   g.append("g").selectAll("path").data(topojson.feature(topo,topo.objects.countries).features).join("path").attr("d",path).attr("fill",d=>d.properties.iso==="USA"?"#16243f":"#1b2c4a");
   const pats={};
   const pattern=cols=>{const k=cols.join("-").replace(/#/g,"");if(pats[k])return pats[k];const w=6*cols.length;

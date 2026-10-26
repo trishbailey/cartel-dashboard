@@ -375,7 +375,8 @@ for _fn, _ch, _subs in [("routes_drugs.geojson", "drugs", {"cocaine", "precursor
                 if s not in src: err(f"{w}: unknown source {s}")
             elif not (s.get("url") and s.get("name")) or is_cn(s["url"]): err(f"{w}: bad source")
         c = f.get("geometry", {}).get("coordinates", [])
-        if f.get("geometry", {}).get("type") != "LineString" or len(c) < 2 or not all(-180 <= x <= 180 and -90 <= y <= 90 for x, y in c): err(f"{w}: bad geometry")
+        _gt = f.get("geometry", {}).get("type"); _cs = c if _gt == "LineString" else [q for part in c for q in part] if _gt == "MultiLineString" else []
+        if not _cs or len(_cs) < 2 or not all(-180 <= x <= 180 and -90 <= y <= 90 for x, y in _cs): err(f"{w}: bad geometry")
 
 # ---- profiles.json (group profile cards) ----
 if os.path.exists(os.path.join(D, "profiles.json")):
