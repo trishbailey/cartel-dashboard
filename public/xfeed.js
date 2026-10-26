@@ -52,7 +52,7 @@ function zoomTo(ids){
   d3.select(g).selectAll(".pt").attr("transform",function(){return `${this.dataset.t} scale(${1/k})`});
   ps.forEach(p=>{d3.select(p).attr("stroke","#fff").raise();setTimeout(()=>d3.select(p).attr("stroke","none"),2500)});
 }
-function waitMap(n=0){if(mapG()){badges();hook()}else if(n<60)setTimeout(()=>waitMap(n+1),250)}
+function waitMap(n=0){if(mapG()){hook()}else if(n<60)setTimeout(()=>waitMap(n+1),250)}
 function badges(){
   if(!X)return;const g=mapG(),cut=Date.now()-864e5,c={};
   X.posts.forEach(p=>{if(new Date(p.created_at)>=cut)p.region_ids.forEach(r=>c[r]=(c[r]||0)+1)});
