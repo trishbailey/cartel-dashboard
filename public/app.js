@@ -183,7 +183,7 @@ function netTile(net,terr){
   const n=svg.append("g").selectAll("g").data(nodes).join("g").attr("class","nn").attr("transform",d=>`translate(${d.x},${d.y})`).style("cursor","pointer").on("click",(e,d)=>drawer(groupHtml(d,net)))
    .on("mouseenter",(e,d)=>{const s=nb(d);eg.classed("dim",x=>x.source!==d&&x.target!==d).classed("hi",x=>x.source===d||x.target===d);n.classed("dim",x=>!s.has(x))}).on("mouseleave",()=>{eg.classed("dim",false).classed("hi",false);n.classed("dim",false)});
   n.append("circle").attr("r",9).attr("fill",d=>COL(d.id)).attr("stroke","#ffffff").attr("stroke-width",d=>d.fto?2.5:1);
-  n.append("text").attr("class","netl").attr("text-anchor","middle").attr("y",-14).text(lab);
+  n.append("text").attr("class","netl").attr("text-anchor","middle").attr("y",-14).attr("fill","#ffffff").attr("stroke","#0b1526").attr("stroke-width",4).attr("paint-order","stroke").attr("stroke-linejoin","round").style("font-size","13.5px").style("font-weight","700").style("fill","#ffffff").style("opacity",1).text(lab);
 }
 function chinaTile(c){
   const ab={precursors:"PRE",ports:"PRT",money:"$",finance:"$",laundering:"$",infrastructure:"INF"};
