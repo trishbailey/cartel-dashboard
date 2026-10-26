@@ -45,7 +45,7 @@ Promise.all([J("data/leaders.json"),J("data/capture.json"),J("data/networks.json
  <details class="more former"><summary>Jailed, extradited or dead (${former.length})</summary><div class="fgrid">${former.map(l=>`<div class="fc ld" data-g="${l.group_key}" tabindex="0">${person(l)}<span class="gchip sm">${esc((G.find(g=>g.id===l.group_key)||{}).name||l.group_key)}</span><div class="bd">${more(l)}</div></div>`).join("")}</div></details>
  <div class="ldcharts"><div class="chbox"><h3>Members (published ranges)</h3><div id="szmem"></div></div><div class="chbox"><h3>Annual revenue, USD (log scale)</h3><div id="szrev"></div></div><div class="chbox wide"><h3>Lines of business</h3><div id="bzgrid"></div></div></div>
  <details class="more"><summary>About these cards</summary><p class="small">${esc(ld.method)} As of ${esc(ld.as_of)}. ${esc(sz.note)} ${esc(bz.note)} * = figure for the whole Sinaloa Cartel.</p></details>`;
- anchor.parentNode.insertBefore(t,anchor);
+ {const mt=document.querySelector(".maptile");if(mt)mt.after(t);else anchor.parentNode.insertBefore(t,anchor);}
  const grid=t.querySelector("#ldgrid");
  t.addEventListener("click",e=>{if(e.target.closest("a"))return;const c=e.target.closest(".gc,.fc");if(c)c.classList.toggle("open")});
  // membership range bars (log x)
