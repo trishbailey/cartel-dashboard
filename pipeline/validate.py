@@ -400,6 +400,18 @@ if os.path.exists(os.path.join(D, "profiles.json")):
             if not os.path.exists(os.path.join(os.path.dirname(D), "public", im["src"])): err(f"{w}: image file missing")
             if not im.get("license") or not im.get("page", "").startswith("https://commons.wikimedia.org/"): err(f"{w}: image needs Commons page + licence")
 
+# ---- business_shift.json (How the business shifted small multiples) ----
+if os.path.exists(os.path.join(D, "business_shift.json")):
+    _bs = load("business_shift.json")
+    for _p in _bs["panels"]:
+        if not _p.get("sources"): err(f"business_shift {_p['id']}: no sources")
+        for _s in _p.get("sources", []):
+            if not _s.get("url") or is_cn(_s["url"]): err(f"business_shift {_p['id']}: bad source url")
+        for _s in _p["series"]:
+            _ys = [x["y"] for x in _s["points"]]
+            if len(_ys) < 4 or _ys != sorted(set(_ys)): err(f"business_shift {_s['id']}: needs 4+ ordered years")
+            for _x in _s["points"]:
+                if not isinstance(_x["v"], (int, float)) or _x["v"] <= 0 or not _x.get("url") or is_cn(_x["url"]): err(f"business_shift {_s['id']} {_x['y']}: bad value or url")
 # colour audit: CIEDE2000 dE>=20 within each graphic, no greys (pipeline/palette_check.py)
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import palette_check

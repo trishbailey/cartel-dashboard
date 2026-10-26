@@ -38,8 +38,12 @@ def collect():
     for k, v in re.findall(r'(?<!&)mk\("(\w+)",.*?,"(#[0-9a-fA-F]{6})"', app): cols["layer:"+k] = v.lower()
     m = re.search(r'PVC=\{official:"(#\w{6})",journalist:"(#\w{6})"\}', app)
     if m: cols["layer:pvm"], cols["layer:pvj"] = m.group(1).lower(), m.group(2).lower()
+    m = re.search(r"COL=\{(.*?)\}", rd("public/shift.js"))
+    if m:
+        for k, v in re.findall(r'(\w+):"(#[0-9a-fA-F]{6})"', m.group(1)): cols["shift:"+k] = v.lower()
     return cols
 CHARTS = {  # colours drawn together in one graphic, enforced at MIN_DE
+    "chart: how the business shifted (all series)": lambda c: {k: v for k, v in c.items() if k.startswith("shift:")},
     "map: group territory fills": lambda c: {k: v for k, v in c.items() if k.startswith("group:") and k[6:] in TERR},
     "map: overlay layers (routes, crossings, sites, killings)": lambda c: {k: v for k, v in c.items() if k.startswith("layer:")},
 }
