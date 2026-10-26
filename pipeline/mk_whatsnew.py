@@ -48,6 +48,8 @@ trends = [
   "context": "Since the US listed major cartels as Foreign Terrorist Organizations, allied governments have copied the labels and extraditions have sped up. The labels change the legal and financial exposure of anyone who does business with these groups.",
   "context_sources": ["FTO"],
   "developments": [
+   dev("2026-10-25", "Salta and Zárate, Argentina", "Two Argentine court cases behind the new listing show different Mexican footholds: a Bolivia-based Sinaloa branch flying cocaine into Salta for export to Europe through Paraná river ports, and a small CJNG cell that tested a Belgium-to-Zárate MDMA shipment paid through hawala and crypto; specialists found no documented La Nueva Familia Michoacana presence, so the label outruns the evidence for that group.", S,
+       ["u:https://airedesantafe.com.ar/policiales/los-carteles-mexicanos-ya-tienen-ruta-la-argentina"], ["ARG-1303", "ARG-1295"], ["sinaloa", "cjng", "lnfm"]),
    dev("2026-10-22", "Argentina", "Milei's government added the Sinaloa Cartel, La Nueva Familia Michoacana, the ELN and FARC-EP to Argentina's terrorist list, matching the US designations.", C,
        ["x:2113352548702961788", "x:2113342121222778960"], [], ["sinaloa", "lnfm", "eln"]),
    dev("2026-10-24", "Brazil", "The US terrorist designation of the PCC and Comando Vermelho became a runoff issue: Flávio Bolsonaro backs it, while Lula raises sovereignty concerns.", S,
