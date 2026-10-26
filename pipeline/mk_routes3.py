@@ -30,6 +30,7 @@ P = {  # lon, lat
  "Laredo": (-99.51, 27.53), "McAllen": (-98.23, 26.20), "Brownsville": (-97.50, 25.90), "San Luis Potosí": (-100.98, 22.15), "Torreón": (-103.41, 25.54),
  "Nuevo Casas Grandes": (-107.91, 30.42), "El Ceibo": (-91.50, 17.25), "Tenosique": (-91.42, 17.47), "Chihuahua": (-106.09, 28.63),
  "Lima": (-77.04, -12.05), "Tumbes (Peru-Ecuador border)": (-80.45, -3.57), "Colombia–Ecuador border": (-77.7, 0.85),
+ "~gyeS": (-80.1, -2.9), "~gyeW": (-81.2, -2.3), "~ecMan": (-81.1, -0.9), "~ecN": (-80.5, 1.0), "~colP": (-79.3, 3.2), "~colP2": (-79.6, 6.5), "~gPan": (-79.45, 8.6), "~canal": (-79.7, 9.2), "~colon": (-79.9, 9.45), "~peN1": (-79.3, -10.5), "~peN2": (-81.7, -6.0), "~peN3": (-81.6, -3.6), "~prS": (-65.3, 17.8), "~prE": (-65.3, 18.6), "~prN": (-66.1, 18.6), "~hisN": (-68.5, 19.8), "~hisN2": (-72.0, 20.3), "~cubE": (-74.0, 20.6), "~obc1": (-75.3, 21.6), "~obc2": (-77.3, 22.75), "~obc3": (-78.8, 23.3), "~fs1": (-79.7, 24.3), "~fs2": (-80.0, 25.4), "~wind": (-73.8, 19.95), "~gon1": (-73.1, 19.0), "~gon2": (-72.6, 18.7), "~bhN1": (-79.6, 27.1), "~bhN2": (-77.6, 27.1), "~bhE1": (-76.0, 26.4), "~bhE2": (-74.8, 24.8), "~bhE3": (-73.8, 23.2), "~tci": (-72.3, 22.4), "~hisN3": (-72.4, 20.3), "~nic1": (-82.5, 14.8), "~nic2": (-83.6, 15.65), "~azS": (-79.9, 6.9), "~cho1": (-78.0, 5.5), "~cho2": (-77.6, 4.3), "Tumbes (Peru-Ecuador border)": (-80.45, -3.57), "Colombia–Ecuador border": (-77.7, 0.85),
 }
 S = lambda url, name, title, date="": {"url": url, "name": name, "title": title, "date": date}
 EUDA_C = S("https://www.euda.europa.eu/publications/eu-drug-markets/cocaine/europe-and-global-cocaine-trade_en", "EUDA", "Europe and the global cocaine trade (EU Drug Markets)")
@@ -82,20 +83,20 @@ def F(channel, subtype, pts, desc, src, year, width=None, sector=None, control=N
 drugs = [
  F("drugs", "cocaine", ["Tumaco", "Central America Pacific (offshore)", "Guatemala Pacific coast"], "Cocaine leaves Colombia's southern Pacific coast by go-fast boat and semi-submersible for Central America's Pacific coast.", ["UNODC_WDR25", "IC_URABENOS", "JS_STRIKES"], "2025"),
  F("drugs", "cocaine", ["Buenaventura", "Central America Pacific (offshore)", "Chiapas coast"], "Shipments from Buenaventura run north along the Pacific to southern Mexico.", ["UNODC_WDR25", "IC_URABENOS"], "2025"),
- F("drugs", "cocaine", ["Guayaquil", "Galápagos (offshore)", "Central America Pacific (offshore)", "Guerrero coast"], "Ecuadorian ports feed a long Pacific route, sometimes skirting the Galápagos, to Mexico's Pacific coast.", ["IC_ECUADOR", "IC_CHONEROS", "UNODC_WDR25"], "2025"),
+ F("drugs", "cocaine", ["Guayaquil", "~gyeS", "~gyeW", "Galápagos (offshore)", "Central America Pacific (offshore)", "Guerrero coast"], "Ecuadorian ports feed a long Pacific route, sometimes skirting the Galápagos, to Mexico's Pacific coast.", ["IC_ECUADOR", "IC_CHONEROS", "UNODC_WDR25"], "2025"),
  F("drugs", "cocaine", ["Manta", "Galápagos (offshore)", "Central America Pacific (offshore)"], "Manta and Esmeraldas launch boats that hand loads to Mexican buyers offshore.", ["IC_LOBOS", "IC_ECUADOR"], "2025"),
  F("drugs", "cocaine", ["Guerrero coast", "Tierra Caliente (Michoacán)", "Guadalajara", "Culiacán", "Nogales"], "Cocaine landed on Mexico's Pacific coast moves overland under Sinaloa and CJNG control to the Arizona and California crossings.", ["DEA25", "IC_SINALOA", "IC_CJNG"], "2025"),
  F("drugs", "cocaine", ["Guajira/Falcón coast", "Santo Domingo"], "Cocaine moves by boat and light aircraft from Venezuela's and Colombia's Caribbean coast to the Dominican Republic.", ["IC_SOLES", "UNODC_WDR25", "JS_STRIKES"], "2025"),
- F("drugs", "cocaine", ["Venezuela east coast", "San Juan", "Miami"], "Puerto Rico is a Caribbean entry point for US-bound cocaine.", ["DEA25", "UNODC_WDR25"], "2025"),
+ F("drugs", "cocaine", ["Venezuela east coast", "~prS", "~prE", "~prN", "San Juan", "~prN", "~hisN", "~hisN2", "~cubE", "~obc1", "~obc2", "~obc3", "~fs1", "~fs2", "Miami"], "Puerto Rico is a Caribbean entry point for US-bound cocaine.", ["DEA25", "UNODC_WDR25"], "2025"),
  F("drugs", "cocaine", ["Cartagena", "Haiti south coast"], "Haiti's south coast is a transshipment point on the Caribbean route.", ["IC_HAITI", "UNODC_WDR25"], "2025"),
- F("drugs", "cocaine", ["Cartagena", "Honduras Mosquitia"], "Air and sea loads land in Honduras' Mosquitia and start the Central American land bridge.", ["UNODC_WDR25", "IC_HONDURAS"], "2025"),
+ F("drugs", "cocaine", ["Cartagena", "~nic1", "~nic2", "Honduras Mosquitia"], "Air and sea loads land in Honduras' Mosquitia and start the Central American land bridge.", ["UNODC_WDR25", "IC_HONDURAS"], "2025"),
  F("drugs", "cocaine", ["Honduras Mosquitia", "San Pedro Sula", "Petén", "Villahermosa", "Veracruz", "Reynosa"], "The land corridor runs through Honduras and Guatemala's Petén into Tabasco, then up the Gulf side to the Tamaulipas border.", ["UNODC_WDR25", "IC_GUATEMALA", "IC_GULF"], "2025"),
  F("drugs", "cocaine", ["Petén", "Tapachula"], "A western branch enters Mexico through Chiapas.", ["UNODC_WDR25", "IC_GUATEMALA", IC_TAP], "2025"),
- F("drugs", "cocaine", ["Guayaquil", "Panama Canal", "Caribbean (east)", "Atlantic, to Europe (map edge)"], "Containers from Guayaquil carry cocaine to Antwerp and Rotterdam; EUDA counts Antwerp seizures from Guayaquil rising from 6 t (2018) to 55.6 t (2021).", [EUDA_C, "IC_ECUADOR"], "2021"),
+ F("drugs", "cocaine", ["Guayaquil", "~gyeS", "~gyeW", "~ecMan", "~ecN", "~colP", "~colP2", "~gPan", "~canal", "~colon", "Caribbean (east)", "Atlantic, to Europe (map edge)"], "Containers from Guayaquil carry cocaine to Antwerp and Rotterdam; EUDA counts Antwerp seizures from Guayaquil rising from 6 t (2018) to 55.6 t (2021).", [EUDA_C, "IC_ECUADOR"], "2021"),
  F("drugs", "cocaine", ["VRAEM", "Chapare", "Santa Cruz", "Santos", "Atlantic, to Europe/W. Africa (map edge)"], "Peruvian and Bolivian cocaine crosses Bolivia to Brazil's Santos port, where the PCC organises container exports to Europe and West Africa.", [EUDA_N, "IC_PCC", "UNODC_WDR25"], "2025"),
  F("drugs", "cocaine", ["Santa Cruz", "Paranaguá", "Atlantic, to Europe/W. Africa (map edge)"], "Paranaguá is the second major Brazilian export port that EUDA names.", [EUDA_N, EUDA_C], "2025"),
  F("drugs", "cocaine", ["Santa Cruz", "Villeta", "Atlantic, to Europe (map edge)"], "Paraguay's river port of Villeta ships Bolivian cocaine downriver toward the Atlantic and Europe.", [EUDA_C, "IC_PARAGUAY"], "2025"),
- F("drugs", "cocaine", ["Callao", "Panama Canal", "Atlantic, to Europe (map edge)"], "Peru's Callao container port is an export point to Europe.", ["UNODC_WDR25"], "2025"),
+ F("drugs", "cocaine", ["Callao", "~peN1", "~peN2", "~peN3", "~ecMan", "~ecN", "~colP", "~colP2", "~gPan", "~canal", "~colon", "Atlantic, to Europe (map edge)"], "Peru's Callao container port is an export point to Europe.", ["UNODC_WDR25"], "2025"),
  F("drugs", "precursor", ["Asia (via Pacific, map edge)", "Manzanillo"], "Precursor chemicals from China and India arrive by ship at Manzanillo; the Asia leg runs off the map.", ["DEA25", "OFAC_JY1413", "OFAC_SB0468"], "2025"),
  F("drugs", "precursor", ["Asia (via Pacific, map edge)", "Lázaro Cárdenas"], "Lázaro Cárdenas is the second main Pacific entry port for Asian precursors.", ["DEA25", "OFAC_JY1413"], "2025"),
  F("drugs", "precursor", ["Manzanillo", "Guadalajara"], "Chemicals move inland from Manzanillo to CJNG labs in Jalisco.", ["DEA25", "IC_CJNG"], "2025"),
@@ -143,7 +144,7 @@ migr = [
    control="Gulf Cartel factions control Matamoros and smuggle migrants from the border (InSight Crime).", csrc=[IC_CDG]),
  F("migrants", "southbound (reverse) 2025", ["Peñas Blancas", "Paso Canoas", "Panama City"], "In 2025 Costa Rica and Panama bused southbound migrants along the old northbound route.", [AP_REV, MPI], "2025"),
  F("migrants", "southbound (reverse) 2025", ["Panama City", "Colón (Miramar/Palenque)", "Capurganá", "Necoclí / Turbo"], "Panama recorded 22,300+ people heading south to Colombia in 2025, mostly Venezuelans, many taking boats from Colón to Capurganá.", [HIAS, TNH], "2025", 22300),
- F("migrants", "southbound (reverse) 2025", ["Panama City", "Jaque (Darién)", "Buenaventura"], "A Pacific boat route from Panama City via Jaque also returns migrants to Colombia.", [HIAS], "2025"),
+ F("migrants", "southbound (reverse) 2025", ["Panama City", "Jaque (Darién)", "~cho1", "~cho2", "Buenaventura"], "A Pacific boat route from Panama City via Jaque also returns migrants to Colombia.", [HIAS], "2025"),
 ]
 guns = [
  F("firearms", "land", ["Phoenix", "Nogales", "Hermosillo", "Culiacán"], "Arizona to Sonora is the single largest US–Mexico gun pipeline in ATF trace data; Arizona dealers sourced about 22% of traced Mexican crime guns in 2022-23.", [ATF], "2023", 3969),
@@ -152,13 +153,13 @@ guns = [
  F("firearms", "land", ["Albuquerque", "Ciudad Juárez"], "Guns from Texas and New Mexico go south through Ciudad Juárez into Chihuahua (Texas–Chihuahua is a top-five pipeline).", [ATF], "2023"),
  F("firearms", "land", ["Houston", "Monterrey", "Guadalajara"], "Texas to Guanajuato completes ATF's top five pipelines, which carry 32% of traced guns.", [ATF], "2023"),
  F("firearms", "land", ["Los Angeles", "Tijuana"], "California dealers were the third US source (2,734 traced guns, 2022-23), mostly through Baja California.", [ATF, "GAO_FIREARMS"], "2023", 2734),
- F("firearms", "sea", ["Miami", "Port-au-Prince"], "UNODC's primary Haiti route: guns shipped from Florida in containers to public and private ports in Port-au-Prince.", [UNODC_H1, UNODC_H3], "2024"),
- F("firearms", "sea", ["Fort Lauderdale", "Bahamas", "Turks and Caicos", "Port-de-Paix"], "Indirect shipments from Florida, sometimes via the Bahamas and Turks and Caicos, land in Port-de-Paix, Saint-Marc and Gonaïves.", [UNODC_H1], "2023"),
- F("firearms", "sea", ["Fort Lauderdale", "Cap-Haïtien"], "In April 2024 Haitian police seized guns in a container shipped from Port Everglades to Cap-Haïtien for Artibonite gangs.", [UNODC_H3], "2024"),
+ F("firearms", "sea", ["Miami", "~fs2", "~fs1", "~obc3", "~obc2", "~obc1", "~wind", "~gon1", "~gon2", "Port-au-Prince"], "UNODC's primary Haiti route: guns shipped from Florida in containers to public and private ports in Port-au-Prince.", [UNODC_H1, UNODC_H3], "2024"),
+ F("firearms", "sea", ["Fort Lauderdale", "~bhN1", "~bhN2", "~bhE1", "~bhE2", "~bhE3", "~tci", "~hisN3", "Port-de-Paix"], "Indirect shipments from Florida, sometimes via the Bahamas and Turks and Caicos, land in Port-de-Paix, Saint-Marc and Gonaïves.", [UNODC_H1], "2023"),
+ F("firearms", "sea", ["Fort Lauderdale", "~bhN1", "~bhN2", "~bhE1", "~bhE2", "~bhE3", "~tci", "Cap-Haïtien"], "In April 2024 Haitian police seized guns in a container shipped from Port Everglades to Cap-Haïtien for Artibonite gangs.", [UNODC_H3], "2024"),
  F("firearms", "land", ["Santo Domingo", "Dominican border (Dajabón)", "Gonaïves"], "Arms and ammunition also cross Haiti's land border from the Dominican Republic.", [UNODC_H1, UNODC_H3], "2024"),
  F("firearms", "air", ["Miami", "Manta"], "Ecuadorian police name a Miami–Manta air route among three US-origin gun routes into Ecuador.", [REU_EC, IC_ECG], "2024"),
  F("firearms", "land", ["Lima", "Tumbes (Peru-Ecuador border)", "Guayaquil"], "Three overland gun routes enter Ecuador from Peru, including US guns that arrive via Lima.", [REU_EC, IC_ECG], "2024"),
- F("firearms", "sea", ["Panama Canal", "Galápagos (offshore)", "Guayaquil"], "Police also describe a sea route via the Galápagos, and guns hidden in containers have been seized at Guayaquil.", [REU_EC, IC_ECA], "2024"),
+ F("firearms", "sea", ["Panama Canal", "~canal", "~gPan", "~azS", "Galápagos (offshore)", "~gyeW", "~gyeS", "Guayaquil"], "Police also describe a sea route via the Galápagos, and guns hidden in containers have been seized at Guayaquil.", [REU_EC, IC_ECA], "2024"),
  F("firearms", "land", ["Colombia–Ecuador border", "Esmeraldas"], "A further route enters northern Ecuador from the Colombian border.", [REU_EC], "2024"),
 ]
 NOTES = {
