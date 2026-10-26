@@ -74,9 +74,10 @@ def warnings(cols=None):
         sub = f(cols); ps = pairs(sub, MIN_DE)
         if ps: out.append(f"[{name}] {len(sub)} colours, {len(ps)} pairs below {MIN_DE} (min shown): " + min(ps, key=lambda s: float(s.rsplit(" ", 1)[1])))
     return out
-# --- muted area fills (rule 2026-10-25): darker, low-saturation, no neon pink/magenta, never grey, distinct ---
-FILL_LV = {"dominant": (0, 1), "significant": (6, .85), "present": (12, .7)}  # (L* drop, chroma factor), mirrors shadeG in public/app.js
-FILL_L = (28, 54); FILL_SAT_MAX = .5; FILL_C_MIN = 18; MAGENTA_HUE = (305, 355); ARROW_MIN_DE = 25; ARROW_MIN_CR = 2.5
+# --- mid-tone area fills (Trish 2026-10-26): L* 45-65, HSL sat 0.4-0.7, never grey, pinks/purples allowed if not neon ---
+FILL_LV = {"dominant": (0, 1), "significant": (5, .88), "present": (10, .76)}  # (L* drop, chroma factor), mirrors shadeG in public/app.js
+FILL_L = (45, 65); FILL_SAT = (.4, .7); FILL_C_MIN = 20; FILL_MIN_DE = 14  # pairwise floor: 20 is unreachable for 17 fills under these limits (best found 14.1)
+ARROW_MIN_DE = 25; ARROW_MIN_CR = 2.5
 def fills():
     m = re.search(r"TERR_FILL=\{(.*?)\}", rd("public/palette.js"))
     return {k: v.lower() for k, v in re.findall(r'(\w+):"(#[0-9a-fA-F]{6})"', m.group(1))} if m else {}
@@ -93,9 +94,8 @@ def check_fills(cols=None):
     for k, v in F.items():
         L, a, b = lab(v); C = math.hypot(a, b); h = math.degrees(math.atan2(b, a)) % 360
         if not FILL_L[0] <= L <= FILL_L[1]: errs.append(f"fill {k} {v}: lightness L*{L:.0f} outside {FILL_L}")
-        if sat(v) > FILL_SAT_MAX: errs.append(f"fill {k} {v}: HSL saturation {sat(v):.2f} > {FILL_SAT_MAX}")
+        if not FILL_SAT[0] <= sat(v) <= FILL_SAT[1]: errs.append(f"fill {k} {v}: HSL saturation {sat(v):.2f} outside {FILL_SAT}")
         if C < FILL_C_MIN: errs.append(f"fill {k} {v}: chroma {C:.0f} < {FILL_C_MIN} (grey)")
-        if MAGENTA_HUE[0] <= h <= MAGENTA_HUE[1]: errs.append(f"fill {k} {v}: hue {h:.0f} is pink/magenta")
         for lv in FILL_LV:
             Ls, as_, bs = shade(v, lv)
             if math.hypot(as_, bs) < 15: errs.append(f"fill {k} {v} at {lv}: grey (chroma {math.hypot(as_, bs):.0f})")
@@ -103,10 +103,10 @@ def check_fills(cols=None):
     for x, y in itertools.combinations(ids, 2):
         if F[x] == F[y] and {x, y} == {"haiti", "viv_ansanm"}: continue
         d = de2000(lab(F[x]), lab(F[y]))
-        if d < 10: errs.append(f"fill {x} {F[x]} vs {y} {F[y]}: dE2000 {d:.1f} < 10 (indistinct)")
+        if d < FILL_MIN_DE: errs.append(f"fill {x} {F[x]} vs {y} {F[y]}: dE2000 {d:.1f} < {FILL_MIN_DE} (indistinct)")
         elif d < MIN_DE: low.append((d, x, y))
     if low:
-        d, x, y = min(low); warns.append(f"[map: muted fills] {len(F)} fills, {len(low)} pairs below {MIN_DE} (infeasible for this many muted colours; min {x} {F[x]} vs {y} {F[y]}: {d:.1f})")
+        d, x, y = min(low); warns.append(f"[map: muted fills] {len(F)} fills, {len(low)} pairs below {MIN_DE} (20 unreachable for 17 mid-tone fills; min {x} {F[x]} vs {y} {F[y]}: {d:.1f})")
     # route arrows / lines must stand out from every fill shade they cross
     routes = {"route:"+k: v.lower() for k, v in re.findall(r'k:"(\w+)".*?color:"(#[0-9a-fA-F]{6})"', rd("public/routes3.js"))}
     worst = None
