@@ -70,3 +70,4 @@ table.bz thead th{height:170px;min-width:42px;position:relative;vertical-align:b
 table.bz thead th>span{display:block;font-size:14px}
 table.bz .vl{writing-mode:horizontal-tb;transform:none;max-height:none;position:absolute;left:50%;bottom:30px;width:max-content;transform-origin:0 100%;transform:rotate(-45deg);font-size:13.5px;font-weight:400;color:#e6ebf3;white-space:nowrap;text-align:left}
 table.bz td{min-width:42px}
+table.bz thead th>span{height:22px;line-height:22px;width:100%;text-align:center;font-size:16px}table.bz .vl{bottom:28px;left:calc(50% - 4px)}
