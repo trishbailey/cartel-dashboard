@@ -375,6 +375,28 @@ for _fn, _ch, _subs in [("routes_drugs.geojson", "drugs", {"cocaine", "precursor
         c = f.get("geometry", {}).get("coordinates", [])
         if f.get("geometry", {}).get("type") != "LineString" or len(c) < 2 or not all(-180 <= x <= 180 and -90 <= y <= 90 for x, y in c): err(f"{w}: bad geometry")
 
+# ---- profiles.json (group profile cards) ----
+if os.path.exists(os.path.join(D, "profiles.json")):
+    _pr = load("profiles.json"); _BANP = re.compile(r"\b(will|likely to|expected to|should|must|forecast\w*|predict\w*|recommend\w*)\b", re.I)
+    for p in _pr["profiles"]:
+        w = f"profile {p.get('id')}"
+        for k in ("id", "name", "what", "founded"):
+            if not p.get(k): err(f"{w}: missing {k}")
+        for k in ("what_c", "founded_c"): cites({"cites": p.get(k)}, f"{w} {k}")
+        if p.get("lines"): cites({"cites": p.get("lines_c")}, f"{w} lines")
+        for i, (t, c) in enumerate(p.get("more", [])):
+            cites({"cites": c}, f"{w} more {i}")
+            if _BANP.search(t): err(f"{w}: banned word in more {i}")
+        if _BANP.search(p["what"]): err(f"{w}: banned word in what")
+        for i, s in enumerate(p.get("membership_series", [])):
+            if not isinstance(s.get("year"), int) or not isinstance(s.get("low"), (int, float)): err(f"{w} series {i}: year/low")
+            if s.get("high") is not None and s["high"] < s["low"]: err(f"{w} series {i}: high<low")
+            cites({"cites": [s.get("source")]}, f"{w} series {i}")
+        im = p.get("image")
+        if im:
+            if not os.path.exists(os.path.join(os.path.dirname(D), "public", im["src"])): err(f"{w}: image file missing")
+            if not im.get("license") or not im.get("page", "").startswith("https://commons.wikimedia.org/"): err(f"{w}: image needs Commons page + licence")
+
 if errs:
     print("\n".join("ERROR " + e for e in errs)); sys.exit(1)
 print(f"valid: {len(src)} sources, {len(net['groups'])} groups, {len(net['edges'])} edges, {len(ev['events'])} events")

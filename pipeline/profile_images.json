@@ -1,0 +1,107 @@
+{
+ "ms13": {
+  "src": "img/profiles/ms13.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Mara_Salvatrucha_Graffiti.jpg",
+  "author": "Walking the Tracks",
+  "license": "CC BY-SA 2.0",
+  "caption": "MS-13 graffiti (US)"
+ },
+ "tda": {
+  "src": "img/profiles/tda.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Venezuela_Aragua_location_map.svg",
+  "author": "Aragua_location_map.svg: Addicted04 derivative work: Spischo",
+  "license": "CC BY-SA 3.0",
+  "caption": "Aragua state, Venezuela (map)"
+ },
+ "sinaloa": {
+  "src": "img/profiles/sinaloa.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Vista_panor%C3%A1mica_de_Culiac%C3%A1n.jpg",
+  "author": "FAL56",
+  "license": "CC BY-SA 4.0",
+  "caption": "Culiacán, Sinaloa"
+ },
+ "cjng": {
+  "src": "img/profiles/cjng.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Skyline_Guadalajara_(cropped).jpg",
+  "author": "Allenpivot",
+  "license": "CC BY-SA 3.0",
+  "caption": "Guadalajara, Jalisco"
+ },
+ "gulf": {
+  "src": "img/profiles/gulf.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Parque_Perif%C3%A9rico_(Matamoros,_Tamaulipas)_(1).jpg",
+  "author": "MX",
+  "license": "CC BY-SA 4.0",
+  "caption": "Matamoros, Tamaulipas"
+ },
+ "juarez": {
+  "src": "img/profiles/juarez.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Ciudad_Ju%C3%A1rez,_skyline.jpg",
+  "author": "Alejandro Rosales",
+  "license": "CC BY-SA 4.0",
+  "caption": "Ciudad Juárez"
+ },
+ "cdn": {
+  "src": "img/profiles/cdn.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Nuevo_Laredo_south_side.png",
+  "author": "Miguel Angel Omaña Rojas",
+  "license": "CC BY-SA 4.0",
+  "caption": "Nuevo Laredo"
+ },
+ "lnfm": {
+  "src": "img/profiles/lnfm.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Tierra_caliente_Michoacan.jpg",
+  "author": "Mayo 452",
+  "license": "CC BY-SA 4.0",
+  "caption": "Tierra Caliente, Michoacán"
+ },
+ "clan": {
+  "src": "img/profiles/clan.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Carretera_hacia_Urab%C3%A1.jpg",
+  "author": "Scabredon",
+  "license": "Public domain",
+  "caption": "Road to Urabá, Antioquia"
+ },
+ "eln": {
+  "src": "img/profiles/eln.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Flag_of_ELN.svg",
+  "author": "Fibonacci (talk)",
+  "license": "Public domain",
+  "caption": "ELN flag"
+ },
+ "exfarc": {
+  "src": "img/profiles/exfarc.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Flag_of_the_FARC-EP.svg",
+  "author": "MrPenguin20",
+  "license": "CC BY-SA 3.0",
+  "caption": "Former FARC-EP flag"
+ },
+ "choneros": {
+  "src": "img/profiles/choneros.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:2022-10-04a_Wide_view_of_the_city_of_Manta,_Ecuador.jpg",
+  "author": "Gordon Leggett",
+  "license": "CC BY-SA 4.0",
+  "caption": "Manta, Manabí"
+ },
+ "pcc": {
+  "src": "img/profiles/pcc.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Taubateskyline.JPG",
+  "author": "Intruso",
+  "license": "CC0",
+  "caption": "Taubaté, São Paulo"
+ },
+ "cv": {
+  "src": "img/profiles/cv.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Complexo_do_Alem%C3%A3o.JPG",
+  "author": "Junius",
+  "license": "Public domain",
+  "caption": "Complexo do Alemão, Rio"
+ },
+ "haiti": {
+  "src": "img/profiles/haiti.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Port-au-Prince_Haiti_2008.JPG",
+  "author": "US Navy",
+  "license": "Public domain",
+  "caption": "Port-au-Prince (2008)"
+ }
+}
