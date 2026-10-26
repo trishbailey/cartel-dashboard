@@ -1,7 +1,7 @@
 /* Origins-and-growth swimlane timeline (replaces Who's who). Data: data/timeline.json. Optional data/group_countries.json for country badges. */
 (function(){
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const ICON={found:"🌱",alliance:"🤝",expand:"↗️",captured:"⛓️",killed:"✝️",raid:"🚨"};
+const ICON={found:"🌱",expand:"↗️",captured:"⛓️",killed:"⛓️"};
 const LBL={found:"Founded",split:"Split / breakaway",alliance:"Alliance",expand:"Expansion",fto:"US FTO designation",captured:"Leader captured / jailed",killed:"Leader killed",raid:"State crackdown"};
 const FALL={chapitos:"#c3e26f",mayiza:"#2bbba1",unidos:"#c084aa",viagras:"#7b6b9d",soles:"#c4920d",segmar:"#00ed9d",chone_killers:"#b270ff",los_tiguerones:"#f5c95a",viv_ansanm:"#00b0ff",gran_grif:"#c56000"};
 const get=u=>fetch(u).then(r=>r.ok?r.json():null).catch(()=>null);
@@ -14,7 +14,7 @@ function draw(host,T,N,TR,GC){
  const name={},col={};(N&&N.groups||[]).forEach(g=>name[g.id]=g.name);(TR&&TR.groups||[]).forEach(g=>{col[g.id]=g.color;if(!name[g.id])name[g.id]=g.name});
  T.lanes.forEach(l=>{if(l.name)name[l.id]=l.name});
  const FB=Object.assign({},FALL,window.CARTEL_FALL||{});const C=id=>FB[id]&&!col[id]?FB[id]:(col[id]||FB[id]||"#ff9f1c");
- const ev=T.events.filter(e=>!["fto","split"].includes(e.type)),regions=[...new Set(T.lanes.map(l=>l.region))];
+ const ev=T.events.filter(e=>["found","expand","captured","killed"].includes(e.type)),regions=[...new Set(T.lanes.map(l=>l.region))];
  // family ordering: each child directly below its parent
  const kids={};T.lanes.forEach(l=>{if(l.parent)(kids[l.parent]=kids[l.parent]||[]).push(l)});
  const lanes=[],fam={},depth={};
@@ -26,7 +26,7 @@ function draw(host,T,N,TR,GC){
  let y=top;const ly={},rowsY=[];let pr=null,pf=null;
  lanes.forEach(l=>{if(l.region!==pr){if(pr!=null)y+=rgap;rowsY.push([l.region,y]);y+=18;pr=l.region;pf=null}else if(fam[l.id]!==pf)y+=fgap;pf=fam[l.id];ly[l.id]=y;y+=rh});
  const H=y+10;const x=d3.scaleLinear().domain([1960,1978,2027]).range([LW,LW+50,W-RW]);
- host.innerHTML=`<div class="tl-legend tl-legend-top">${Object.keys(ICON).map(k=>`<span><i class="tl-ic">${ICON[k]}</i>${LBL[k]}</span>`).join("")}<span><i class="tl-x">✕</i>Dissolved</span><span><svg width="34" height="12"><path d="M2,6 H26" stroke="#ffc971" stroke-width="3"/><path d="M24,1 L32,6 L24,11z" fill="#ffc971"/></svg>Lineage: child breaks from parent</span><span class="muted">≈ approximate founding year · click a lane to filter the map</span></div><div class="tl-wrap"><svg class="tl-svg" width="${W}" height="${H}"><defs></defs></svg><div class="tl-tip"></div></div><div class="tl-legend tl-legend-bottom"><b>Markers:</b> ${Object.keys(ICON).map(k=>`<span><i class="tl-ic">${ICON[k]}</i>${LBL[k]}</span>`).join("")}<span><i class="tl-x">✕</i>Dissolved</span><span>≈ approximate founding year</span></div><div class="tl-panel" hidden></div>`;
+ host.innerHTML=`<div class="tl-legend tl-legend-top muted">Each lane is labelled; curved links show splits. ≈ = approximate founding year · click a lane to filter the map</div><div class="tl-wrap"><svg class="tl-svg" width="${W}" height="${H}"><defs></defs></svg><div class="tl-tip"></div></div><div class="tl-legend tl-legend-bottom"><b>Markers:</b> <span><i class="tl-ic">🌱</i>Founded</span><span><i class="tl-ic">↗️</i>Expansion</span><span><i class="tl-ic">⛓️</i>Leader captured or killed</span><span><i class="tl-x">✕</i>Dissolved</span><span><svg width="34" height="12"><path d="M2,6 H26" stroke="#ffc971" stroke-width="3"/><path d="M24,1 L32,6 L24,11z" fill="#ffc971"/></svg>Split from parent</span></div><div class="tl-panel" hidden></div>`;
  const sv=d3.select(host).select("svg.tl-svg"),defs=sv.select("defs"),tip=host.querySelector(".tl-tip"),panel=host.querySelector(".tl-panel"),wrap=host.querySelector(".tl-wrap");
  const showTip=(m,h)=>{const r=wrap.getBoundingClientRect();tip.innerHTML=h;tip.style.display="block";tip.style.left=Math.min(m.clientX-r.left+wrap.scrollLeft+12,wrap.scrollLeft+r.width-290)+"px";tip.style.top=(m.clientY-r.top+12)+"px"};
  const fam0=lanes.map(l=>l);let alt=0;let lastF=null;

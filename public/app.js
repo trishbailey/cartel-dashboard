@@ -166,9 +166,9 @@ function netTile(net,terr){
    .force("col",d3.forceCollide(d=>Math.max(34,d.lw/2+6)).iterations(4)).stop();
   for(let i=0;i<500;i++)sim.tick();
   nodes.forEach(d=>{d.x=Math.max(d.lw/2+8,Math.min(W-d.lw/2-8,d.x));d.y=Math.max(60,Math.min(H-24,d.y))});
-  const ST={alliance:["#3ddc84",3,null],rivalry:["#ff4d6d",3,"8 5"],service:["#c77dff",2.5,null],"alleged link":["#ffffff",2.5,"2 4"],faction:["#c77dff",2.5,null]};
+  const ST={alliance:["#3ddc84",3,null],rivalry:["#ff4d6d",3,"8 5"],service:["#a7f3c4",2.5,null],"alleged link":["#a7f3c4",2.5,"2 4"],faction:["#a7f3c4",2.5,null]};const KL={service:"business / service tie (lighter alliance line)",faction:"faction of the same group (lighter alliance line)","alleged link":"alleged link, unproven (lighter dotted line)"};
   const sw=(k)=>`<svg width="30" height="10"><line x1="0" y1="5" x2="30" y2="5" stroke="${ST[k][0]}" stroke-width="${ST[k][1]}" ${ST[k][2]?`stroke-dasharray="${ST[k][2]}"`:""}/></svg>`;
-  $("netlegend").style.cssText="display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;font-size:13px";$("netlegend").innerHTML=`<span>${sw("alliance")} <b style="color:#3ddc84">alliance</b> (solid)</span> <span>${sw("rivalry")} <b style="color:#ff4d6d">rivalry / war</b> (dashed)</span> <span>${sw("faction")} faction / business / service</span> <span>${sw("alleged link")} alleged link</span> <span class="muted">· node colour = map colour · hover a group to isolate its links · click for sourced note</span>`;
+  $("netlegend").style.cssText="display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;font-size:13px";$("netlegend").innerHTML=`<span>${sw("alliance")} <b style="color:#3ddc84">alliance</b></span> <span>${sw("rivalry")} <b style="color:#ff4d6d">rivalry / war</b></span> <span class="muted">lighter green = faction, business or alleged tie (hover a line for details)</span>`;
   // region cluster halos
   const rg=d3.groups(nodes,d=>d.reg);const hg=svg.append("g");
   rg.forEach(([r,ns])=>{const x0=d3.min(ns,d=>d.x-d.lw/2)-10,x1=d3.max(ns,d=>d.x+d.lw/2)+10,y0=d3.min(ns,d=>d.y)-50,y1=d3.max(ns,d=>d.y)+30;
@@ -180,7 +180,7 @@ function netTile(net,terr){
   eg.append("path").attr("d",pd).attr("fill","none").attr("stroke",d=>ST[d.kind][0]).attr("stroke-width",d=>ST[d.kind][1]).attr("stroke-dasharray",d=>ST[d.kind][2]).attr("opacity",.9);
   eg.append("path").attr("d",pd).attr("fill","none").attr("stroke","transparent").attr("stroke-width",12);
   eg.filter(d=>d.kind==="rivalry").append("text").attr("class","nx").attr("text-anchor","middle").attr("dy","0.35em").attr("transform",d=>{const [mx,my]=cp(d);return `translate(${(d.source.x+2*mx+d.target.x)/4},${(d.source.y+2*my+d.target.y)/4})`}).text("✕");
-  eg.append("title").text(d=>`${d.source.name} – ${d.target.name}: ${d.kind}. ${d.text}`);
+  eg.append("title").text(d=>`${d.source.name} – ${d.target.name}: ${KL[d.kind]||d.kind}. ${d.text}`);
   const nb=d=>new Set([d,...edges.filter(k=>k.source===d||k.target===d).flatMap(k=>[k.source,k.target])]);
   const n=svg.append("g").selectAll("g").data(nodes).join("g").attr("class","nn").attr("transform",d=>`translate(${d.x},${d.y})`).style("cursor","pointer").on("click",(e,d)=>drawer(groupHtml(d,net)))
    .on("mouseenter",(e,d)=>{const s=nb(d);eg.classed("dim",x=>x.source!==d&&x.target!==d).classed("hi",x=>x.source===d||x.target===d);n.classed("dim",x=>!s.has(x))}).on("mouseleave",()=>{eg.classed("dim",false).classed("hi",false);n.classed("dim",false)});
