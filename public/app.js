@@ -25,7 +25,7 @@ Promise.all([J("data/sources.json"),J("data/routes.geojson"),J("data/crossings.g
   const GC=Object.fromEntries(terr.groups.map(g=>[g.id,g]));
   kpis(net,cross,money,events,terr);
   const M=mapView(topo,adm,terr,routes,cross,china,GC);
-  overview(ov,arcs,net,terr,events,M);violenceTile(M);borderTile();
+  overview(ov,arcs,net,terr,events,M);
   moneyTile(money);netTile(net,terr);cards(net,terr,M);ticker(events);background(arcs);sources(src);
 });
 function kpis(net,cross,money,events,terr){
@@ -35,8 +35,7 @@ function kpis(net,cross,money,events,terr){
   const K=[[fto,"groups tracked here are US-designated FTOs",srcLink(["FTO"])],
    [s.fy2025_border_fentanyl_lb.toLocaleString()+" lb",`fentanyl seized at the US border, FY2025 (${s.change_vs_fy2024_pct}% vs FY2024)`,srcLink(s.cites)],
    ["$"+cm+"bn","suspicious activity linked to Chinese money laundering networks, 2020-24",srcLink(["FINCEN_CMLN_FTA"])],
-   [terr.regions.length,"states and departments with a sourced group footprint",srcLink(["DEA_MAP_SILLA","ACLED_RIFT"])],
-   [today,`headlines in today's feed (${events.as_of})`,FN({url:"https://github.com/trishbailey/cartel-dashboard/blob/main/config/sources.yaml",name:"Cartel dashboard",title:"Headline feed list (config/sources.yaml)"})]];
+   [terr.regions.length,"states and departments with a sourced group footprint",srcLink(["DEA_MAP_SILLA","ACLED_RIFT"])]];
   $("kpis").innerHTML=K.map(k=>`<div class="kpi"><div class="v">${k[0]}</div><div class="l">${k[1]}</div><div class="s">${k[2]}</div></div>`).join("");
 }
 function mapView(topo,adm,terr,routes,cross,china,GC){
@@ -46,9 +45,9 @@ function mapView(topo,adm,terr,routes,cross,china,GC){
   const path=d3.geoPath(proj),defs=svg.append("defs"),g=svg.append("g");
   adm.features.forEach(f=>{if(d3.geoArea(f)>2*Math.PI){const rv=p=>p.map(r=>r.slice().reverse());const g=f.geometry;g.coordinates=g.type==='Polygon'?rv(g.coordinates):g.coordinates.map(rv)}});
   const RB=Object.fromEntries(terr.regions.map(r=>[r.id,r]));
-  const zoom=d3.zoom().scaleExtent([1,14]).translateExtent([[-W*.2,-H*.2],[W*1.2,H*1.2]]).on("zoom",e=>{g.attr("transform",e.transform);g.selectAll(".pt").attr("transform",function(){return `${this.dataset.t} scale(${1/e.transform.k})`})});svg.call(zoom).on("dblclick.zoom",null);
+  const zoom=d3.zoom().scaleExtent([1,14]).translateExtent([[-W*.2,-H*.2],[W*1.2,H*1.2]]).on("zoom",e=>{window.__zk=e.transform.k;g.attr("transform",e.transform);g.selectAll(".pt").attr("transform",function(){return `${this.dataset.t} scale(${1/e.transform.k})`})});svg.call(zoom).on("dblclick.zoom",null);
   const fitBox=(lo0,la0,lo1,la1)=>{const pts=[[lo0,la0],[lo1,la0],[lo0,la1],[lo1,la1],[(lo0+lo1)/2,la0],[(lo0+lo1)/2,la1]].map(proj);const xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]);const x0=Math.min(...xs),x1=Math.max(...xs),y0=Math.min(...ys),y1=Math.max(...ys);const k=Math.min(14,0.92/Math.max((x1-x0)/W,(y1-y0)/H));return d3.zoomIdentity.translate(W/2,H/2).scale(k).translate(-(x0+x1)/2,-(y0+y1)/2)};
-  const VIEWS={mx:fitBox(-117.5,14,-86.5,32.8),all:d3.zoomIdentity,sa:fitBox(-82,-40,-34,13)};
+  window.__proj=proj;const VIEWS={mx:fitBox(-117.5,14,-86.5,32.8),all:d3.zoomIdentity,sa:fitBox(-82,-40,-34,13)};
   view.querySelectorAll("button").forEach(b=>b.onclick=()=>{view.querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b));svg.transition().duration(700).call(zoom.transform,VIEWS[b.dataset.v])});
   g.append("g").selectAll("path").data(topojson.feature(topo,topo.objects.countries).features).join("path").attr("d",path).attr("fill",d=>d.properties.iso==="USA"?"#16243f":"#1b2c4a");
   const pats={};
