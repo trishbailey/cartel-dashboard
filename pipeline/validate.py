@@ -262,6 +262,43 @@ if os.path.exists(os.path.join(D, "capture.json")):
     for s in _cp.get("countries", []):
         if _cc.get(s["country"]) != s.get("total"): err(f"capture summary {s['country']}: total mismatch")
 
+# ---- who's in charge: roles, confidence, coverage per group ----
+_ROLES={"current_leader","faction_leader","former_leader","reported_successor"}
+_CONF={"confirmed by officials","reported by multiple outlets","reported, contested"}
+if os.path.exists(os.path.join(D, "leaders.json")):
+    _gk={g.get("id"):g for g in _ld.get("groups",[])}
+    if len(_gk)!=14: err(f"leaders: expected 14 groups, got {len(_gk)}")
+    for l in _ld.get("leaders",[]):
+        w=f"leader {l.get('id')}"
+        if l.get("role") not in _ROLES: err(f"{w}: role must be one of {sorted(_ROLES)}")
+        if l.get("group_key") not in _gk: err(f"{w}: group_key not in groups")
+        if l.get("role")!="former_leader":
+            if l.get("confidence") not in _CONF: err(f"{w}: needs confidence label")
+            if l.get("status") in ("dead","reported_dead","extradited"): err(f"{w}: dead/extradited cannot be in charge")
+        if re.search(r"in charge", json.dumps(l), re.I) and l.get("role")=="former_leader": err(f"{w}: former leader text says 'in charge'")
+    for gid,g in _gk.items():
+        live=[l for l in _ld["leaders"] if l.get("group_key")==gid and l.get("role")!="former_leader"]
+        if not live and not g.get("leadership_unknown"): err(f"group {gid}: needs a current/faction leader, reported successor, or leadership_unknown note")
+        for s in g.get("sources",[]): _srcok(s, f"group {gid}")
+        if not g.get("sources"): err(f"group {gid}: leadership note needs a source")
+if os.path.exists(os.path.join(D, "groups_size.json")):
+    for gid,g in load("groups_size.json")["groups"].items():
+        for k in ("members","revenue"):
+            if not g.get(k): err(f"size {gid}: missing {k} (use no_credible_estimate)")
+            for e in g.get(k,[]):
+                if e.get("no_credible_estimate"): continue
+                if not e.get("unit"): err(f"size {gid} {k}: missing unit")
+                if not str(e.get("source_url","")).startswith("https://") or is_cn(e.get("source_url","")): err(f"size {gid} {k}: needs https source_url")
+                if e.get("low") is None and e.get("high") is None: err(f"size {gid} {k}: no figure")
+                if not e.get("year"): err(f"size {gid} {k}: missing year")
+if os.path.exists(os.path.join(D, "groups_business.json")):
+    _bz=load("groups_business.json"); _ln={x["id"] for x in _bz["lines"]}
+    for gid,row in _bz["groups"].items():
+        for line,c in row.items():
+            if line not in _ln: err(f"business {gid}: unknown line {line}")
+            if c.get("level") not in ("primary","secondary","minor"): err(f"business {gid}.{line}: bad level")
+            if not str(c.get("source_url","")).startswith("https://") or is_cn(c.get("source_url","")): err(f"business {gid}.{line}: needs source")
+
 if errs:
     print("\n".join("ERROR " + e for e in errs)); sys.exit(1)
 print(f"valid: {len(src)} sources, {len(net['groups'])} groups, {len(net['edges'])} edges, {len(ev['events'])} events")
