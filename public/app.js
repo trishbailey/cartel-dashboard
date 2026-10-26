@@ -156,9 +156,10 @@ function netTile(net,terr){
   const CEN={"Mexico":[.27,.36],"Central America":[.62,.17],"Facilitators":[.88,.17],"Venezuela & Colombia":[.62,.55],"Ecuador":[.30,.84],"Brazil":[.88,.62],"Haiti":[.88,.88]};
   const nodes=net.groups.map(g=>({...g,reg:REG[g.country]||"Facilitators"}));const by=Object.fromEntries(nodes.map(d=>[d.id,d]));
   const lab=d=>d.name.split(" (")[0].replace(/^Cartel (de |del )?/,"").replace(/^Chinese money laundering networks?/i,"Chinese money brokers").slice(0,34);
-  nodes.forEach(d=>{const c=CEN[d.reg];d.x=c[0]*W+(Math.random()-.5)*40;d.y=c[1]*H+(Math.random()-.5)*40;d.lw=lab(d).length*7.6+16});
+  let _s=20261025;const rnd=()=>(_s=(_s*1664525+1013904223)>>>0)/4294967296;
+  nodes.forEach(d=>{const c=CEN[d.reg];d.x=c[0]*W+(rnd()-.5)*40;d.y=c[1]*H+(rnd()-.5)*40;d.lw=lab(d).length*7.6+16});
   const edges=net.edges.filter(e=>by[e.source]&&by[e.target]).map(e=>({...e,source:by[e.source],target:by[e.target]}));
-  const sim=d3.forceSimulation(nodes).force("x",d3.forceX(d=>CEN[d.reg][0]*W).strength(.22)).force("y",d3.forceY(d=>CEN[d.reg][1]*H).strength(.22))
+  const sim=d3.forceSimulation(nodes).randomSource(rnd).force("x",d3.forceX(d=>CEN[d.reg][0]*W).strength(.22)).force("y",d3.forceY(d=>CEN[d.reg][1]*H).strength(.22))
    .force("ch",d3.forceManyBody().strength(-420)).force("link",d3.forceLink(edges).distance(110).strength(.04))
    .force("col",d3.forceCollide(d=>Math.max(34,d.lw/2+6)).iterations(4)).stop();
   for(let i=0;i<500;i++)sim.tick();
