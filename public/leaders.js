@@ -12,7 +12,7 @@ const A=FN;
 const STI={at_large:"●",jailed:"⛓",extradited:"✈",dead:"✝",reported_dead:"✝?"};
 const BI={fentanyl:"💊",meth:"🧪",cocaine:"❄",heroin:"💉",marijuana:"🌿",drugs_unspecified:"📦",precursors:"⚗",migrant_smuggling:"🚶",human_trafficking:"⛓",extortion:"💰",kidnapping:"🎯",fuel_theft:"⛽",illegal_mining:"⛏",logging_fishing:"🌲",arms:"🔫",money_laundering:"🏦",legit_economies:"🏪"};
 const STL={at_large:"At large",jailed:"Jailed",extradited:"In US custody",dead:"Dead",reported_dead:"Reported dead"};
-const CST={convicted:["Convicted","#c0504d"],charged:["Charged","#c8a24a"],alleged:["Alleged","#9aa6b8"],sanctioned:["Sanctioned","#8e6cc0"],pardoned:["Pardoned","#4a9a8a"],acquitted:["Acquitted","#4a9a8a"],dropped:["Dropped","#4a9a8a"],delisted:["Delisted","#4a9a8a"]};
+const CST={convicted:["Convicted","#c0504d"],charged:["Charged","#c8a24a"],alleged:["Alleged","#5b8fd1"],sanctioned:["Sanctioned","#8e6cc0"],pardoned:["Pardoned","#4a9a8a"],acquitted:["Acquitted","#4a9a8a"],dropped:["Dropped","#4a9a8a"],delisted:["Delisted","#4a9a8a"]};
 const ORDER=["convicted","charged","alleged","sanctioned","pardoned","acquitted","dropped","delisted"];
 const usd=n=>"$"+(n>=1e6?(n/1e6)+"M":n.toLocaleString());
 Promise.all([J("data/leaders.json"),J("data/capture.json"),J("data/networks.json"),J("data/territory.json"),J("basemap/latam.topo.json"),J("data/groups_size.json"),J("data/groups_business.json")]).then(([ld,cp,net,ter,topo,sz,bz])=>{
@@ -49,7 +49,7 @@ Promise.all([J("data/leaders.json"),J("data/capture.json"),J("data/networks.json
  const grid=t.querySelector("#ldgrid");
  t.addEventListener("click",e=>{if(e.target.closest("a"))return;const c=e.target.closest(".gc,.fc");if(c)c.classList.toggle("open")});
  // plain linear bar charts (members, revenue)
- const GCOL={sinaloa:"#e4572e",cjng:"#2e86de",gulf:"#f4d35e",cdn:"#8d6e63",lnfm:"#9b5de5",clan:"#00bbf9",eln:"#f15bb5",tda:"#ef476f",choneros:"#06d6a0",lobos:"#118ab2",pcc:"#ffd166",ms13:"#4cc9f0",unidos:"#56657f"};
+ const GCOL={sinaloa:"#e4572e",cjng:"#2e86de",gulf:"#f4d35e",cdn:"#8d6e63",lnfm:"#9b5de5",clan:"#06d6a0",eln:"#e9ff70",tda:"#e0aaff",choneros:"#ff006e",lobos:"#6a994e",pcc:"#ffb4a2",ms13:"#4cc9f0",unidos:"#9d0208"};
  const fN=v=>Math.round(v).toLocaleString("en-US"),fB=v=>"$"+(v>=1e9?(v/1e9).toFixed(1).replace(/\.0$/,"")+"B":Math.round(v/1e6)+"M");
  const memRows=[],revRows=[],noMem=[],noRev=[],revNotes=[];
  Object.entries(sz.groups).forEach(([k,v])=>{

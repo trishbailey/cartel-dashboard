@@ -1,5 +1,5 @@
 const COL={precursors:"#c8a24a",cocaine:"#e6e9ef","fentanyl / methamphetamine":"#ff6b6b",migrants:"#6aa684",firearms:"#b39ddb",cash:"#5b8fd1"};
-const KCOL={rivalry:"#c0504d",alliance:"#6aa684",faction:"#9aa6b8","alleged link":"#c8a24a",service:"#5b8fd1"};
+const KCOL={rivalry:"#c0504d",alliance:"#6aa684",faction:"#c77dff","alleged link":"#c8a24a",service:"#5b8fd1"};
 const LV={dominant:.95,significant:.75,present:.35};
 const LVI={dominant:"●",significant:"◍",present:"○"},LVW={dominant:"Dominant",significant:"Significant",present:"Minor"};
 const shadeG=(c,l)=>l==="dominant"?d3.lab(c).darker(0.7).formatHex():d3.interpolateLab(c,"#ffffff")(l==="significant"?0.42:0.78);
@@ -130,6 +130,10 @@ function mapView(topo,adm,terr,routes,cross,china,GC){
     mk("corr",`Documented corruption cases (${cp.cases.length})`,"#b23a2e",s=>{s.selectAll("path").data(fc).join("path").attr("d",path).attr("fill",d=>col(tot[d.properties.iso].total)).attr("fill-opacity",.6).attr("stroke","#0b1526").attr("vector-effect","non-scaling-stroke").style("cursor","pointer")
       .on("click",(e,d)=>{const c=tot[d.properties.iso];drawer(`<h2>${esc(c.name)}: ${c.total} documented corruption cases</h2><p>${Object.entries(c.by_status).map(([k,v])=>`${v} ${esc(k)}`).join(" · ")}</p><p class="muted">${Object.entries(c.by_level).map(([k,v])=>`${v} ${esc(k)}`).join(", ")}. Full list with sources: &ldquo;Documented corruption cases&rdquo; section lower on the page.</p>`)}).append("title").text(d=>`${tot[d.properties.iso].name}: ${tot[d.properties.iso].total} cases`);
       s.selectAll("text").data(fc).join("text").attr("transform",d=>`translate(${path.centroid(d)})`).attr("text-anchor","middle").attr("fill","#fff").attr("stroke","#0b1526").attr("stroke-width",2.5).attr("paint-order","stroke").attr("font-size",12).attr("font-weight",700).style("pointer-events","none").text(d=>tot[d.properties.iso].total)})}).catch(e=>console.warn("capture overlay",e));
+  const CL=[["USA",-99,31.6],["MEXICO",-102.3,24.2],["Guat.",-90.3,15.7],["Belize",-88.7,17.3],["Hond.",-86.7,14.8],["El Salv.",-89.1,13.75],["Nic.",-85.1,12.8],["C. Rica",-84.1,9.9],["Panama",-80.2,8.4],["Cuba",-79,21.9],["Jam.",-77.3,18.15],["Haiti",-72.8,19.15],["D.R.",-70.4,18.8],["COLOMBIA",-73.3,3.6],["VENEZUELA",-66,7.2],["Guyana",-58.9,5],["Sur.",-55.9,4],["ECUADOR",-78.2,-1.3],["PERU",-75,-9.8],["BRAZIL",-52,-10],["BOLIVIA",-64.6,-17],["PARAGUAY",-58.3,-23.2],["CHILE",-69.6,-26.5],["ARGENTINA",-65,-35],["Uru.",-56,-32.8]];
+  const clg=g.append("g").attr("class","ctl").style("pointer-events","none");
+  const cl=clg.selectAll("g").data(CL).join("g").attr("class","pt").attr("data-t",d=>`translate(${proj([d[1],d[2]])})`).attr("transform",function(){return this.dataset.t});
+  cl.append("text").attr("text-anchor","middle").attr("dy","0.35em").attr("fill","#f3f6fb").attr("fill-opacity",.92).attr("stroke","#0b1526").attr("stroke-width",3).attr("stroke-opacity",.85).attr("paint-order","stroke").style("font-size","12px").style("font-weight","600").style("letter-spacing",".04em").text(d=>d[0]);
   svg.call(zoom.transform,VIEWS.mx);
   const layerOn=(k,on)=>{const lab=[...$("layers").querySelectorAll("label")].find(l=>l.dataset.k===k);if(lab){lab.querySelector("input").checked=on;layers[k].style("display",on?null:"none")}};
   return {setF:id=>{setF(id);document.querySelector(".maptile").scrollIntoView({behavior:"smooth"})},setMode,layerOn,
@@ -158,8 +162,8 @@ function netTile(net,terr){
   const by=Object.fromEntries(net.groups.map(g=>[g.id,{...g}]));const nodes=[];
   COLS.forEach(([lab,ids,fx,row])=>{const y0=22+row*36;svg.append("text").attr("class","nethd").attr("x",W*fx).attr("y",y0).text(lab);ids.filter(i=>by[i]).forEach((id,i)=>{const d=by[id];d.x=W*fx+6;d.y=y0+22+i*34;nodes.push(d)})});
   const edges=net.edges.filter(e=>by[e.source]&&by[e.target]&&by[e.source].x!=null&&by[e.target].x!=null).map(e=>({...e,source:by[e.source],target:by[e.target]}));
-  const ST={alliance:["#4caf50",3,null],rivalry:["#e0605c",2.5,"6 4"],service:["#9aa6b8",1.4,null],"alleged link":["#9aa6b8",1.4,"2 3"],faction:["#9aa6b8",1.4,null]};
-  $("netlegend").innerHTML=`<span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#4caf50" stroke-width="3"/></svg> alliance</span> <span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#e0605c" stroke-width="2.5" stroke-dasharray="6 4"/></svg> ✕ rivalry / war</span> <span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#9aa6b8" stroke-width="1.4"/></svg> faction / business / service</span> <span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#9aa6b8" stroke-width="1.4" stroke-dasharray="2 3"/></svg> alleged link</span>`;
+  const ST={alliance:["#4caf50",3,null],rivalry:["#e0605c",2.5,"6 4"],service:["#c77dff",1.4,null],"alleged link":["#ffffff",1.4,"2 3"],faction:["#c77dff",1.4,null]};
+  $("netlegend").innerHTML=`<span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#4caf50" stroke-width="3"/></svg> alliance</span> <span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#e0605c" stroke-width="2.5" stroke-dasharray="6 4"/></svg> ✕ rivalry / war</span> <span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#c77dff" stroke-width="1.4"/></svg> faction / business / service</span> <span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#ffffff" stroke-width="1.4" stroke-dasharray="2 3"/></svg> alleged link</span>`;
   const cp=d=>{const sx=d.source.x,sy=d.source.y,tx=d.target.x,ty=d.target.y;const same=Math.abs(sx-tx)<5;const mx=same?sx+40+Math.abs(sy-ty)*.35:(sx+tx)/2,my=same?(sy+ty)/2:(sy+ty)/2-18;return [mx,my]};
   const eg=svg.append("g").selectAll("g").data(edges).join("g").attr("class","ne").style("cursor","pointer").on("click",(e,d)=>drawer(`<h2>${esc(d.source.name)} and ${esc(d.target.name)}</h2><span class="tag">${esc(d.kind)}</span><p>${esc(d.text)}</p>${cite(d.cites)}`));
   eg.append("path").attr("d",d=>{const [mx,my]=cp(d);return `M${d.source.x},${d.source.y}Q${mx},${my} ${d.target.x},${d.target.y}`}).attr("fill","none").attr("stroke",d=>ST[d.kind][0]).attr("stroke-width",d=>ST[d.kind][1]).attr("stroke-dasharray",d=>ST[d.kind][2]);
@@ -167,14 +171,14 @@ function netTile(net,terr){
   eg.append("title").text(d=>`${d.source.name} – ${d.target.name}: ${d.kind}`);
   const n=svg.append("g").selectAll("g").data(nodes).join("g").attr("transform",d=>`translate(${d.x},${d.y})`).style("cursor","pointer").on("click",(e,d)=>drawer(groupHtml(d,net)))
    .on("mouseenter",(e,d)=>{eg.classed("dim",x=>x.source!==d&&x.target!==d);n.classed("dim",x=>x!==d&&!edges.some(k=>(k.source===d&&k.target===x)||(k.target===d&&k.source===x)))}).on("mouseleave",()=>{eg.classed("dim",false);n.classed("dim",false)});
-  n.append("circle").attr("r",6).attr("fill",d=>tc[d.id]||"#9aa6b8").attr("stroke","#e6e9ef").attr("stroke-width",d=>d.fto?1.5:0);
+  n.append("circle").attr("r",6).attr("fill",d=>tc[d.id]||"#ffffff").attr("stroke","#e6e9ef").attr("stroke-width",d=>d.fto?1.5:0);
   n.append("text").attr("class","netl").attr("x",9).attr("y",4).attr("fill",d=>tc[d.id]||"#c3ccd9").text(d=>d.name.split(" (")[0].replace(/^Cartel (de |del )?/,"").replace(/^Chinese money laundering networks?/i,"Chinese money brokers").slice(0,24));
 }
 function chinaTile(c){
   const ab={precursors:"PRE",ports:"PRT",money:"$",finance:"$",laundering:"$",infrastructure:"INF"};
   const cc={precursors:"#c8a24a",ports:"#5b8fd1",money:"#6aa684",finance:"#6aa684",laundering:"#6aa684"};
   const cnt=d3.rollups(c.items,v=>v.length,i=>i.category).sort((a,b)=>b[1]-a[1]),mx=d3.max(cnt,x=>x[1]);
-  $("china").innerHTML=`<div class="chbars">${cnt.map(([k,n])=>`<div class="chb"><span class="ico sm" style="background:${cc[k]||"#9aa6b8"}">${esc(ab[k]||k.slice(0,3).toUpperCase())}</span><i style="width:${100*n/mx}%;background:${cc[k]||"#9aa6b8"}"></i><b>${n}</b></div>`).join("")}</div>`+c.items.map((i,k)=>`<div class="ch" data-k="${k}"><div class="ico" style="background:${cc[i.category]||"#9aa6b8"}">${esc(ab[i.category]||i.category.slice(0,3).toUpperCase())}</div><div class="t">${esc(i.title)}${FN(i.cites)}</div></div>`).join("");
+  $("china").innerHTML=`<div class="chbars">${cnt.map(([k,n])=>`<div class="chb"><span class="ico sm" style="background:${cc[k]||"#ffffff"}">${esc(ab[k]||k.slice(0,3).toUpperCase())}</span><i style="width:${100*n/mx}%;background:${cc[k]||"#ffffff"}"></i><b>${n}</b></div>`).join("")}</div>`+c.items.map((i,k)=>`<div class="ch" data-k="${k}"><div class="ico" style="background:${cc[i.category]||"#ffffff"}">${esc(ab[i.category]||i.category.slice(0,3).toUpperCase())}</div><div class="t">${esc(i.title)}${FN(i.cites)}</div></div>`).join("");
   $("china").querySelectorAll(".ch").forEach(el=>el.onclick=()=>{const i=c.items[+el.dataset.k];drawer(`<h2>${esc(i.title)}</h2><span class="tag">${esc(i.category)}</span><p>${esc(i.text)}</p>${i.says_vs_does?`<p class="says">Says vs does: ${esc(i.says_vs_does)}</p>`:""}${cite(i.cites)}`)});
 }
 function groupHtml(x,net){const nm=Object.fromEntries(net.groups.map(g=>[g.id,g.name]));const es=net.edges.filter(e=>e.source===x.id||e.target===x.id);
@@ -185,7 +189,7 @@ let NET;
 function cards(net,terr,M){NET=net;
   const tc=Object.fromEntries(terr.groups.filter(g=>g.network_id).map(g=>[g.network_id,g]));
   $("cards").innerHTML=net.groups.map((x,k)=>{const L=(x.leaders||[])[0];const t=tc[x.id];
-   return `<div class="gc" data-k="${k}" style="border-left-color:${t?t.color:"#56657f"}"><h4>${esc(x.name)}</h4>${x.fto?`<span class="tag fto">FTO</span>`:""}<span class="tag">${esc(x.country)}</span>
+   return `<div class="gc" data-k="${k}" style="border-left-color:${t?t.color:"#ffffff"}"><h4>${esc(x.name)}</h4>${x.fto?`<span class="tag fto">FTO</span>`:""}<span class="tag">${esc(x.country)}</span>
    ${L?`<div class="st" title="${esc(L.name)}: ${esc(L.status)}">${/dead|killed|died/i.test(L.status)?"✝":/custody|jail|prison|extradit|arrest|convicted|sentenced|detained/i.test(L.status)?"⛓":"🎯"} ${esc(L.name.split(" (")[0])}</div>`:""}
    <div class="full">${groupHtml(x,net).replace(/<h2>.*?<\/h2>/,"")}${t?`<button class="chip" data-map="${t.id}">Show footprint on map</button>`:""}</div></div>`}).join("");
   $("cards").querySelectorAll(".gc").forEach(el=>el.onclick=e=>{if(e.target.closest("a"))return;const b=e.target.closest("[data-map]");if(b){e.stopPropagation();M.setF(b.dataset.map);return}el.classList.toggle("open")});
@@ -247,7 +251,7 @@ function overview(ov,arcs,net,terr,events,M){
   const TG=Object.fromEntries(terr.groups.map(g=>[g.id,g]));
   const ss=arcs.filter(a=>a.storyline).sort((a,b)=>a.storyline.order-b.storyline.order);
   const ST={escalating:["▲","#e0605c"],stable:["■","#c8a24a"],deescalating:["▼","#6aa684"]};
-  $("stories").innerHTML=ss.map((a,k)=>{const sl=a.storyline,st=ST[a.status]||ST[sl.status]||["●","#9cc1f0"];const c=(sl.groups||[]).map(g=>TG[g]&&TG[g].color).filter(Boolean)[0]||"#56657f";
+  $("stories").innerHTML=ss.map((a,k)=>{const sl=a.storyline,st=ST[a.status]||ST[sl.status]||["●","#9cc1f0"];const c=(sl.groups||[]).map(g=>TG[g]&&TG[g].color).filter(Boolean)[0]||"#ffffff";
     const cs=[...new Set(sl.what.flatMap(w=>w.cites))];
     return `<div class="sc" data-k="${k}"><span class="sti" style="color:${st[1]}" title="${esc(a.status||sl.status||"active")}">${st[0]}</span><span class="dot" style="background:${c}"></span><b>${esc(sl.title)}</b><span class="muted sl1">${esc(first(sl.what[0].text))}</span>${FN(cs)}<span class="go">map →</span></div>`}).join("");
   $("stories").querySelectorAll(".sc").forEach(el=>el.onclick=e=>{if(e.target.closest("a"))return;$("stories").querySelectorAll(".sc").forEach(x=>x.classList.toggle("on",x===el));M.story(ss[+el.dataset.k].storyline)})}

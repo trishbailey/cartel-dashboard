@@ -19,8 +19,8 @@ Promise.all([J("data/xfeed.json"),J("data/breaking.json"),J("data/territory.json
   if(terr)terr.groups.forEach(g=>{if(g.network_id&&!GC[g.network_id])GC[g.network_id]=g.color});
   strip();waitMap();
 });
-function gdots(ids){return (ids||[]).map(g=>`<span class="xg"><span class="dot" style="background:${GC[g]||"#56657f"}"></span>${esc(GN[g]||g)}</span>`).join("")}
-function gdots1(ids){return (ids||[]).slice(0,2).map(g=>`<span class="dot" title="${esc(GN[g]||g)}" style="background:${GC[g]||"#56657f"}"></span>`).join("")}
+function gdots(ids){return (ids||[]).map(g=>`<span class="xg"><span class="dot" style="background:${GC[g]||"#ffffff"}"></span>${esc(GN[g]||g)}</span>`).join("")}
+function gdots1(ids){return (ids||[]).slice(0,2).map(g=>`<span class="dot" title="${esc(GN[g]||g)}" style="background:${GC[g]||"#ffffff"}"></span>`).join("")}
 function rnames(ids){return (ids||[]).map(r=>esc(RN[r]||r)).join(", ")}
 /* ---------- Breaking strip ---------- */
 function strip(){
