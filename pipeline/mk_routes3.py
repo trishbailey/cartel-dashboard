@@ -23,6 +23,12 @@ P = {  # lon, lat
  "Paso Canoas": (-82.84, 8.53), "Peñas Blancas": (-85.62, 11.21), "Trojes / Danlí (Honduras)": (-86.6, 14.0), "Guatemala City": (-90.51, 14.63),
  "Arriaga / Tonalá": (-93.8, 16.1), "Mexico City": (-99.13, 19.43), "Ocós (Guatemala)": (-92.19, 14.51), "Salina Cruz / Huatulco": (-95.6, 15.9),
  "Hermosillo": (-110.96, 29.07), "Colón (Miramar/Palenque)": (-79.3, 9.55), "Capurganá": (-77.35, 8.63), "Panama City": (-79.52, 8.98), "Jaque (Darién)": (-78.17, 7.52),
+ "San Diego": (-117.16, 32.72), "El Centro / Calexico": (-115.50, 32.70), "Yuma": (-114.62, 32.69), "Altar": (-111.82, 30.71), "Sásabe": (-111.54, 31.48),
+ "Tucson": (-110.97, 32.22), "Sonoyta": (-112.86, 31.86), "Lukeville / Ajo": (-112.82, 32.05), "Caborca": (-112.16, 30.72), "El Paso": (-106.49, 31.76),
+ "Puerto Palomas": (-107.63, 31.77), "Columbus (NM)": (-107.64, 31.83), "Hidalgo del Parral": (-105.67, 26.93), "Aldama (Chih.)": (-105.91, 28.84),
+ "Ojinaga": (-104.41, 29.56), "Presidio (Big Bend)": (-104.37, 29.56), "Piedras Negras": (-100.52, 28.70), "Eagle Pass (Del Rio sector)": (-100.50, 28.71),
+ "Laredo": (-99.51, 27.53), "McAllen": (-98.23, 26.20), "Brownsville": (-97.50, 25.90), "San Luis Potosí": (-100.98, 22.15), "Torreón": (-103.41, 25.54),
+ "Nuevo Casas Grandes": (-107.91, 30.42), "El Ceibo": (-91.50, 17.25), "Tenosique": (-91.42, 17.47), "Chihuahua": (-106.09, 28.63),
  "Lima": (-77.04, -12.05), "Tumbes (Peru-Ecuador border)": (-80.45, -3.57), "Colombia–Ecuador border": (-77.7, 0.85),
 }
 S = lambda url, name, title, date="": {"url": url, "name": name, "title": title, "date": date}
@@ -42,10 +48,35 @@ UNODC_H3 = S("https://docs.haitidocs.org/unodc-reports-to-sc-2024-07.pdf", "UNOD
 REU_EC = S("https://www.reuters.com/world/americas/one-gun-34-dead-inside-ecuadors-war-black-market-weapons-2024-06-29/", "Reuters", "One gun, 34 dead: Inside Ecuador's war on black-market weapons", "2024-06-29")
 IC_ECG = S("https://insightcrime.org/news/indictment-ecuador-most-wanted-criminal-is-shift-security-policy/", "InSight Crime", "The US just indicted Ecuadorian gang boss 'Fito'")
 IC_ECA = S("https://insightcrime.org/news/illegal-arms-trafficking-is-ecuador-security-blind-spot/", "InSight Crime", "Illegal arms trafficking is Ecuador's security blind spot")
+CBP24 = S("https://www.cbp.gov/newsroom/stats/migrant-protection-protocols-fy2024", "CBP", "USBP apprehensions by Southwest Border sector, FY2024 (Oct 2023-Sep 2024)", "FY2024")
+CBP25 = S("https://www.cbp.gov/newsroom/national-media-release/lowest-fiscal-year-border-patrol-apprehensions-1970", "CBP", "Lowest fiscal year for Border Patrol apprehensions since 1970 (FY2025: 237,565)", "2025-10-07")
+BR24 = S("https://www.borderreport.com/border-report-tour/immigration/south-texas-border-patrol-sectors-saw-big-drops-in-migrant-encounters-in-fiscal-2024/", "Border Report", "South Texas Border Patrol sectors saw big drops in migrant encounters in Fiscal 2024", "2024-10")
+IC_SON = S("https://insightcrime.org/news/sonora-mexico-under-siege-amid-sinaloa-cartel-battle-over-migrant-smuggling/", "InSight Crime", "Sinaloa Cartel battle over migrant smuggling in Sonora, Mexico")
+IC_DES = S("https://insightcrime.org/news/desperation-desert-migrant-smuggling-us-mexico-border/", "InSight Crime", "Desperation in the desert: the industrialization of migrant smuggling on the US-Mexico border")
+AP_LUKE = S("https://apnews.com/article/lukeville-arizona-border-crossing-closed-ae04e8c861a95e98dbfc8d49244cf092", "AP", "Smugglers bring migrants to Arizona border crossing, overwhelming US agents", "2023-12")
+JBC_SON = S("https://jornadabc.com.mx/region/entrada-de-frente-frio-complica-situacion-de-migrantes/", "La Jornada Baja California", "Entrada de frente frío complica situación de migrantes (Sonoyta, San Luis Río Colorado)", "2023-12-08")
+UNI_TJ = S("https://www.uniradiobaja.com/gobierno/crimen-organizado-controla-trafico-personas-pagos-traslado-o-cobro-piso-dejar-pasar-migrantes-dmam-tijuana-n729721", "Uniradio Informa", "Crimen organizado controla tráfico de personas con pagos por traslado o cobro de piso (Tijuana)", "2024")
+ZETA_SY = S("https://zetatijuana.com/2024/02/las-mafias-en-garita-de-san-ysidro/", "Semanario ZETA", "Las mafias en Garita de San Ysidro", "2024-02")
+IC_LINEA = S("https://insightcrime.org/mexico-organized-crime-news/la-linea/", "InSight Crime", "La Línea: profile")
+USAT_JZ = S("https://www.usatoday.com/story/news/investigations/2024/06/20/mexican-drug-cartels-migrant-vip-package/74154061007/", "USA Today", "Mexican drug cartels offer migrants VIP package for passage into US", "2024-06-20")
+DIA_JZ = S("https://diario.mx/juarez/2025/jun/03/al-dia-70-detenciones-de-migrantes-1069206.html", "El Diario de Juárez", "Al día, 70 detenciones de migrantes", "2025-06-03")
+JOR_JZ = S("https://www.jornada.com.mx/2022/07/01/politica/008n2pol", "La Jornada", "El cruce de personas de Juárez a El Paso, en control de La Línea", "2022-07-01")
+REU_TRAIN = S("https://www.reuters.com/world/americas/migrants-aboard-mexico-cargo-trains-stranded-miles-us-border-2023-09-30/", "Reuters", "Migrants aboard Mexico cargo trains stranded miles from U.S. border", "2023-09-30")
+SIG_PN = S("https://www.elsiglodetorreon.com.mx/noticia/2023/miles-de-migrantes-arriban-a-piedras-negras-cruzan-el-rio-bravo-y-llegan-a-eua.html", "El Siglo de Torreón", "Miles de migrantes arriban a Piedras Negras, cruzan el río Bravo y llegan a EUA", "2023-09")
+OFAC_CDN = S("https://home.treasury.gov/news/press-releases/sb0219", "US Treasury (OFAC)", "Treasury sanctions additional members and associate of Cartel del Noreste", "2025")
+DOJ_CDN = S("https://www.justice.gov/usao-sdtx/pr/two-sent-prison-roles-cartel-linked-human-smuggling-scheme", "US Attorney SDTX", "Two sent to prison for roles in cartel-linked (CDN) human smuggling scheme", "2024-10-30")
+IC_CDG = S("https://insightcrime.org/mexico-organized-crime-news/gulf-cartel-profile/", "InSight Crime", "Gulf Cartel: profile and current status")
+MND_TAB = S("https://mexiconewsdaily.com/news/migrants-find-new-route-into-mexico-via-tabasco-but-also-dangers/", "Mexico News Daily", "Migrants find new route into Mexico via Tabasco but also dangers")
+MSF_MAP = S("https://www.msf.org.co/wp-content/uploads/2023/07/Mapa-MSF-en-ruta-contigo.pdf", "MSF", "Mapa MSF en ruta contigo (migrant route assistance points)", "2023-07")
+SEC = {"San Diego": 324260, "El Centro": 17484, "Yuma": 53877, "Tucson": 463567, "El Paso": 256102, "Big Bend": 4921, "Del Rio": 244105, "Laredo": 31108, "Rio Grande Valley": 135099}
 
-def F(channel, subtype, pts, desc, src, year, width=None):
+def F(channel, subtype, pts, desc, src, year, width=None, sector=None, control=None, csrc=None):
     p = {"channel": channel, "subtype": subtype, "from": pts[0], "to": pts[-1], "description": desc, "sources": src, "year": year}
     if width: p["volume"] = width
+    if sector:
+        p.update(sector=sector, encounters=SEC[sector], encounters_year="FY2024", volume=SEC[sector])
+        if CBP24 not in src: src.append(CBP24)
+    if control: p["control"], p["control_sources"] = control, csrc
     return {"type": "Feature", "properties": p, "geometry": {"type": "LineString", "coordinates": [list(P[x]) for x in pts]}}
 
 drugs = [
@@ -85,6 +116,31 @@ migr = [
  F("migrants", "northbound land", ["Mexico City", "Guadalajara", "Hermosillo", "Nogales"], "The Pacific route runs through Sinaloa Cartel territory to the Sonora crossings.", [GI_MX], "2018"),
  F("migrants", "northbound land", ["Hermosillo", "Mexicali", "Tijuana"], "The Pacific route continues on to Baja California.", [GI_MX], "2018"),
  F("migrants", "sea", ["Ocós (Guatemala)", "Salina Cruz / Huatulco"], "Smugglers take people by fishing boat about 450 km along the Pacific coast, from Ocós to Oaxaca, to avoid checkpoints in Chiapas.", [IC_SEA], "2022"),
+ # ---- southern entry, interior trunks and staging cities feeding the nine USBP southwest sectors ----
+ F("migrants", "northbound land", ["Petén", "El Ceibo", "Tenosique", "Villahermosa"], "The El Ceibo–Tenosique crossing into Tabasco is the main eastern entry, about 60 km by road; MSF runs assistance points in Tenosique and coyotes charge thousands of dollars.", [MND_TAB, MSF_MAP], "2023"),
+ F("migrants", "northbound land", ["Mexico City", "San Luis Potosí", "Monterrey"], "The central route runs from Mexico City through San Luis Potosí to Monterrey, the staging hub for the Coahuila and Tamaulipas crossings.", [GI_MX, IC_DES], "2018"),
+ F("migrants", "rail (La Bestia)", ["Monterrey", "Torreón", "Chihuahua", "Ciudad Juárez"], "In 2023 thousands of migrants rode freight trains north through Torreón toward Ciudad Juárez and Piedras Negras until Ferromex halted trains.", [REU_TRAIN], "2023"),
+ F("migrants", "northbound land", ["Tijuana", "San Diego"], "Tijuana feeds the San Diego sector, the second busiest in FY2024; Tijuana officials say organised crime now controls smuggling through transport payments or piso charged to let migrants pass.", [UNI_TJ, ZETA_SY], "2024", sector="San Diego",
+   control="Organised crime charges piso per migrant (Tijuana migrant affairs office); ZETA reports Sinaloa Cartel-linked and Arellano Félix-linked cells competing around the San Ysidro crossing.", csrc=[UNI_TJ, ZETA_SY]),
+ F("migrants", "northbound land", ["Mexicali", "El Centro / Calexico"], "Mexicali feeds the El Centro sector; Tijuana officials report migrants being moved from Tijuana toward Mexicali crossings.", [UNI_TJ], "2024", sector="El Centro"),
+ F("migrants", "northbound land", ["San Luis Río Colorado", "Yuma"], "San Luis Río Colorado feeds the Yuma sector; in December 2023 CBP warned it might close the San Luis crossings as crossings surged.", [JBC_SON], "2023", sector="Yuma"),
+ F("migrants", "northbound land", ["Hermosillo", "Altar", "Sásabe", "Tucson"], "Altar is the staging town for the desert crossing near Sásabe into the Tucson sector, the busiest in FY2024.", [IC_SON, IC_DES], "2023", sector="Tucson",
+   control="Sinaloa Cartel factions control the Altar–Sásabe corridor and collect at least $100 per migrant, plus about $1,000 for unguided 'permission' to cross (InSight Crime).", csrc=[IC_DES, IC_SON]),
+ F("migrants", "northbound land", ["Hermosillo", "Caborca", "Sonoyta", "Lukeville / Ajo"], "In December 2023 smugglers delivered thousands of migrants a day near Sonoyta–Lukeville, forcing CBP to close the Lukeville port (Tucson sector, Ajo station).", [AP_LUKE, JBC_SON], "2023", sector="Tucson"),
+ F("migrants", "northbound land", ["Chihuahua", "Ciudad Juárez", "El Paso"], "Ciudad Juárez feeds the El Paso sector; smugglers even use the storm-drain tunnels into El Paso, charging $6,000 or more.", [USAT_JZ, DIA_JZ], "2024", sector="El Paso",
+   control="La Línea controls the Juárez–El Paso polleros (La Jornada 2022) and moved 1,000+ migrants a month through drain tunnels (USA Today); La Empresa and Los Cabrera also operate in Juárez and the Valle (El Diario 2025).", csrc=[JOR_JZ, USAT_JZ, DIA_JZ, IC_LINEA]),
+ F("migrants", "northbound land", ["Nuevo Casas Grandes", "Puerto Palomas", "Columbus (NM)"], "Puerto Palomas, west of Juárez, is a main irregular crossing in the El Paso sector's New Mexico stretch.", [DIA_JZ], "2025", sector="El Paso",
+   control="La Línea runs the main irregular crossing at Puerto Palomas, per Chihuahua authorities (El Diario 2025).", csrc=[DIA_JZ]),
+ F("migrants", "northbound land", ["Hidalgo del Parral", "Aldama (Chih.)", "Ojinaga", "Presidio (Big Bend)"], "Chihuahua state police describe a Parral–Aldama–Ojinaga smuggling route into the Big Bend sector, the quietest of the nine.", [DIA_JZ], "2025", sector="Big Bend",
+   control="Los Cabrera are moving into the Parral–Aldama–Ojinaga route (Chihuahua state police via El Diario).", csrc=[DIA_JZ]),
+ F("migrants", "northbound land", ["Monterrey", "Piedras Negras", "Eagle Pass (Del Rio sector)"], "In September 2023 thousands, mostly Venezuelans, travelled from Monterrey by train and bus to Piedras Negras and waded the Rio Grande into Eagle Pass (Del Rio sector).", [REU_TRAIN, SIG_PN, BR24], "2023", sector="Del Rio",
+   control="Cartel del Noreste holds influence in Piedras Negras and runs human smuggling into the US (US Treasury, 2025).", csrc=[OFAC_CDN]),
+ F("migrants", "northbound land", ["Monterrey", "Nuevo Laredo", "Laredo"], "Nuevo Laredo feeds the Laredo sector; US prosecutors describe CDN-recruited smugglers moving migrants in tractor trailers past the I-35 checkpoint.", [DOJ_CDN, BR24], "2024", sector="Laredo",
+   control="Cartel del Noreste: US court case (SDTX 2024) says CDN recruited smugglers; Treasury says CDN dominates the Laredo crossing.", csrc=[DOJ_CDN, OFAC_CDN]),
+ F("migrants", "northbound land", ["Monterrey", "Reynosa", "McAllen"], "Reynosa feeds the Rio Grande Valley sector, which once led the border and fell 60% in FY2024.", [BR24, IC_CDG], "2024", sector="Rio Grande Valley",
+   control="Gulf Cartel factions, chiefly the Scorpions and Cyclones, control Reynosa and Matamoros and smuggle migrants (InSight Crime).", csrc=[IC_CDG]),
+ F("migrants", "northbound land", ["Matamoros", "Brownsville"], "Matamoros is the Gulf route's last stop, crossing into Brownsville in the Rio Grande Valley sector.", [BR24, IC_CDG], "2024", sector="Rio Grande Valley",
+   control="Gulf Cartel factions control Matamoros and smuggle migrants from the border (InSight Crime).", csrc=[IC_CDG]),
  F("migrants", "southbound (reverse) 2025", ["Peñas Blancas", "Paso Canoas", "Panama City"], "In 2025 Costa Rica and Panama bused southbound migrants along the old northbound route.", [AP_REV, MPI], "2025"),
  F("migrants", "southbound (reverse) 2025", ["Panama City", "Colón (Miramar/Palenque)", "Capurganá", "Necoclí / Turbo"], "Panama recorded 22,300+ people heading south to Colombia in 2025, mostly Venezuelans, many taking boats from Colón to Capurganá.", [HIAS, TNH], "2025", 22300),
  F("migrants", "southbound (reverse) 2025", ["Panama City", "Jaque (Darién)", "Buenaventura"], "A Pacific boat route from Panama City via Jaque also returns migrants to Colombia.", [HIAS], "2025"),
@@ -107,7 +163,7 @@ guns = [
 ]
 NOTES = {
  "drugs": {"note": "Cocaine (solid), precursors (dotted; Asia leg off-map), synthetics: fentanyl/meth (dashed). Lines are schematic corridors between places named in sources, not tracks. Atlantic legs end at the map edge.", "sources": ["DEA25", "UNODC_WDR25", EUDA_C]},
- "migrants": {"note": "Northbound land (solid), rail (long dash), sea (dotted), 2025 southbound reverse flow (dash-dot). Line width only where a sourced count exists.", "sources": [MPI, HIAS]},
+ "migrants": {"note": "Northbound land (solid), rail (long dash), sea (dotted), 2025 southbound reverse flow (dash-dot). Lines ending at the border are widened by US Border Patrol apprehensions in that sector in FY2024 (Oct 2023-Sep 2024; 1.53 million across nine sectors, Tucson highest at 463,567). That was the last full year before the collapse: FY2025 fell to 237,565, the lowest since 1970, with only about 65,500 after 20 January 2025, so these corridors now carry a small fraction of FY2024 traffic. Two lines into one sector share its total. Darién width is the 2023 crossing count.", "sources": [CBP24, CBP25, MPI, HIAS]},
  "firearms": {"note": "ATF: 74% of international crime guns traced to a purchaser in 2017-21 were recovered in Mexico; in 2022-23 Texas, Arizona and California dealers sourced 73% of traced Mexican crime guns, and 82% were recovered in states with a dominant Sinaloa or CJNG presence. Land (solid), sea (dotted), air (dashed). Width scaled by traced guns where sourced.", "sources": [ATF, ATF_MX, "GAO_FIREARMS"]},
 }
 for name, feats, ch in [("routes_drugs", drugs, "drugs"), ("routes_migrants", migr, "migrants"), ("routes_firearms", guns, "firearms")]:
