@@ -2,7 +2,7 @@
  "type": "FeatureCollection",
  "channel": "drugs",
  "notes": {
-  "note": "Cocaine (solid), precursors (dotted), synthetics: fentanyl/meth (dashed). Lines are schematic corridors between places named in sources, drawn along sea lanes, not tracks. Use the World view to see Europe, West Africa and Asia endpoints.",
+  "note": "Covers cocaine, precursor chemicals and synthetics (fentanyl, meth). Lines are schematic corridors between places named in sources, drawn along sea lanes, not tracks. Use the World view to see Europe, West Africa and Asia endpoints.",
   "sources": [
    "DEA25",
    "UNODC_WDR25",
