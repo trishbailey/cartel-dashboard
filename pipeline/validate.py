@@ -320,6 +320,40 @@ if os.path.exists(os.path.join(D, "timeline.json")):
         if not e.get("text"): err(f"timeline event {i}: no text")
         cites(e, f"timeline event {i} ({e.get('group')})")
 
+# ---- whatsnew.json (digest; see docs/DIGEST.md) ----
+if os.path.exists(os.path.join(D, "whatsnew.json")):
+    import re as _re
+    _wn = load("whatsnew.json"); _BAN = _re.compile(r"\b(will|likely to|expected to|should|must|forecast\w*|predict\w*|recommend\w*)\b", _re.I)
+    _VER = {"Confirmed", "Single source", "Official claim only"}
+    if not _wn.get("as_of"): err("whatsnew: no as_of")
+    def _wsrc(s, w):
+        if isinstance(s, str):
+            if s not in src: err(f"{w}: unknown source id {s}")
+        elif not (isinstance(s, dict) and s.get("url") and (s.get("name") or s.get("publisher"))): err(f"{w}: source needs url and name")
+        elif is_cn(s["url"]): err(f"{w}: .cn source")
+    def _wdev(d, w):
+        if not d.get("text"): err(f"{w}: no text")
+        if _BAN.search(d.get("text", "")): err(f"{w}: banned word: {_BAN.search(d['text']).group(0)}")
+        if d.get("verification") not in _VER: err(f"{w}: bad verification {d.get('verification')}")
+        if not _re.match(r"^\d{4}-\d{2}-\d{2}$", str(d.get("date", ""))): err(f"{w}: bad date")
+        if not d.get("sources"): err(f"{w}: no sources")
+        for s in d.get("sources", []): _wsrc(s, w)
+        if d.get("verification") == "Confirmed" and len({(s if isinstance(s, str) else s["name"].split(" (X")[0]).lower() for s in d["sources"]}) < 2: err(f"{w}: Confirmed needs 2+ sources")
+    _tr = _wn.get("trends", [])
+    if not 4 <= len(_tr) <= 7: err(f"whatsnew: {len(_tr)} trends (want 4-7)")
+    for t in _tr:
+        w = f"whatsnew trend {t.get('id')}"
+        if not t.get("title") or not t.get("context"): err(f"{w}: needs title and context")
+        if _BAN.search(t.get("context", "")): err(f"{w}: banned word in context")
+        if not t.get("context_sources"): err(f"{w}: context unsourced")
+        for s in t.get("context_sources", []): _wsrc(s, w)
+        if t.get("status") and t["status"] not in ("escalating", "steady", "easing"): err(f"{w}: bad status")
+        if t.get("status") and not t.get("status_sources"): err(f"{w}: status needs sourced counts (status_sources)")
+        if not 1 <= len(t.get("developments", [])) <= 5: err(f"{w}: 1-5 developments")
+        for i, d in enumerate(t.get("developments", [])): _wdev(d, f"{w} dev {i}")
+    if len(_wn.get("other", [])) > 3: err("whatsnew: max 3 'other' items")
+    for i, d in enumerate(_wn.get("other", [])): _wdev(d, f"whatsnew other {i}")
+
 if errs:
     print("\n".join("ERROR " + e for e in errs)); sys.exit(1)
 print(f"valid: {len(src)} sources, {len(net['groups'])} groups, {len(net['edges'])} edges, {len(ev['events'])} events")
