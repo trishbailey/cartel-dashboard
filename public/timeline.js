@@ -22,7 +22,7 @@ function draw(host,T,N,TR,GC){
   const walk=(l,d)=>{lanes.push(l);fam[l.id]=root.id;depth[l.id]=d;(kids[l.id]||[]).sort((a,b)=>a.founded-b.founded).forEach(k=>walk(k,d+1))};walk(root,0)})});
  const rh=40,top=30,fgap=14,rgap=22,LW=210;
  const cc0=l=>countries(GC,l.id)||[];const maxc=Math.max(1,...lanes.map(l=>cc0(l).length));const RW=GC?Math.max(60,maxc*22+12):14;
- const W=Math.max(1100,host.clientWidth||1100);
+ const W=Math.max(760,(host.clientWidth||1100)-2);
  let y=top;const ly={},rowsY=[];let pr=null,pf=null;
  lanes.forEach(l=>{if(l.region!==pr){if(pr!=null)y+=rgap;rowsY.push([l.region,y]);y+=18;pr=l.region;pf=null}else if(fam[l.id]!==pf)y+=fgap;pf=fam[l.id];ly[l.id]=y;y+=rh});
  const H=y+10;const x=d3.scaleLinear().domain([1960,1978,2027]).range([LW,LW+50,W-RW]);
