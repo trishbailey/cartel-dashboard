@@ -76,7 +76,7 @@ def warnings(cols=None):
     return out
 # --- mid-tone area fills (Trish 2026-10-26): L* 45-65, HSL sat 0.4-0.7, never grey, pinks/purples allowed if not neon ---
 FILL_LV = {"dominant": (0, 1), "significant": (5, .88), "present": (10, .76)}  # (L* drop, chroma factor), mirrors shadeG in public/app.js
-FILL_L = (45, 65); FILL_SAT = (.4, .7); FILL_C_MIN = 20; FILL_MIN_DE = 14  # pairwise floor: 20 is unreachable for 17 fills under these limits (best found 14.1)
+FILL_L = (45, 65); FILL_SAT = (.4, .7); FILL_C_MIN = 20; FILL_MIN_DE = 17  # pairwise floor: 20 is unreachable for 17 fills under these limits (best found 17.0 with yellow/lime/cyan routes)
 ARROW_MIN_DE = 25; ARROW_MIN_CR = 2.5
 def fills():
     m = re.search(r"TERR_FILL=\{(.*?)\}", rd("public/palette.js"))
