@@ -187,7 +187,7 @@ function cards(net,terr,M){NET=net;
    <div class="full">${groupHtml(x,net).replace(/<h2>.*?<\/h2>/,"")}${t?`<button class="chip" data-map="${t.id}">Show footprint on map</button>`:""}</div></div>`}).join("");
   $("cards").querySelectorAll(".gc").forEach(el=>el.onclick=e=>{if(e.target.closest("a"))return;const b=e.target.closest("[data-map]");if(b){e.stopPropagation();M.setF(b.dataset.map);return}el.classList.toggle("open")});
 }
-function ticker(ev){
+function ticker(ev){if(!document.getElementById("events"))return;
   const th=["all",...new Set(ev.events.map(e=>e.theatre))],F=$("evfilters");let cur="all";
   F.innerHTML=th.map(t=>`<button class="chip ${t==="all"?"on":""}" data-t="${esc(t)}">${esc(t)}</button>`).join("");
   const draw=()=>$("events").innerHTML=ev.events.filter(e=>cur==="all"||e.theatre===cur).map(e=>{const T=e.title_en||e.title;return `<div class="ev"><a href="${esc(e.url)}" target="_blank" rel="noopener" title="${e.title_en?"Original: "+esc(e.title):esc(e.title)}">${esc(T.length>90?T.slice(0,88)+"…":T)}</a> <span class="m">${esc(e.source)} · ${esc(e.date.slice(5))}</span></div>`}).join("")||"<p class='muted'>No items.</p>";

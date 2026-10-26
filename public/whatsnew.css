@@ -1,5 +1,5 @@
 /* What's new digest. Supersedes the raw Breaking strip and Storylines tile (hidden, not deleted). */
-#breaking,section.bstrip,section.ovtile{display:none!important}
+#breaking,section.bstrip,section.ovtile,#xpanel,section.xpanel,.tile.ticker{display:none!important}
 .wntile .tilehead h2{margin-right:8px}
 .wngrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px;margin:8px 0}
 .wncard{background:rgba(255,255,255,.03);border:1px solid #26385a;border-left:4px solid var(--c);border-radius:8px;padding:8px 10px}

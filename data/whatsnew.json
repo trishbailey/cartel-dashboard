@@ -1,6 +1,6 @@
 {
- "as_of": "2026-10-26T01:15Z",
- "note": "Digest of the last ~7 days, grouped by ongoing trend. X posts are used only as sources. Verification: Confirmed = 2+ independent reliable sources; Single source; Official claim only. Status is shown only when sourced counts support it.",
+ "as_of": "2026-10-26T01:42Z",
+ "note": "Strategic digest of the last ~7 days, grouped by ongoing trend: leadership, splits and alliances, territory and routes, policy and designations, violence patterns, money. Routine seizures and minor arrests are left out. X posts are used only as sources. Verification: Confirmed = 2+ independent reliable sources; Single source; Official claim only. Status is shown only when sourced counts support it.",
  "trends": [
   {
    "id": "sinaloa-war",
@@ -19,26 +19,6 @@
     "ELPAIS_SIN"
    ],
    "developments": [
-    {
-     "date": "2026-10-25",
-     "place": "Oaxaca",
-     "text": "A man identified as head of a Sinaloa Cartel 'gota a gota' loan-sharking network was captured in Oaxaca, a reminder that high-interest street credit and extortion-style collection carry Sinaloa revenue far beyond the war zone.",
-     "verification": "Single source",
-     "regions": [
-      "MEX-2723"
-     ],
-     "groups": [
-      "sinaloa"
-     ],
-     "sources": [
-      {
-       "url": "https://x.com/infobaemexico/status/2114486056619831483",
-       "name": "infobaemexico (X @infobaemexico)",
-       "title": "Man identified as head of a Sinaloa Cartel \"gota a gota\" (drip-loan) lending network captured in Oaxaca",
-       "date": "2026-10-25"
-      }
-     ]
-    },
     {
      "date": "2026-10-24",
      "place": "Cucurpe, Sonora",
@@ -74,38 +54,6 @@
        "name": "noticieristas (X @noticieristas)",
        "title": "🔴 Carlos Iván 'N', nicknamed 'El Chore', alleged operator of 'Los Gigios', a criminal cell aligned with one of…",
        "date": "2026-10-25"
-      }
-     ]
-    },
-    {
-     "date": "2026-10-22",
-     "place": "Culiacán",
-     "text": "Police arrested 'El Coco Ranas', named as leader of the Chapitos-aligned Los Ranas cell, with rifles, grenades and suspected fentanyl; the Security Cabinet presented it as a hit on a northern Culiacán 'violence generator'.",
-     "verification": "Confirmed",
-     "regions": [
-      "MEX-2711"
-     ],
-     "groups": [
-      "sinaloa"
-     ],
-     "sources": [
-      {
-       "url": "https://x.com/Riodoce_mx/status/2113465437132644815",
-       "name": "Riodoce_mx (X @Riodoce_mx)",
-       "title": "Orlando, alias \"El Coco Ranas\", is identified as leader of the criminal cell \"Los Ranas\", aligned with the \"Lo…",
-       "date": "2026-10-23"
-      },
-      {
-       "url": "https://x.com/noticieristas/status/2113453412666786297",
-       "name": "noticieristas (X @noticieristas)",
-       "title": "🚔🚨 Mexico's Security Cabinet highlights the capture of Orlando \"N\", alias \"El Coco Ranas\", and three others af…",
-       "date": "2026-10-23"
-      },
-      {
-       "url": "https://x.com/noticieristas/status/2113367364792111508",
-       "name": "noticieristas (X @noticieristas)",
-       "title": "➡️ Four arrested; this is what was seized from 'El Coco Ranas' at his capture in #Culiacán, Sinaloa. With rifl…",
-       "date": "2026-10-22"
       }
      ]
     },
@@ -151,7 +99,7 @@
   },
   {
    "id": "cjng",
-   "title": "CJNG: cell leaders arrested, US cases mount",
+   "title": "CJNG: regional commanders face parallel Mexican and US prosecution",
    "groups": [
     "cjng"
    ],
@@ -161,76 +109,11 @@
     "MEX-2734"
    ],
    "view": "mx",
-   "context": "CJNG is Mexico's most widely spread cartel. Mexican and US authorities are now going after its regional cell leaders one by one, while it keeps fighting rivals in Michoacán and the Isthmus.",
+   "context": "CJNG is Mexico's most widely spread cartel. Mexican and US authorities now build parallel cases against its regional commanders, while it keeps fighting rivals in Michoacán, Veracruz and the Isthmus.",
    "context_sources": [
     "IC_CJNG"
    ],
    "developments": [
-    {
-     "date": "2026-10-24",
-     "place": "Isthmus, Oaxaca",
-     "text": "A 19-year-old hitman for Los Cromos, a CJNG-linked group in the Isthmus of Tehuantepec, was captured, adding to the record of CJNG relying on young recruits at the edges of its territory.",
-     "verification": "Confirmed",
-     "regions": [
-      "MEX-2723"
-     ],
-     "groups": [
-      "cjng"
-     ],
-     "sources": [
-      {
-       "url": "https://www.jornada.com.mx/noticia/2026/10/23/estados/detienen-en-oaxaca-a-presunto-sicario-de-los-cromos-grupo-ligado-al-cjng",
-       "name": "jornada.com.mx",
-       "title": "La Jornada - Alleged hitman of 'Los Cromos', a CJNG-linked group in the Isthmus, captured in Oaxaca",
-       "date": "2026-10-25"
-      },
-      {
-       "url": "https://www.infobae.com/mexico/2026/10/24/cae-en-oaxaca-el-acido-sicario-de-19-anos-a-la-orden-de-los-cromos-en-el-istmo-de-tehuantepec/",
-       "name": "infobae.com",
-       "title": "\"El Ácido\", 19-year-old hitman working for Los Cromos in the Isthmus of Tehuantepec, falls in Oaxaca - Infobae",
-       "date": "2026-10-25"
-      }
-     ]
-    },
-    {
-     "date": "2026-10-23",
-     "place": "Tecomán, Colima",
-     "text": "Federal forces arrested 'Mando 20', named as the CJNG cell leader behind the December 2025 car bomb that killed six in Coahuayana, Michoacán, after what officials describe as a year of intelligence work.",
-     "verification": "Confirmed",
-     "regions": [
-      "MEX-2718",
-      "MEX-2720"
-     ],
-     "groups": [
-      "cjng"
-     ],
-     "sources": [
-      {
-       "url": "https://x.com/Riodoce_mx/status/2113759875297898729",
-       "name": "Riodoce_mx (X @Riodoce_mx)",
-       "title": "Federal authorities arrested in Tecomán, #Colima, David \"N\", '#Mando20', identified as the alleged leader of a…",
-       "date": "2026-10-23"
-      },
-      {
-       "url": "https://x.com/proceso/status/2113681859431313679",
-       "name": "proceso (X @proceso)",
-       "title": "Three men arrested over car-bomb explosion in Coahuayana, Michoacán. According to investigators, David \"N\", id…",
-       "date": "2026-10-23"
-      },
-      {
-       "url": "https://x.com/Pajaropolitico/status/2113790102203723966",
-       "name": "Pajaropolitico (X @Pajaropolitico)",
-       "title": "🚨🔎 Three alleged CJNG members arrested in Colima over the car-bomb attack in Coahuayana, Michoacán, that left …",
-       "date": "2026-10-24"
-      },
-      {
-       "url": "https://www.tvazteca.com/aztecanoticias/detienen-a-tres-narcoterroristas-del-cjng-que-explotaron-un-coche-bomba",
-       "name": "tvazteca.com",
-       "title": "VIDEO: Detienen a tres narcoterroristas del CJNG que explotaron un coche bomba",
-       "date": "2026-10-25"
-      }
-     ]
-    },
     {
      "date": "2026-10-22",
      "place": "Veracruz",
@@ -532,26 +415,6 @@
        "date": "2026-10-25"
       }
      ]
-    },
-    {
-     "date": "2026-10-22",
-     "place": "Manabí",
-     "text": "A serving police officer arrested in Manabí allegedly belongs to G200, a Los Lobos-linked gang, and demanded USD 300,000 to free a kidnapped businesswoman, a direct case of police collusion.",
-     "verification": "Single source",
-     "regions": [
-      "ECU-1282"
-     ],
-     "groups": [
-      "lobos"
-     ],
-     "sources": [
-      {
-       "url": "https://x.com/Primicias/status/2113374617867862521",
-       "name": "Primicias (X @Primicias)",
-       "title": "The serving police officer captured in Manabí allegedly belongs to the G200 gang, linked to Los Lobos, and rep…",
-       "date": "2026-10-22"
-      }
-     ]
     }
    ]
   },
@@ -640,26 +503,6 @@
      ]
     },
     {
-     "date": "2026-10-25",
-     "place": "Haiti",
-     "text": "The anti-gang force has received human remains but cannot yet confirm they belong to the missing Salvadoran personnel.",
-     "verification": "Single source",
-     "regions": [
-      "HTI-1388"
-     ],
-     "groups": [
-      "haiti"
-     ],
-     "sources": [
-      {
-       "url": "https://www.infobae.com/el-salvador/2026/10/25/fuerza-antipandillas-de-haiti-recibio-restos-pero-aun-no-puede-confirmar-si-son-de-los-salvadorenos-desaparecidos/",
-       "name": "Infobae America",
-       "title": "Haiti anti-gang force received remains but cannot yet confirm whether they belong to the missing Salvadorans",
-       "date": "2026-10-25"
-      }
-     ]
-    },
-    {
      "date": "2026-10-23",
      "place": "Haiti",
      "text": "InSight Crime reports that gang control has once again pushed back Haiti's elections.",
@@ -684,34 +527,6 @@
  ],
  "other": [
   {
-   "date": "2026-10-23",
-   "place": "Tabasco",
-   "text": "The security director of Emiliano Zapata, Tabasco, was arrested over alleged links to organised crime and drug trafficking, part of probes now reaching municipal officials in the state.",
-   "verification": "Confirmed",
-   "regions": [],
-   "groups": [],
-   "sources": [
-    {
-     "url": "https://x.com/Riodoce_mx/status/2113772456129212530",
-     "name": "Riodoce_mx (X @Riodoce_mx)",
-     "title": "The public security director of Emiliano Zapata, Tabasco, Cleofas Juárez Lara, was arrested during an operatio…",
-     "date": "2026-10-23"
-    },
-    {
-     "url": "https://x.com/proceso/status/2113732190983029204",
-     "name": "proceso (X @proceso)",
-     "title": "Public security director of Emiliano Zapata, Tabasco, arrested for drug trafficking. In Emiliano Zapata and Pa…",
-     "date": "2026-10-23"
-    },
-    {
-     "url": "https://x.com/Pajaropolitico/status/2113820296125812961",
-     "name": "Pajaropolitico (X @Pajaropolitico)",
-     "title": "🚨 The public security director of Emiliano Zapata, Tabasco, Cleofás Juárez Lara, was arrested during searches …",
-     "date": "2026-10-24"
-    }
-   ]
-  },
-  {
    "date": "2026-10-24",
    "place": "El Salvador",
    "text": "El Salvador indicted more than 560 alleged Barrio 18 leaders for about 14,500 crimes since 2012, one of the largest cases under the state of emergency.",
@@ -726,22 +541,6 @@
      "name": "InSightCrime (X @InSightCrime)",
      "title": "🇸🇻 | El Salvador indicted more than 560 suspected leaders of the Barrio 18 gang for nearly 14,500 crimes commi…",
      "date": "2026-10-24"
-    }
-   ]
-  },
-  {
-   "date": "2026-10-23",
-   "place": "Guerrero",
-   "text": "A kidnapping survivor describes a cartel camp in the Guerrero mountains holding more than 100 hostages, some forcibly recruited for the front.",
-   "verification": "Single source",
-   "regions": [],
-   "groups": [],
-   "sources": [
-    {
-     "url": "https://x.com/ioangrillo/status/2113750441699791112",
-     "name": "ioangrillo (X @ioangrillo)",
-     "title": "A kidnapping survivor describes a brutal cartel camp holding more than 100 hostages in the mountains of Guerre…",
-     "date": "2026-10-23"
     }
    ]
   }
