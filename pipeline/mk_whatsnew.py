@@ -14,6 +14,8 @@ SRC = {s["id"] for s in L("sources.json")["sources"]}
 ACC = {a.get("handle"): a.get("name") for a in L("xfeed.json").get("accounts", []) if isinstance(a, dict)}
 
 def ref(r):
+    if isinstance(r, dict):  # pinned source whose X post has aged out of xfeed.json
+        return r
     if r.startswith("x:"):
         p = XF[r[2:]]; t = (p.get("text_en") or p["text"]).split("http")[0].strip()
         return {"url": p["url"], "name": f"{ACC.get(p['handle']) or p['handle']} (X @{p['handle']})", "title": t[:110] + ("…" if len(t) > 110 else ""), "date": p["created_at"][:10]}
@@ -61,12 +63,10 @@ trends = [
   ]},
  {"id": "colombia", "title": "Colombia: all-out offensive on ELN and dissidents", "groups": ["eln", "exfarc"], "regions": ["COL-1404"], "view": "sa",
   "context": "President de la Espriella has ended peace talks and ordered a full military offensive against the ELN and FARC dissidents. Both groups are fighting each other and the state over Cauca's coca and mining corridors.",
-  "context_sources": ["IC_ELN", "x:2112341831094538510"],
+  "context_sources": ["IC_ELN", {"url": "https://x.com/Primicias/status/2112341831094538510", "name": "Primicias (X @Primicias)", "title": "Colombian President Abelardo de la Espriella ruled out any peace negotiation with the ELN and FARC dissidents …", "date": "2026-10-20"}],
   "developments": [
    dev("2026-10-24", "Cauca", "The 'Ónix' bombing killed 10 ELN members, including two commanders such as 'Marcos Pacífico'; Semana reports the camp had been under US surveillance, a sign of US intelligence support behind the offensive.", C,
        ["x:2114502265247879310", "x:2114396616748577127", "u:https://dw.com/es/diez-guerrilleros-son-abatidos-en-bombardeo-contra-el-eln-en-colombia/a-79756947", "u:https://semana.com/nacion/articulo/asi-fue-vigilado-por-estados-unidos-el-campamento-de-alias-marcos-pacifico-de-eln-abatido-tras-bombardeo-de-las-fuerza-militares/202600"], ["COL-1404"], ["eln"]),
-   dev("2026-10-20", "Bogotá", "De la Espriella ruled out talks with the ELN and FARC dissidents and ordered a 'total offensive' after demanding the release of officials kidnapped in 2025.", S,
-       ["x:2112341831094538510"], [], ["eln", "exfarc"]),
    dev("2026-10-24", "Antioquia", "A soldier who went missing after a drone attack apparently carried out by dissidents was found alive six days later; armed drones are now part of the dissidents' toolkit.", S,
        ["u:https://infobae.com/colombia/2026/10/24/hallan-vivo-a-soldado-desaparecido-en-antioquia-llevaba-seis-dias-sin-rastro-tras-ataque-con-drones-al-parecer-ejecutados-por-las-disidencias"], [], ["exfarc"]),
   ]},
