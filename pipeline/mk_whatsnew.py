@@ -92,8 +92,10 @@ trends = [
   "context": "The Viv Ansanm gang coalition controls most of Port-au-Prince and has repeatedly blocked the political transition. Neighbours and the anti-gang force respond on security terms.",
   "context_sources": ["IC_HAITI"],
   "developments": [
+   dev("2026-10-27", "Santo Domingo", "Foreign Minister Víctor Bisonó said Dominican troops are staying out of the international military operations against Haiti's gangs, offering only diplomatic, humanitarian and logistical support: Santo Domingo is militarising its own side of the border while keeping out of the fight inside Haiti.", S,
+       ["u:https://www.infobae.com/republica-dominicana/2026/10/27/republica-dominicana-no-participara"], [], ["haiti"]),
    dev("2026-10-23", "Haiti", "InSight Crime reports that gang control has once again pushed back Haiti's elections.", S,
-       ["u:https://insightcrime.org/news/organized-crime-postponed-democracy-in-haiti-again/"], ["HTI-1388"], ["haiti"]),
+       [{"url": "https://insightcrime.org/news/organized-crime-postponed-democracy-in-haiti-again/", "name": "InSight Crime", "title": "Organized Crime Postponed Democracy in Haiti, Again", "date": "2026-10-23"}], ["HTI-1388"], ["haiti"]),
    dev("2026-10-25", "Dominican border", "President Abinader sent two more battalions to the Haitian border, so the Dominican response to the crisis remains a military one.", S,
        ["u:https://www.infobae.com/republica-dominicana/2026/10/25/el-presidente-luis-abinader-refuerza-la-seguridad-en-la-frontera-sur-con-dos-batallones-ante-la-crisis-de-haiti/"], [], ["haiti"]),
   ]},
