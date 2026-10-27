@@ -2,6 +2,30 @@
  "date": "2026-10-27",
  "events": [
   {
+   "source": "El Universal",
+   "country": "MX",
+   "local": true,
+   "title": "Desaparece doctor del centro penitenciario de Mazatlán; emiten ficha de búsqueda",
+   "url": "https://www.eluniversal.com.mx/estados/desaparece-doctor-del-centro-penitenciario-de-mazatlan-emiten-ficha-de-busqueda/",
+   "snippet": "La última vez que se tuvo contacto con José Luis Vega fue por vía telefónica el pasado viernes 23 de octubre",
+   "date": "2026-10-27",
+   "via": "rss",
+   "theatre": "region",
+   "id": "E1"
+  },
+  {
+   "source": "El Universal",
+   "country": "MX",
+   "local": true,
+   "title": "Aseguran 547 cajas de cigarros apócrifos en la alcaldía Cuauhtémoc; equivalen a seis toneladas",
+   "url": "https://www.eluniversal.com.mx/nacion/aseguran-547-cajas-de-cigarros-apocrifos-en-la-alcaldia-cuauhtemoc-equivalen-a-seis-toneladas/",
+   "snippet": "El gabinete de seguridad llevó a cabo cuatro cateos en la Ciudad de México",
+   "date": "2026-10-27",
+   "via": "rss",
+   "theatre": "mexico",
+   "id": "E2"
+  },
+  {
    "source": "La Jornada (estados)",
    "country": "MX",
    "local": true,
@@ -11,7 +35,7 @@
    "date": "2026-10-27",
    "via": "rss",
    "theatre": "mexico",
-   "id": "E1"
+   "id": "E3"
   },
   {
    "source": "La Jornada (estados)",
@@ -23,7 +47,7 @@
    "date": "2026-10-27",
    "via": "rss",
    "theatre": "mexico",
-   "id": "E2"
+   "id": "E4"
   },
   {
    "source": "La Jornada (estados)",
@@ -35,7 +59,7 @@
    "date": "2026-10-27",
    "via": "rss",
    "theatre": "mexico",
-   "id": "E3"
+   "id": "E5"
   },
   {
    "source": "Zeta Tijuana",
@@ -47,7 +71,7 @@
    "date": "2026-10-27",
    "via": "rss",
    "theatre": "region",
-   "id": "E4"
+   "id": "E6"
   },
   {
    "source": "Zeta Tijuana",
@@ -59,7 +83,7 @@
    "date": "2026-10-27",
    "via": "rss",
    "theatre": "region",
-   "id": "E5"
+   "id": "E7"
   },
   {
    "source": "El Pais Mexico",
@@ -71,7 +95,7 @@
    "date": "2026-10-27",
    "via": "rss",
    "theatre": "mexico",
-   "id": "E6"
+   "id": "E8"
   },
   {
    "source": "El Pais Mexico",
@@ -83,7 +107,91 @@
    "date": "2026-10-27",
    "via": "rss",
    "theatre": "andes",
-   "id": "E7"
+   "id": "E9"
+  },
+  {
+   "source": "Borderland Beat",
+   "country": "MX",
+   "local": true,
+   "title": "Former Copalillo Official Accused of Extortion and Linked to Los Tlacos Is Arrested",
+   "url": "https://www.borderlandbeat.com/2026/10/former-copalillo-official-accused-of.html",
+   "snippet": "\"Sol Prendido\" for Borderland Beat The federal Security Cabinet confirmed the arrest of Samuel Benítez Cantorán—a former chief administrative officer (*oficial mayor*) of Copalillo and a former mayoral candidate—who is alleged to have ties to the criminal group \"Los Tlacos,\" also known as the \"Cártel de la Sierra.\" Two others arrested during the operation The arrest took place on October 23 in Igu",
+   "date": "2026-10-27",
+   "via": "rss",
+   "theatre": "border",
+   "id": "E10"
+  },
+  {
+   "source": "Infobae America",
+   "country": "REG",
+   "local": true,
+   "title": "Batalla por Yemen: los ataques de las Fuerzas Armadas en Taiz contra unidades de los rebeldes hutíes",
+   "url": "https://www.infobae.com/america/mundo/2026/10/27/batalla-por-yemen-los-ataques-de-las-fuerzas-armadas-en-taiz-contra-unidades-de-los-rebeldes-huties/",
+   "snippet": "La coalición militar liderada por Arabia Saudí anunció la interceptación y destrucción de dos misiles balísticos lanzados hacia Riad por los milicianos respaldados por el régimen de Irán",
+   "date": "2026-10-27",
+   "via": "rss",
+   "theatre": "region",
+   "id": "E11"
+  },
+  {
+   "source": "Infobae America",
+   "country": "REG",
+   "local": true,
+   "title": "El escritor Enrique Vila-Matas gana el Premio Nacional de las Letras Españolas",
+   "url": "https://www.infobae.com/espana/cultura/2026/10/27/el-escritor-enrique-vila-matas-gana-el-premio-nacional-de-las-letras/",
+   "snippet": "El escritor Enrique Vila-Matas gana el PremioEl novelista candidato al Nobel de Literatura ha sido distinguido por “su influencia decisiva en la narrativa contemporánea” y un “estilo particular donde las fronteras entre realidad y fabulación se difuminan y entremezclan con absoluta fluidez” Nacional de las Letras",
+   "date": "2026-10-27",
+   "via": "rss",
+   "theatre": "border",
+   "id": "E12"
+  },
+  {
+   "source": "Infobae America",
+   "country": "REG",
+   "local": true,
+   "title": "El Cerro de Guazapa se convierte en reserva acuífera en El Salvador",
+   "url": "https://www.infobae.com/el-salvador/2026/10/27/el-cerro-de-guazapa-se-convierte-en-reserva-acuifera-en-el-salvador/",
+   "snippet": "La entidad ambiental salvadoreña blindó más de veinticinco mil hectáreas boscosas con el fin de preservar nacimientos subterráneos vitales que nutren al río Lempa y aseguran el suministro de comunidades vecinas",
+   "date": "2026-10-27",
+   "via": "rss",
+   "theatre": "central-america",
+   "id": "E13"
+  },
+  {
+   "source": "Infobae America",
+   "country": "REG",
+   "local": true,
+   "title": "El ultimátum de Bukele y el riesgo armado: 5 puntos claves sobre los militares salvadoreños en Haití",
+   "url": "https://www.infobae.com/el-salvador/2026/10/27/el-ultimatum-de-bukele-y-el-riesgo-armado-5-puntos-claves-sobre-los-militares-salvadorenos-en-haiti/",
+   "snippet": "El ataque armado contra una patrulla técnica desencadenó el envío de tropas especiales centroamericanas a Puerto Príncipe, en medio de discrepancias sobre el paradero del contingente y el hallazgo de cuerpos sin identificar",
+   "date": "2026-10-27",
+   "via": "rss",
+   "theatre": "venezuela-caribbean",
+   "id": "E14"
+  },
+  {
+   "source": "Infobae America",
+   "country": "REG",
+   "local": true,
+   "title": "Bolivia: Policía que participó en la captura de Marset se declara en la clandestinidad y pide garantías",
+   "url": "https://www.infobae.com/america/america-latina/2026/10/27/bolivia-policia-que-participo-en-la-captura-de-marset-se-declara-en-la-clandestinidad-y-pide-garantias/",
+   "snippet": "El teniente Erick Correa está investigado por su presunta participación en la sustracción de material no declarado en el operativo contra el narcotraficante uruguayo",
+   "date": "2026-10-27",
+   "via": "rss",
+   "theatre": "andes",
+   "id": "E15"
+  },
+  {
+   "source": "Infobae America",
+   "country": "REG",
+   "local": true,
+   "title": "Nueva presidenta de la Corte Suprema de Justicia de Costa Rica advierte posibles cierres de juzgados y pone condiciones para dialogar con Laura Fernández",
+   "url": "https://www.infobae.com/costa-rica/2026/10/27/nueva-presidenta-de-la-corte-suprema-de-justicia-de-costa-rica-advierte-posibles-cierres-de-juzgados-y-pone-condiciones-para-dialogar-con-laura-fernandez/",
+   "snippet": "Patricia Vargas González, quien asumió este lunes la presidencia del Poder Judicial, alertó que las restricciones al presupuesto de 2027 podrían afectar investigaciones del OIJ, servicios judiciales y miles de plazas. También rechazó las acusaciones sobre una supuesta infiltración generalizada del crimen organizado en la institución.",
+   "date": "2026-10-27",
+   "via": "rss",
+   "theatre": "central-america",
+   "id": "E16"
   },
   {
    "source": "Infobae America",
@@ -95,7 +203,7 @@
    "date": "2026-10-27",
    "via": "rss",
    "theatre": "region",
-   "id": "E8"
+   "id": "E17"
   },
   {
    "source": "Infobae America",
@@ -107,7 +215,7 @@
    "date": "2026-10-27",
    "via": "rss",
    "theatre": "brazil",
-   "id": "E9"
+   "id": "E18"
   },
   {
    "source": "Infobae America",
@@ -119,7 +227,7 @@
    "date": "2026-10-27",
    "via": "rss",
    "theatre": "mexico",
-   "id": "E10"
+   "id": "E19"
   },
   {
    "source": "Infobae America",
@@ -131,31 +239,7 @@
    "date": "2026-10-27",
    "via": "rss",
    "theatre": "venezuela-caribbean",
-   "id": "E11"
-  },
-  {
-   "source": "Infobae America",
-   "country": "REG",
-   "local": true,
-   "title": "Dos colombianos muertos en Costa del Sol y una tercera persona desaparecida: el oleaje que atrapó a tres turistas en El Salvador",
-   "url": "https://www.infobae.com/el-salvador/2026/10/26/dos-colombianos-muertos-en-costa-del-sol-y-una-tercera-persona-desaparecida-el-oleaje-que-atrapo-a-tres-turistas-en-el-salvador/",
-   "snippet": "Un hombre de 50 años y una mujer de 57 fueron recuperados sin vida en el cantón El Zapote. Las autoridades desplegaron un amplio operativo para encontrar al tercer desaparecido en aguas del litoral salvadoreño.",
-   "date": "2026-10-27",
-   "via": "rss",
-   "theatre": "andes",
-   "id": "E12"
-  },
-  {
-   "source": "Infobae America",
-   "country": "REG",
-   "local": true,
-   "title": "Cancillería dominicana desmiente un mensaje falso atribuido a Bukele sobre la frontera con Haití",
-   "url": "https://www.infobae.com/republica-dominicana/2026/10/27/cancilleria-dominicana-desmiente-un-mensaje-falso-atribuido-a-bukele-sobre-la-frontera-con-haiti/",
-   "snippet": "El Ministerio de Relaciones Exteriores confirmó que el presidente salvadoreño no emitió las críticas contra el Gobierno ni las Fuerzas Armadas, difundidas desde una cuenta inexistente en redes sociales este lunes",
-   "date": "2026-10-27",
-   "via": "rss",
-   "theatre": "border",
-   "id": "E13"
+   "id": "E20"
   },
   {
    "source": "excelsior.com.mx",
@@ -167,7 +251,7 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E14"
+   "id": "E21"
   },
   {
    "source": "telediario.mx",
@@ -179,19 +263,7 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E15"
-  },
-  {
-   "source": "mayacomunicacion.com.mx",
-   "country": "MX",
-   "local": true,
-   "title": "Cae «El Isra» en Mexicali, operador regional de Los Rusos | Maya Comunicación",
-   "url": "https://mayacomunicacion.com.mx/el-isra-detenido-mexicali-los-rusos",
-   "snippet": "Fuerzas federales y de Baja California detuvieron en Mexicali a \"El Isra\", señalado como operador de Los Rusos, brazo armado de Los Mayos del Cártel de Sinaloa.",
-   "date": "2026-10-27",
-   "via": "brave",
-   "theatre": "mexico",
-   "id": "E16"
+   "id": "E22"
   },
   {
    "source": "consultamonterrey.mx",
@@ -203,7 +275,19 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E17"
+   "id": "E23"
+  },
+  {
+   "source": "mayacomunicacion.com.mx",
+   "country": "MX",
+   "local": true,
+   "title": "Cae «El Isra» en Mexicali, operador regional de Los Rusos | Maya Comunicación",
+   "url": "https://mayacomunicacion.com.mx/el-isra-detenido-mexicali-los-rusos",
+   "snippet": "Fuerzas federales y de Baja California detuvieron en Mexicali a \"El Isra\", señalado como operador de Los Rusos, brazo armado de Los Mayos del Cártel de Sinaloa.",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "mexico",
+   "id": "E24"
   },
   {
    "source": "estadomayor.mx",
@@ -215,7 +299,19 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E18"
+   "id": "E25"
+  },
+  {
+   "source": "razon.com.mx",
+   "country": "MX",
+   "local": true,
+   "title": "Ahora Le Pen dice: Francia no caerá en “mexicanización” - La Razón de México",
+   "url": "https://www.razon.com.mx/mexico/2026/10/27/ahora-le-pen-dice-francia-no-caera-en-mexicanizacion/",
+   "snippet": "El mandatario estadounidense inició ese proceso el 20 de enero de 2025, mientras que su homólogo argentino declaró al Cártel Jalisco Nueva Generación (CJNG) como grupo terrorista en marzo de 2026 y extendió esa medida al Cártel de Sinaloa y La Nueva Familia Michoacana el pasado 21 de octubre.",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "mexico",
+   "id": "E26"
   },
   {
    "source": "infobae.com",
@@ -227,43 +323,7 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E19"
-  },
-  {
-   "source": "razon.com.mx",
-   "country": "MX",
-   "local": true,
-   "title": "Ahora Le Pen dice: Francia no caerá en “mexicanización” - La Razón de México",
-   "url": "https://razon.com.mx/mexico/2026/10/27/ahora-le-pen-dice-francia-no-caera-en-mexicanizacion",
-   "snippet": "El mandatario estadounidense inició ese proceso el 20 de enero de 2025, mientras que su homólogo argentino declaró al Cártel Jalisco Nueva Generación (CJNG) como grupo terrorista en marzo de 2026 y extendió esa medida al Cártel de Sinaloa y La Nueva Familia Michoacana el pasado 21 de octubre.",
-   "date": "2026-10-27",
-   "via": "brave",
-   "theatre": "mexico",
-   "id": "E20"
-  },
-  {
-   "source": "infobae.com",
-   "country": "",
-   "local": true,
-   "title": "“Se oía taladrar día y noche”: narcos enemigos de “El Chapo” alertaron del túnel por el que se fugó del Altiplano y fueron ignorados, revela docuserie - Infobae",
-   "url": "https://infobae.com/mexico/2026/10/27/se-oia-taladrar-dia-y-noche-narcos-enemigos-de-el-chapo-alertaron-del-tunel-por-el-que-se-fugo-del-altiplano-y-fueron-ignorados-revela-docuserie",
-   "snippet": "Testimonios inéditos revelados en la docuserie ‘Operación Cisne Negro’ muestran la cadena de fallas que hubo en la fuga de Joaquín Guzmán Loera",
-   "date": "2026-10-27",
-   "via": "brave",
-   "theatre": "mexico",
-   "id": "E21"
-  },
-  {
-   "source": "atiempo.mx",
-   "country": "MX",
-   "local": true,
-   "title": "Muere presunto integrante del CJNG tras tiroteo en Apatzingán",
-   "url": "https://atiempo.mx/justicia/muere-presunto-criminal-tras-tiroteo-con-fuerzas-de-seguridad-en-apatzingan/",
-   "snippet": "Apatzingán, Michoacán, 25 de octubre de 2026.- Un presunto integrante del Cártel Jalisco Nueva Generación (CJNG) murió durante un enfrentamiento a balazos entre civiles armados y elementos de la Policía, Guardia Civil y Ejército Mexicano, en una huerta de limón de la localidad de Piedras ...",
-   "date": "2026-10-27",
-   "via": "brave",
-   "theatre": "mexico",
-   "id": "E22"
+   "id": "E27"
   },
   {
    "source": "excelsior.com.mx",
@@ -275,19 +335,19 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E23"
+   "id": "E28"
   },
   {
-   "source": "extra.ec",
-   "country": "EC",
+   "source": "infobae.com",
+   "country": "",
    "local": true,
-   "title": "Alias Gato Farfán podría pasar 27 años en prisión: este lunes conocerá su sentencia",
-   "url": "https://www.extra.ec/noticia/justicia/alias-gato-farfan-podria-pasar-27-anos-prision-lunes-conocera-sentencia-166027.html",
-   "snippet": "Los expedientes judiciales también lo identifican como un proveedor de cocaína para el cártel de Sinaloa y vinculan a su estructura con negociaciones para envíos de droga con el Cártel Jalisco Nueva Generación (CJNG).",
+   "title": "Identifican a hombre cercenado en Veracruz: tenía 25 años y se dedicaba al corte de naranja - Infobae",
+   "url": "https://infobae.com/mexico/2026/10/27/identifican-a-hombre-cercenado-en-veracruz-tenia-25-anos-y-se-dedicaba-al-corte-de-naranja",
+   "snippet": "Sus facciones pelean entre si y, al mismo tiempo, negocian proteccion y acceso a rutas con otras organizaciones, incluido el Cartel Jalisco Nueva Generacion (CJNG), como ocurre parcialmente en el norte de la entidad y Puerto con Los Metros, liderados por Cesar Morfin Morfin, ‘El Primito’ ...",
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E24"
+   "id": "E29"
   },
   {
    "source": "infobae.com",
@@ -299,19 +359,55 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E25"
+   "id": "E30"
   },
   {
-   "source": "corresponsales.mx",
-   "country": "MX",
+   "source": "infobae.com",
+   "country": "",
    "local": true,
-   "title": "Detectan mercancía con posibles falsificaciones en la Aduana de Lázaro Cárdenas",
-   "url": "https://corresponsales.mx/seguridad/detectan-mercancia-con-posibles-falsificaciones-en-la-aduana-de-lazaro-cardenas",
-   "snippet": "En una operación coordinada entre la ANAM, la Secretaría de Marina y la SSPC, autoridades federales retuvieron dos contenedores que transportaban figuras, audífonos, textiles y […]",
+   "title": "“Se oía taladrar día y noche”: narcos enemigos de “El Chapo” alertaron del túnel por el que se fugó del Altiplano y fueron ignorados, revela docuserie - Infobae",
+   "url": "https://www.infobae.com/mexico/2026/10/27/se-oia-taladrar-dia-y-noche-narcos-enemigos-de-el-chapo-alertaron-del-tunel-por-el-que-se-fugo-del-altiplano-y-fueron-ignorados-revela-docuserie/",
+   "snippet": "Testimonios inéditos revelados en la docuserie ‘Operación Cisne Negro’ muestran la cadena de fallas que hubo en la fuga de Joaquín Guzmán Loera",
    "date": "2026-10-27",
    "via": "brave",
-   "theatre": "border",
-   "id": "E26"
+   "theatre": "mexico",
+   "id": "E31"
+  },
+  {
+   "source": "sinaloahoy.com.mx",
+   "country": "MX",
+   "local": true,
+   "title": "Aduanas México asegura más de 134 mil piezas irregulares en Lázaro Cárdenas - Sinaloahoy",
+   "url": "https://sinaloahoy.com.mx/portal/aduanas-mexico-asegura-mas-de-134-mil-piezas-irregulares-en-lazaro-cardenas",
+   "snippet": "Aduanas México asegura más de 134 mil piezas irregulares en Lázaro Cárdenas con apoyo de Semar y SSPC 🚢🛃 #interesciudadano",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "mexico",
+   "id": "E32"
+  },
+  {
+   "source": "excelsior.com.mx",
+   "country": "MX",
+   "local": true,
+   "title": "Aseguran precursores para metanfetaminas valuados en más de 136 millones de pesos | Excélsior",
+   "url": "https://excelsior.com.mx/nacional/aseguran-precursores-para-metanfetaminas-valuados-mas-136-millones-pesos",
+   "snippet": "Realizan operativos en Corral Viejo, Las Puertas, San Román, El Cedrito y Los Mayos, en Culiacán.",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "mexico",
+   "id": "E33"
+  },
+  {
+   "source": "abc.com.py",
+   "country": "PY",
+   "local": true,
+   "title": "Incautación de precursores: prisión para cuatro imputados por contrabando y tráfico internacional de drogas - Policiales - ABC Color",
+   "url": "https://abc.com.py/policiales/2026/10/26/incautacion-de-precursores-prision-para-cuatro-imputados-por-contrabando-y-trafico-internacional-de-drogas",
+   "snippet": "La jueza de Garantías de Limpio, Elsa Elizabeth Idoyaga Benítez, decretó hoy la prisión preventiva de los cuatro hombres imputados ayer por la fiscala de Narcotráfico de Mariano Roque Alonso, Andrea Soledad Ríos Dos Santos. Los sospechosos fueron capturados anteayer por policías de la ...",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "china",
+   "id": "E34"
   },
   {
    "source": "infobae.com",
@@ -323,7 +419,19 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E27"
+   "id": "E35"
+  },
+  {
+   "source": "infobae.com",
+   "country": "",
+   "local": true,
+   "title": "Cinco de los prófugos más buscados por el FBI cayeron en México: quiénes son y qué pistas llevaron hasta sus capturas - Infobae",
+   "url": "https://www.infobae.com/mexico/2026/10/26/cinco-de-los-profugos-mas-buscados-por-el-fbi-cayeron-en-mexico-quienes-son-y-que-pistas-que-llevaron-hasta-ellos/",
+   "snippet": "México detuvo o entregó a cinco prófugos incluidos en la lista de los diez más buscados del FBI entre 2025 y 2026; entre ellos figuran Ryan Wedding, un exatleta olímpico acusado de narcotráfico, tres hombres señalados por homicidios y un presunto dirigente de la Mara Salvatrucha",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "mexico",
+   "id": "E36"
   },
   {
    "source": "infobae.com",
@@ -335,7 +443,7 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "money",
-   "id": "E28"
+   "id": "E37"
   },
   {
    "source": "abcnoticias.mx",
@@ -347,91 +455,55 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E29"
+   "id": "E38"
   },
   {
-   "source": "redfinanciera.mx",
+   "source": "palabrasclaras.mx",
    "country": "MX",
    "local": true,
-   "title": "SE COMENTA SOLO CON... - Red Financiera",
-   "url": "https://redfinanciera.mx/se-comenta-solo-con-2000",
-   "snippet": "SE COMENTA SOLO CON...-AHORA FRANCIA-CARLOS RAMOS PADILLA",
+   "title": "Francia no caerá en la mexicanización de los cárteles: Marine Le Pen | PalabrasClaras.mx",
+   "url": "https://palabrasclaras.mx/politica/francia-no-caera-en-la-mexicanizacion-de-los-carteles-marine-le-pen",
+   "snippet": "Además, un informe de la Brookings ... Sinaloa y el Cártel de Jalisco Nueva Generación (CJNG) instalaron laboratorios de metanfetamina en Francia, Países Bajos, Bélgica, Polonia, Bulgaria y Rumania. El mismo informe señala que redes chinas de lavado de dinero vinculadas a estos ...",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "mexico",
+   "id": "E39"
+  },
+  {
+   "source": "elpais.com.co",
+   "country": "CO",
+   "local": true,
+   "title": "Envían a prisión a empresario señalado de contrabando y lavado de activos por más de $13.731 millones",
+   "url": "https://elpais.com.co/judicial/envian-a-prision-a-empresario-senalado-de-contrabando-y-lavado-de-activos-por-mas-de-13731-millones-2755.html",
+   "snippet": "La investigación incluye mercancías procedentes de China y Panamá, así como operaciones financieras que habrían presentado inconsistencias.",
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "money",
-   "id": "E30"
-  },
-  {
-   "source": "nortedigital.mx",
-   "country": "MX",
-   "local": true,
-   "title": "Desarticulan red de 13 personas que presuntamente surtían autos robados a cárteles mexicanos",
-   "url": "https://nortedigital.mx/desarticulan-red-de-13-personas-que-presuntamente-surtian-autos-robados-a-carteles-mexicanos",
-   "snippet": "Recuperaron 29 autos valuados en más de un millón de dólares; algunos tenían blindaje artesanal",
-   "date": "2026-10-27",
-   "via": "brave",
-   "theatre": "mexico",
-   "id": "E31"
-  },
-  {
-   "source": "horacero.com.mx",
-   "country": "MX",
-   "local": true,
-   "title": "Vehículos blindados robados de EU, en manos de cárteles mexicanos",
-   "url": "https://horacero.com.mx/internacional/vehiculos-robados-carteles-mexico-2",
-   "snippet": "Acusan en Estados Unidos a 13 personas por enviar vehículos robados hacia México para uso de cárteles de la droga.",
-   "date": "2026-10-27",
-   "via": "brave",
-   "theatre": "mexico",
-   "id": "E32"
+   "id": "E40"
   },
   {
    "source": "infobae.com",
    "country": "",
    "local": true,
-   "title": "Lo cercaron en un restaurante de Mexicali: cae “El Isra”, líder de Los Rusos y objetivo prioritario en Baja California - Infobae",
-   "url": "https://www.infobae.com/mexico/2026/10/26/lo-cercaron-en-un-restaurante-de-mexicali-cae-el-isra-lider-de-los-rusos-y-objetivo-prioritario-en-baja-california/",
-   "snippet": "Israel Leonardo Trigueros formaba parte de una lista de personas de interés para las autoridades estatales",
+   "title": "La Justicia de China condena a muerte a un antiguo alto cargo acusado de aceptar sobornos millonarios - Infobae",
+   "url": "https://infobae.com/america/agencias/2026/10/27/la-justicia-de-china-condena-a-muerte-a-un-antiguo-alto-cargo-acusado-de-aceptar-sobornos-millonarios",
+   "snippet": "La Justicia de China condena a muerte a un antiguo alto cargo acusado de aceptar sobornos millonarios",
    "date": "2026-10-27",
    "via": "brave",
-   "theatre": "mexico",
-   "id": "E33"
+   "theatre": "china",
+   "id": "E41"
   },
   {
-   "source": "infobae.com",
-   "country": "",
+   "source": "rpp.pe",
+   "country": "PE",
    "local": true,
-   "title": "Roban vehículos en EEUU para enviarlos a cárteles en México: acusan a 9 estadounidenses y 2 mexicanos por trasladarlos desde Texas - Infobae",
-   "url": "https://infobae.com/mexico/2026/10/26/roban-vehiculos-en-eeuu-para-enviarlos-a-carteles-en-mexico-acusan-a-9-estadounidenses-y-2-mexicanos-por-trasladarlos-desde-texas",
-   "snippet": "Las autoridades de ese país identificaron que automóviles privados y de alquiler eran robados en todo el país y luego trasladados a la frontera con México",
-   "date": "2026-10-27",
-   "via": "brave",
-   "theatre": "mexico",
-   "id": "E34"
-  },
-  {
-   "source": "infobae.com",
-   "country": "",
-   "local": true,
-   "title": "Fue deportado del Perú y regresó para extorsionar a empresas de transporte en Lima este - Infobae",
-   "url": "https://infobae.com/peru/2026/10/27/fue-deportado-del-peru-y-regreso-para-extorsionar-a-empresas-de-transporte-en-lima-este",
-   "snippet": "Ahora figura entre los seis ciudadanos venezolanos capturados por la Policía Nacional del Perú (PNP), sospechosos de integrar Los Gallegos, una facción del Tren de Aragua investigada por presuntamente extorsionar a empresas de transporte público en Lima Este.",
-   "date": "2026-10-27",
-   "via": "brave",
-   "theatre": "andes",
-   "id": "E35"
-  },
-  {
-   "source": "chilevision.cl",
-   "country": "CL",
-   "local": true,
-   "title": "Encuentran cuerpo enterrado en toma de Puente Alto: Crimen estaría vinculado al Tren de Aragua",
-   "url": "https://www.chilevision.cl/noticias/casos-policiales/encuentran-cuerpo-enterrado-en-toma-de-puente-alto-crimen-estaria-vinculado-al-tren-de-aragua",
-   "snippet": "De acuerdo antecedentes preliminares, el Tren de Aragua tendría operaciones en la toma, por lo que se investigan una posible vinculación con el crimen organizado.",
+   "title": "PNP desarticuló facción del 'Tren de Aragua' en operativo en Ate: banda extorsionaba hasta a 17 empresas de transporte",
+   "url": "https://rpp.pe/lima/policiales/pnp-desarticulo-faccion-del-tren-de-aragua-en-operativo-en-ate-banda-extorsionaba-hasta-a-17-empresas-de-transporte-noticia-1714647",
+   "snippet": "Las fuerzas del orden detuvieron a seis ciudadanos venezolanos, presuntos miembros de la banda 'Los Gallegos'. En su poder tenían armas de guerra y municiones.",
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "venezuela-caribbean",
-   "id": "E36"
+   "id": "E42"
   },
   {
    "source": "willax.pe",
@@ -443,43 +515,19 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "venezuela-caribbean",
-   "id": "E37"
+   "id": "E43"
   },
   {
-   "source": "radiopaulina.cl",
-   "country": "CL",
+   "source": "insightcrime.org",
+   "country": "",
    "local": true,
-   "title": "Tribunal de Iquique ratifica sentencia contra célula del Tren de Aragua que cometió diversos homicidios en Tarapacá",
-   "url": "https://radiopaulina.cl/2026/10/26/tribunal-de-iquique-ratifica-sentencia-contra-celula-del-tren-de-aragua-que-cometio-diversos-homicidios-en-tarapaca",
-   "snippet": "Tras acoger los argumentos de la Fiscalía de Tarapacá, la Corte de Apelaciones de Iquique rechazó los recursos de nulidad interpuestos por las defensas de siete condenados, integrantes de la célula “Los Piratas” de la organización criminal Tren de Aragua, confirmando así la sentencia ...",
-   "date": "2026-10-27",
-   "via": "brave",
-   "theatre": "venezuela-caribbean",
-   "id": "E38"
-  },
-  {
-   "source": "extradition.co",
-   "country": "CO",
-   "local": true,
-   "title": "Colombia Extradites Mocho Olmedo to US After Peace Freeze",
-   "url": "https://www.extradition.co/mocho-olmedo-extradition/",
-   "snippet": "INPEC, Colombia’s prison service, confirmed that Henao Gutiérrez left La Picota and was handed to US agents for the flight north. He was one of several Colombians transferred to the United States in the same operation, alongside suspects linked to the Clan del Golfo and Tren de Aragua.",
+   "title": "De federación criminal a guerras entre bandas: el legado de 'Rasquiña' en Ecuador",
+   "url": "https://insightcrime.org/es/noticias/federacion-criminal-guerras-entre-bandas-legado-rasquina-ecuador",
+   "snippet": "Desde las prisiones del país, transformó a Los Choneros de una banda de criminales comunes en una federación criminal nacional, que reclutaba bandas juveniles y grupos de asaltantes de bancos, extorsionistas y microtraficantes. Entre ellos estaban los hombres que se convertirían en los rostros de la crisis de seguridad de Ecuador: un asaltante de bancos y futuro líder de Los Lobos...",
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "andes",
-   "id": "E39"
-  },
-  {
-   "source": "elnuevosiglo.com.co",
-   "country": "CO",
-   "local": true,
-   "title": "En riesgo población de Ricaurte, Nariño, ante escalamiento de violencia | El Nuevo Siglo",
-   "url": "https://elnuevosiglo.com.co/nacion/en-riesgo-poblacion-de-ricaurte-narino-ante-escalamiento-de-violencia",
-   "snippet": "Estas organizaciones se apoyan en la tercerización criminal con estructuras como las Autodefensas Unidas de Nariño (AUN) —con articulaciones en Ecuador con Los Lobos y Los Choneros—, la Nueva Urías Rondón Frente 37 (que suplanta símbolos del EMC) y bandas delincuenciales locales (Los ...",
-   "date": "2026-10-27",
-   "via": "brave",
-   "theatre": "andes",
-   "id": "E40"
+   "id": "E44"
   },
   {
    "source": "caracol.com.co",
@@ -491,7 +539,19 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "andes",
-   "id": "E41"
+   "id": "E45"
+  },
+  {
+   "source": "elnuevosiglo.com.co",
+   "country": "CO",
+   "local": true,
+   "title": "En riesgo población de Ricaurte, Nariño, ante escalamiento de violencia | El Nuevo Siglo",
+   "url": "https://elnuevosiglo.com.co/nacion/en-riesgo-poblacion-de-ricaurte-narino-ante-escalamiento-de-violencia",
+   "snippet": "Estas organizaciones se apoyan en la tercerización criminal con estructuras como las Autodefensas Unidas de Nariño (AUN) —con articulaciones en Ecuador con Los Lobos y Los Choneros—, la Nueva Urías Rondón Frente 37 (que suplanta símbolos del EMC) y bandas delincuenciales locales (Los ...",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "andes",
+   "id": "E46"
   },
   {
    "source": "infobae.com",
@@ -503,19 +563,19 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "andes",
-   "id": "E42"
+   "id": "E47"
   },
   {
-   "source": "extra.ec",
-   "country": "EC",
+   "source": "insightcrime.org",
+   "country": "",
    "local": true,
-   "title": "La Pastora en Quito: de los puntos de droga a la captura de su presunta mano derecha",
-   "url": "https://extra.ec/noticia/quito/pastora-quito-puntos-droga-captura-presunta-mano-derecha-165990.html",
-   "snippet": "La Pastora permanece en La Roca. Informes militares relacionan a varios aprehendidos y presuntos puntos de droga con la estructura que le atribuyen",
+   "title": "From Criminal Federation to Gang Wars: Rasquiña’s Legacy",
+   "url": "https://insightcrime.org/news/from-criminal-federation-to-gang-wars-rasquinas-legacy",
+   "snippet": "How Rasquiña built Ecuador’s criminal federation and how its collapse fueled the gang wars driving violence across the country.",
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "andes",
-   "id": "E43"
+   "id": "E48"
   },
   {
    "source": "eluniversal.com.co",
@@ -527,7 +587,7 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "andes",
-   "id": "E44"
+   "id": "E49"
   },
   {
    "source": "elpais.com.co",
@@ -539,7 +599,31 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "andes",
-   "id": "E45"
+   "id": "E50"
+  },
+  {
+   "source": "eluniversal.com.co",
+   "country": "CO",
+   "local": true,
+   "title": "Nueva masacre en Colombia: les quitaron la vida a 6 personas en una trocha",
+   "url": "https://eluniversal.com.co/sucesos/2026/10/26/nueva-masacre-en-colombia-le-quitaron-la-vida-a-6-personas-en-una-trocha",
+   "snippet": "Entre las personas asesinadas hay una mujer, de entre 20 y 30 años. Detalles del terrible hecho de sangre en Huila.",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "andes",
+   "id": "E51"
+  },
+  {
+   "source": "elpais.com.co",
+   "country": "CO",
+   "local": true,
+   "title": "FBI ofrece millonaria recompensa para capturar a colombiano señalado de lavar dinero para el Clan del Golfo",
+   "url": "https://www.elpais.com.co/amp/judicial/fbi-ofrece-us10000-por-informacion-que-permita-capturar-a-colombiano-senalado-de-lavar-dinero-para-el-clan-del-golfo-2626.html",
+   "snippet": "Las autoridades estadounidenses buscan a Víctor Julián Duque, quien presuntamente habría participado en una red que movió más de US$54 millones provenientes del narcotráfico entre Estados Unidos y Colombia.",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "andes",
+   "id": "E52"
   },
   {
    "source": "insightcrime.org",
@@ -551,7 +635,19 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "brazil",
-   "id": "E46"
+   "id": "E53"
+  },
+  {
+   "source": "cnnbrasil.com.br",
+   "country": "BR",
+   "local": true,
+   "title": "Lula deve articular segurança pública com estados, afirma especialista | CNN Brasil",
+   "url": "https://cnnbrasil.com.br/politica/lula-deve-articular-seguranca-publica-com-estados-afirma-especialista",
+   "snippet": "O analista de Segurança Pública da CNN, Elijonas Maia, destacou que o PCC (Primeiro Comando da Capital) se expandiu para 29 países no mundo, de acordo com o Ministério Público de São Paulo. Já o CV (Comando Vermelho), principal rival do PCC, saiu do Rio de Janeiro e avançou por todo ...",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "brazil",
+   "id": "E54"
   },
   {
    "source": "cnnbrasil.com.br",
@@ -563,19 +659,43 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "brazil",
-   "id": "E47"
+   "id": "E55"
   },
   {
-   "source": "elfinanciero.com.mx",
-   "country": "MX",
+   "source": "veja.abril.com.br",
+   "country": "BR",
    "local": true,
-   "title": "¿Por qué el triunfo de Lula da Silva en Brasil es una ‘pesadilla’ para Trump y Milei?",
-   "url": "https://elfinanciero.com.mx/mundo/2026/10/26/por-que-el-triunfo-de-lula-da-silva-en-brasil-es-una-pesadilla-para-trump-y-milei",
-   "snippet": "A finales de mayo, en plena precampaña electoral, la Administración de Trump declaró además como terroristas a las bandas brasileñas Comando Vermelho (CV) y Primeiro Comando da Capital (PCC), tras una visita de Flávio a Washington, donde se vio por separado con Trump y con el secretario ...",
+   "title": "Sem apresentar provas, Trump diz que eleição no Brasil ‘pareceu fraudada’ | VEJA",
+   "url": "https://veja.abril.com.br/mundo/sem-apresentar-provas-trump-diz-que-eleicao-no-brasil-pareceu-fraudada/",
+   "snippet": "O ocupante do Salão Oval vem sendo ... algumas das maiores alíquotas americanas) e a classificação das facções Primeiro Comando da Capital (PCC) e Comando Vermelho (CV) como organizações terroristas....",
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "brazil",
-   "id": "E48"
+   "id": "E56"
+  },
+  {
+   "source": "gazetadopovo.com.br",
+   "country": "BR",
+   "local": true,
+   "title": "Analistas: silêncio de Trump sobre vitória de Lula traduz tensões",
+   "url": "https://www.gazetadopovo.com.br/mundo/silencio-trump-vitoria-lula-traduz-tensoes-vao-continuar-dizem-analistas/",
+   "snippet": "Medidas que Trump tomou desde o ano passado, como tarifas sobre produtos brasileiros e designar os grupos criminosos brasileiros Primeiro Comando da Capital (PCC) e Comando Vermelho (CV) como organizações terroristas, foram citadas por Lula durante a campanha como ameaças à “soberania ...",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "brazil",
+   "id": "E57"
+  },
+  {
+   "source": "nexojornal.com.br",
+   "country": "BR",
+   "local": true,
+   "title": "Quem já reconheceu o resultado das eleições brasileiras - Nexo Jornal",
+   "url": "https://nexojornal.com.br/expresso/2026/10/26/quem-ja-reconheceu-a-vitoria-de-lula-brasil-trump-e-milei",
+   "snippet": "Desde 2025, o presidente americano tomou diversas medidas de interferência sobre a política e o processo eleitoral brasileiro, incluindo tarifaços sobre produtos brasileiros e classificação do PCC (Primeiro Comando da Capital) e do Comando Vermelho como terroristas.",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "brazil",
+   "id": "E58"
   },
   {
    "source": "proceso.com.mx",
@@ -587,19 +707,19 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E49"
+   "id": "E59"
   },
   {
-   "source": "primicias.ec",
-   "country": "EC",
+   "source": "proceso.com.mx",
+   "country": "MX",
    "local": true,
-   "title": "Daniel Noboa se pronuncia por la detención de Luisa González en el caso Laberinto",
-   "url": "https://primicias.ec/politica/daniel-noboa-detencion-luisa-gonzalez-caso-laberinto-prision-lavado-activos-135507",
-   "snippet": "El presidente Daniel Noboa se pronunció sobre la detención de la excandidata presidencial del correísmo, investigada por presunto lavado de activos.",
+   "title": "Entrevista con Vanda Felbab-Brown, experta en insurgencia y terrorismo. La presión sobre México seguirá después de Trump | Proceso",
+   "url": "https://proceso.com.mx/reportajes/2026/10/27/entrevista-con-vanda-felbab-brown-experta-en-insurgencia-y-terrorismo-la-presion-sobre-mexico-seguir-382587.html",
+   "snippet": "Cuando el 22 de septiembre último en Naciones Unidas Trump acusó, urbi et orbi, a México de ser el epicentro de la violencia de los cárteles de la droga en América Latina, dio un paso más en la presión contra el gobierno de Claudia Sheinbaum y en la ofensiva que emprendió al designar ...",
    "date": "2026-10-27",
    "via": "brave",
-   "theatre": "money",
-   "id": "E50"
+   "theatre": "mexico",
+   "id": "E60"
   },
   {
    "source": "primicias.ec",
@@ -611,19 +731,19 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "andes",
-   "id": "E51"
+   "id": "E61"
   },
   {
    "source": "primicias.ec",
    "country": "EC",
    "local": true,
-   "title": "Fiscalía reformula cargos contra procesados en el crimen del gerente financiero de universidad de Quito, cambia asesinato por sicariato",
-   "url": "https://primicias.ec/sucesos/crimen-gerente-financiero-universidad-quito-reformulacion-cargos-asesinato-sicariato-santiago-avalos-135759",
-   "snippet": "La tarde de este lunes se instaló la audiencia de reformulación de cargos contra los procesados por la muerte del gerente financiero de una universidad de Quito; la Fiscalía plantea procesarlos por sicariato, en lugar de asesinato",
+   "title": "Daniel Noboa se pronuncia por la detención de Luisa González en el caso Laberinto",
+   "url": "https://primicias.ec/politica/daniel-noboa-detencion-luisa-gonzalez-caso-laberinto-prision-lavado-activos-135507",
+   "snippet": "El presidente Daniel Noboa se pronunció sobre la detención de la excandidata presidencial del correísmo, investigada por presunto lavado de activos.",
    "date": "2026-10-27",
    "via": "brave",
-   "theatre": "andes",
-   "id": "E52"
+   "theatre": "money",
+   "id": "E62"
   },
   {
    "source": "primicias.ec",
@@ -635,7 +755,31 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "andes",
-   "id": "E53"
+   "id": "E63"
+  },
+  {
+   "source": "primicias.ec",
+   "country": "EC",
+   "local": true,
+   "title": "Fiscalía reformula cargos contra procesados en el crimen del gerente financiero de universidad de Quito, cambia asesinato por sicariato",
+   "url": "https://primicias.ec/sucesos/crimen-gerente-financiero-universidad-quito-reformulacion-cargos-asesinato-sicariato-santiago-avalos-135759",
+   "snippet": "La tarde de este lunes se instaló la audiencia de reformulación de cargos contra los procesados por la muerte del gerente financiero de una universidad de Quito; la Fiscalía plantea procesarlos por sicariato, en lugar de asesinato",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "andes",
+   "id": "E64"
+  },
+  {
+   "source": "Just Security",
+   "country": "US",
+   "local": false,
+   "title": "When Military Leaders Fear Speaking Up, Everyone Is at Risk",
+   "url": "https://www.justsecurity.org/161930/military-leaders-fear-speaking-up-risk-loyalty/?utm_source=rss&utm_medium=rss&utm_campaign=military-leaders-fear-speaking-up-risk-loyalty",
+   "snippet": "Military leaders must be able to provide candid advice, raise legal concerns and challenge questionable orders without fearing retaliation. The post When Military Leaders Fear Speaking Up, Everyone Is at Risk appeared first on Just Security .",
+   "date": "2026-10-27",
+   "via": "rss",
+   "theatre": "region",
+   "id": "E65"
   },
   {
    "source": "informabtl.com",
@@ -647,7 +791,7 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E54"
+   "id": "E66"
   },
   {
    "source": "penduloinformativo.com",
@@ -659,7 +803,19 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E55"
+   "id": "E67"
+  },
+  {
+   "source": "puntoporpunto.com",
+   "country": "",
+   "local": false,
+   "title": "EU se prepara para enfrentar a los CÁRTELES en MÉXICO; proponen enviar agentes a operativos | Punto por punto",
+   "url": "https://puntoporpunto.com/noticias/politica/eu-se-prepara-para-enfrentar-a-los-carteles-en-mexico-proponen-enviar-agentes-a-operativos",
+   "snippet": "De acuerdo con un análisis realizado ... Tijuana, Cártel del Golfo-Metros, Cártel del Golfo-Ciclones/Escorpiones, Cártel de Sinaloa-La Mayiza, Cártel de Sinaloa-Los Chapitos, Cártel Jalisco Nueva Generación-Milenio, Cártel de Colima, Cártel de Oaxaca, Organización de los ...",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "mexico",
+   "id": "E68"
   },
   {
    "source": "informabtl.com",
@@ -671,7 +827,7 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E56"
+   "id": "E69"
   },
   {
    "source": "informabtl.com",
@@ -683,31 +839,19 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E57"
+   "id": "E70"
   },
   {
-   "source": "informabtl.com",
+   "source": "sociedad-noticias.com",
    "country": "",
    "local": false,
-   "title": "Walmart remata Pantalla Samsung de 65 pulgadas U8200H 4K Smart TV: con el descuento superior a los 5,000 pesos, la pantalla queda en solo 8,990 pesos",
-   "url": "https://informabtl.com/walmart-remata-pantalla-samsung-de-65-pulgadas-u8200h-4k-smart-tv-con-el-descuento-superior-a-los-5000-pesos-la-pantalla-queda-en-solo-8990-pesos",
-   "snippet": "Este televisor de venta en Walmart destaca por ofrecer una experiencia visual inmersiva en formato gigante. Además, la pantalla Samsung incluye...",
+   "title": "Kilómetro Cero | Lo que tienes que saber antes dea salir de casa | Martes 27 de octubre de 2026 – Sociedad Noticias",
+   "url": "https://sociedad-noticias.com/2026/10/27/kilometro-cero-lo-que-tienes-que-saber-antes-dea-salir-de-casa-martes-27-de-octubre-de-2026",
+   "snippet": "Entre maleza caminos dañados del ejido La Curva, municipio de Xalisco -a unos 20 kilómetros de Tepic-, el Cártel Jalisco Nueva Generación (CJNG) mantuvo en funcionamiento, desde 2019, un complejo clandestino de tortura, ejecución e incineración de cuerpos conocido como «La Casita» o ...",
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E58"
-  },
-  {
-   "source": "milenio.com",
-   "country": "",
-   "local": false,
-   "title": "Zapopan, refugio de operadores criminales: 12 capturas de alto valor- Grupo Milenio",
-   "url": "https://milenio.com/policia/zapopan-refugio-operadores-criminales-12-capturas-alto",
-   "snippet": "En tan solo nueve meses de 2026, fuerzas federales y estatales han capturado en la zona a 12 objetivos prioritarios vinculados al CJNG, el Cártel de Sinaloa, los Beltrán Leyva e incluso prófugos requeridos por la justicia de Estados Unidos. ... El municipio jalisciense de Zapopan se ha ...",
-   "date": "2026-10-27",
-   "via": "brave",
-   "theatre": "mexico",
-   "id": "E59"
+   "id": "E71"
   },
   {
    "source": "milenio.com",
@@ -719,7 +863,7 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E60"
+   "id": "E72"
   },
   {
    "source": "eluniverso.com",
@@ -731,31 +875,139 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E61"
+   "id": "E73"
   },
   {
-   "source": "larazon.es",
+   "source": "milenio.com",
    "country": "",
    "local": false,
-   "title": "Así funciona la red internacional que habría estafado más de 100 millones de euros",
-   "url": "https://larazon.es/actualidad/asi-funciona-red-internacional-que-habria-estafado-100-millones-euros-p7m_202610266adf58d4c0483453480a0927.html",
-   "snippet": "Miles de archivos investigados revelan el funcionamiento de la mayor red de estafas a nivel mundial",
+   "title": "Zapopan, refugio de operadores criminales: 12 capturas de alto valor- Grupo Milenio",
+   "url": "https://milenio.com/policia/zapopan-refugio-operadores-criminales-12-capturas-alto",
+   "snippet": "En tan solo nueve meses de 2026, fuerzas federales y estatales han capturado en la zona a 12 objetivos prioritarios vinculados al CJNG, el Cártel de Sinaloa, los Beltrán Leyva e incluso prófugos requeridos por la justicia de Estados Unidos. ... El municipio jalisciense de Zapopan se ha ...",
    "date": "2026-10-27",
    "via": "brave",
-   "theatre": "money",
-   "id": "E62"
+   "theatre": "mexico",
+   "id": "E74"
   },
   {
-   "source": "yournews.com",
+   "source": "tusbuenasnoticias.com",
    "country": "",
    "local": false,
-   "title": "‘Brave Patriots’ of ICE Arrest More Than 100 Gang Members in Less Than One Week – [your]NEWS",
-   "url": "https://yournews.com/2026/10/26/7239766/brave-patriots-of-ice-arrest-more-than-100-gang-members/",
-   "snippet": "Members of MS-13 and Tren de Aragua are among those arrested in the ongoing crackdown.",
+   "title": "Hallan 14 mil envases de perfumería con posibles irregularidades en el puerto de Lázaro Cárdenas.",
+   "url": "https://tusbuenasnoticias.com/noticias/actualidad/2026/10/26/66120-aseguran-14-mil-productos-apocrifos-en-aduana-de-michoacan",
+   "snippet": "La ANAM, Marina y SSPC aseguraron 14 mil 250 envases con posibles irregularidades de propiedad intelectual en la aduana de Lázaro Cárdenas, Michoacán. La mercancía quedó a disposición de la FGR para su investigación.",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "mexico",
+   "id": "E75"
+  },
+  {
+   "source": "contramuro.com",
+   "country": "",
+   "local": false,
+   "title": "Bajo custodia más de 134 mil artículos decomisados en Lázaro Cárdenas",
+   "url": "https://contramuro.com/articulos-decomisados-lazaro-cardenas",
+   "snippet": "Más de 134 mil artículos decomisados por la FGR en el puerto de Lázaro Cárdenas debido a irregularidades de propiedad intelectual.",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "china",
+   "id": "E76"
+  },
+  {
+   "source": "telemundo52.com",
+   "country": "",
+   "local": false,
+   "title": "Incautan casi 52 libras de presunto fentanilo durante operativo en el condado de San Diego – Telemundo 52",
+   "url": "https://telemundo52.com/noticias/local/incautan-casi-52-libras-de-presunto-fentanilo-durante-operativo-en-el-condado-de-san-diego/2909846",
+   "snippet": "El decomiso ocurrió cuando agentes que realizaban labores de vigilancia detectaron una camioneta Honda CR-V que circulaba hacia el norte por la autopista.",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "china",
+   "id": "E77"
+  },
+  {
+   "source": "canal44.com",
+   "country": "",
+   "local": false,
+   "title": "Frontera entre Sonora y Arizona se convierte en punto clave para el decomiso de fentanilo – El Canal de las Noticias Digital",
+   "url": "https://canal44.com/sonora-arizona-30-por-ciento-fentanilo-decomisado-puertos",
+   "snippet": "Los puertos de entrada de Arizona, ubicados en la frontera con Sonora, concentraron alrededor del 30% del fentanilo incautado por CBP en Estados Unidos, según un balance atribuido a la oficina de campo de Tucson.",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "border",
+   "id": "E78"
+  },
+  {
+   "source": "newsdigitales.com",
+   "country": "",
+   "local": false,
+   "title": "Fentanilo: familias de víctimas repudian la ley aprobada en Diputados y apuntan a Lugones",
+   "url": "https://newsdigitales.com/nota/348493/fentanilo-familias-de-victimas-repudian-la-ley-aprobada-en-diputados-y-apuntan-a-lugones",
+   "snippet": "Un padre y una viuda cuentan qué les dejaron afuera y qué esperan ahora del Congreso y de la Justicia.",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "china",
+   "id": "E79"
+  },
+  {
+   "source": "cafenegroportal.com",
+   "country": "",
+   "local": false,
+   "title": "Decomisan más de 34 mil piezas de “fayuca” en Lázaro Cárdenas, Michoacán",
+   "url": "https://cafenegroportal.com/decomisan-mas-de-34-mil-piezas-de-fayuca-en-lazaro-cardenas-michoacan",
+   "snippet": "Ciudad de México.- Elementos de la Agencia Nacional de Aduanas de México (ANAM), Secretaría de Marina (Marina) y Secretaría de Seguridad y Protección Ciudadana (SSPC) detectaron más de 134 mil piez…",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "mexico",
+   "id": "E80"
+  },
+  {
+   "source": "sociedad-noticias.com",
+   "country": "",
+   "local": false,
+   "title": "Aduana de Lázaro Cárdenas detecta más de 134 mil productos irregulares – Sociedad Noticias",
+   "url": "https://sociedad-noticias.com/2026/10/27/aduana-de-lazaro-cardenas-detecta-mas-de-134-mil-productos-irregulares",
+   "snippet": "Autoridades federales detectaron más de 134 mil productos con posibles irregularidades de propiedad intelectual en dos contenedores de la Aduana de Lázaro Cárdenas, Michoacán. La mercancía incluye figuras, audífonos, mochilas, peluches y playeras bajo custodia de la FGR.",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "border",
+   "id": "E81"
+  },
+  {
+   "source": "mx.headtopics.com",
+   "country": "",
+   "local": false,
+   "title": "Rechazan peticiones de amparo que buscan levantar bloqueo de cuentas de empresarios vinculados al Cártel de Sinaloa | Crimen",
+   "url": "https://mx.headtopics.com/news/rechazan-peticiones-de-amparo-que-buscan-levantar-bloqueo-89255643",
+   "snippet": "Un juez federal de Tijuana negó dos amparos de empresarios que buscaban liberar el bloqueo de sus cuentas bancarias decretado por la UIF tras indicaciones del Departamento del Tesoro de Estados Unidos",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "mexico",
+   "id": "E82"
+  },
+  {
+   "source": "puntoporpunto.com",
+   "country": "",
+   "local": false,
+   "title": "MÉXICO enfrenta DESAFÍOS en investigaciones y sentencias contra el LAVADO de DINERO | Punto por punto",
+   "url": "https://puntoporpunto.com/noticias/politica/mexico-enfrenta-desafios-en-investigaciones-y-sentencias-contra-el-lavado-de-dinero",
+   "snippet": "México enfrentará la etapa final de la quinta ronda de evaluación del Grupo de Acción Financiera Internacional (GAFI) con nuevas herramientas legales para combatir el lavado de dinero, pero con el desafío de demostrar resultados en investigaciones, sentencias y recuperación de activos.",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "mexico",
+   "id": "E83"
+  },
+  {
+   "source": "thegatewaypundit.com",
+   "country": "",
+   "local": false,
+   "title": "The Greatest Ever! Here are 70 Major Trump Accomplishments Since He Retook the White House in 2025 * The Gateway Pundit * by Jim Hoft",
+   "url": "https://www.thegatewaypundit.com/2026/10/greatest-ever-here-are-70-major-trump-accomplishments/",
+   "snippet": "Targeted cartels (designations as terrorist organizations for groups including Tren de Aragua, MS-13); major drug seizures and fentanyl trafficking reductions reported (~50–60% drops in some metrics).⁠White House",
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "venezuela-caribbean",
-   "id": "E63"
+   "id": "E84"
   },
   {
    "source": "nashvillebanner.com",
@@ -767,7 +1019,43 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "venezuela-caribbean",
-   "id": "E64"
+   "id": "E85"
+  },
+  {
+   "source": "yournews.com",
+   "country": "",
+   "local": false,
+   "title": "White House Reports 2.3 Million Drop in Illegal Immigrant Population as Border Apprehensions Fall 95% Under Trump – [your]NEWS",
+   "url": "https://yournews.com/2026/10/27/7240710/white-house-reports-2-3-million-drop-in-illegal-immigrant-population",
+   "snippet": "The White House said enforcement operations resulted in more than 12,100 arrests involving suspected gang members, including more than 1,500 alleged Tren de Aragua affiliates and nearly 2,000 alleged MS-13 affiliates.",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "border",
+   "id": "E86"
+  },
+  {
+   "source": "yournews.com",
+   "country": "",
+   "local": false,
+   "title": "‘Brave Patriots’ of ICE Arrest More Than 100 Gang Members in Less Than One Week – [your]NEWS",
+   "url": "https://yournews.com/2026/10/26/7239766/brave-patriots-of-ice-arrest-more-than-100-gang-members/",
+   "snippet": "Members of MS-13 and Tren de Aragua are among those arrested in the ongoing crackdown.",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "venezuela-caribbean",
+   "id": "E87"
+  },
+  {
+   "source": "thegatewaypundit.com",
+   "country": "",
+   "local": false,
+   "title": "White House Says Illegal Alien Population Has Dropped by Over 2.3 MILLION Since Trump’s Return, Border Crossings Plummet by 95% * The Gateway Pundit * by Cassandra MacDonald",
+   "url": "https://www.thegatewaypundit.com/2026/10/white-house-says-illegal-alien-population-has-dropped/",
+   "snippet": "More than 12,100 gang members have been arrested, including more than 1,500 Tren de Aragua affiliates and nearly 2,000 MS-13 affiliates, along with more than 2,200 known or suspected terrorists, of whom more than 2,000 have been removed.",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "border",
+   "id": "E88"
   },
   {
    "source": "cedarnews.net",
@@ -779,31 +1067,31 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "venezuela-caribbean",
-   "id": "E65"
+   "id": "E89"
+  },
+  {
+   "source": "elcolombiano.com",
+   "country": "",
+   "local": false,
+   "title": "Nuevos detalles del asesinato de Miguel Castellanos, exsecretario de Gobierno de Cúcuta: viajaba sin escoltas y con su hijo",
+   "url": "https://www.elcolombiano.com/colombia/miguel-castellanos-nuevos-detalles-asesinato-BI42795646",
+   "snippet": "La publicación también mencionó que el exfuncionario habría recibido amenazas de grupos identificados como los Ak-47, el Tren de Aragua y la Familia P.",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "venezuela-caribbean",
+   "id": "E90"
   },
   {
    "source": "semana.com",
    "country": "",
    "local": false,
-   "title": "Los detalles desconocidos del asesinato de Miguel Castellanos, precandidato a la Alcaldía de Cúcuta - Semana",
-   "url": "https://semana.com/nacion/cucuta/articulo/los-detalles-desconocidos-del-asesinato-de-miguel-castellanos-precandidato-a-la-alcaldia-de-cucuta/202659",
+   "title": "Atentado con explosivo en Cúcuta, cerca a la frontera entre Colombia y Venezuela: tres heridos - Semana",
+   "url": "https://semana.com/nacion/cucuta/articulo/atentado-con-explosivo-en-cucuta-cerca-de-la-frontera-entre-colombia-y-venezuela-hay-tres-heridos/202653",
    "snippet": "Además, las condiciones en que Castellanos le pidió a su escolta antes de ir a recoger a su hijo que se marchara, que se fuera para su casa, a pesar de haber recibido amenazas en el pasado de peligrosas bandas como los Ak-47, el Tren de Aragua y la Familia P.",
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "venezuela-caribbean",
-   "id": "E66"
-  },
-  {
-   "source": "trtespanol.com",
-   "country": "",
-   "local": false,
-   "title": "TRT Español - ¿Qué busca Marco Rubio en América Latina? La estrategia de Washington más allá de Trump",
-   "url": "https://www.trtespanol.com/article/df03f386b642",
-   "snippet": "instó a los miembros a declarar formalmente a 24 organizaciones criminales y narcoterroristas como “amenazas comunes” para la estabilidad regional, como el Tren de Aragua, el Cártel de Sinaloa, el Cártel Jalisco Nueva Generación, el Comando Vermelho o el Primeiro Comando da Capital.",
-   "date": "2026-10-27",
-   "via": "brave",
-   "theatre": "mexico",
-   "id": "E67"
+   "id": "E91"
   },
   {
    "source": "co.headtopics.com",
@@ -815,7 +1103,7 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "andes",
-   "id": "E68"
+   "id": "E92"
   },
   {
    "source": "pulzo.com",
@@ -827,19 +1115,7 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "andes",
-   "id": "E69"
-  },
-  {
-   "source": "cuencahighlife.com",
-   "country": "",
-   "local": false,
-   "title": "Ecuador’s war against organized crime and its implications for Latin America - CuencaHighLife",
-   "url": "https://cuencahighlife.com/ecuadors-war-against-organized-crime-and-its-implications-for-latin-america",
-   "snippet": "Ecuadorian organizations such as Los Choneros and Los Lobos have developed relationships with powerful foreign groups, particularly Mexico’s Sinaloa and Jalisco New Generation cartels. In August 2026, the U.S.",
-   "date": "2026-10-27",
-   "via": "brave",
-   "theatre": "andes",
-   "id": "E70"
+   "id": "E93"
   },
   {
    "source": "prensa-latina.cu",
@@ -851,19 +1127,19 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "andes",
-   "id": "E71"
+   "id": "E94"
   },
   {
-   "source": "es.euronews.com",
+   "source": "cuencahighlife.com",
    "country": "",
    "local": false,
-   "title": "Noboa acusa a la oposición ecuatoriana de sostenerse con fondos del narcocrimen | Euronews",
-   "url": "https://es.euronews.com/2026/10/26/noboa-acusa-oposicion-ecuatoriana-sostenerse-fondos-narcocrimen",
-   "snippet": "Daniel Noboa vuelve a sacudir el tablero político en Ecuador. En declaraciones a 'Radio Sucre', el presidente afirmó sin mostrar pruebas que la oposición, liderada por el movimiento correísta, sostiene sus arcas con recursos del narcotráfico. ... La acusación escaló al terreno personal cuando el jefe de Estado acusó directamente al expresidente Rafael Correa de mantener vínculos con grupos delicti",
+   "title": "Ecuador’s war against organized crime and its implications for Latin America - CuencaHighLife",
+   "url": "https://cuencahighlife.com/ecuadors-war-against-organized-crime-and-its-implications-for-latin-america",
+   "snippet": "Ecuadorian organizations such as Los Choneros and Los Lobos have developed relationships with powerful foreign groups, particularly Mexico’s Sinaloa and Jalisco New Generation cartels. In August 2026, the U.S.",
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "andes",
-   "id": "E72"
+   "id": "E95"
   },
   {
    "source": "eltiempo.com",
@@ -875,55 +1151,7 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "andes",
-   "id": "E73"
-  },
-  {
-   "source": "eltiempo.com",
-   "country": "",
-   "local": false,
-   "title": "Alias Bloqueo Rudo aceptó su responsabilidad en el crimen de la lideresa social Luz Chala, en zona rural de Quibdó - El Tiempo",
-   "url": "https://eltiempo.com/justicia/delitos/alias-bloqueo-rudo-acepto-su-responsabilidad-en-el-crimen-de-la-lideresa-social-luz-chala-en-zona-rural-de-quibdo-3596268",
-   "snippet": "La víctima fue asesinada por oponerse a las actividades ilícitas del 'clan del Golfo' en el Chocó.",
-   "date": "2026-10-27",
-   "via": "brave",
-   "theatre": "andes",
-   "id": "E74"
-  },
-  {
-   "source": "co.headtopics.com",
-   "country": "",
-   "local": false,
-   "title": "$2.500.000 y un fusil: el negocio de las escuelas de sicarios en el Oriente antioqueño - Antioquia | Defensoría Del Pueblo Noticias",
-   "url": "https://co.headtopics.com/news/2-500-000-y-un-fusil-el-negocio-de-las-escuelas-de-89233044",
-   "snippet": "Una alerta temprana de la Defensoría del Pueblo, describe campamentos, instrucción militar y ofertas de dinero para vincular jóvenes en seis municipios, mi...",
-   "date": "2026-10-27",
-   "via": "brave",
-   "theatre": "andes",
-   "id": "E75"
-  },
-  {
-   "source": "semana.com",
-   "country": "",
-   "local": false,
-   "title": "FBI ofrece una recompensa de 10.000 dólares por el colombiano Víctor Julián Duque: le habría lavado dinero al Clan del Golfo - Semana",
-   "url": "https://www.semana.com/mundo/articulo/fbi-ofrece-una-recompensa-de-10000-dolares-por-el-colombiano-victor-julian-duque-le-habria-lavado-dinero-al-clan-del-golfo/202659/",
-   "snippet": "El sujeto pertenecería a un grupo dedicado al lavado de dinero.",
-   "date": "2026-10-27",
-   "via": "brave",
-   "theatre": "money",
-   "id": "E76"
-  },
-  {
-   "source": "noticiasrcn.com",
-   "country": "",
-   "local": false,
-   "title": "Fingían ser de Clan del Golfo para amenazar y extorsionar a campesinos en Puerto Salgar | Noticias RCN",
-   "url": "https://www.noticiasrcn.com/colombia/fingian-ser-de-clan-del-golfo-para-amenazar-y-extorsionar-a-campesinos-en-puerto-salgar-1075239",
-   "snippet": "Capturaron a alias Cáceres, Costeño, Barbas y Mateo, señalados de extorsiones a campesionos. Les incautaron armas, municiones, celulares y una moto.",
-   "date": "2026-10-27",
-   "via": "brave",
-   "theatre": "andes",
-   "id": "E77"
+   "id": "E96"
   },
   {
    "source": "eltiempo.com",
@@ -935,19 +1163,7 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "andes",
-   "id": "E78"
-  },
-  {
-   "source": "citytv.eltiempo.com",
-   "country": "",
-   "local": false,
-   "title": "Se hacían pasar por el Clan del Golfo para extorsionar a campesinos en Cundinamarca | City Tv Noticias",
-   "url": "https://citytv.eltiempo.com/noticias/judicial/se-hacian-pasar-por-el-clan-del-golfo-para-extorsionar-campesinos-en-cundinamarca_96729",
-   "snippet": "Cuatro hombres fueron capturados en Puerto Salgar, señalados de amenazar a campesinos con armas de fuego y granadas para exigirles dinero.",
-   "date": "2026-10-27",
-   "via": "brave",
-   "theatre": "andes",
-   "id": "E79"
+   "id": "E97"
   },
   {
    "source": "eltiempo.com",
@@ -959,19 +1175,43 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "andes",
-   "id": "E80"
+   "id": "E98"
   },
   {
-   "source": "timesofindia.indiatimes.com",
+   "source": "co.headtopics.com",
    "country": "",
    "local": false,
-   "title": "Did US officials campaign to tilt Brazil polls towards Bolsonaros? - The Times of India",
-   "url": "https://timesofindia.indiatimes.com/world/us/did-us-officials-campaign-to-tilt-brazil-polls-towards-bolsonaros/articleshow/135200301.cms",
-   "snippet": "These included designating Brazil’s leading gangs, Primeiro Comando da Capital (PCC) and Comando Vermelho (CV), as terrorist organisations and sanctioning Supreme Court Justice Alexandre de Moraes, who led investigations into Jair Bolsonaro.State department spokesman Tommy Pigott did not ...",
+   "title": "$2.500.000 y un fusil: el negocio de las escuelas de sicarios en el Oriente antioqueño - Antioquia | Defensoría Del Pueblo Noticias",
+   "url": "https://co.headtopics.com/news/2-500-000-y-un-fusil-el-negocio-de-las-escuelas-de-89233044",
+   "snippet": "Una alerta temprana de la Defensoría del Pueblo, describe campamentos, instrucción militar y ofertas de dinero para vincular jóvenes en seis municipios, mi...",
    "date": "2026-10-27",
    "via": "brave",
-   "theatre": "brazil",
-   "id": "E81"
+   "theatre": "andes",
+   "id": "E99"
+  },
+  {
+   "source": "semana.com",
+   "country": "",
+   "local": false,
+   "title": "FBI ofrece una recompensa de 10.000 dólares por el colombiano Víctor Julián Duque: le habría lavado dinero al Clan del Golfo - Semana",
+   "url": "https://www.semana.com/mundo/articulo/fbi-ofrece-una-recompensa-de-10000-dolares-por-el-colombiano-victor-julian-duque-le-habria-lavado-dinero-al-clan-del-golfo/202659/",
+   "snippet": "El sujeto pertenecería a un grupo dedicado al lavado de dinero.",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "money",
+   "id": "E100"
+  },
+  {
+   "source": "citytv.eltiempo.com",
+   "country": "",
+   "local": false,
+   "title": "Se hacían pasar por el Clan del Golfo para extorsionar a campesinos en Cundinamarca | City Tv Noticias",
+   "url": "https://citytv.eltiempo.com/noticias/judicial/se-hacian-pasar-por-el-clan-del-golfo-para-extorsionar-campesinos-en-cundinamarca_96729",
+   "snippet": "Cuatro hombres fueron capturados en Puerto Salgar, señalados de amenazar a campesinos con armas de fuego y granadas para exigirles dinero.",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "andes",
+   "id": "E101"
   },
   {
    "source": "apnews.com",
@@ -983,43 +1223,19 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "brazil",
-   "id": "E82"
+   "id": "E102"
   },
   {
-   "source": "g1.globo.com",
+   "source": "timesofindia.indiatimes.com",
    "country": "",
    "local": false,
-   "title": "Lula reeleito: o que silêncio de Trump diz sobre relação EUA-Brasil | G1",
-   "url": "https://g1.globo.com/mundo/noticia/2026/10/26/o-que-silencio-de-trump-sobre-vitoria-de-lula-diz-sobre-relacao-entre-brasil-e-eua.ghtml",
-   "snippet": "\"Ele [Trump] recebeu os filhos [de Bolsonaro], designou o PCC e o Comando Vermelho como organizações terroristas.",
+   "title": "Did US officials campaign to tilt Brazil polls towards Bolsonaros? - The Times of India",
+   "url": "https://timesofindia.indiatimes.com/world/us/did-us-officials-campaign-to-tilt-brazil-polls-towards-bolsonaros/articleshow/135200301.cms",
+   "snippet": "These included designating Brazil’s leading gangs, Primeiro Comando da Capital (PCC) and Comando Vermelho (CV), as terrorist organisations and sanctioning Supreme Court Justice Alexandre de Moraes, who led investigations into Jair Bolsonaro.State department spokesman Tommy Pigott did not ...",
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "brazil",
-   "id": "E83"
-  },
-  {
-   "source": "news.google.com",
-   "country": "",
-   "local": false,
-   "title": "O que reação de Trump à vitória de Lula diz sobre relação entre Brasil e EUA - BBC News Brasil",
-   "url": "https://news.google.com/read/CBMiY0FVX3lxTFBTWmpzcV9FeGJsMTRTQUJYQ3ViWF9WOVdtX0xWVjJrb0RvNklMWnBMaU96cGl1c0NKSjdjT2FaMUR0WHBKUDhpT3c3Z1BiNURQT2QyaFB1UTM1MEZPQ0k4TDVDaw?ceid=US%3Aen&gl=US&hl=en-US",
-   "snippet": "\"Ele [Trump] recebeu os filhos [de Bolsonaro], designou o PCC e o Comando Vermelho como organizações terroristas.",
-   "date": "2026-10-27",
-   "via": "brave",
-   "theatre": "brazil",
-   "id": "E84"
-  },
-  {
-   "source": "es-us.noticias.yahoo.com",
-   "country": "",
-   "local": false,
-   "title": "Lula, esperanza de la izquierda y pesadilla de Trump y Milei - Yahoo Noticias",
-   "url": "https://es-us.noticias.yahoo.com/lula-esperanza-izquierda-pesadilla-trump-154829130.html",
-   "snippet": "A finales de mayo, en plena precampaña electoral, la Administración de Trump declaró además como terroristas a las bandas brasileñas Comando Vermelho (CV) y Primeiro Comando da Capital (PCC), tras una visita de Flávio a Washington, donde se vio por separado con Trump y con el secretario ...",
-   "date": "2026-10-27",
-   "via": "brave",
-   "theatre": "brazil",
-   "id": "E85"
+   "id": "E103"
   },
   {
    "source": "bbc.com",
@@ -1031,31 +1247,19 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "brazil",
-   "id": "E86"
+   "id": "E104"
   },
   {
-   "source": "es-us.noticias.yahoo.com",
+   "source": "g1.globo.com",
    "country": "",
    "local": false,
-   "title": "Lula ganó la elección, pero no la discusión sobre el futuro de Brasil: tres claves para entender qué significa su triunfo - Yahoo Noticias",
-   "url": "https://es-us.noticias.yahoo.com/lula-gan%C3%B3-elecci%C3%B3n-discusi%C3%B3n-futuro-013458193.html",
-   "snippet": "Su apuesta es la autonomía estratégica, el multilateralismo y una cobertura equilibrada entre Washington y Pekín. Rechazó la designación del PCC y el Comando Vermelho como organizaciones terroristas por considerarla una amenaza a la soberanía, aunque ofreció cooperación policial y ...",
+   "title": "Lula reeleito: o que silêncio de Trump diz sobre relação EUA-Brasil | G1",
+   "url": "https://g1.globo.com/mundo/noticia/2026/10/26/o-que-silencio-de-trump-sobre-vitoria-de-lula-diz-sobre-relacao-entre-brasil-e-eua.ghtml",
+   "snippet": "\"Ele [Trump] recebeu os filhos [de Bolsonaro], designou o PCC e o Comando Vermelho como organizações terroristas.",
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "brazil",
-   "id": "E87"
-  },
-  {
-   "source": "mondaq.com",
-   "country": "",
-   "local": false,
-   "title": "OFAC Expands Operation Economic Outcast With Actions Targeting Iranian Procurement, Industry And Sanctions Evasion - Money Laundering - Global",
-   "url": "https://www.mondaq.com/unitedstates/money-laundering/1860010/ofac-expands-operation-economic-outcast-with-actions-targeting-iranian-procurement-industry-and-sanctions-evasion",
-   "snippet": "The US Treasury Department has launched a sweeping enforcement initiative under Operation Economic Outcast, targeting Iranian military procurement networks, industrial sectors, and shadow banking systems used to evade sanctions. These coordinated actions by OFAC and FinCEN expand sanctions ...",
-   "date": "2026-10-27",
-   "via": "brave",
-   "theatre": "money",
-   "id": "E88"
+   "id": "E105"
   },
   {
    "source": "bankingjournal.aba.com",
@@ -1067,55 +1271,19 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "money",
-   "id": "E89"
+   "id": "E106"
   },
   {
-   "source": "townhall.com",
+   "source": "mondaq.com",
    "country": "",
    "local": false,
-   "title": "Border Authorities Announce Major Increase in Drug Seizures",
-   "url": "https://townhall.com/news/jeff-charles/2026/10/26/border-authorities-announce-major-increase-in-drug-seizures-n2685329",
-   "snippet": "Customs and Border Protection (CBP) ... at ports of entry over the past year. During a Friday press conference at the Bridge of the Americas, Border Patrol El Paso Sector Chief Jesse D. Muñoz and CBP Air and Marine Operations El Paso Director Efren Gonzalez announced the seizures. Border authorities reported a 119 percent increase in fentanyl seizures, ...",
+   "title": "OFAC Expands Operation Economic Outcast With Actions Targeting Iranian Procurement, Industry And Sanctions Evasion - Money Laundering - Global",
+   "url": "https://www.mondaq.com/unitedstates/money-laundering/1860010/ofac-expands-operation-economic-outcast-with-actions-targeting-iranian-procurement-industry-and-sanctions-evasion",
+   "snippet": "The US Treasury Department has launched a sweeping enforcement initiative under Operation Economic Outcast, targeting Iranian military procurement networks, industrial sectors, and shadow banking systems used to evade sanctions. These coordinated actions by OFAC and FinCEN expand sanctions ...",
    "date": "2026-10-27",
    "via": "brave",
-   "theatre": "border",
-   "id": "E90"
-  },
-  {
-   "source": "phl17.com",
-   "country": "",
-   "local": false,
-   "title": "CBP reports rising drug seizures as migrant encounters fall in West Texas, New Mexico | Border Report",
-   "url": "https://phl17.com/border-report/cbp-reports-rising-drug-seizures-as-migrant-encounters-fall-in-west-texas-new-mexico/",
-   "snippet": "CBP reports increases in fentanyl and cocaine seizures · Provencio said his field office recorded increases in fiscal year 2026 of more than 119% for fentanyl, more than 50% for cocaine, more than 230% for marijuana and more than 9% for methamphetamine. In October 2026, U.S. Customs and Border Protection officers, supported by cutting-edge technology, discovered 72.42 lbs of Fentanyl poweder insid",
-   "date": "2026-10-27",
-   "via": "brave",
-   "theatre": "border",
-   "id": "E91"
-  },
-  {
-   "source": "thetravel.com",
-   "country": "",
-   "local": false,
-   "title": "U.S. Customs And Border Protection At Boston Logan Airport Rejects Traveling Doctor After Phone Search Reveals Concerning Photos And Videos",
-   "url": "https://www.thetravel.com/us-customs-and-border-protection-at-boston-logan-airport-rejects-traveling-doctor-after-phone-search-reveals-concerning-photos-and-videos/",
-   "snippet": "The doctor was subsequently deported after CBP officers found materials that questioned her intentions in the U.S.",
-   "date": "2026-10-27",
-   "via": "brave",
-   "theatre": "border",
-   "id": "E92"
-  },
-  {
-   "source": "ktla.com",
-   "country": "",
-   "local": false,
-   "title": "Border Patrol seizes over 50 pounds of suspected fentanyl in Southern California | KTLA",
-   "url": "https://ktla.com/news/california/border-patrol-fentanyl-seizure-southern-california",
-   "snippet": "U.S. Border Patrol agents seized more than 51 pounds of suspected fentanyl while conducting anti-smuggling operations along Interstate 15 this month, authorities announced Monday. Agents with the San Diego Sector encountered a Honda traveling north on I-15 before the driver exited at Mission ...",
-   "date": "2026-10-27",
-   "via": "brave",
-   "theatre": "border",
-   "id": "E93"
+   "theatre": "money",
+   "id": "E107"
   },
   {
    "source": "nbclosangeles.com",
@@ -1127,7 +1295,31 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "border",
-   "id": "E94"
+   "id": "E108"
+  },
+  {
+   "source": "wwlp.com",
+   "country": "",
+   "local": false,
+   "title": "CBP reports rising drug seizures as migrant encounters fall in West Texas, New Mexico | Border Report",
+   "url": "https://www.wwlp.com/border-report-tour/cbp-reports-rising-drug-seizures-as-migrant-encounters-fall-in-west-texas-new-mexico/",
+   "snippet": "CBP reports increases in fentanyl and cocaine seizures · Provencio said his field office recorded increases in fiscal year 2026 of more than 119% for fentanyl, more than 50% for cocaine, more than 230% for marijuana and more than 9% for methamphetamine. In October 2026, U.S. Customs and Border Protection officers, supported by cutting-edge technology, discovered 72.42 lbs of Fentanyl poweder insid",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "border",
+   "id": "E109"
+  },
+  {
+   "source": "ktla.com",
+   "country": "",
+   "local": false,
+   "title": "Border Patrol seizes over 50 pounds of suspected fentanyl in Southern California | KTLA",
+   "url": "https://ktla.com/news/california/border-patrol-fentanyl-seizure-southern-california",
+   "snippet": "U.S. Border Patrol agents seized more than 51 pounds of suspected fentanyl while conducting anti-smuggling operations along Interstate 15 this month, authorities announced Monday. Agents with the San Diego Sector encountered a Honda traveling north on I-15 before the driver exited at Mission ...",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "border",
+   "id": "E110"
   },
   {
    "source": "fox5sandiego.com",
@@ -1139,19 +1331,43 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "border",
-   "id": "E95"
+   "id": "E111"
   },
   {
-   "source": "riotimesonline.com",
+   "source": "townhall.com",
    "country": "",
    "local": false,
-   "title": "Texas Checkpoint Finds 23 Migrants in Vans | The Rio Times",
-   "url": "https://www.riotimesonline.com/us-laredo-checkpoint-23-migrants-in-vans",
-   "snippet": "A car hauler tried to pass a Border Patrol checkpoint in Laredo, Texas, with 23 people hidden in closed vans, six of them unaccompanied minors.",
+   "title": "Border Authorities Announce Major Increase in Drug Seizures",
+   "url": "https://townhall.com/news/jeff-charles/2026/10/26/border-authorities-announce-major-increase-in-drug-seizures-n2685329",
+   "snippet": "Customs and Border Protection (CBP) ... at ports of entry over the past year. During a Friday press conference at the Bridge of the Americas, Border Patrol El Paso Sector Chief Jesse D. Muñoz and CBP Air and Marine Operations El Paso Director Efren Gonzalez announced the seizures. Border authorities reported a 119 percent increase in fentanyl seizures, ...",
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "border",
-   "id": "E96"
+   "id": "E112"
+  },
+  {
+   "source": "thetravel.com",
+   "country": "",
+   "local": false,
+   "title": "U.S. Customs And Border Protection At Boston Logan Airport Rejects Traveling Doctor After Phone Search Reveals Concerning Photos And Videos",
+   "url": "https://www.thetravel.com/us-customs-and-border-protection-at-boston-logan-airport-rejects-traveling-doctor-after-phone-search-reveals-concerning-photos-and-videos/",
+   "snippet": "The doctor was subsequently deported after CBP officers found materials that questioned her intentions in the U.S.",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "border",
+   "id": "E113"
+  },
+  {
+   "source": "yahoo.com",
+   "country": "",
+   "local": false,
+   "title": "Over 51 pounds of fentanyl seized along I-15 by Border Patrol in San Diego",
+   "url": "https://yahoo.com/news/us/articles/over-51-pounds-fentanyl-seized-171627902.html",
+   "snippet": "Over 51 pounds of fentanyl was seized by the U.S. Border Patrol along Interstate 15 earlier this month · According to Border Patrol, agents assigned to the San Diego sector conducted anti-smuggling operations along the highway and found a Honda CRV traveling northbound exited Mission Road, ...",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "border",
+   "id": "E114"
   },
   {
    "source": "patch.com",
@@ -1163,31 +1379,7 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "border",
-   "id": "E97"
-  },
-  {
-   "source": "cbs8.com",
-   "country": "",
-   "local": false,
-   "title": "Over 51 pounds of fentanyl seized along I-15 by Border Patrol in San Diego | cbs8.com",
-   "url": "https://cbs8.com/article/news/crime/us-border-patrol-fentanyl-seizure-51-pounds-i15-san-diego/509-f9bd2248-07d1-4c47-afba-9a8e558d8b20",
-   "snippet": "US Border Patrol agents conducted a search and found a duffel bag with 22 bundles of suspected narcotics in the back seat of the car.",
-   "date": "2026-10-27",
-   "via": "brave",
-   "theatre": "border",
-   "id": "E98"
-  },
-  {
-   "source": "cbc.ca",
-   "country": "",
-   "local": false,
-   "title": "The U.S. put surveillance drones in the Great Lakes, and this border town mayor isn't happy | CBC Radio",
-   "url": "https://cbc.ca/radio/asithappens/sarnia-mayor-great-lakes-drones-9.7396779",
-   "snippet": "When Sarnia, Ont., Mayor Mike Bradley first spotted an unusual, unmanned vessel in the St. Clair River, he says he thought it looked \"like something from Mars.\" Then he found out it was one of several surveillance sail drones deployed to the Great Lakes this summer by the U.S. Coast Guard.",
-   "date": "2026-10-27",
-   "via": "brave",
-   "theatre": "border",
-   "id": "E99"
+   "id": "E115"
   },
   {
    "source": "milenio.com",
@@ -1199,7 +1391,31 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E100"
+   "id": "E116"
+  },
+  {
+   "source": "milenio.com",
+   "country": "",
+   "local": false,
+   "title": "Los Rusos: el historial delictivo de El Isra en Mexicali- Grupo Milenio",
+   "url": "https://milenio.com/policia/narcotrafico/los-rusos-el-historial-delictivo-de-el-isra-en-mexicali",
+   "snippet": "Del tráfico de drogas al secuestro, el operador regional era considerado como el tercero al mando dentro del brazo armado afín a Los Mayos.",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "mexico",
+   "id": "E117"
+  },
+  {
+   "source": "milenio.com",
+   "country": "",
+   "local": false,
+   "title": "El Isra de Los Rusos y su presunta venganza contra agentes de la FESC- Grupo Milenio",
+   "url": "https://milenio.com/policia/narcotrafico/isra-rusos-presunta-venganza-agentes-fesc",
+   "snippet": "El operador de Los Rusos en el Valle de Mexicali figura dentro de una investigación para esclarecer el doble homicidio de agentes estatales.",
+   "date": "2026-10-27",
+   "via": "brave",
+   "theatre": "mexico",
+   "id": "E118"
   },
   {
    "source": "milenio.com",
@@ -1211,7 +1427,7 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E101"
+   "id": "E119"
   },
   {
    "source": "milenio.com",
@@ -1223,19 +1439,7 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E102"
-  },
-  {
-   "source": "milenio.com",
-   "country": "",
-   "local": false,
-   "title": "Objetos encontrados en altares a Santa Muerte en casas de criminales- Grupo Milenio",
-   "url": "https://milenio.com/policia/objetos-encontrados-altares-santa-muerte-casas-de-criminales",
-   "snippet": "Desde que los policías y los elementos ... al sitio, se escuchaba a muchos perros ladrar; sin embargo, no se imaginaron que el sospechoso también comercializaba estos animales. Se sabe que la diligencia fue para detener a un presunto traficante de armas y drogas, aparentemente ligado al Cártel de Sinaloa, ...",
-   "date": "2026-10-27",
-   "via": "brave",
-   "theatre": "mexico",
-   "id": "E103"
+   "id": "E120"
   },
   {
    "source": "milenio.com",
@@ -1247,31 +1451,31 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E104"
+   "id": "E121"
   },
   {
    "source": "milenio.com",
    "country": "",
    "local": false,
-   "title": "Noche de Museos octubre 2026: LISTA de actividades- Grupo Milenio",
-   "url": "https://milenio.com/comunidad/noche-museos-octubre-2026-cdmx-actividades",
-   "snippet": "La Noche de Museos de octubre llega a la CDMX con actividades por Día de Muertos y Halloween. Te contamos los horarios, costos y recintos participantes.",
+   "title": "Reportan detención Salvador Hernández líder AUMA y funcionario UABJO- Grupo Milenio",
+   "url": "https://milenio.com/estados/reportan-detencion-salvador-hernandez-lider-auma-y-funcionario-uabjo",
+   "snippet": "Detienen en Oaxaca a Salvador Hernández Bustamante, coordinador de la Facultad de Derecho de la UABJO.",
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E105"
+   "id": "E122"
   },
   {
    "source": "milenio.com",
    "country": "",
    "local": false,
-   "title": "Esto sabemos del 'Isra', operador de Los Rusos detenido en Mexicali- Grupo Milenio",
-   "url": "https://milenio.com/policia/quien-es-el-isra-operador-de-los-rusos-detenido-en-mexicali-perfil",
-   "snippet": "En MILENIO te contamos todo lo que se sabe sobre el 'Isra', operador de Los Rusos detenido en Mexicali, como su papel en la estructura del Cártel de Sinaloa.",
+   "title": "Objetos encontrados en altares a Santa Muerte en casas de criminales- Grupo Milenio",
+   "url": "https://milenio.com/policia/objetos-encontrados-altares-santa-muerte-casas-de-criminales",
+   "snippet": "Desde que los policías y los elementos ... al sitio, se escuchaba a muchos perros ladrar; sin embargo, no se imaginaron que el sospechoso también comercializaba estos animales. Se sabe que la diligencia fue para detener a un presunto traficante de armas y drogas, aparentemente ligado al Cártel de Sinaloa, ...",
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E106"
+   "id": "E123"
   },
   {
    "source": "milenio.com",
@@ -1283,7 +1487,7 @@
    "date": "2026-10-27",
    "via": "brave",
    "theatre": "mexico",
-   "id": "E107"
+   "id": "E124"
   },
   {
    "source": "Zeta Tijuana",
@@ -1295,7 +1499,7 @@
    "date": "2026-10-26",
    "via": "rss",
    "theatre": "region",
-   "id": "E108"
+   "id": "E125"
   },
   {
    "source": "Borderland Beat",
@@ -1307,79 +1511,7 @@
    "date": "2026-10-26",
    "via": "rss",
    "theatre": "border",
-   "id": "E109"
-  },
-  {
-   "source": "Infobae America",
-   "country": "REG",
-   "local": true,
-   "title": "Laura Fernández compara su vida con la del narcotraficante “Diablo” y asegura que la educación es clave para combatir la delincuencia en Costa Rica",
-   "url": "https://www.infobae.com/costa-rica/2026/10/26/laura-fernandez-compara-su-vida-con-la-del-narcotraficante-diablo-y-asegura-que-la-educacion-es-clave-para-combatir-la-delincuencia-en-costa-rica/",
-   "snippet": "La presidenta defendió la inversión del Gobierno en infraestructura educativa y aseguró que mantener a los jóvenes en las aulas es una de las principales herramientas para prevenir la criminalidad.",
-   "date": "2026-10-26",
-   "via": "rss",
-   "theatre": "central-america",
-   "id": "E110"
-  },
-  {
-   "source": "Infobae America",
-   "country": "REG",
-   "local": true,
-   "title": "Capturan a tres presuntos integrantes del “Cártel del Diablo” en Honduras",
-   "url": "https://www.infobae.com/honduras/2026/10/26/capturan-a-tres-presuntos-integrantes-del-cartel-del-diablo-en-honduras/",
-   "snippet": "Las detenciones se realizaron tras labores de investigación e inteligencia orientadas a identificar a personas presuntamente vinculadas con actividades delictivas.",
-   "date": "2026-10-26",
-   "via": "rss",
-   "theatre": "central-america",
-   "id": "E111"
-  },
-  {
-   "source": "Infobae America",
-   "country": "REG",
-   "local": true,
-   "title": "Guardacostas mantiene búsqueda de tres tripulantes desaparecidos a bordo de la lancha El Corrongo en el Caribe de Costa Rica",
-   "url": "https://www.infobae.com/costa-rica/2026/10/26/guardacostas-mantiene-busqueda-de-tres-tripulantes-desaparecidos-a-bordo-de-la-lancha-el-corrongo-en-el-caribe-de-costa-rica/",
-   "snippet": "Las autoridades costarricenses mantienen operativos marítimos en coordinación con Panamá y Estados Unidos para tratar de localizar la embarcación y a sus ocupantes.",
-   "date": "2026-10-26",
-   "via": "rss",
-   "theatre": "central-america",
-   "id": "E112"
-  },
-  {
-   "source": "Infobae America",
-   "country": "REG",
-   "local": true,
-   "title": "Descubren por qué el escudo magnético de la Tierra se debilita de forma desigual",
-   "url": "https://www.infobae.com/america/ciencia-america/2026/10/26/descubren-por-que-el-escudo-magnetico-de-la-tierra-se-debilita-de-forma-desigual/",
-   "snippet": "Simulaciones de la magnetósfera revelaron que las ondas en la frontera del campo terrestre se concentran en el hemisferio invernal. Su distribución entre flancos depende de la orientación del campo solar",
-   "date": "2026-10-26",
-   "via": "rss",
-   "theatre": "border",
-   "id": "E113"
-  },
-  {
-   "source": "Infobae America",
-   "country": "REG",
-   "local": true,
-   "title": "Honduras: dos ciudades concentran más de 350 homicidios durante 2026",
-   "url": "https://www.infobae.com/honduras/2026/10/26/honduras-dos-ciudades-concentran-mas-de-350-homicidios-durante-2026/",
-   "snippet": "Aproximadamente siete de cada diez municipios hondureños registraron al menos un homicidio durante el período analizado.",
-   "date": "2026-10-26",
-   "via": "rss",
-   "theatre": "central-america",
-   "id": "E114"
-  },
-  {
-   "source": "Infobae America",
-   "country": "REG",
-   "local": true,
-   "title": "Policía capturado en Guatemala: el crimen organizado en las entrañas del caso Solórzano Foppa",
-   "url": "https://www.infobae.com/guatemala/2026/10/26/policia-capturado-en-guatemala-el-crimen-organizado-en-las-entranas-del-caso-solorzano-foppa/",
-   "snippet": "Las declaraciones de uno de los siete agentes detenidos por presunta siembra de pruebas abren una interrogante más profunda: la de una institución policial que, según uno de los propios implicados, no estaría al margen de estructuras delictivas y políticas",
-   "date": "2026-10-26",
-   "via": "rss",
-   "theatre": "central-america",
-   "id": "E115"
+   "id": "E126"
   },
   {
    "source": "Just Security",
@@ -1391,7 +1523,7 @@
    "date": "2026-10-26",
    "via": "rss",
    "theatre": "region",
-   "id": "E116"
+   "id": "E127"
   },
   {
    "source": "Borderland Beat",
@@ -1403,7 +1535,7 @@
    "date": "2026-10-24",
    "via": "rss",
    "theatre": "border",
-   "id": "E117"
+   "id": "E128"
   },
   {
    "source": "Borderland Beat",
@@ -1415,7 +1547,7 @@
    "date": "2026-10-24",
    "via": "rss",
    "theatre": "mexico",
-   "id": "E118"
+   "id": "E129"
   }
  ],
  "arc_context": {
@@ -1431,7 +1563,7 @@
   "venezuela-caribbean": "Maduro is in US custody, US boat strikes continue, and a trial is proposed for June 2027."
  },
  "baseline": {
-  "as_of": "2026-10-26",
+  "as_of": "2026-10-27",
   "arcs": {
    "andes": {
     "phase": "Record coca output and Ecuador's gang war.",
@@ -1490,7 +1622,26 @@
     "turning_points": [
      "2025-12-17 Clan del Golfo designated an FTO."
     ],
-    "recent_log": []
+    "recent_log": [
+     {
+      "date": "2026-10-27",
+      "text": "More than 300 US troops began counter-narcotics training at Tolemaida, and Colombia extradited Mocho Olmedo to the US.",
+      "links": [
+       {
+        "title": "Más de 300 militares estadounidenses llegan a Colombia para un entrenamiento contra el narcotráfico",
+        "url": "https://elpais.com/america-colombia/2026-10-27/mas-de-300-militares-estadounidenses-llegan-a-colombia-para-un-entrenamiento-contra-el-narcotrafico.html",
+        "source": "El Pais Mexico",
+        "date": "2026-10-27"
+       },
+       {
+        "title": "Colombia Extradites Mocho Olmedo to US After Peace Freeze",
+        "url": "https://www.extradition.co/mocho-olmedo-extradition/",
+        "source": "extradition.co",
+        "date": "2026-10-27"
+       }
+      ]
+     }
+    ]
    },
    "ecuador": {
     "phase": "Los Choneros and Los Lobos fight over Ecuador's cocaine export economy.",
@@ -1530,7 +1681,20 @@
      "2025-08-28 FinCEN CMLN advisory.",
      "2026-01-30 Panama voids CK Hutchison's port concessions."
     ],
-    "recent_log": []
+    "recent_log": [
+     {
+      "date": "2026-10-27",
+      "text": "The Santelices businessmen, linked by OFAC to the Mayiza, lost a first court challenge to the UIF account freeze.",
+      "links": [
+       {
+        "title": "Los Santelices, empresarios ligados a La Mayiza por EEUU, pierden primer round contra la UIF por bloqueo de cuentas - Infobae",
+        "url": "https://www.infobae.com/mexico/2026/10/27/los-santelices-empresarios-ligados-a-la-mayiza-por-eeuu-pierden-primer-round-contra-la-uif-por-bloqueo-de-cuentas/",
+        "source": "infobae.com",
+        "date": "2026-10-27"
+       }
+      ]
+     }
+    ]
    },
    "sinaloa-war": {
     "phase": "The Chapitos and the Mayiza have fought for control of the Sinaloa Cartel since September 2024.",
@@ -1542,7 +1706,26 @@
      "2024-07-25 El Mayo Zambada is flown to the US.",
      "2026-07-20 El Mayo sentenced to life."
     ],
-    "recent_log": []
+    "recent_log": [
+     {
+      "date": "2026-10-27",
+      "text": "Federal and state forces arrested El Isra, a Los Rusos operator for the Mayiza, in Mexicali.",
+      "links": [
+       {
+        "title": "Lo cercaron en un restaurante de Mexicali: cae “El Isra”, líder de Los Rusos y objetivo prioritario en Baja California - Infobae",
+        "url": "https://www.infobae.com/mexico/2026/10/26/lo-cercaron-en-un-restaurante-de-mexicali-cae-el-isra-lider-de-los-rusos-y-objetivo-prioritario-en-baja-california/",
+        "source": "infobae.com",
+        "date": "2026-10-27"
+       },
+       {
+        "title": "Detienen a El Isra, principal operador de Los Rusos, en BC- Grupo Milenio",
+        "url": "https://milenio.com/policia/detienen-a-el-isra-principal-operador-de-los-rusos-en-bc",
+        "source": "milenio.com",
+        "date": "2026-10-27"
+       }
+      ]
+     }
+    ]
    },
    "venezuela-caribbean": {
     "phase": "Maduro is in US custody, US boat strikes continue, and a trial is proposed for June 2027.",
