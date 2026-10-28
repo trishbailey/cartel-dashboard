@@ -74,7 +74,7 @@ LAND = "#1b2c4a"
 FILL_L = (36, 76); FILL_SAT = (.35, .9); FILL_C_MIN = 20; FILL_MIN_DE = 22; PLAIN_MIN_DE = 22  # relaxed from the 2026-10-26 mid-tone limits: dE >= 22 across 13 plain hue families is unreachable inside L* 40-68 / sat .4-.7
 # named hue families on CIELCh hue (plus a dark low-chroma "brown"). Every plain fill needs its OWN family (Trish 2026-10-26).
 # The only allowed repeat: a non-Mexican group in a distant country that carries a texture (window.TERR_PAT dots/grid) differing from every other group in that family.
-HUE_BUCKETS = [(350, 15, "rose"), (15, 40, "red"), (40, 62, "orange"), (62, 88, "gold"), (88, 115, "olive"), (115, 150, "green"), (150, 180, "emerald"), (180, 220, "teal"), (220, 265, "sky blue"), (265, 300, "blue"), (300, 325, "violet"), (325, 350, "magenta")]
+HUE_BUCKETS = [(350, 15, "rose"), (15, 40, "red"), (40, 62, "orange"), (62, 88, "gold"), (88, 115, "olive"), (115, 150, "green"), (150, 180, "emerald"), (180, 220, "teal"), (220, 265, "sky blue"), (265, 288, "blue"), (288, 305, "periwinkle"), (305, 325, "violet"), (325, 350, "magenta")]
 ADJ = {frozenset(p) for p in [("MEX","GTM"),("MEX","BLZ"),("MEX","USA"),("GTM","SLV"),("GTM","HND"),("GTM","BLZ"),("HND","SLV"),("HND","NIC"),("COL","VEN"),("COL","ECU"),("COL","BRA"),("COL","PAN"),("COL","PER"),("VEN","BRA"),("VEN","GUY"),("BRA","PRY"),("BRA","PER"),("BRA","BOL"),("ECU","PER"),("PRY","BOL"),("PRY","ARG"),("HTI","DOM")]}
 def hue_bucket(h):
     L, a, b = lab(h); C = math.hypot(a, b); hh = math.degrees(math.atan2(b, a)) % 360

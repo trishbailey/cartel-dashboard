@@ -72,7 +72,7 @@ function mapView(topo,adm,terr,routes,cross,china,GC){
     p.append("rect").attr("width",6).attr("height",6).attr("fill",c);
     if(kind==="grid")p.append("path").attr("d","M0 .5H6M.5 0V6").attr("stroke","#0b1526").attr("stroke-opacity",.6).attr("stroke-width",1).attr("fill","none");
     else p.append("circle").attr("cx",3).attr("cy",3).attr("r",1.3).attr("fill","#0b1526").attr("fill-opacity",.6);return texp[k]=`url(#t${k})`};
-  const lvlG=(g,l)=>{const c=FC(g),k=(window.TERR_PAT||{})[g];const t=tint(c,l);return{f:k?tex(t,k):t,o:1}};
+  const lvlG=(g,l)=>{const c=FC(g),k=(window.TERR_PAT||{})[g];const t=tint(c,l);return{f:k?tex(t,k):t,o:1,r:g}};
   const style=d=>{const r=RB[d.properties.id];if(!r)return{f:"#1b2c4a",o:1};
     if(fset){const e=r.groups.filter(x=>fset.includes(x.group)).sort((a,b)=>LV[b.level]-LV[a.level]);if(!e.length)return{f:"#1b2c4a",o:1};if(e.length===1)return lvlG(e[0].group,e[0].level);return{f:pattern(e.slice(0,3).map(x=>FC(x.group))),o:1}}
     if(filt){const e=r.groups.find(x=>x.group===filt);return e?lvlG(filt,e.level):{f:"#1b2c4a",o:1}}
@@ -85,7 +85,7 @@ function mapView(topo,adm,terr,routes,cross,china,GC){
   const ad=g.append("g").selectAll("path").data(adm.features).join("path").attr("class","adm").attr("d",path).attr("stroke","none").attr("vector-effect","non-scaling-stroke").attr("stroke-width",1.5).style("cursor",d=>RB[d.properties.id]?"pointer":"default")
     .on("click",(e,d)=>regionShow(d)).on("mouseover",function(){d3.select(this).attr("stroke","#fff").raise()}).on("mouseout",function(){d3.select(this).attr("stroke",this.dataset.s||"none")});
   ad.append("title").text(d=>{const r=RB[d.properties.id];return (d.properties.name||"")+(r?": "+r.groups.map(x=>GC[x.group].name).join(", "):"")});
-  const paint=()=>ad.each(function(d){const s=style(d);this.dataset.s=s.s||"";d3.select(this).attr("fill",s.f).attr("fill-opacity",s.o).attr("stroke",s.s||"none")});paint();
+  const paint=()=>ad.each(function(d){const s=style(d);this.dataset.s=s.s||"";d3.select(this).attr("fill",s.f).attr("fill-opacity",s.o).attr("stroke",s.s||"none").attr("data-ramp",s.r||null)});paint();
   g.append("path").datum(topojson.mesh(topo,topo.objects.admin1,(a,b)=>a!==b&&a.properties.iso===b.properties.iso&&a.properties.iso!=="USA")).attr("d",path).attr("fill","none").attr("stroke","#0b1526").attr("stroke-width",.6).attr("vector-effect","non-scaling-stroke").style("pointer-events","none");
   g.append("path").datum(topojson.mesh(topo,topo.objects.countries)).attr("d",path).attr("fill","none").attr("stroke","#8fa3c4").attr("stroke-width",1).attr("vector-effect","non-scaling-stroke").style("pointer-events","none");
   function regionShow(d){const r=RB[d.properties.id],mx=stateStats(d.properties.id);if(!r){drawer(`<h2>${esc(d.properties.name||"")}</h2>${mx}<p class="muted">No sourced group footprint is mapped here. That reflects data coverage, not an absence of organized crime.</p>`);return}
