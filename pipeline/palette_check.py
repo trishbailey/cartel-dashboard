@@ -1,7 +1,7 @@
 """Colour audit (Trish 2026-10-27): every colour must be clearly distinct, no greys, no two shades of one hue family.
 Rules enforced: the plain group colours (public/palette.js TERR_FILL) differ pairwise by CIEDE2000 >= PLAIN_MIN_DE and each sits in its own hue family; small distant groups may repeat a
 plain hex only with a texture unique to that hex; timeline-only and network-only groups (CARTEL_FALL + CARTEL_TEX) follow the same (hex, texture) rule; territory.json colours equal TERR_FILL;
-presence levels change opacity, never hue; routes and overlays stand out from every fill. Sources: data/territory.json, public/palette.js, public/routes3.js, public/app.js (overlay colours)."""
+presence levels change lightness (paler = less) within the group hue, never the hue or opacity; routes and overlays stand out from every fill. Sources: data/territory.json, public/palette.js, public/routes3.js, public/app.js (overlay colours)."""
 import json, os, re, math, itertools
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MIN_DE = 20
@@ -69,7 +69,7 @@ def warnings(cols=None):
         if ps: out.append(f"[{name}] {len(sub)} colours, {len(ps)} pairs below {MIN_DE} (min shown): " + min(ps, key=lambda s: float(s.rsplit(" ", 1)[1])))
     return out
 # --- mid-tone area fills (Trish 2026-10-26): L* 45-65, HSL sat 0.4-0.7, never grey, pinks/purples allowed if not neon ---
-FILL_OP = {"dominant": 1, "significant": .82, "present": .66}  # presence level = fill-opacity over the land colour, mirrors FILLLV in public/app.js
+FILL_PALE = {"dominant": 0, "significant": .18, "present": .4}  # presence level = share of white mixed into the group hue (lighter = less, full hue = more), mirrors PALE in public/app.js
 LAND = "#1b2c4a"
 FILL_L = (36, 76); FILL_SAT = (.35, .9); FILL_C_MIN = 20; FILL_MIN_DE = 22; PLAIN_MIN_DE = 22  # relaxed from the 2026-10-26 mid-tone limits: dE >= 22 across 13 plain hue families is unreachable inside L* 40-68 / sat .4-.7
 # named hue families on CIELCh hue (plus a dark low-chroma "brown"). Every plain fill needs its OWN family (Trish 2026-10-26).
@@ -87,15 +87,15 @@ def group_countries():
         for x in r["groups"]: c.setdefault(x["group"], set()).add(r["iso"])
     return c
 def near(cx, cy): return any(a == b or frozenset((a, b)) in ADJ for a in cx for b in cy)
-ARROW_MIN_DE = 24; ARROW_MIN_CR = 2.5
+ARROW_MIN_DE = 24; ARROW_MIN_DE_PALE = 12; ARROW_MIN_CR = 2.5  # paler presence tints (lighter = less) sit closer to the bright route colours; every route line keeps its dark #0b1526 halo (routes3.js), so they only need ARROW_MIN_DE_PALE
 def pats():
     m = re.search(r"TERR_PAT=\{(.*?)\}", rd("public/palette.js"))
     return dict(re.findall(r'(\w+):"(\w+)"', m.group(1))) if m else {}
 def fills():
     m = re.search(r"TERR_FILL=\{(.*?)\}", rd("public/palette.js"))
     return {k: v.lower() for k, v in re.findall(r'(\w+):"(#[0-9a-fA-F]{6})"', m.group(1))} if m else {}
-def shade(c, lv):  # what the eye sees: the group colour at its presence opacity over the land
-    al = FILL_OP[lv]; f = [int(c[i:i+2], 16)*al+int(LAND[i:i+2], 16)*(1-al) for i in (1, 3, 5)]
+def shade(c, lv):  # what the eye sees: the group colour mixed with white by its presence level
+    w = FILL_PALE[lv]; f = [int(c[i:i+2], 16)*(1-w)+255*w for i in (1, 3, 5)]
     return lab("#%02x%02x%02x" % tuple(round(v) for v in f))
 def lum(h):
     h = h.lstrip("#"); c = [int(h[i:i+2], 16)/255 for i in (0, 2, 4)]
@@ -110,7 +110,7 @@ def check_fills(cols=None):
         if not FILL_L[0] <= L <= FILL_L[1]: errs.append(f"fill {k} {v}: lightness L*{L:.0f} outside {FILL_L}")
         if not FILL_SAT[0] <= sat(v) <= FILL_SAT[1]: errs.append(f"fill {k} {v}: HSL saturation {sat(v):.2f} outside {FILL_SAT}")
         if C < FILL_C_MIN: errs.append(f"fill {k} {v}: chroma {C:.0f} < {FILL_C_MIN} (grey)")
-        for lv in FILL_OP:
+        for lv in FILL_PALE:
             Ls, as_, bs = shade(v, lv)
             if math.hypot(as_, bs) < 15: errs.append(f"fill {k} {v} at {lv}: grey (chroma {math.hypot(as_, bs):.0f})")
     ids = sorted(F); low = []; GCN = group_countries(); PT = pats(); plain, nearp = [], []
@@ -136,10 +136,11 @@ def check_fills(cols=None):
     worst = None
     for rk, rc in routes.items():
         for k, v in F.items():
-            for lv in FILL_OP:
+            for lv in FILL_PALE:
                 fl = shade(v, lv); d = de2000(lab(rc), fl)
                 y1, y2 = lum(rc), lab_lum(fl[0]); cr = (max(y1, y2)+.05)/(min(y1, y2)+.05)
-                if d < ARROW_MIN_DE: errs.append(f"arrow {rk} {rc} vs fill {k}@{lv}: dE2000 {d:.1f} < {ARROW_MIN_DE}")
+                floor = ARROW_MIN_DE if lv == "dominant" else ARROW_MIN_DE_PALE
+                if d < floor: errs.append(f"arrow {rk} {rc} vs fill {k}@{lv}: dE2000 {d:.1f} < {floor}")
                 if worst is None or cr < worst[0]: worst = (cr, rk, rc, k, lv)
     if worst and worst[0] < ARROW_MIN_CR: warns.append("[map: route arrows on fills] lowest luminance contrast %.2f (%s %s on %s@%s); arrows/lines keep a dark #0b1526 outline" % worst)
     return errs, warns
