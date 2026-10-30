@@ -2439,150 +2439,562 @@
    "snippet": "With jury selection set to begin in just a few days, the senior military defense lawyer in the USS Cole bombing case asked the judge to postpone the trial by six months. The post Guantanamo Dispatches: USS Cole Defense Lawyers Make 11th Hour Plea for Delay of Trial Starting Monday appeared first on Just Security ."
   },
   {
-   "title": "Detienen en Nuevo León a mujer acusada de extorsionar a familias de desaparecidos en Tamaulipas; ya tenía una orden de aprehensión en su contra",
-   "url": "https://www.eluniversal.com.mx/estados/detienen-en-nuevo-leon-a-mujer-acusada-de-extorsionar-a-familias-de-desaparecidos-en-tamaulipas-ya-tenia-una-orden-de-aprehension-en-su-contra/",
-   "source": "El Universal",
-   "country": "MX",
+   "title": "San Judas Tadeo, el santo que también celebran los narcos el 28 de octubre: la devoción de \"El Mencho\" y el Cártel de Sinaloa - Infobae",
+   "url": "https://infobae.com/mexico/2026/10/28/san-judas-tadeo-el-santo-que-tambien-celebran-los-narcos-el-28-de-octubre-la-devocion-de-el-mencho-y-el-cartel-de-sinaloa",
+   "source": "infobae.com",
+   "country": "",
    "local": true,
-   "date": "2026-10-28",
+   "date": "2026-10-29",
    "theatre": "mexico",
-   "snippet": "Juana Melina “N” quedó a disposición de la autoridad judicial correspondiente",
-   "title_en": "Woman accused of extorting families of the disappeared in Tamaulipas arrested in Nuevo León; she already had an arrest warrant against her"
+   "snippet": "El alcalde López Elenes declaró ... del Cártel de Sinaloa, la donación anónima generó sospechas inmediatas. López Elenes aclaró que los donantes eran empresarios, no narcotraficantes. ... La polémica no frenó la afluencia. En octubre de 2025, pese a la guerra entre Los Chapitos y La Mayiza que fracturó ...",
+   "title_en": "Saint Jude Thaddeus, the saint narcos also celebrate on October 28: the devotion of \"El Mencho\" and the Sinaloa Cartel - Infobae"
   },
   {
-   "title": "Sheinbaum reacciona a declaraciones de Marine Le Pen sobre mexicanización de cárteles; \"Está mal informada\", dice",
-   "url": "https://www.eluniversal.com.mx/nacion/sheinbaum-reacciona-a-declaraciones-de-marine-le-pen-sobre-mexicanizacion-de-carteles-esta-mal-informada-dice/",
-   "source": "El Universal",
+   "title": "\"La caída de El Mayo\": Qué relación tenía Ismael Zambada con El Chapo",
+   "url": "https://chicmagazine.com.mx/personajes/la-caida-de-el-mayo-que-relacion-tenia-ismael-zambada-con-el-chapo",
+   "source": "chicmagazine.com.mx",
    "country": "MX",
    "local": true,
-   "date": "2026-10-28",
+   "date": "2026-10-29",
    "theatre": "mexico",
-   "snippet": "\"La mexicanización es la de los valores del pueblo de México\", indicó la Presidenta",
-   "title_en": "Sheinbaum reacts to Marine Le Pen's remarks on the Mexicanization of cartels; \"She is misinformed\", she says"
+   "snippet": "Según su versión, Guzmán López ... en Sinaloa, pero allí varios hombres lo sometieron y lo obligaron a subir al avión que lo trasladó a Estados Unidos. En noviembre de 2025, Guzmán López se declaró culpable ante un tribunal de Chicago y admitió haber secuestrado a Zambada para entregarlo a las autoridades estadounidenses, buscando beneficios procesales para sí mismo. La captura provocó una disputa",
+   "title_en": "\"The fall of El Mayo\": What relationship Ismael Zambada had with El Chapo"
   },
   {
-   "title": "Estados Unidos guía desde una base militar en Ecuador su guerra contra el narco; reportan 20 vuelos militares estadounidenses",
-   "url": "https://www.eluniversal.com.mx/mundo/estados-unidos-guia-desde-una-base-militar-de-ecuador-su-guerra-contra-el-narco-reportan-20-vuelos-militares-estadounidenses/",
-   "source": "El Universal",
+   "title": "Abaten a “Chuy González” en Guasave: DEA ofrecía 5 millones de dólares por el operador del Cártel de Sinaloa - Infobae",
+   "url": "https://www.infobae.com/mexico/2026/10/28/abaten-a-chuy-gonzalez-en-guasave-dea-ofrecia-5-millones-de-dolares-por-el-operador-del-cartel-de-sinaloa/",
+   "source": "infobae.com",
+   "country": "",
+   "local": true,
+   "date": "2026-10-29",
+   "theatre": "mexico",
+   "snippet": "Elementos de la Marina lo interceptaron tras una persecución de varias horas por comunidades rurales del norte de Sinaloa",
+   "title_en": "“Chuy González” killed in Guasave: the DEA was offering 5 million dollars for the Sinaloa Cartel operator"
+  },
+  {
+   "title": "“Chuy González”: quién era, las acusaciones de EEUU y los corridos que retratan al capo del Cártel de Sinaloa abatido en Guasave - Infobae",
+   "url": "https://infobae.com/mexico/2026/10/28/chuy-gonzalez-quien-era-las-acusaciones-de-eeuu-y-los-corridos-que-retratan-al-capo-del-cartel-de-sinaloa-abatido-en-guasave",
+   "source": "infobae.com",
+   "country": "",
+   "local": true,
+   "date": "2026-10-29",
+   "theatre": "mexico",
+   "snippet": "Corridos lo celebraban como \"hombre cabal y sincero\", pero Estados Unidos lo señalaba como uno de los mayores productores de heroína y fentanilo del norte de México",
+   "title_en": "\"Chuy González\": who he was, the US accusations and the corridos portraying the Sinaloa Cartel boss killed in Guasave - Infobae"
+  },
+  {
+   "title": "En 3 camionetas y armados: así detectó la Marina a “Chuy González” en Sinaloa, operador del Cártel de Guasave y uno de los más buscados por el FBI - Infobae",
+   "url": "https://www.infobae.com/mexico/2026/10/28/en-tres-camionetas-y-armados-asi-detecto-la-marina-a-chuy-gonzalez-operador-del-cartel-de-guasave-y-uno-de-los-mas-buscados-por-el-fbi/",
+   "source": "infobae.com",
+   "country": "",
+   "local": true,
+   "date": "2026-10-29",
+   "theatre": "mexico",
+   "snippet": "Jesús González Peñuelas fue abatido en el estado de Sinaloa luego de ser ubicado por elementos navales; las autoridades lo identifican como segundo al mando solo por debajo de Fausto Isidro Meza",
+   "title_en": "In 3 trucks and armed: how the Navy detected \"Chuy González\" in Sinaloa, Guasave Cartel operator and one of the FBI's most wanted - Infobae"
+  },
+  {
+   "title": "Abaten en Sinaloa a Chuy Peñuelas, por quien EU ofrecía 5 millones de dólares",
+   "url": "https://politica.expansion.mx/estados/2026/10/28/abaten-chuy-penuelas-sinaloa",
+   "source": "politica.expansion.mx",
    "country": "MX",
    "local": true,
-   "date": "2026-10-28",
+   "date": "2026-10-29",
+   "theatre": "mexico",
+   "snippet": "En mayo pasado, la DEA anunció nuevas sanciones contra Jesús González Peñuelas, a quien vinculó con una red presuntamente dedicada al tráfico de drogas hacia Estados Unidos y al lavado de dinero para el Cártel de Sinaloa.",
+   "title_en": "Chuy Peñuelas, for whom the US offered $5 million, killed in Sinaloa"
+  },
+  {
+   "title": "Fernando Rabat enfrenta rechazo histórico y la DC confirma acusación constitucional por decretos a extorsionadores del Tren de Aragua – Publimetro Chile",
+   "url": "https://www.publimetro.cl/noticias/2026/10/28/fernando-rabat-enfrenta-rechazo-historico-y-la-dc-confirma-ac-por-decretos-a-extorsionadores-del-tren-de-aragua/",
+   "source": "publimetro.cl",
+   "country": "CL",
+   "local": true,
+   "date": "2026-10-29",
+   "theatre": "venezuela-caribbean",
+   "snippet": "Los delincuentes integraban una banda detenida en La Serena en diciembre de 2021 por extorsionar a mujeres migrantes a cambio de permitirles ejercer el comercio sexual, presentándose explícitamente ante sus víctimas como miembros del Tren de Aragua.",
+   "title_en": "Fernando Rabat faces historic rejection and the DC confirms a constitutional accusation over decrees for Tren de Aragua extortionists – Publimetro Chile"
+  },
+  {
+   "title": "Detienen a un alcalde en Ecuador por liderar presuntamente una red de lavado de activos - Infobae",
+   "url": "https://www.infobae.com/america/agencias/2026/10/28/detienen-a-un-alcalde-en-ecuador-por-liderar-presuntamente-una-red-de-lavado-de-activos/",
+   "source": "infobae.com",
+   "country": "",
+   "local": true,
+   "date": "2026-10-29",
    "theatre": "andes",
-   "snippet": "",
-   "title_en": "The United States runs its war on drugs from a military base in Ecuador; 20 US military flights reported"
+   "snippet": "Además, señaló que se identificaron ... y 'Metástasis', así como con los grupos criminales Los Choneros y Los Lobos. ... Esos dos grupos criminales fueron declarados como \"terroristas\" por el presidente de Ecuador, Daniel Noboa, quien en 2024 declaró el \"conflicto armado interno\" ...",
+   "title_en": "A mayor in Ecuador arrested for allegedly leading a money-laundering network - Infobae"
   },
   {
-   "title": "Inauguran puente Amado Nervo para mejorar conectividad entre Jalisco y Nayarit; beneficia a 479 mil habitantes",
-   "url": "https://www.eluniversal.com.mx/nacion/inauguran-puente-amado-nervo-para-mejorar-conectividad-entre-jalisco-y-nayarit-beneficia-a-479-mil-habitantes/",
-   "source": "El Universal",
+   "title": "EZLN y las familias de desaparecidos | Proceso",
+   "url": "https://proceso.com.mx/opinion/2026/10/28/ezln-y-las-familias-de-desaparecidos-382675.html",
+   "source": "proceso.com.mx",
    "country": "MX",
    "local": true,
-   "date": "2026-10-28",
+   "date": "2026-10-29",
    "theatre": "mexico",
-   "snippet": "La construcción del puente representó una inversión federal de 760 millones de pesos",
-   "title_en": "Amado Nervo bridge inaugurated to improve connectivity between Jalisco and Nayarit; benefits 479,000 residents"
+   "snippet": "Nadie de la dirigencia salió a hablar con el grupo, los dejaron en las puertas del llamado caracol “Resistencia y Rebeldía por la Humanidad”. Más tarde, en un comunicado Marcos cuestionó que el movimiento de desaparecidos buscara la interlocución oficial para detener la ola de muertes ...",
+   "title_en": "The EZLN and the families of the disappeared | Proceso"
   },
   {
-   "title": "Jalisco: 10 de las mejores actividades del Festival de las Almas",
-   "url": "https://www.eluniversal.com.mx/destinos/jalisco-10-de-las-mejores-actividades-del-festival-de-las-almas/",
-   "source": "El Universal",
-   "country": "MX",
+   "title": "Latinobarómetro 2026· la democracia resiste en América Latina, pero crece el desencanto con sus gobiernos",
+   "url": "https://primicias.ec/revistagestion/analisis/latinobarometro-democracia-resiste-america-latina-gobiernos-135866",
+   "source": "primicias.ec",
+   "country": "EC",
    "local": true,
-   "date": "2026-10-28",
+   "date": "2026-10-29",
+   "theatre": "central-america",
+   "snippet": "A ello se suman la mano dura, que ... y un crimen organizado al que 79% atribuye mucho o bastante poder. El Salvador, que el informe ya no califica como democracia, es la advertencia: la inseguridad hundió allí el apoyo democrático, de 68% en 2009 a 28% en 2018. Hoy Bukele es, según The Economist, “la figura ...",
+   "title_en": "Latinobarómetro 2026: democracy holds in Latin America, but disenchantment with its governments grows"
+  },
+  {
+   "title": "¿Quién era Jesús “Chuy” González Peñuelas? La DEA ofrecía 5 millones de dólares por él",
+   "url": "https://tvazteca.com/aztecanoticias/quien-era-jesus-chuy-gonzalez-penuelas-la-dea-ofrecia-5-millones-dolares-por-el",
+   "source": "tvazteca.com",
+   "country": "",
+   "local": false,
+   "date": "2026-10-29",
    "theatre": "mexico",
-   "snippet": "Hasta el 14 de noviembre, varios municipios del estado organizarán experiencias especiales por el Día de Muertos. Estas son algunas de las mejores",
-   "title_en": "Jalisco: 10 of the best activities at the Festival de las Almas"
+   "snippet": "El nombre de “Chuy” González ... del Cártel de Sinaloa. Inicialmente habría operado para “Los Chapitos”, grupo vinculado con los hijos de Joaquín “El Chapo” Guzmán, y posteriormente habría pasado a trabajar con “Los Mayos” o “La Mayiza”, facción ..."
   },
   {
-   "title": "Ataque en la embajada de Israel en Serbia deja un policía herido; autoridades tratan el incidente como “ataque terrorista”",
-   "url": "https://www.eluniversal.com.mx/mundo/ataque-en-la-embajada-de-israel-en-serbia-deja-un-policia-herido-autoridades-tratan-el-incidente-como-ataque-terrorista/",
-   "source": "El Universal",
-   "country": "MX",
-   "local": true,
-   "date": "2026-10-28",
-   "theatre": "region",
-   "snippet": "Los fiscales serbios indicaron que una “persona vestida con ropa negra” abrió la puerta de la caseta del guarda en el exterior de la embajada",
-   "title_en": "Attack at the Israeli embassy in Serbia leaves a police officer wounded; authorities treat the incident as a \"terrorist attack\""
-  },
-  {
-   "title": "Abaten en Sinaloa a \"Chuy González\", buscado por la DEA; ofrecían 5 millones de dólares por él",
-   "url": "https://www.eluniversal.com.mx/estados/elementos-federales-abaten-en-sinaloa-a-chuy-gonzalez-buscado-por-la-dea-ofrecian-5-millones-de-dolares-por-el/",
-   "source": "El Universal",
-   "country": "MX",
-   "local": true,
-   "date": "2026-10-28",
-   "theatre": "mexico",
-   "snippet": "El secretario de Seguridad, Omar García Harfuch, detalló que \"Chuy González\" formaba parte del Cártel de Guasave",
-   "title_en": "\"Chuy González\", wanted by the DEA, killed in Sinaloa; a $5 million reward was offered for him"
-  },
-  {
-   "title": "CEDHJ descarta tortura en marcha por el agua, pese a pruebas de los detenidos",
-   "url": "https://www.jornada.com.mx/2026/10/28/estados/027n2est?partner=rss",
-   "source": "La Jornada (estados)",
-   "country": "MX",
-   "local": true,
-   "date": "2026-10-28",
-   "theatre": "mexico",
-   "snippet": "Guadalajara, Jal., La Comisión Estatal de Derechos Humanos (CEDHJ) descartó “actos de tortura” relacionados con la represión que autoridades jaliscienses ejercieron contra decenas de ciudadanos el 11 de octubre, durante una manifestación en Casa Jalisco contra el suministro de agua contaminada en Guadalajara, pese a los partes médicos de las personas detenidas ese día –siete de ellos en poder de L",
-   "title_en": "CEDHJ rules out torture in the water march, despite evidence from those detained"
-  },
-  {
-   "title": "Fustiga Claudia Sheinbaum bloqueos carreteros, pese al “diálogo abierto”",
-   "url": "https://www.jornada.com.mx/2026/10/28/estados/026n1est?partner=rss",
-   "source": "La Jornada (estados)",
-   "country": "MX",
-   "local": true,
-   "date": "2026-10-28",
-   "theatre": "region",
-   "snippet": "Después de la movilización de transportistas bloqueando carreteras en diversas entidades del país, la presidenta Claudia Sheinbaum Pardo fustigó esta forma de protesta cuando estaba abierto el diálogo en la Secretaría de Gobernación con la presencia del titular de Hacienda, Édgar Amador y del comandante de la Guardia Nacional, Guillermo Briseño.",
-   "title_en": "Claudia Sheinbaum lambasts highway blockades, despite \"open dialogue\""
-  },
-  {
-   "title": "Gabinete de seguridad federal inicia visitas de supervisión en Sinaloa",
-   "url": "https://www.jornada.com.mx/2026/10/28/estados/026n4est?partner=rss",
-   "source": "La Jornada (estados)",
-   "country": "MX",
-   "local": true,
-   "date": "2026-10-28",
-   "theatre": "mexico",
-   "snippet": "El gabinete de seguridad federal inició visitas de supervisión en Sinaloa, estado que lleva más de dos años afectado por la guerra interna entre las facciones Los Mayos y Los Chapitos del cártel de Sinaloa, a fin de reforzar la coordinación con autoridades locales.",
-   "title_en": "Federal security cabinet begins supervision visits in Sinaloa"
-  },
-  {
-   "title": "SEMAR mató a “Chuy Peñuelas”, operador del ‘Cártel de Guasave’, confirma Harfuch",
-   "url": "https://zetatijuana.com/2026/10/semar-mato-a-chuy-penuelas-operador-del-cartel-de-guasave-confirma-harfuch/?utm_source=rss&utm_medium=rss&utm_campaign=semar-mato-a-chuy-penuelas-operador-del-cartel-de-guasave-confirma-harfuch",
-   "source": "Zeta Tijuana",
-   "country": "MX",
-   "local": true,
-   "date": "2026-10-28",
-   "theatre": "region",
-   "snippet": "La identificación de los dos fallecidos quedó pendiente de confirmación mediante pruebas genéticas y dactiloscópicas, informaron las autoridades federales",
-   "title_en": "SEMAR killed \"Chuy Peñuelas\", operator of the 'Guasave Cartel', Harfuch confirms"
-  },
-  {
-   "title": "Muere en un operativo en Sinaloa Jesús ‘Chuy’ González Peñuelas, cabeza del Cartel de Guasave",
-   "url": "https://elpais.com/mexico/2026-10-28/muere-en-un-operativo-en-sinaloa-jesus-chuy-gonzalez-penuelas-cabeza-del-cartel-de-guasave.html",
-   "source": "El Pais Mexico",
-   "country": "MX",
-   "local": true,
-   "date": "2026-10-28",
-   "theatre": "mexico",
-   "snippet": "Estados Unidos ofrecía una recompensa de cinco millones de dólares por el colaborador de Fausto Isidro Meza Flores y de Rafael Caro Quintero",
-   "title_en": "Jesús 'Chuy' González Peñuelas, head of the Guasave Cartel, dies in an operation in Sinaloa"
-  },
-  {
-   "title": "Policías bolivianos de alto rango detenidos e investigados por el presunto robo de millones de dólares a un narco",
-   "url": "https://elpais.com/america/2026-10-28/policias-bolivianos-de-alto-rango-detenidos-e-investigados-por-el-presunto-robo-de-millones-de-dolares-del-narco-marset.html",
-   "source": "El Pais Mexico",
-   "country": "MX",
-   "local": true,
-   "date": "2026-10-28",
+   "title": "Atención: Fuerzas Militares ejecutaron sexto bombardeo del gobierno de De La Espriella; fue contra 'Mordisco' - El Tiempo",
+   "url": "https://eltiempo.com/justicia/conflicto-y-narcotrafico/atencion-fuerzas-militares-ejecutaron-sexto-bombardeo-del-gobierno-de-de-la-espriella-fue-contra-mordisco-en-cauca-3596854",
+   "source": "eltiempo.com",
+   "country": "",
+   "local": false,
+   "date": "2026-10-29",
    "theatre": "andes",
-   "snippet": "Un exjefe de Inteligencia ya está en la cárcel, un capitán fue arrestado este martes y dos coroneles tienen órdenes de aprehensión",
-   "title_en": "High-ranking Bolivian police officers arrested and investigated over the alleged theft of millions of dollars from a narco"
+   "snippet": "Tropas del Ejército comenzaron a ingresar a la zona para verificar los resultados de la operación contra las estructuras del disidente."
+  },
+  {
+   "title": "Lo que se sabe del sexto bombardeo del gobierno de Abelardo De La Espriella en el suroccidente del país: el Conat ejecutó la operación - El Tiempo",
+   "url": "https://eltiempo.com/justicia/conflicto-y-narcotrafico/lo-que-se-sabe-del-sexto-bombardeo-del-gobierno-de-abelardo-de-la-espriella-en-el-suroccidente-del-pais-el-conat-ejecuto-la-operacion-3596901",
+   "source": "eltiempo.com",
+   "country": "",
+   "local": false,
+   "date": "2026-10-29",
+   "theatre": "andes",
+   "snippet": "Tropas especializadas avanzan hacia la zona para verificar los resultados. Fue 'importante' y 'estratégico', dijo el presidente."
   }
  ],
  "analysis": [
+  {
+   "theatre": "mexico",
+   "headline": "Gulf Cartel cells block Matamoros and three other Tamaulipas cities after the recapture of Axel Cárdenas",
+   "what_happened": "Authorities recaptured Axel Alfredo Cárdenas Rodríguez, named as second in command of Los Ciclones and a relative of Osiel Cárdenas, in Matamoros, La Jornada and Infobae report. At least 15 blockades with burning vehicles followed in Matamoros, Río Bravo, San Fernando and Valle Hermoso. Milenio counts five dead, including a girl, while La Jornada counts six.",
+   "says_vs_does": "The federal government called the court ruling that freed him more than two years ago irregular, Infobae reports. The record shows he walked free under that ruling until this week's arrest.",
+   "follow_the_money": "Milenio cites estimated losses of 30 million pesos from the blockades. Sources do not give a figure for Los Ciclones' revenue.",
+   "at_stake": "Los Ciclones showed they can shut down a border city within hours of losing a leader. Three bridges to Brownsville closed for several hours, Mexico News Daily and Breitbart report.",
+   "tensions": [
+    "Los Ciclones vs federal forces: the faction answered an arrest with city-wide blockades that halted cross-border traffic."
+   ],
+   "cites": [
+    "E4",
+    "E131",
+    "E129",
+    "E36",
+    "E137",
+    "E118",
+    "IC_GULF"
+   ],
+   "date": "2026-10-30",
+   "links": [
+    {
+     "title": "En Tamaulipas, 6 muertos en narcobloqueos luego de la captura del capo Axel",
+     "url": "https://www.jornada.com.mx/2026/10/30/estados/031n1est?partner=rss",
+     "source": "La Jornada (estados)",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "Bloqueos por 4 horas tras golpe a mando de Ciclones- Grupo Milenio",
+     "url": "https://milenio.com/policia/bloqueos-por-4-horas-tras-golpe-a-mando-de-ciclones",
+     "source": "milenio.com",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "Enfrentamiento tras detención en Matamoros dejó cinco fallecidos- Grupo Milenio",
+     "url": "https://milenio.com/policia/enfrentamiento-tras-detencion-en-matamoros-dejo-cinco-fallecidos",
+     "source": "milenio.com",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "“El Titán” del Cártel del Golfo: el historial criminal que llevó a su nueva detención a dos años de su polémica liberación - Infobae",
+     "url": "https://www.infobae.com/mexico/2026/10/30/el-titan-del-cartel-del-golfo-el-historial-criminal-que-llevo-a-su-nueva-detencion-a-dos-anos-de-su-polemica-liberacion/",
+     "source": "infobae.com",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "Cartel roadblocks paralyze Matamoros after arrest of Gulf Cartel leader’s son",
+     "url": "https://mexiconewsdaily.com/news/cartel-roadblocks-matamoros-arrest-gulf-cartel-leader-son/",
+     "source": "Mexico News Daily",
+     "date": "2026-10-29"
+    },
+    {
+     "title": "International Bridges in Texas Closed Due to Mexican Cartel Terror",
+     "url": "https://www.breitbart.com/border/2026/10/29/international-bridges-in-texas-closed-due-to-mexican-cartel-terror/",
+     "source": "breitbart.com",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "Gulf Cartel profile",
+     "url": "https://insightcrime.org/mexico-organized-crime-news/gulf-cartel-profile/",
+     "source": "InSight Crime",
+     "date": "2026"
+    }
+   ]
+  },
+  {
+   "theatre": "border",
+   "headline": "San Diego prosecutors add a terrorism charge against the engineer accused of building a CJNG tunnel into the US",
+   "what_happened": "A San Diego federal grand jury indicted Luis Manuel Hernández Victoria, alias El Ingeniero, on four counts for designing and building a cross-border tunnel, Zeta Tijuana and Milenio report. He was arrested in Jalisco on 15 October.",
+   "says_vs_does": "US Attorney Adam Gordon said Hernández engineered his own downfall. The material-support-for-terrorism count rests on the US designation of the CJNG as a foreign terrorist organisation.",
+   "follow_the_money": "Sources do not give a figure. Zeta reports more than one tonne of cocaine was seized in the tunnel case.",
+   "at_stake": "Washington applies terrorism law to a technical specialist, not only cartel commanders. It is the seventh indictment in the tunnel case, Zeta reports.",
+   "tensions": [
+    "CJNG vs US prosecutors: the FTO designation turns infrastructure builders into terrorism defendants."
+   ],
+   "cites": [
+    "E5",
+    "E68",
+    "E27",
+    "E69",
+    "E67",
+    "FTO"
+   ],
+   "date": "2026-10-30",
+   "links": [
+    {
+     "title": "Fiscalía de EU acusa a ingeniero mexicano por narcotúnel del CJNG",
+     "url": "https://zetatijuana.com/2026/10/fiscalia-de-eu-acusa-a-ingeniero-mexicano-por-narcotunel-del-cjng/?utm_source=rss&utm_medium=rss&utm_campaign=fiscalia-de-eu-acusa-a-ingeniero-mexicano-por-narcotunel-del-cjng",
+     "source": "Zeta Tijuana",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "EU acusa ingeniero mexicano construir túnel transfronterizo para CJNG- Grupo Milenio",
+     "url": "https://milenio.com/policia/eu-acusa-ingeniero-mexicano-construir-tunel-transfronterizo-para-cjng",
+     "source": "milenio.com",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "EEUU acusa a “El Ingeniero”, mexicano señalado por construir narcotúnel del CJNG en Tijuana - Infobae",
+     "url": "https://infobae.com/mexico/2026/10/30/eeuu-acusa-a-el-ingeniero-mexicano-senalado-por-construir-narcotunel-del-cjng-en-tijuana",
+     "source": "infobae.com",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "EE.UU. acusa a “El Ingeniero”, operador del CJNG encargado de diseñar y construir narcotúneles - La Opinión",
+     "url": "https://laopinion.com/2026/10/30/ee-uu-acusa-a-el-ingeniero-operador-del-cjng-encargado-de-disenar-y-construir-narcotuneles",
+     "source": "laopinion.com",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "Feds bring terrorism charge against engineer who ran cartel smuggling tunnel",
+     "url": "https://washingtontimes.com/news/2026/oct/30/feds-bring-terrorism-charge-engineer-who-ran-cartel-smuggling-tunnel",
+     "source": "washingtontimes.com",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "Foreign Terrorist Organizations list",
+     "url": "https://www.state.gov/foreign-terrorist-organizations",
+     "source": "US Department of State",
+     "date": "2026-10-25"
+    }
+   ]
+  },
+  {
+   "theatre": "andes",
+   "headline": "Ecuador extradites a Los Choneros leader and two men tied to the Villavicencio murder to the US",
+   "what_happened": "Ecuador extradited Daniel Salcedo, ex-police officer Ronald Herrera and Francisco Manuel Bermúdez, alias Churrón, a Los Choneros leader, Primicias and El Universal report. Herrera is serving 34 years for murder and was a protected witness in the Villavicencio case.",
+   "says_vs_does": "Herrera alleged that a criminal structure tried to buy his silence to change his testimony, Primicias reports. That is his claim; sources show no charge over it.",
+   "follow_the_money": "Primicias links eight recent extraditions to a network joining Los Choneros' leadership, FARC cocaine suppliers, crypto launderers and state contacts. Sources do not give a figure.",
+   "at_stake": "The Noboa government moves high-value detainees out of Ecuador's prisons and courts. The ruling ADN also expelled Naranjal's mayor after narcotrafficking accusations, which he calls a smear.",
+   "tensions": [
+    "Los Choneros vs the Noboa government: leaders now face US courts rather than Ecuadorian prisons they once ran."
+   ],
+   "cites": [
+    "E55",
+    "E40",
+    "E41",
+    "E95",
+    "E91",
+    "E54",
+    "IC_CHONEROS"
+   ],
+   "date": "2026-10-30",
+   "links": [
+    {
+     "title": "Ecuador extradita a Daniel Salcedo, Ronald Herrera y alias 'Churrón' a Estados Unidos",
+     "url": "https://primicias.ec/politica/ecuador-extraditacion-daniel-salcedo-ronald-herrera-alias-churron-estados-unidos-135962",
+     "source": "primicias.ec",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "Narcotráfico, guerrilla y lavado cripto· estos son los nexos entre las extradiciones a Estados Unidos desde Ecuador",
+     "url": "https://primicias.ec/seguridad/narcotrafico-guerrilla-lavado-cripto-nexos-extradiciones-estados-unidos-ecuador-136002",
+     "source": "primicias.ec",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "Ecuador extradita a EU a 2 vinculados con asesinato de Fernando Villavicencio; también envía a un cabecilla de \"Los Choneros\" | El Universal",
+     "url": "https://eluniversal.com.mx/mundo/ecuador-extradita-a-eu-a-2-vinculados-con-asesinato-de-fernando-villavicencio-tambien-envia-a-un-cabecilla-de-los-choneros",
+     "source": "eluniversal.com.mx",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "Extraditan a EEUU a tres ecuatorianos acusados de narcotráfico, incluido cabecilla de Los Choneros | AP News",
+     "url": "https://apnews.com/article/ecuador-eeuu-extradicion-narcotrafico-choneros-villavicencio-dcc24b81be65bacd8af50d888ed70c5d",
+     "source": "apnews.com",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "Ecuador extradita a EEUU al presunto autor intelectual del magnicidio de Fernando Villavicencio",
+     "url": "https://diariolasamericas.com/america-latina/ecuador-extradita-eeuu-al-presunto-autor-intelectual-del-magnicidio-fernando-villavicencio-n5404453",
+     "source": "diariolasamericas.com",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "ADN le quita el respaldo al alcalde de Naranjal, Juan Carlos Rivera, y empieza proceso para expulsarlo del movimiento",
+     "url": "https://primicias.ec/politica/adn-respaldo-alcalde-naranjal-juan-carlos-rivera-acusaciones-narcotrafico-136001",
+     "source": "primicias.ec",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "Los Choneros profile",
+     "url": "https://insightcrime.org/ecuador-organized-crime-news/los-choneros/",
+     "source": "InSight Crime",
+     "date": "2026"
+    }
+   ]
+  },
+  {
+   "theatre": "andes",
+   "headline": "Colombian outlets identify a Clan del Golfo commander in the Chocó bombing as police hit a fuel-theft network",
+   "what_happened": "El Tiempo and Infobae report that the sixth bombing under President De la Espriella killed Yeisón Arley García Atehortúa, alias Alex, in Nóvita, Chocó. In a separate case, authorities dismantled a network accused of stealing a million gallons of fuel from a pipeline.",
+   "says_vs_does": "Officials call Alex a high-value target, but El Tiempo still reports his death as unconfirmed. Six people died in the strike, and the government's operational details remain pending.",
+   "follow_the_money": "El Tiempo reports the stolen fuel financed the ELN, the Clan del Golfo and Los Pachenca, using information from public officials. Sources do not give a peso figure.",
+   "at_stake": "The government shows results from air strikes it resumed with fewer restrictions. Armed groups lose a revenue stream that depended on state insiders.",
+   "tensions": [
+    "Clan del Golfo vs ELN and FARC dissidents: Alex reportedly led fights with both over southern Chocó's routes."
+   ],
+   "cites": [
+    "E96",
+    "E98",
+    "E42",
+    "E102",
+    "E100",
+    "ELTIEMPO_CLAN"
+   ],
+   "date": "2026-10-30",
+   "links": [
+    {
+     "title": "Alias Alex, el cabecilla del ‘clan del Golfo’ que habría muerto en el sexto bombardeo ordenado por De La Espriella - El Tiempo",
+     "url": "https://eltiempo.com/justicia/conflicto-y-narcotrafico/alias-alex-el-cabecilla-del-clan-del-golfo-que-habria-muerto-en-el-sexto-bombardeo-ordenado-por-de-la-espriella-3597359",
+     "source": "eltiempo.com",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "Esta es la estructura del ‘clan del Golfo’ y el municipio de Chocó donde se registró el sexto bombardeo del Gobierno De La Espriella - El Tiempo",
+     "url": "https://eltiempo.com/justicia/conflicto-y-narcotrafico/esta-es-la-estructura-del-clan-del-golfo-y-el-municipio-de-choco-donde-se-registro-el-sexto-bombardeo-del-gobierno-de-la-espriella-3597281",
+     "source": "eltiempo.com",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "Bombardeo en Chocó dejó seis muertos, entre ellos alias Álex, cabecilla del Clan del Golfo: este es el perfil - Infobae",
+     "url": "https://infobae.com/colombia/2026/10/30/bombardeo-en-choco-dejo-seis-muertos-entre-ellos-alias-alex-cabecilla-del-clan-del-golfo-este-es-el-perfil",
+     "source": "infobae.com",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "Sin algunas restricciones a bombardeos, De la Espriella anuncia ataque aéreo que deja seis muertos y un capturado - Yahoo Noticias",
+     "url": "https://es-us.noticias.yahoo.com/restricciones-bombardeos-espriella-anuncia-ataque-032013643.html",
+     "source": "es-us.noticias.yahoo.com",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "Golpe a red que habría robado un millón de galones de combustible para financiar al Eln, ‘clan del Golfo’ y ‘los Pachenca’ - El Tiempo",
+     "url": "https://eltiempo.com/justicia/conflicto-y-narcotrafico/golpe-a-red-que-habria-robado-un-millon-de-galones-de-combustible-para-financiar-al-eln-clan-del-golfo-y-los-pachenca-3597444",
+     "source": "eltiempo.com",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "Cómo está operando hoy el Clan del Golfo",
+     "url": "https://www.eltiempo.com/politica/proceso-de-paz/como-esta-operando-hoy-el-clan-del-golfo-el-grupo-ilegal-con-mas-presencia-en-el-pais-y-al-que-el-gobierno-le-abrio-las-puertas-de-la-paz-total-3388098",
+     "source": "El Tiempo",
+     "date": "2024"
+    }
+   ]
+  },
+  {
+   "theatre": "mexico",
+   "headline": "The DEA claims a share in the Navy's killing of Guasave Cartel operator Chuy González",
+   "what_happened": "The Navy killed Jesús González Peñuelas, alias Chuy, a Guasave Cartel operator with a 5 million dollar US reward, Borderland Beat and Diario de Morelos report. Separately, the Army seized 15 kilos of a fentanyl precursor in Ahome, Noroeste reports.",
+   "says_vs_does": "DEA Administrator Terry Cole said US collaboration contributed to the operation, Infobae reports. Mexico's security chiefs announced the operation as a federal action, and sources show no detail of the US role.",
+   "follow_the_money": "The US reward was 5 million dollars. Sources do not give a figure for the group's revenue or the precursor's value.",
+   "at_stake": "Milenio describes the Guasave Cartel as a Mayiza ally that expanded in northern Sinaloa during the war. Washington and Mexico City each gain from claiming the result.",
+   "tensions": [
+    "DEA vs Mexican government: both present the same killing as their own result."
+   ],
+   "cites": [
+    "E141",
+    "E63",
+    "E37",
+    "E61",
+    "E31",
+    "E32"
+   ],
+   "date": "2026-10-30",
+   "links": [
+    {
+     "title": "The Navy Kills Jesús González Peñuelas, \"El Chuy,\" in Sinaloa",
+     "url": "https://www.borderlandbeat.com/2026/10/the-navy-kills-jesus-gonzalez-penuelas.html",
+     "source": "Borderland Beat",
+     "date": "2026-10-28"
+    },
+    {
+     "title": "Marina abate a Chuy Peñuelas: quién era el operador del Cártel de Guasave por el que EU ofrecía 5 millones",
+     "url": "https://diariodemorelos.com/noticias/marina-abate-chuy-penuelas-operador-cartel-guasave-buscado-por-eu-por-5-millones-dolares",
+     "source": "diariodemorelos.com",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "DEA se atribuye participación en abatimiento del ‘Chuy González’, operador del Cártel de Guasave - Infobae",
+     "url": "https://www.infobae.com/mexico/2026/10/29/dea-se-atribuye-participacion-en-abatimiento-del-chuy-gonzalez-operador-del-cartel-de-guasave/",
+     "source": "infobae.com",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "Cártel de Guasave: Quiénes son y cómo creció el poder del Chapo Isidro- Grupo Milenio",
+     "url": "https://milenio.com/policia/cartel-de-guasave-quienes-son-y-como-crecio-el-poder-del-chapo-isidro",
+     "source": "milenio.com",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "Decomisan 15 kilos de precursor para fentanilo en Ahome y arsenal en Concordia",
+     "url": "https://noroeste.com.mx/seguridad/decomisan-15-kilos-de-precursor-para-fentanilo-en-ahome-y-arsenal-en-concordia-CM26912189",
+     "source": "noroeste.com.mx",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "Ejército asegura 15 kilos de precursor químico para fentanilo en Villa de Ahome - Sinaloahoy",
+     "url": "https://sinaloahoy.com.mx/portal/ejercito-asegura-15-kilos-de-precursor-quimico-para-fentanilo-en-villa-de-ahome",
+     "source": "sinaloahoy.com.mx",
+     "date": "2026-10-30"
+    }
+   ]
+  },
+  {
+   "theatre": "money",
+   "headline": "A Chinese broker based in Honduras gets 12 years in a US cocaine, laundering and terrorism-support case",
+   "what_happened": "Wenshen Xu, a Honduras-based Chinese national extradited from Guatemala, received 12 years in prison, the Justice Department says. In Oaxaca, three travellers from Dallas were caught with 365,865 undeclared dollars, Borderland Beat reports.",
+   "says_vs_does": "A Democratic senator asked for a full probe of Bank of America, and La Opinión says a fifth of the sum is tied to Chinese networks and cartels. That is an allegation, not a proven laundering finding.",
+   "follow_the_money": "Xu received a 22 million dollar money judgement. The Oaxaca seizure was 365,865 dollars and 5,900 pesos moving south from Texas.",
+   "at_stake": "US prosecutors show Chinese brokers in Central America within reach of terrorism charges. Smugglers lost bulk cash at a regional airport rather than a land crossing.",
+   "tensions": [
+    "Chinese money brokers vs US prosecutors: the FTO designations now reach launderers as well as traffickers."
+   ],
+   "cites": [
+    "E77",
+    "E14",
+    "E79",
+    "FINCEN_CMLN_ADV"
+   ],
+   "date": "2026-10-30",
+   "links": [
+    {
+     "title": "Office of Public Affairs | Chinese National Sentenced to 12 Years in Prison for Narcotics Trafficking, Money Laundering, and Material Support to Terrorism | United States Department of Justice",
+     "url": "https://justice.gov/opa/pr/chinese-national-sentenced-12-years-prison-narcotics-trafficking-money-laundering-and",
+     "source": "justice.gov",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "They Arrived From Texas With $365,000 in Undeclared Cash; They’re Facing Charges in Oaxaca",
+     "url": "https://www.borderlandbeat.com/2026/10/they-arrived-from-texas-with-365000-in.html",
+     "source": "Borderland Beat",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "Senadora demócrata pide investigar a fondo al Bank of America por temas ligados a lavado de dinero - La Opinión",
+     "url": "https://laopinion.com/2026/10/29/senadora-democrata-pide-investigar-a-fondo-al-bank-of-america-por-temas-ligados-a-lavado-de-dinero",
+     "source": "laopinion.com",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "FinCEN Advisory FIN-2025-A003 on Chinese money laundering networks",
+     "url": "https://www.fincen.gov/system/files/2025-08/FinCEN-Advisory-CMLN-508.pdf",
+     "source": "FinCEN",
+     "date": "2025-08-28"
+    }
+   ]
+  },
+  {
+   "theatre": "central-america",
+   "headline": "Costa Rican prosecutors say cargo-theft gangs load drugs into legitimate containers as Panama seizes 1,208 packages",
+   "what_happened": "Costa Rica's prosecutors found that gangs combining cargo theft, extortion and drug trafficking use customs information to pick high-value loads, Infobae reports. Panama seized 1,208 drug packages in under 24 hours, including in Chilean goods bound for Spain.",
+   "says_vs_does": "The Costa Rican state itself calls its response insufficient, Infobae reports. Trucking firms report three hijackings a week in 2025.",
+   "follow_the_money": "Sources do not give a figure.",
+   "at_stake": "Gangs gain access to legitimate export chains through customs data. Exporters face contaminated containers they did not load.",
+   "tensions": [
+    "Cargo gangs vs Costa Rican customs: the gangs exploit the state's own shipping data."
+   ],
+   "cites": [
+    "E21",
+    "E20",
+    "E18"
+   ],
+   "date": "2026-10-30",
+   "links": [
+    {
+     "title": "La Fiscalía alerta que bandas de robo de carga contaminan contenedores legítimos con droga en Costa Rica",
+     "url": "https://www.infobae.com/costa-rica/2026/10/30/la-fiscalia-alerta-que-bandas-de-robo-de-carga-contaminan-contenedores-legitimos-con-droga-en-costa-rica/",
+     "source": "Infobae America",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "Cómo las bandas criminales convirtieron los corredores logísticos de Costa Rica en una de las zonas de mayor riesgo para el transporte de carga en Centroamérica",
+     "url": "https://www.infobae.com/costa-rica/2026/10/30/como-las-bandas-criminales-convirtieron-los-corredores-logisticos-de-costa-rica-en-una-de-las-zonas-de-mayor-riesgo-para-el-transporte-de-carga-en-centroamerica/",
+     "source": "Infobae America",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "Panamá golpea al narcotráfico con 1,208 paquetes de droga incautados en menos de 24 horas",
+     "url": "https://www.infobae.com/panama/2026/10/30/panama-golpea-al-narcotrafico-con-1208-paquetes-de-droga-incautados-en-menos-de-24-horas/",
+     "source": "Infobae America",
+     "date": "2026-10-30"
+    }
+   ]
+  },
+  {
+   "theatre": "border",
+   "headline": "Texas gives its National Guard access to nine Rio Grande islands as CBP misses its monthly data release",
+   "what_happened": "Texas authorised its National Guard to enter nine islands in the Rio Grande for border security, El País reports. Mexico's foreign ministry asked that boundary treaties be respected and called it a federal matter.",
+   "says_vs_does": "Texas frames the move as operational security. WOLA notes CBP has not published last month's apprehension and seizure data, so official border claims lack their usual public record.",
+   "follow_the_money": "Sources do not give a figure.",
+   "at_stake": "Texas asserts control over disputed river land on its own authority. Mexico defends treaty boundaries without confronting the US federal government.",
+   "tensions": [
+    "Texas vs Mexico: a state government acts on land the two countries manage by treaty."
+   ],
+   "cites": [
+    "E6",
+    "E58"
+   ],
+   "date": "2026-10-30",
+   "links": [
+    {
+     "title": "Texas se apropia de nueve islas en el Río Bravo y México pide que se respeten los tratados",
+     "url": "https://elpais.com/mexico/2026-10-30/texas-se-apropia-de-nueve-islas-en-el-rio-bravo-y-mexico-pide-que-se-respeten-los-tratados.html",
+     "source": "El Pais Mexico",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "Unusually late border data from CBP",
+     "url": "https://adamisacson.com/unusually-late-border-data-from-cbp/",
+     "source": "WOLA Border Update",
+     "date": "2026-10-30"
+    }
+   ]
+  },
   {
    "theatre": "mexico",
    "headline": "Marina arrests El Semáforo, named as El Tanque's successor in the CJNG, in Tuxtepec, Oaxaca",
