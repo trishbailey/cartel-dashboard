@@ -47,6 +47,8 @@ trends = [
   "context": "CJNG is Mexico's most widely spread cartel. Mexican and US authorities now build parallel cases against its regional commanders, while it keeps fighting rivals in Michoacán, Veracruz and the Isthmus.",
   "context_sources": ["IC_CJNG"],
   "developments": [
+   dev("2026-10-30", "United States", "US prosecutions are reaching CJNG's cross-border support network, not only its commanders: a US court sentenced a Chinese national to 12 years for helping CJNG traffic drugs and launder money, and the engineer accused of designing a CJNG narco-tunnel into the US became the seventh person charged in the Tijuana tunnel case, where more than a tonne of cocaine was seized.", "Single source",
+      ["x:2116201666726805979", "x:2116221093333926231", "x:2115994792165351472"], ["MEX-2706"], ["cjng"]),
    dev("2026-10-28", "Oaxaca", "Navy, federal security and prosecutors' forces arrested Carlos César Cruz Muñoz, 'El Semáforo', whom Riodoce and Infobae describe as a second-tier CJNG regional boss and possible successor to 'El Tanque', taken on 5 October; that is two consecutive heads of the same regional command removed in about three weeks.", C,
        ["x:2115607278833344958", "x:2115641019823968363", "x:2115624663254790516"], ["MEX-2723"], ["cjng"]),
    dev("2026-10-28", "Barranquilla, Colombia", "Colombian authorities arrested two Mexican nationals, Sophia Mourra Lozano ('La Patrona') and Adolfo Paulin González ('Pau'), described as CJNG's main links to the Clan del Golfo, which places a CJNG liaison cell on Colombia's Caribbean coast at the cocaine supply end of its business.", C,
