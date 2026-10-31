@@ -60,10 +60,10 @@ trends = [
   "context": "Since the US listed major cartels as Foreign Terrorist Organizations, allied governments have copied the labels and extraditions have sped up. The labels change the legal and financial exposure of anyone who does business with these groups.",
   "context_sources": ["FTO"],
   "developments": [
-   dev("2026-10-25", "Salta and Zárate, Argentina", "Two Argentine court cases behind the new listing show different Mexican footholds: a Bolivia-based Sinaloa branch flying cocaine into Salta for export to Europe through Paraná river ports, and a small CJNG cell that tested a Belgium-to-Zárate MDMA shipment paid through hawala and crypto; specialists found no documented La Nueva Familia Michoacana presence, so the label outruns the evidence for that group.", S,
+   dev("2026-10-30", "Baja California", "US sanctions on Sinaloa Cartel-linked people and companies are holding in Mexican courts: ZETA reports that sanctioned individuals and firms in Baja California sought amparo injunctions to unfreeze their bank accounts and were refused, so the US designation keeps their money locked inside Mexico's own banking system.", S,
+       [{"url": "https://x.com/ZETATijuana/status/2116383768067928124", "name": "ZETA Tijuana (X @ZETATijuana)", "title": "Individuals and companies sanctioned by the US for ties to the Sinaloa Cartel filed amparo lawsuits in Baja Cal…", "date": "2026-10-31"}], [], ["sinaloa"]),
+   dev("2026-10-25", "Salta and Zárate, Argentina", "Two Argentine court cases behind Argentina's new terrorist listing of the Sinaloa Cartel and La Nueva Familia Michoacana show different Mexican footholds: a Bolivia-based Sinaloa branch flying cocaine into Salta for export to Europe through Paraná river ports, and a small CJNG cell that tested a Belgium-to-Zárate MDMA shipment paid through hawala and crypto; specialists found no documented La Nueva Familia Michoacana presence, so the label outruns the evidence for that group.", S,
        [{"url": "https://airedesantafe.com.ar/policiales/los-carteles-mexicanos-ya-tienen-ruta-la-argentina-sinaloa-sale-el-norte-cocaina-y-jalisco-entra-los-puertos-sinteticos-n674343", "name": "airedesantafe.com.ar", "title": "Mexican cartels now have a route in Argentina: Sinaloa leaves through the north with cocaine and Jalisco comes", "date": "2026-10-26"}], ["ARG-1303", "ARG-1295"], ["sinaloa", "cjng", "lnfm"]),
-   dev("2026-10-22", "Argentina", "Milei's government added the Sinaloa Cartel, La Nueva Familia Michoacana, the ELN and FARC-EP to Argentina's terrorist list, matching the US designations.", C,
-       [{"url": "https://x.com/noticieristas/status/2113352548702961788", "name": "noticieristas (X @noticieristas)", "title": "#Argentina 🇦🇷 | Argentina's government, led by President Javier Milei, added the Sinaloa Cartel and La Nueva F…", "date": "2026-10-22"}, {"url": "https://x.com/Riodoce_mx/status/2113342121222778960", "name": "Riodoce_mx (X @Riodoce_mx)", "title": "The Government of #Argentina, led by President Javier Milei, declared Mexico's #Sinaloa #Cartel and La Nueva F…", "date": "2026-10-22"}], [], ["sinaloa", "lnfm", "eln"]),
    dev("2026-10-24", "Brazil", "The US terrorist designation of the PCC and Comando Vermelho became a runoff issue: Flávio Bolsonaro backs it, while Lula raises sovereignty concerns.", S,
        ["x:2114122561965453668"], ["BRA-1311"], ["pcc", "cv"]),
    dev("2026-10-24", "Colombia to US", "Colombia extradited 'Mocho Olmedo', who had been shielded under Petro's 'Total Peace' policy, and US prosecutors welcomed it: the new government is reversing the old protections.", S,
@@ -116,7 +116,7 @@ trends = [
 ]
 other = [
   dev("2026-10-24", "El Salvador", "El Salvador indicted more than 560 alleged Barrio 18 leaders for about 14,500 crimes since 2012, one of the largest cases under the state of emergency.", S,
-      ["x:2113813301628944715"], [], ["b18"]),
+      [{"url": "https://x.com/InSightCrime/status/2113813301628944715", "name": "InSightCrime (X @InSightCrime)", "title": "🇸🇻 | El Salvador indicted more than 560 suspected leaders of the Barrio 18 gang for nearly 14,500 crimes commi…", "date": "2026-10-24"}], [], ["b18"]),
 ]
 for t in trends:
     t["context_sources"] = [ref(s) for s in t["context_sources"]]
