@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-04T14:01:13Z",
+ "as_of": "2026-11-04T17:04:20Z",
  "keep_hours": 48,
  "rules": {
   "confirmed": "two or more independent professional outlets, or an official body plus at least one outlet",
@@ -8,6 +8,196 @@
  },
  "note": "Built by pipeline/breaking.py from verified X accounts and professional-outlet headlines only (data/outlets.json). Grouping is by place, group, time and shared keywords and can be wrong; open the sources.",
  "events": [
+  {
+   "id": "a92d285de6",
+   "status": "confirmed",
+   "title": "Capturan a seis miembros del Cártel de Sinaloa en Tuxtla: les decomisaron armas de fuego y equipo táctico",
+   "lang": "es",
+   "title_en": "Six Sinaloa Cartel members captured in Tuxtla: firearms and tactical gear were seized from them",
+   "first_report": "2026-11-04T02:45:40Z",
+   "first_report_precision": "minute",
+   "first_source": "Infobae",
+   "region_ids": [
+    "MEX-2711",
+    "MEX-2731",
+    "MEX-2734"
+   ],
+   "country": "MEX",
+   "group_ids": [
+    "sinaloa"
+   ],
+   "outlets": [
+    "Infobae",
+    "Los Noticieristas",
+    "SSPC (Mexico)"
+   ],
+   "sources": [
+    {
+     "outlet": "infobae",
+     "name": "Infobae",
+     "kind": "outlet",
+     "via": "X @infobaemexico",
+     "url": "https://x.com/infobaemexico/status/2117810483453415932",
+     "time": "2026-11-04T02:45:40Z",
+     "time_precision": "minute"
+    },
+    {
+     "outlet": "sspc",
+     "name": "SSPC (Mexico)",
+     "kind": "official",
+     "via": "X @SSPCMexico",
+     "url": "https://x.com/SSPCMexico/status/2117962535785656501",
+     "time": "2026-11-04T12:49:53Z",
+     "time_precision": "minute"
+    },
+    {
+     "outlet": "noticieristas",
+     "name": "Los Noticieristas",
+     "kind": "outlet",
+     "via": "X @noticieristas",
+     "url": "https://x.com/noticieristas/status/2117996398675214551",
+     "time": "2026-11-04T15:04:26Z",
+     "time_precision": "minute"
+    },
+    {
+     "outlet": "sspc",
+     "name": "SSPC (Mexico)",
+     "kind": "official",
+     "via": "X @SSPCMexico",
+     "url": "https://x.com/SSPCMexico/status/2118005422871450061",
+     "time": "2026-11-04T15:40:18Z",
+     "time_precision": "minute"
+    },
+    {
+     "outlet": "infobae",
+     "name": "Infobae",
+     "kind": "outlet",
+     "via": "X @infobaemexico",
+     "url": "https://x.com/infobaemexico/status/2118019003301892312",
+     "time": "2026-11-04T16:34:15Z",
+     "time_precision": "minute"
+    }
+   ]
+  },
+  {
+   "id": "76a5dc6955",
+   "status": "single_source",
+   "title": "Muere “El Pariente” tras enfrentamiento con agentes estatales en Ensenada: dos policías resultaron heridos",
+   "lang": "es",
+   "title_en": "“El Pariente” dies after a clash with state agents in Ensenada: two police officers were wounded",
+   "first_report": "2026-11-04T16:24:38Z",
+   "first_report_precision": "minute",
+   "first_source": "Infobae",
+   "region_ids": [
+    "MEX-2706"
+   ],
+   "country": "MEX",
+   "group_ids": [],
+   "outlets": [
+    "Infobae"
+   ],
+   "sources": [
+    {
+     "outlet": "infobae",
+     "name": "Infobae",
+     "kind": "outlet",
+     "via": "X @infobaemexico",
+     "url": "https://x.com/infobaemexico/status/2118016583394017326",
+     "time": "2026-11-04T16:24:38Z",
+     "time_precision": "minute"
+    }
+   ]
+  },
+  {
+   "id": "131523cbab",
+   "status": "single_source",
+   "title": "🚨 Una narcomanta contra #NatanaelCano y la detención de tres influencers expusieron una red de distribución y promoción de Olympos, marca ligada al Cártel Independiente de Sonora",
+   "lang": "es",
+   "title_en": "A narco-banner against #NatanaelCano and the arrest of three influencers exposed a distribution and promotion network for Olympos, a brand linked to the Cártel Independiente de Sonora",
+   "first_report": "2026-11-04T16:15:00Z",
+   "first_report_precision": "minute",
+   "first_source": "Infobae",
+   "region_ids": [
+    "MEX-2712"
+   ],
+   "country": "MEX",
+   "group_ids": [],
+   "outlets": [
+    "Infobae"
+   ],
+   "sources": [
+    {
+     "outlet": "infobae",
+     "name": "Infobae",
+     "kind": "outlet",
+     "via": "X @infobaemexico",
+     "url": "https://x.com/infobaemexico/status/2118014156481655185",
+     "time": "2026-11-04T16:15:00Z",
+     "time_precision": "minute"
+    }
+   ]
+  },
+  {
+   "id": "bd5a469878",
+   "status": "single_source",
+   "title": "➡️ Ataque con explosivos en Coto Premier Mazatlán; detonan artefacto en cochera y localizan otro junto a la vivienda 🚨🚔| Ataque explosivo en el fraccionamiento Coto Premier, en Mazatlán, dejó daños en",
+   "lang": "es",
+   "title_en": "Explosives attack in Coto Premier, Mazatlán; a device detonated in a garage and another was found next to the house | An explosive attack in the Coto Premier subdivision in Mazatlán damaged",
+   "first_report": "2026-11-04T15:39:41Z",
+   "first_report_precision": "minute",
+   "first_source": "Los Noticieristas",
+   "region_ids": [
+    "MEX-2711"
+   ],
+   "country": "MEX",
+   "group_ids": [],
+   "outlets": [
+    "Los Noticieristas"
+   ],
+   "sources": [
+    {
+     "outlet": "noticieristas",
+     "name": "Los Noticieristas",
+     "kind": "outlet",
+     "via": "X @noticieristas",
+     "url": "https://x.com/noticieristas/status/2118005267333783884",
+     "time": "2026-11-04T15:39:41Z",
+     "time_precision": "minute"
+    }
+   ]
+  },
+  {
+   "id": "a81a3451cc",
+   "status": "single_source",
+   "title": "El Palabrero | Parte II: el plan Para atrapar a Crook, Rafa le propone al jefe policial pagarle un millón de dólares al Cartel Jalisco Nueva Generación y al Barrio 18. Luego de consultar con “el patró",
+   "lang": "es",
+   "title_en": "El Palabrero | Part II: the plan. To catch Crook, Rafa proposes to the police chief that they pay one million dollars to the Cartel Jalisco Nueva Generación and Barrio 18. After consulting with “the boss”",
+   "first_report": "2026-11-04T14:17:29Z",
+   "first_report_precision": "minute",
+   "first_source": "El Faro",
+   "region_ids": [
+    "MEX-2719"
+   ],
+   "country": "MEX",
+   "group_ids": [
+    "cjng",
+    "b18"
+   ],
+   "outlets": [
+    "El Faro"
+   ],
+   "sources": [
+    {
+     "outlet": "elfaro",
+     "name": "El Faro",
+     "kind": "outlet",
+     "via": "X @_elfaro_",
+     "url": "https://x.com/_elfaro_/status/2117984584109326367",
+     "time": "2026-11-04T14:17:29Z",
+     "time_precision": "minute"
+    }
+   ]
+  },
   {
    "id": "7a5b662e82",
    "status": "single_source",
@@ -38,52 +228,11 @@
    ]
   },
   {
-   "id": "a92d285de6",
-   "status": "confirmed",
-   "title": "Capturan a seis miembros del Cártel de Sinaloa en Tuxtla: les decomisaron armas de fuego y equipo táctico",
-   "lang": "es",
-   "title_en": "Six Sinaloa Cartel members captured in Tuxtla: firearms and tactical gear were seized from them",
-   "first_report": "2026-11-04T02:45:40Z",
-   "first_report_precision": "minute",
-   "first_source": "Infobae",
-   "region_ids": [
-    "MEX-2711"
-   ],
-   "country": "MEX",
-   "group_ids": [
-    "sinaloa"
-   ],
-   "outlets": [
-    "Infobae",
-    "SSPC (Mexico)"
-   ],
-   "sources": [
-    {
-     "outlet": "infobae",
-     "name": "Infobae",
-     "kind": "outlet",
-     "via": "X @infobaemexico",
-     "url": "https://x.com/infobaemexico/status/2117810483453415932",
-     "time": "2026-11-04T02:45:40Z",
-     "time_precision": "minute"
-    },
-    {
-     "outlet": "sspc",
-     "name": "SSPC (Mexico)",
-     "kind": "official",
-     "via": "X @SSPCMexico",
-     "url": "https://x.com/SSPCMexico/status/2117962535785656501",
-     "time": "2026-11-04T12:49:53Z",
-     "time_precision": "minute"
-    }
-   ]
-  },
-  {
    "id": "8a95d0b744",
    "status": "official_claim_only",
    "title": "Como parte de las acciones para fortalecer la seguridad de Sinaloa, elementos de @SEMAR_mx, en coordinación con @SSPCMexico y @FGRMexico, realizaron dos operativos en las inmediaciones de Caminaguato ",
    "lang": "es",
-   "title_en": "As part of actions to strengthen security in Sinaloa, personnel from @SEMAR_mx, in coordination with @SSPCMexico and @FGRMexico, carried out two operations near Caminaguato",
+   "title_en": "As part of actions to strengthen security in Sinaloa, personnel from @SEMAR_mx, in coordination with @SSPCMexico and @FGRMexico, carried out two operations near Caminaguato and El Tepuche, where they seized five vehicles",
    "first_report": "2026-11-04T12:04:31Z",
    "first_report_precision": "minute",
    "first_source": "Gabinete de Seguridad (Mexico)",
@@ -117,8 +266,8 @@
    "first_report_precision": "minute",
    "first_source": "Infobae",
    "region_ids": [
-    "MEX-2706",
-    "MEX-2711"
+    "MEX-2711",
+    "MEX-2706"
    ],
    "country": "MEX",
    "group_ids": [
@@ -390,7 +539,7 @@
    "status": "single_source",
    "title": "De acuerdo con las investigaciones, los hechos ocurrieron el 21 de abril del presente año, en una localidad de la sindicatura de #Altata, municipio de #Navolato, donde el ahora detenido presuntamente ",
    "lang": "es",
-   "title_en": "According to the investigation, the events took place on April 21 of this year in a community in the #Altata district, municipality of #Navolato, where the detainee allegedly",
+   "title_en": "According to the investigation, the events took place on April 21 of this year in a community in the #Altata district, municipality of #Navolato, where the detainee allegedly tried to kill a person.",
    "first_report": "2026-11-03T23:30:00Z",
    "first_report_precision": "minute",
    "first_source": "Ríodoce",
@@ -575,7 +724,7 @@
    "status": "official_claim_only",
    "title": "Como parte de la Estrategia Nacional contra la Extorsión, autoridades federales detuvieron en #Ixtapaluca, #EdoMéx, a Lino “N”, alias “El Patrón”, identificado como líder de un grupo delictivo y uno d",
    "lang": "es",
-   "title_en": "As part of the National Strategy Against Extortion, federal authorities arrested in #Ixtapaluca, #EdoMéx, Lino \"N,\" alias \"El Patrón,\" identified as the leader of a criminal group and one o",
+   "title_en": "As part of the National Strategy Against Extortion, federal authorities arrested in #Ixtapaluca, #EdoMéx, Lino \"N,\" alias \"El Patrón,\" identified as the leader of a criminal group and one of the main generators of violen",
    "first_report": "2026-11-03T19:09:44Z",
    "first_report_precision": "minute",
    "first_source": "SSPC (Mexico)",
@@ -694,14 +843,14 @@
    "status": "official_claim_only",
    "title": "Autoridades federales realizaron detenciones, cateos, aseguramientos de armas y droga en #Chihuahua, #CDMX, #Edomex, #Guerrero, #Michoacán, #Nayarit, #Puebla, #Sinaloa, #Tabasco, #Tamaulipas y #Tlaxca",
    "lang": "es",
-   "title_en": "Federal authorities carried out arrests, searches, and seizures of weapons and drugs in #Chihuahua, #CDMX, #Edomex, #Guerrero, #Michoacán, #Nayarit, #Puebla, #Sinaloa, #Tabasco, #Tamaulipas and #Tlaxca",
+   "title_en": "Federal authorities carried out arrests, searches, and seizures of weapons and drugs in #Chihuahua, #CDMX, #Edomex, #Guerrero, #Michoacán, #Nayarit, #Puebla, #Sinaloa, #Tabasco, #Tamaulipas and #Tlaxcala on October 30 an",
    "first_report": "2026-11-03T17:11:36Z",
    "first_report_precision": "minute",
    "first_source": "SSPC (Mexico)",
    "region_ids": [
-    "MEX-2720",
-    "MEX-2716",
-    "MEX-2709",
+    "MEX-2711",
+    "MEX-2721",
+    "MEX-2725",
     "MEX-2727"
    ],
    "country": "MEX",
@@ -755,7 +904,7 @@
    "status": "single_source",
    "title": "Les avancées sécuritaires réalisées par la RCA au cours des dernières années restent fragiles. La guerre au Soudan risque d’inverser cette dynamique en recréant, dans le nord-est du pays, les conditio",
    "lang": "es",
-   "title_en": "The security gains made by the CAR in recent years remain fragile. The war in Sudan risks reversing this trend by recreating, in the northeast of the country, the conditio",
+   "title_en": "The security gains made by the CAR in recent years remain fragile. The war in Sudan risks reversing this trend by recreating, in the northeast of the country, the conditions that had allowed armed groups to thrive.",
    "first_report": "2026-11-03T15:45:12Z",
    "first_report_precision": "minute",
    "first_source": "Crisis Group",
@@ -816,7 +965,7 @@
    "status": "single_source",
    "title": "Un fin de semana de terror en el campo colombiano. Ataques en Tolima, Huila y Cauca dejaron muertos y heridos, incluida una bebé de dos meses. Mientras las ciudades celebraban Halloween, la guerra vol",
    "lang": "es",
-   "title_en": "A weekend of terror in the Colombian countryside. Attacks in Tolima, Huila and Cauca left dead and wounded, including a two-month-old baby. While the cities celebrated Halloween, the war re",
+   "title_en": "A weekend of terror in the Colombian countryside. Attacks in Tolima, Huila and Cauca left dead and wounded, including a two-month-old baby. While the cities celebrated Halloween, the war struck the civilian population ag",
    "first_report": "2026-11-03T14:13:42Z",
    "first_report_precision": "minute",
    "first_source": "Fundación Paz & Reconciliación",
@@ -841,50 +990,11 @@
    ]
   },
   {
-   "id": "80b9c53503",
-   "status": "confirmed",
-   "title": "Francisco Bermúdez Cagua, alias 'Churrón', se declaró no culpable ante un tribunal de Brooklyn. Es señalado como cabecilla de Los Choneros y presunto lugarteniente de 'Fito', quien también permanece d",
-   "lang": "es",
-   "title_en": "Francisco Bermúdez Cagua, alias 'Churrón,' pleaded not guilty before a Brooklyn court. He is identified as a leader of Los Choneros and an alleged lieutenant of 'Fito,' who also remains d",
-   "first_report": "2026-11-02T15:40:14Z",
-   "first_report_precision": "minute",
-   "first_source": "Primicias",
-   "region_ids": [],
-   "country": "ECU",
-   "group_ids": [
-    "choneros"
-   ],
-   "outlets": [
-    "El Universo",
-    "Primicias"
-   ],
-   "sources": [
-    {
-     "outlet": "primicias",
-     "name": "Primicias",
-     "kind": "outlet",
-     "via": "X @Primicias",
-     "url": "https://x.com/Primicias/status/2117280631465840800",
-     "time": "2026-11-02T15:40:14Z",
-     "time_precision": "minute"
-    },
-    {
-     "outlet": "eluniverso",
-     "name": "El Universo",
-     "kind": "outlet",
-     "via": "headline",
-     "url": "https://www.eluniverso.com/politica/seguridad/jueza-de-estados-unidos-ordena-mantener-detenido-a-alias-churron-por-riesgo-de-fuga-y-antecedentes-de-violencia-nota/",
-     "time": "2026-11-03T12:00:00Z",
-     "time_precision": "day"
-    }
-   ]
-  },
-  {
    "id": "cc3f050946",
    "status": "confirmed",
    "title": "#Últimahora 🚨🚔| Se registra ataque a balazos en la Feria Ganadera de #Culiacán 🐄 🎡. Se desconoce si fue a la fachada del inmueble o una agresión a los militares. En el sitio se recogieron al menos 16 ",
    "lang": "es",
-   "title_en": "#BreakingNews 🚨🚔| A shooting attack is reported at the Livestock Fair in #Culiacán 🐄 🎡. It is unknown whether it targeted the building's facade or was an attack on soldiers. At least 16",
+   "title_en": "#BreakingNews 🚨🚔| A shooting attack is reported at the Livestock Fair in #Culiacán 🐄 🎡. It is unknown whether it targeted the building's facade or was an attack on soldiers. At least 16 shell casings were collected at th",
    "first_report": "2026-11-02T17:37:44Z",
    "first_report_precision": "minute",
    "first_source": "Los Noticieristas",
@@ -955,10 +1065,10 @@
    "first_report_precision": "minute",
    "first_source": "Infobae",
    "region_ids": [
-    "MEX-2724",
     "MEX-2719",
-    "MEX-2712",
-    "MEX-2723"
+    "MEX-2724",
+    "MEX-2711",
+    "MEX-2712"
    ],
    "country": "MEX",
    "group_ids": [
@@ -1009,8 +1119,8 @@
    "region_ids": [],
    "country": "BRA",
    "group_ids": [
-    "cv",
-    "pcc"
+    "pcc",
+    "cv"
    ],
    "outlets": [
     "BBC"
@@ -1150,10 +1260,10 @@
    ],
    "country": "MEX",
    "group_ids": [
-    "mayiza",
-    "sinaloa",
     "chapitos",
-    "cjng"
+    "mayiza",
+    "cjng",
+    "sinaloa"
    ],
    "outlets": [
     "Excélsior"
@@ -1213,9 +1323,9 @@
    ],
    "country": "COL",
    "group_ids": [
+    "eln",
     "clan",
-    "exfarc",
-    "eln"
+    "exfarc"
    ],
    "outlets": [
     "Infobae"
@@ -1271,9 +1381,9 @@
    "first_report_precision": "day",
    "first_source": "La Jornada",
    "region_ids": [
-    "MEX-2719",
+    "MEX-2711",
     "MEX-2727",
-    "MEX-2711"
+    "MEX-2719"
    ],
    "country": "MEX",
    "group_ids": [
@@ -1455,10 +1565,10 @@
    "first_report_precision": "day",
    "first_source": "Semana",
    "region_ids": [
-    "COL-1314",
     "COL-1399",
-    "COL-1412",
-    "COL-1408"
+    "COL-1314",
+    "COL-1408",
+    "COL-1412"
    ],
    "country": "COL",
    "group_ids": [
@@ -1541,6 +1651,35 @@
    ]
   },
   {
+   "id": "4d5d3e560d",
+   "status": "single_source",
+   "title": "Jueza de Estados Unidos ordena mantener detenido a alias ‘Churrón’ por riesgo de fuga y antecedentes de violencia | Seguridad | Política | El Universo",
+   "lang": "en",
+   "title_en": null,
+   "first_report": "2026-11-03T12:00:00Z",
+   "first_report_precision": "day",
+   "first_source": "El Universo",
+   "region_ids": [],
+   "country": null,
+   "group_ids": [
+    "choneros"
+   ],
+   "outlets": [
+    "El Universo"
+   ],
+   "sources": [
+    {
+     "outlet": "eluniverso",
+     "name": "El Universo",
+     "kind": "outlet",
+     "via": "headline",
+     "url": "https://www.eluniverso.com/politica/seguridad/jueza-de-estados-unidos-ordena-mantener-detenido-a-alias-churron-por-riesgo-de-fuga-y-antecedentes-de-violencia-nota/",
+     "time": "2026-11-03T12:00:00Z",
+     "time_precision": "day"
+    }
+   ]
+  },
+  {
    "id": "4b36ef7b57",
    "status": "single_source",
    "title": "Acribillan a un hombre en Bolivia y dejan un cartel de amenaza contra el viceministro de Régimen Interior",
@@ -1550,8 +1689,8 @@
    "first_report_precision": "day",
    "first_source": "Infobae",
    "region_ids": [
-    "BOL-1940",
-    "ARG-1271"
+    "ARG-1271",
+    "BOL-1940"
    ],
    "country": "ARG",
    "group_ids": [],
@@ -1672,8 +1811,8 @@
    "first_report_precision": "day",
    "first_source": "La Jornada",
    "region_ids": [
-    "MEX-2732",
-    "MEX-2730"
+    "MEX-2730",
+    "MEX-2732"
    ],
    "country": "MEX",
    "group_ids": [],
@@ -1756,7 +1895,7 @@
    "status": "single_source",
    "title": "Un hombre que se encontraba privado de la #libertad por un grupo armado fue dejado en libertad con vida atado de las manos con cinta canela y cubierto del rostro frente al parque deportivo del fraccio",
    "lang": "es",
-   "title_en": "A man who had been held by an armed group was released alive, his hands bound with duct tape and his face covered, in front of the sports park of the subdivi",
+   "title_en": "A man who had been held by an armed group was released alive, his hands bound with duct tape and his face covered, in front of the sports park of the Valle Dorado subdivision, La Conquista sector, in northern #Culiacán.",
    "first_report": "2026-11-03T04:12:18Z",
    "first_report_precision": "minute",
    "first_source": "Ríodoce",
@@ -1785,7 +1924,7 @@
    "status": "single_source",
    "title": "El secretario de Seguridad Pública de #Mazatlán, #GabinoUlisesJacobo Guerrero, confirmó que el viernes un grupo armado entró a las instalaciones de la #Jumapam y que el caso quedó a cargo de la Fiscal",
    "lang": "es",
-   "title_en": "#Mazatlán's Public Security Secretary, #GabinoUlisesJacobo Guerrero, confirmed that on Friday an armed group entered the #Jumapam facilities and that the case was handed to the State Attorney",
+   "title_en": "#Mazatlán's Public Security Secretary, #GabinoUlisesJacobo Guerrero, confirmed that on Friday an armed group entered the #Jumapam facilities and that the case was handed to the State Attorney General's Office.",
    "first_report": "2026-11-03T03:57:13Z",
    "first_report_precision": "minute",
    "first_source": "Ríodoce",
@@ -1940,7 +2079,7 @@
    "status": "single_source",
    "title": "#OpiniónYAnálisis La creciente presencia del crimen organizado en Querétaro. \"Existen siete organizaciones criminales que tienen presencia en Querétaro, la más importante de todas es el Cártel Jalisco",
    "lang": "es",
-   "title_en": "#OpinionAndAnalysis The growing presence of organized crime in Querétaro. \"Seven criminal organizations have a presence in Querétaro, the most important of all is the Jalisco Cartel",
+   "title_en": "#OpinionAndAnalysis The growing presence of organized crime in Querétaro. \"Seven criminal organizations have a presence in Querétaro, the most important of all is the Jalisco New Generation Cartel, which has a presence i",
    "first_report": "2026-11-02T21:15:00Z",
    "first_report_precision": "minute",
    "first_source": "Animal Político",
@@ -1972,7 +2111,7 @@
    "status": "single_source",
    "title": "Un total de 97.5 toneladas de #cocaína han sido aseguradas por la Secretaría de #Marina en aguas del #Pacíficomexicano durante la presente administración, lo que representa una afectación económica es",
    "lang": "es",
-   "title_en": "A total of 97.5 tons of #cocaine have been seized by the #Navy in #MexicanPacific waters during the current administration, representing an estimated economic hit",
+   "title_en": "A total of 97.5 tons of #cocaine have been seized by the #Navy in #MexicanPacific waters during the current administration, representing an estimated economic hit of 25 billion pesos to criminal organizations.",
    "first_report": "2026-11-02T21:10:00Z",
    "first_report_precision": "minute",
    "first_source": "Ríodoce",
@@ -2050,96 +2189,6 @@
      "via": "X @infobaemexico",
      "url": "https://x.com/infobaemexico/status/2117336208145596770",
      "time": "2026-11-02T19:21:04Z",
-     "time_precision": "minute"
-    }
-   ]
-  },
-  {
-   "id": "be1d5b2606",
-   "status": "single_source",
-   "title": "El párroco fue torturado y amenazado durante los 3 días que estuvo en cautiverio por hombres armados que lo privaron de la libertad; esto en un contexto de violencia provocado por el Cártel de Sinaloa",
-   "lang": "es",
-   "title_en": "The parish priest was tortured and threatened during the 3 days he was held captive by armed men who abducted him; this in a context of violence caused by the Sinaloa Cartel",
-   "first_report": "2026-11-02T17:02:54Z",
-   "first_report_precision": "minute",
-   "first_source": "Infobae",
-   "region_ids": [
-    "MEX-2711"
-   ],
-   "country": "MEX",
-   "group_ids": [
-    "sinaloa"
-   ],
-   "outlets": [
-    "Infobae"
-   ],
-   "sources": [
-    {
-     "outlet": "infobae",
-     "name": "Infobae",
-     "kind": "outlet",
-     "via": "X @infobaemexico",
-     "url": "https://x.com/infobaemexico/status/2117301434202898903",
-     "time": "2026-11-02T17:02:54Z",
-     "time_precision": "minute"
-    }
-   ]
-  },
-  {
-   "id": "d88194edb0",
-   "status": "single_source",
-   "title": "Notre rapport analyse les conséquences humanitaires, politiques et sécuritaires de la guerre au Soudan sur le nord-est de la République centrafricaine et l’influence des partenariats géopolitiques de ",
-   "lang": "es",
-   "title_en": "Our report analyzes the humanitarian, political and security consequences of the war in Sudan on northeastern Central African Republic and the influence of Bangui's geopolitical partnerships",
-   "first_report": "2026-11-02T15:45:12Z",
-   "first_report_precision": "minute",
-   "first_source": "Crisis Group",
-   "region_ids": [
-    "HTI-1387",
-    "HTI-1386"
-   ],
-   "country": "HTI",
-   "group_ids": [],
-   "outlets": [
-    "Crisis Group"
-   ],
-   "sources": [
-    {
-     "outlet": "crisisgroup",
-     "name": "Crisis Group",
-     "kind": "outlet",
-     "via": "X @CrisisGroup",
-     "url": "https://x.com/CrisisGroup/status/2117281881171312645",
-     "time": "2026-11-02T15:45:12Z",
-     "time_precision": "minute"
-    }
-   ]
-  },
-  {
-   "id": "f45e1446b8",
-   "status": "single_source",
-   "title": "Balean en Uruapan al escolta de la síndica municipal: el ataque ocurre un año después del asesinato de Carlos Manzo",
-   "lang": "es",
-   "title_en": "Bodyguard of Uruapan's municipal trustee is shot: the attack comes one year after the killing of Carlos Manzo",
-   "first_report": "2026-11-02T14:10:14Z",
-   "first_report_precision": "minute",
-   "first_source": "Infobae",
-   "region_ids": [
-    "MEX-2720"
-   ],
-   "country": "MEX",
-   "group_ids": [],
-   "outlets": [
-    "Infobae"
-   ],
-   "sources": [
-    {
-     "outlet": "infobae",
-     "name": "Infobae",
-     "kind": "outlet",
-     "via": "X @infobaemexico",
-     "url": "https://x.com/infobaemexico/status/2117257982413091164",
-     "time": "2026-11-02T14:10:14Z",
      "time_precision": "minute"
     }
    ]
