@@ -107,6 +107,8 @@ trends = [
   "context": "Tren de Aragua spread from Venezuela's prisons into a network of extortion and sexual-exploitation cells across the Andes and Chile. Its cells now face prosecution in the countries they moved into.",
   "context_sources": ["IC_TDA"],
   "developments": [
+   dev("2026-11-05", "United States", "The US State Department raised the reward to as much as $50 million for information leading to the arrest or conviction of Tren de Aragua leaders Yohan José Romero, Giovanni Vicente Mosquera Serrano and Juan Gabriel Rivas Núñez, an FTO-level bounty that puts US enforcement money directly on the gang's named command.", O,
+       ["x:2118470664868770104", "x:2118468523441701072"], [], ["tda"]),
    dev("2026-10-24", "Santiago, Chile", "The trial of 16 'Piratas de Aragua' members began, covering the murder of Venezuelan dissident Ronald Ojeda, the case that tied TdA cells to a political killing in Chile.", S,
        [{"url": "https://www.biobiochile.cl/noticias/nacional/region-metropolitana/2026/10/24/comenzo-juicio-a-16-miembros-de-piratas-de-aragua-por-homicidio-de-ronald-ojeda-y-otros-delitos.shtml", "name": "biobiochile.cl", "title": "Trial begins for 16 members of \"Piratas de Aragua\" for the murder of Ronald Ojeda and other crimes | BioBioChi", "date": "2026-10-25"}], [], ["tda"]),
    dev("2026-10-25", "Lima, Peru", "InSight Crime traces TdA's rise in Lima to extortion of sex workers, with killings of those who refused to pay: its money comes from local predation, not just trafficking.", S,
