@@ -1,0 +1,172 @@
+{
+ "date": "2026-11-05",
+ "analysis": [
+  {
+   "theatre": "mexico",
+   "headline": "Colombia detains Mexican judge Luis Benítez Alcántara over an alleged $2 million Ryan Wedding bribe",
+   "what_happened": "El País reports Colombia detained Mexico City judge Luis Benítez Alcántara. The United States seeks his extradition to California. El Universal reports he is accused of freeing a Ryan Wedding associate after a $2 million bribe.",
+   "says_vs_does": "The charge is a US allegation of judicial sale, not a conviction. Sources do not record a Mexican court finding on the release itself.",
+   "follow_the_money": "US authorities allege a $2 million bribe tied to Ryan Wedding's network. Sources do not give a date for the payment.",
+   "at_stake": "A sitting Mexican judge faces a US extradition request over a release that favoured a trafficking associate. Wedding's network gains or loses a documented judicial channel.",
+   "tensions": [
+    "US prosecutors vs Mexican judiciary: an extradition bid treats a Mexico City judge as a paid facilitator.",
+    "Wedding network vs enforcement: the alleged payment bought a release that US charges now reverse."
+   ],
+   "cites": [
+    "E1",
+    "E10"
+   ]
+  },
+  {
+   "theatre": "money",
+   "headline": "Mexico City police seize 43 million pesos from China-born launderer Bojun 'El Chino'",
+   "what_happened": "Excélsior and Proceso report federal and Mexico City forces detained Bojun, alias El Chino, in Miguel Hidalgo. They seized about 43 million pesos, including 920,000 dollars. El Gráfico links him to La Unión Tepito.",
+   "says_vs_does": "Authorities call him leader of a laundering, arms and people-trafficking network across Mexico City, Tijuana and Cancún. That is an official claim pending charges.",
+   "follow_the_money": "The raid recovered roughly 43 million pesos in cash, of which 920,000 dollars, per Excélsior and Proceso. Sources do not name the upstream payers.",
+   "at_stake": "A cash-heavy Chinese-origin broker operating with a CDMX street gang loses a stash and a node. Cartel clients lose a local conversion channel.",
+   "tensions": [
+    "Mexican authorities vs Chinese-origin cash brokers: a street seizure, not a bank case, hits physical proceeds.",
+    "La Unión Tepito vs federal forces: the reported link puts a local plaza next to a cross-city laundering claim."
+   ],
+   "cites": [
+    "E37",
+    "E38",
+    "E39",
+    "FINCEN_CMLN_FTA"
+   ]
+  },
+  {
+   "theatre": "mexico",
+   "headline": "The Navy arrests CJNG plaza boss El Panda in Coatzacoalcos as RSF lists the cartel as a press predator",
+   "what_happened": "Infobae and El Universal report Semar detained Samuel de la Cruz Anaya, alias El Panda, in Coatzacoalcos on 3 November. Outlets name him plaza boss for Jáltipan, Cosoleacaque and Minatitlán. Infobae reports Reporters Without Borders added the CJNG to its 2026 press-freedom predators list.",
+   "says_vs_does": "Authorities link El Panda to kidnapping, extortion, drug sales and fuel theft. Those are Semar attributions. RSF's listing rests on documented attacks on journalists, not on this arrest.",
+   "follow_the_money": "Sources do not give a figure for El Panda's plaza revenue or for losses from the arrest.",
+   "at_stake": "The CJNG, still in succession after El Mencho's death, loses another regional commander in the south. RSF's label marks the group's press violence as an international record.",
+   "tensions": [
+    "Navy vs CJNG southern plazas: successive Veracruz and Oaxaca arrests cut into the same coastal corridor.",
+    "CJNG vs the press: RSF's predator listing treats journalist attacks as organisational practice."
+   ],
+   "cites": [
+    "E29",
+    "E30",
+    "E31",
+    "E70",
+    "E71",
+    "IC_CJNG"
+   ]
+  },
+  {
+   "theatre": "andes",
+   "headline": "Ecuador's Operativo Zeus 4 detains 14 alleged Los Lobos members tied to 60 killings",
+   "what_happened": "Primicias and Infobae report police detained 14 alleged Los Lobos members in Operativo Zeus 4. Interior Minister John Reimberg says more than 300 officers ran 25 raids across six provinces. Officials link the cell to 60 homicides and massacres in Los Ríos.",
+   "says_vs_does": "Reimberg's toll of 60 killings is a police attribution. AP notes Los Lobos sit among groups the United States designates as terrorists.",
+   "follow_the_money": "Sources do not give a figure for the cell's extortion or trafficking take.",
+   "at_stake": "Los Lobos lose an alleged hit squad while they and Los Choneros still contest export plazas. Noboa's interior ministry books a visible result under ongoing states of exception.",
+   "tensions": [
+    "State vs Los Lobos: a multi-province raid targets a massacre cell rather than a port plaza.",
+    "Los Lobos vs Los Choneros: both remain the main contestants for Ecuador's cocaine export economy."
+   ],
+   "cites": [
+    "E18",
+    "E45",
+    "E46",
+    "E87",
+    "E91",
+    "IC_LOBOS"
+   ]
+  },
+  {
+   "theatre": "andes",
+   "headline": "Clan del Golfo and ELN fighting displaces about 500 Indigenous people in Chocó after a leader's killing",
+   "what_happened": "El Espectador reports a Clan del Golfo–ELN dispute and the killing of Indigenous leader Ramiro Forastero and his son displaced about 500 people in Nuquí, Chocó. Pulzo places the flight in Villa Nueva.",
+   "says_vs_does": "No stated peace claim from either armed group appears in these sources. The displacement record shows territorial fighting, not negotiation.",
+   "follow_the_money": "Sources do not give a figure.",
+   "at_stake": "Coastal Chocó communities lose leaders and land to the same Clan–ELN contest that already shapes coca and migrant routes. The Clan's Antioquia expansion sits beside this Pacific pressure.",
+   "tensions": [
+    "Clan del Golfo vs ELN: competition over Chocó territory produces forced displacement after a leader's killing.",
+    "Armed groups vs Indigenous authorities: the murder of Forastero and his son removes a local interlocutor."
+   ],
+   "cites": [
+    "E95",
+    "E96",
+    "IC_URABENOS",
+    "IC_ELN"
+   ]
+  },
+  {
+   "theatre": "money",
+   "headline": "A Miami court sentences Venezuelan Jorge Figueira to 12 years for laundering more than $1 billion",
+   "what_happened": "Infobae, citing the Miami Herald, reports Jorge Figueira, 60, received a 12-year sentence. He also accepted a $1 billion payment order. The Justice Department says the network ran from January 2024 to November 2025.",
+   "says_vs_does": "The sentence and forfeiture order are court records. The $1 billion figure is the agreed payment order, not a traced cash inventory in these sources.",
+   "follow_the_money": "Figueira laundered more than $1 billion for traffickers, with flows toward Colombia, China and Panama, Infobae reports from DOJ filings.",
+   "at_stake": "A Miami-based Venezuelan broker loses liberty and faces a billion-dollar civil order. Trafficking clients lose a documented dollar-to-abroad channel.",
+   "tensions": [
+    "US prosecutors vs Venezuelan money brokers: a plea converts a laundering claim into a 12-year term and a $1 billion order."
+   ],
+   "cites": [
+    "E40"
+   ]
+  },
+  {
+   "theatre": "andes",
+   "headline": "An Ecuadorian court confirms asset seizures in the Blanqueo Fito case against Los Choneros' leader",
+   "what_happened": "Primicias reports the tribunal notified its Blanqueo Fito judgment and upheld, with reservations, the confiscation of assets claimed by relatives of Los Choneros leader Fito. The court also ordered repatriation of capital from an international property.",
+   "says_vs_does": "Family claimants sought to keep seized goods. The court kept the confiscation while noting limits, so the state's win is partial on the record.",
+   "follow_the_money": "Sources do not give a peso or dollar total for the seized assets. The judgment includes repatriation of capital from one foreign property.",
+   "at_stake": "Fito's relatives lose a legal path to reclaim tied assets while he remains the Choneros figurehead in US custody. The state converts a laundering case into retained property.",
+   "tensions": [
+    "Ecuadorian state vs Fito's family: confiscation stands despite relatives' claims on the same assets."
+   ],
+   "cites": [
+    "E60",
+    "DEA_FITO",
+    "IC_CHONEROS"
+   ]
+  }
+ ],
+ "arc_updates": [
+  {
+   "arc": "money",
+   "text": "Mexico City forces detained Bojun 'El Chino' with about 43 million pesos, and a Miami court gave Jorge Figueira 12 years over more than $1 billion laundered.",
+   "cites": [
+    "E37",
+    "E39",
+    "E40"
+   ]
+  },
+  {
+   "arc": "cjng",
+   "text": "Semar arrested CJNG plaza boss El Panda in Coatzacoalcos, and Reporters Without Borders added the CJNG to its 2026 press-freedom predators list.",
+   "cites": [
+    "E29",
+    "E30",
+    "E31"
+   ]
+  },
+  {
+   "arc": "ecuador",
+   "text": "Operativo Zeus 4 detained 14 alleged Los Lobos members tied to 60 killings, and a court upheld asset seizures in the Blanqueo Fito case.",
+   "cites": [
+    "E45",
+    "E18",
+    "E60"
+   ]
+  },
+  {
+   "arc": "colombia",
+   "text": "Clan del Golfo–ELN fighting after the killing of Indigenous leader Ramiro Forastero displaced about 500 people in Nuquí, Chocó.",
+   "cites": [
+    "E96",
+    "E95"
+   ]
+  },
+  {
+   "arc": "mexico",
+   "text": "Colombia detained Mexico City judge Luis Benítez Alcántara on a US request alleging a $2 million bribe tied to Ryan Wedding's network.",
+   "cites": [
+    "E1",
+    "E10"
+   ]
+  }
+ ]
+}
