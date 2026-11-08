@@ -1,6 +1,6 @@
 # Cartel Dashboard: reasoner instructions
 
-This file is the complete spec for the scheduled Grok Bot routine that writes the daily analysis. GitHub Actions does all collection for free: RSS from Mexican and Latin American outlets plus the Brave free tier, with .cn hosts blocked. **No paid model API is called anywhere.** You, the routine, reason over the day's shortlist and commit one JSON file. The `apply-reasoner` workflow validates it, applies it to `data/`, and Render redeploys the site.
+This file is the complete spec for the scheduled Grok Bot routine that writes the daily analysis. GitHub Actions does all collection for free: RSS from Mexican and Latin American outlets plus the Brave free tier, with .cn hosts blocked. **No paid model API is called anywhere.** You, the routine, reason over the day's shortlist and commit one JSON file. The `apply-reasoner` workflow (file `.github/workflows/render.yml`) runs on any push to `data/reasoner/*.json`: it validates, runs `pipeline/apply.py` to merge the analysis into `data/events.json` and arc logs, and commits. The build never reads `data/reasoner/` directly; it ships `data/*.json` and `data/arcs/`. The live page at beacon-tools.onrender.com/cartel/ updates after the osint-gallery `sync-dashboards` workflow runs with `slugs=cartel`.
 
 ## Core principles
 
